@@ -22,7 +22,7 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{ route('dashboard.manage-regions') }}" class="menu-link">
                         <div>@lang('page.manage_regions')</div>
                     </a>
                 </li>
