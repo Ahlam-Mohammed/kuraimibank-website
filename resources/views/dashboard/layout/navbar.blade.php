@@ -1,12 +1,24 @@
 <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
 
+
+
+
+
+
+
+
+
+
+
     <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0   d-xl-none ">
         <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
             <i class="bx bx-menu bx-sm"></i>
         </a>
     </div>
 
+
     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+
 
         <!-- Search -->
         <div class="navbar-nav align-items-center">
@@ -20,42 +32,34 @@
         <!-- /Search -->
 
 
+
+
+
         <ul class="navbar-nav flex-row align-items-center ms-auto">
 
             <!-- Language -->
             <li class="nav-item dropdown-language dropdown me-2 me-xl-0">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
-                    <i class='flag-icon flag-icon-us flag-icon-squared rounded-circle fs-3 me-1'></i>
+                    <i class="fab fa-alipay fs-5"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li>
-                        <a class="dropdown-item" href="javascript:void(0);" data-language="en">
-                            <i class="flag-icon flag-icon-us flag-icon-squared rounded-circle fs-4 me-1"></i>
-                            <span class="align-middle">English</span>
+                        <a class="dropdown-item" href="javascript:void(0);">
+                            <span class="align-middle">{{ config('locales.languages')[app()->getLocale()]['name'] }}</span>
                         </a>
                     </li>
-                    <li>
-                        <a class="dropdown-item" href="javascript:void(0);" data-language="fr">
-                            <i class="flag-icon flag-icon-fr flag-icon-squared rounded-circle fs-4 me-1"></i>
-                            <span class="align-middle">France</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="javascript:void(0);" data-language="de">
-                            <i class="flag-icon flag-icon-de flag-icon-squared rounded-circle fs-4 me-1"></i>
-                            <span class="align-middle">German</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="javascript:void(0);" data-language="pt">
-                            <i class="flag-icon flag-icon-pt flag-icon-squared rounded-circle fs-4 me-1"></i>
-                            <span class="align-middle">Portuguese</span>
-                        </a>
-                    </li>
+                    @foreach(config('locales.languages') as $key => $val)
+{{--                        <li>--}}
+                            @if ($key != app()->getLocale())
+                                <a href="{{ route('change-language', $key) }}" class="dropdown-item">
+                                    <span class="align-middle">{{ $val['name'] }}</span>
+                                </a>
+                            @endif
+{{--                        </li>--}}
+                    @endforeach
                 </ul>
             </li>
             <!--/ Language -->
-
 
             <!-- Notification -->
             <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-1">
@@ -139,11 +143,12 @@
                             <span class="align-middle">Settings</span>
                         </a>
                     </li>
+
                     <li>
                         <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="auth-login-cover.html" target="_blank">
+                        <a class="dropdown-item" href="" target="_blank">
                             <i class="bx bx-power-off me-2"></i>
                             <span class="align-middle">Log Out</span>
                         </a>
