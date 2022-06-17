@@ -1,22 +1,30 @@
 @extends('dashboard.layout.master')
 
 @section('title')
-    Manage Regions
+    @lang('page.manage_regions')
 @stop
+
+@push('scripts_after')
+    @include('dashboard.script.county')
+@endpush
 
 @section('content')
 
-    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">@lang('page.service_points') / @lang('page.manage_regions')</span></h4>
+    <h4 class="fw-bold py-3 mb-4">
+        <span class="text-muted fw-light">
+            @lang('page.service_points') / @lang('page.manage_regions')
+        </span>
+    </h4>
 
-    {{-- Start Country Table --}}
+    <x-alert />
+
     <div class="row">
         <div class="col-lg">
-            @include('dashboard.partial.countries-card')
+            @include('dashboard.partial.countries')
         </div>
         <div class="col-lg">
-            @include('dashboard.partial.cities-card')
+            @include('dashboard.partial.cities')
         </div>
     </div>
-    {{-- End Country Table --}}
 
 @stop
