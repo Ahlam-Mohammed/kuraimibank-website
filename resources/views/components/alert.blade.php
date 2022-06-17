@@ -1,4 +1,3 @@
-<div {{ $attributes->merge(['class' => 'alert alert-dismissible alert-'.$type]) }} role="alert">
-    {{ $message }}
+<div class="alert alert-dismissible" role="alert" style="display:none">
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
