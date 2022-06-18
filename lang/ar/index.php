@@ -4,8 +4,8 @@ return [
     'country' => [
         'id'        => 'رقم الدولة',
         'name'      => 'اسم الدولة',
-        'countries' => 'دول',
-        'country'   => 'دولة'
+        'countries' => 'الدول',
+        'country'   => 'الدولة'
     ],
 
     'city' => [

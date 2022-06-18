@@ -1,12 +1,15 @@
 <?php
 
 return [
-    'active'     => 'مُفعل',
-    'not_active' => 'غير مُفعل',
+    'activated'     => 'مُفعل',
+    'not_activated' => 'غير مُفعل',
     'delete'     => 'حذف',
     'edit'       => 'تعديل',
     'save'       => 'حفظ',
     'cancel'     => 'إلغاء',
     'status'     => 'حالة النشاط',
-    'yes'        => 'نعم'
+    'yes'        => 'نعم',
+    'add'        => 'إضافة',
+    'active'     => 'تفعيل',
+    'deactivation'=> 'إلغاء التفعيل'
 ];
