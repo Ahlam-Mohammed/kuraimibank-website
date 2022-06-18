@@ -6,6 +6,7 @@
 
 @push('scripts_after')
     @include('dashboard.script.county')
+    @include('dashboard.script.city')
 @endpush
 
 @section('content')

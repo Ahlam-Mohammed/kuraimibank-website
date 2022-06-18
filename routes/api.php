@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\CityController;
 use App\Http\Controllers\api\CountryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -16,8 +17,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('dashboard')->name('dashboard.')->group(function (){
+
     Route::apiResource('countries', CountryController::class);
     Route::get('countries/activate/{id}', [CountryController::class, 'activate'])->name('countries.activate');
+
+    Route::apiResource('cities', CityController::class);
+    Route::get('cities/activate/{id}', [CityController::class, 'activate'])->name('cities.activate');
 
 });
 
