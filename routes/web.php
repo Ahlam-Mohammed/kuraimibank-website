@@ -1,26 +1,31 @@
 <?php
 
-use App\Http\Controllers\CountryController;
+use App\Http\Controllers\dashboard\HomeController;
 use App\Http\Controllers\LocaleController;
 use Illuminate\Support\Facades\Route;
+
+
+/*
+|--------------------------------------------------------------------------
+| General Routes
+|--------------------------------------------------------------------------|
+*/
+Route::get('change-language/{locale}', [LocaleController::class, 'switch'])->name('change-language');
+
 
 /*
 |--------------------------------------------------------------------------
 | Dashboard Routes
 |--------------------------------------------------------------------------|
 */
-Route::prefix('dashboard/')->name('dashboard.')->group(function (){
+Route::prefix('dashboard/')->middleware('web')->name('dashboard.')->group(function (){
 
-    Route::view('/', 'dashboard.page.index')->name('home');
-    Route::get('manage-regions', [CountryController::class, 'index'])->name('manage-regions');
-    Route::post('manage-region',[CountryController::class, 'store'])->name('manage-region');;
+    Route::controller(HomeController::class)->group(function (){
+
+        Route::get('/', 'index')->name('index');
+        Route::get('service-points', 'servicePoint')->name('service.point');
+        Route::get('regions', 'region')->name('region');
+
+    });
 
 });
-
-Route::get('change-language/{locale}', [LocaleController::class, 'switch'])->name('change-language');
-
-// TODO: Just test
-Route::post('/teste', function (){
-    dd('ff');
-})->name('teste');
-
