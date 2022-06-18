@@ -1,4 +1,4 @@
-<div class="card">
+<div {{ $attributes->merge(['class' => 'card'])}}>
 
     <div class="d-flex justify-content-between align-items-center pe-3">
 
@@ -14,7 +14,7 @@
             <thead>{{ $thead }}</thead>
 
             {{-- Table Body --}}
-            <tbody class="table-border-bottom-0">{{ $tbody }}</tbody>
+            <tbody class="table-border-bottom-0"></tbody>
 
         </table>
     </div>
