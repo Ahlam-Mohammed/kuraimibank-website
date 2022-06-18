@@ -27,6 +27,13 @@ return [
         'type'          => 'Type'
     ],
 
+    'category' => [
+        'ATM'    => 'ATM',
+        'center' => 'Center',
+        'branch' => 'Branch',
+        'office' => 'Office'
+    ],
+
     'messages' => [
         'delete_message' => 'Are you sure to delete?'
     ]

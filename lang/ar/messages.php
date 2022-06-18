@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'confirm_delete_message'  => 'Are you sure to delete?',
-    'stored_message'          => 'Successfully Added.',
-    'updated_message'         => 'Successfully Updated.',
-    'deleted_message'         => 'Successfully Deleted.',
-    'not_found'               => 'Not Found.'
+    'confirm_delete_message'  => 'هل انت متأكد من الحذف؟',
+    'stored_message'          => 'تم الإضافة بنجاح.',
+    'updated_message'         => 'تم التحديث بنجاح.',
+    'deleted_message'         => 'تم الحذف بنجاح.',
+    'not_found'               => 'لم يتم العثور عليه.'
 ];
