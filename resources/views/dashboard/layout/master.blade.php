@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed " dir="ltr" data-theme="theme-semi-dark" data-assets-path="../../assets/" data-template="vertical-menu-template-semi-dark">
+<html lang="en"  class="light-style layout-navbar-fixed layout-menu-fixed " dir="ltr" data-theme="theme-semi-dark" data-assets-path="../../assets/" data-template="vertical-menu-template-semi-dark">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
     <title>@yield('title')</title>
+    <meta name="_token" content="{{csrf_token()}}" />
 
     <meta name="description" content="Most Powerful &amp; Comprehensive Bootstrap 5 HTML Admin Dashboard Template built for developers!" />
     <meta name="keywords" content="dashboard, bootstrap 5 dashboard, bootstrap 5 design, bootstrap 5">
@@ -31,7 +32,7 @@
             <!-- / Navbar -->
 
             <!-- Content wrapper -->
-            <div class="content-wrapper">
+            <div class="content-wrapper" style="background-image: url({{ asset('images/header-bg.png') }});background-repeat-y: no-repeat;">
 
                 <!-- Content -->
 
@@ -62,8 +63,6 @@
 
 </div>
 <!-- / Layout wrapper -->
-
-
 
 @include('dashboard.layout.script')
 

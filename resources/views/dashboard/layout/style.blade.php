@@ -5,9 +5,9 @@
 <link rel="icon" type="image/x-icon" href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template//assets/img/favicon/favicon.ico" />
 
 <!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com/">
-<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 
 <!-- Icons -->
 <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/boxicons.css') }}" />
@@ -52,3 +52,17 @@
 <script async="async" src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
 <!-- Custom notification for demo -->
 <!-- beautify ignore:end -->
+<style>
+    body{
+        font-family: 'Tajawal', sans-serif !important;
+    }
+    .bg-menu-theme .menu-inner>.menu-item.active>.menu-link {
+        background-color: #695d85 !important;
+    }
+    .bg-menu-theme .menu-inner>.menu-item.active:before {
+        background: #695d85 !important;
+    }
+    .app-brand .layout-menu-toggle {
+        background-color: #695d85 !important;
+    }
+</style>
