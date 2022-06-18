@@ -10,12 +10,15 @@ use Spatie\Translatable\HasTranslations;
 
 class Country extends Model
 {
-    use HasFactory, SoftDeletes, HasTranslations;
+    use SoftDeletes, HasTranslations;
 
     protected $guarded = [];
 
     public $translatable = ['name'];
 
+    /**
+     * Get cities
+     */
     public function cities() : HasMany
     {
         return $this->hasMany(City::class);
