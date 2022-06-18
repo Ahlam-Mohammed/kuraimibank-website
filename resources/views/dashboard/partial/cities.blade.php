@@ -105,7 +105,7 @@
         <input hidden id="city_id">
         <div class="row">
             <div class="col mb-3">
-                <h3>@lang('index.messages.delete_message')</h3>
+                <h3>@lang('messages.confirm_delete_message')</h3>
             </div>
         </div>
     </x-slot:body>
