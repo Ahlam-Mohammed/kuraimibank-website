@@ -24,6 +24,7 @@ Route::prefix('dashboard/')->middleware('web')->name('dashboard.')->group(functi
     Route::view('/manage-service-points', 'dashboard.page.manage-service-points')->name('service.point');
     Route::view('/manage-regions', 'dashboard.page.manage-regions')->name('region');
     Route::view('/manage-categories', 'dashboard.page.manage-categories')->name('categories');
+    Route::view('/manage-subs-category', 'dashboard.page.manage-subs-category')->name('subs.category');
 
 
 });

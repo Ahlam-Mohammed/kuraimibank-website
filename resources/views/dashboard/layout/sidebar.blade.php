@@ -41,7 +41,8 @@
         </li>
 
         <li class="menu-item
-        @if(Route::currentRouteName() === 'dashboard.categories') active @endif">
+        @if(Route::currentRouteName() === 'dashboard.categories' ||
+            Route::currentRouteName() === 'dashboard.subs.category') active @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div>@lang('page.categories')</div>
@@ -50,6 +51,11 @@
                 <li class="menu-item">
                     <a href="{{ route('dashboard.categories') }}" class="menu-link">
                         <div>@lang('page.categories')</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('dashboard.subs.category') }}" class="menu-link">
+                        <div>@lang('page.sub_categories')</div>
                     </a>
                 </li>
 

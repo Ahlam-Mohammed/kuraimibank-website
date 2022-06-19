@@ -38,7 +38,8 @@ Route::prefix('dashboard')->name('api.')->group(function (){
     Route::get('categories/activate/{id}', [CategoryController::class, 'activate'])->name('categories.activate');
 
     //********* Sub Categories API Route *********//
-    Route::post('sub/category', [SubCategoryController::class, 'store']);
+    Route::apiResource('sub/category', SubCategoryController::class);
+    Route::get('sub/category/activate/{id}', [SubCategoryController::class, 'activate'])->name('sub.category.activate');
 
 });
 
