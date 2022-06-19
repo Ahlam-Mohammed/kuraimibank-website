@@ -21,9 +21,9 @@ Route::get('change-language/{locale}', [LocaleController::class, 'switch'])->nam
 Route::prefix('dashboard/')->middleware('web')->name('dashboard.')->group(function (){
 
     Route::view('/', 'dashboard.page.index')->name('index');
-    Route::view('/service-points', 'dashboard.page.manage-service-points')->name('service.point');
-    Route::view('/regions', 'dashboard.page.manage-regions')->name('region');
-    Route::view('/categories', 'dashboard.page.manage-categories')->name('categories');
+    Route::view('/manage-service-points', 'dashboard.page.manage-service-points')->name('service.point');
+    Route::view('/manage-regions', 'dashboard.page.manage-regions')->name('region');
+    Route::view('/manage-categories', 'dashboard.page.manage-categories')->name('categories');
 
 
 });

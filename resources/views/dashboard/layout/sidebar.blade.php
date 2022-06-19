@@ -40,6 +40,22 @@
             </ul>
         </li>
 
+        <li class="menu-item
+        @if(Route::currentRouteName() === 'dashboard.categories') active @endif">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div>@lang('page.categories')</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('dashboard.categories') }}" class="menu-link">
+                        <div>@lang('page.categories')</div>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+
         <!-- Apps & Pages -->
 {{--        <li class="menu-header small text-uppercase">--}}
 {{--            <span class="menu-header-text">Apps &amp; Pages</span>--}}
