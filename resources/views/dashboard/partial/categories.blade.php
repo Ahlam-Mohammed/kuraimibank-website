@@ -107,7 +107,7 @@
 
     {{-- Model Body --}}
     <x-slot:body>
-        <input type="hidden" id="country_id">
+        <input type="hidden" id="category_id">
         <div class="row">
             <div class="col mb-3">
                 <h3>@lang('messages.confirm_delete_message')</h3>

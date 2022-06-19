@@ -57,7 +57,7 @@ class CategoryController extends Controller
         if($category) {
             return response()->json([
                 'status'=>200,
-                'country'=> new CategoryResource($category),
+                'category'=> new CategoryResource($category),
             ]);
         }
         else {
@@ -93,7 +93,7 @@ class CategoryController extends Controller
                 return response()->json([
                     'status'  => 200,
                     'message' => Lang::get('messages.updated_message'),
-                    'country' => $category
+                    'category' => $category
                 ]);
             }
             else {

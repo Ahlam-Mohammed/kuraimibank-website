@@ -51,8 +51,8 @@
                     renderMsgError(response);
                     el('#ModalEditCategory .btn-close').click();
                 } else {
-                    el('#ModalEditCategory #name_ar').value = response.data.country.name;
-                    el('#ModalEditCategory #name_en').value = response.data.country.name;
+                    el('#ModalEditCategory #name_ar').value = response.data.category.name;
+                    el('#ModalEditCategory #name_en').value = response.data.category.name;
                     el('#ModalEditCategory #category_id').value = category_id;
                 }
             })
@@ -84,13 +84,13 @@
 
     //********* Delete Category *********//
     async function delete_category(id) {
-        el('#ModalEditCategory #category_id').value = id;
+        el('#ModalDeleteCategory #category_id').value = id;
     }
 
     //********* Delete Category *********//
     el('#delete_category').addEventListener('click', async (e) => {
         e.preventDefault();
-        let category_id = el('#ModalEditCategory #category_id').value;
+        let category_id = el('#ModalDeleteCategory #category_id').value;
 
         await axios
             .delete(`http://127.0.0.1:8000/api/dashboard/categories/${category_id}`,{
