@@ -34,6 +34,21 @@ return [
         'office' => 'مكتب'
     ],
 
+    'service_category' => [
+        'id'         => 'رقم الصنف',
+        'name'       => 'اسم الصنف',
+        'category'   => 'الصنف',
+        'categories' => 'الأصناف',
+        'add_branch' => 'إضافة فرع للصنف'
+    ],
+
+    'sub_category' => [
+        'id'         => 'رقم الفرع',
+        'name'       => 'اسم الفرع',
+        'branch'     => 'الفرع',
+        'branches'   => 'الفروع',
+    ],
+
     'messages' => [
         'delete_message' => 'هل انت متأكد من الحذف؟'
     ]

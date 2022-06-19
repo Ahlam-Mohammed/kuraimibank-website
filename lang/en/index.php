@@ -28,10 +28,25 @@ return [
     ],
 
     'category' => [
-        'ATM'    => 'ATM',
-        'center' => 'Center',
-        'branch' => 'Branch',
-        'office' => 'Office'
+        'ATM'        => 'ATM',
+        'center'     => 'Center',
+        'branch'     => 'Branch',
+        'office'     => 'Office',
+    ],
+
+    'service_category' => [
+        'id'         => 'ID',
+        'name'       => 'Category Name',
+        'category'   => 'Category',
+        'categories' => 'Categories',
+        'add_branch' => 'Add Branch for Category'
+    ],
+
+    'sub_category' => [
+        'id'         => 'ID',
+        'name'       => 'Branch Name',
+        'branch'     => 'Branch',
+        'branches'   => 'Branches',
     ],
 
     'messages' => [
