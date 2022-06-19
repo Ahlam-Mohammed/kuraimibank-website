@@ -15,7 +15,7 @@
             }
 
             $.ajax({
-                url: '{{ route('dashboard.countries.store') }}',
+                url: '{{ route('api.countries.store') }}',
                 type: 'POST',
                 datatype: 'json',
                 data,
@@ -139,7 +139,7 @@
         function fetchCountries()
         {
             $.ajax({
-                url: '{{ route('dashboard.countries.index') }}',
+                url: '{{ route('api.countries.index') }}',
                 type: 'GET',
                 datatype: 'json',
                 success(response) {

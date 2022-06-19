@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\CategoryController;
 use App\Http\Controllers\api\CityController;
 use App\Http\Controllers\api\CountryController;
 use App\Http\Controllers\api\ServicePointController;
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('dashboard')->name('dashboard.')->group(function (){
+Route::prefix('dashboard')->name('api.')->group(function (){
 
     //********* Countries API Route *********//
     Route::apiResource('countries', CountryController::class);
@@ -30,6 +31,10 @@ Route::prefix('dashboard')->name('dashboard.')->group(function (){
     //********* Service Points API Route *********//
     Route::apiResource('service/points', ServicePointController::class);
     Route::get('service/points/activate/{id}', [ServicePointController::class, 'activate'])->name('service.point.activate');
+
+    //********* Categories API Route *********//
+    Route::apiResource('categories', CategoryController::class);
+    Route::get('categories/activate/{id}', [CategoryController::class, 'activate'])->name('categories.activate');
 
 });
 

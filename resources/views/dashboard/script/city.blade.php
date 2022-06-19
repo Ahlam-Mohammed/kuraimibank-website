@@ -16,7 +16,7 @@
             }
 
             $.ajax({
-                url: '{{ route('dashboard.cities.store') }}',
+                url: '{{ route('api.cities.store') }}',
                 type: 'POST',
                 datatype: 'json',
                 data,
@@ -142,7 +142,7 @@
         function fetchCountries()
         {
             $.ajax({
-                url: '{{ route('dashboard.cities.index') }}',
+                url: '{{ route('api.cities.index') }}',
                 type: 'GET',
                 datatype: 'json',
                 success(response) {

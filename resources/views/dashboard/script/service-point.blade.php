@@ -25,7 +25,7 @@
             console.log(data)
 
             $.ajax({
-                url: '{{ route('dashboard.points.store') }}',
+                url: '{{ route('api.points.store') }}',
                 type: 'POST',
                 datatype: 'json',
                 data,
@@ -166,7 +166,7 @@
         function fetchCountries()
         {
             $.ajax({
-                url: '{{ route('dashboard.points.index') }}',
+                url: '{{ route('api.points.index') }}',
                 type: 'GET',
                 datatype: 'json',
                 success(response) {
