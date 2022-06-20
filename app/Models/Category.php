@@ -23,4 +23,12 @@ class Category extends Model
     {
         return $this->hasMany(SubCategory::class);
     }
+
+    /**
+     * Get services
+     */
+    public function services() : HasMany
+    {
+        return $this->hasMany(Service::class);
+    }
 }

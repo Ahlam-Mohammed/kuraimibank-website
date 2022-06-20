@@ -24,7 +24,9 @@ class ServicePointResource extends JsonResource
             'category'      => $this->category,
             'is_active'     => $this->is_active,
             'city_id'       => $this->city_id,
-            'city'          => new CityResource($this->city)
+            'city'          => new CityResource($this->city),
+            'created_at'    => $this->created_at->format('Y/m/d - h:m A'),
+            'updated_at'    => $this->updated_at->format('Y/m/d - h:m A'),
         ];
     }
 }
