@@ -112,6 +112,14 @@
 
         {{-- users --}}
         <li class="menu-item">
+            <a href="{{ route('dashboard.rates') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-chart"></i>
+                <div>@lang('page.exchange_rate')</div>
+            </a>
+        </li>
+
+        {{-- users --}}
+        <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-user"></i>
                 <div>@lang('page.users')</div>

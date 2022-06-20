@@ -1,0 +1,121 @@
+{{-- Table Exchange Rate --}}
+<x-table class="table-rates">
+
+    {{-- Table Title --}}
+    <x-slot:title>
+        <h5 class="card-header">@lang('index.rates.exchange_rates')</h5>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#ModalAddRate" class="btn rounded-pill btn-icon btn-label-primary">
+            <span class="tf-icons bx bx-plus"></span>
+        </button>
+    </x-slot:title>
+
+    {{-- Table Header --}}
+    <x-slot:thead>
+        <th>@lang('index.rates.id')</th>
+        <th>@lang('index.rates.name')</th>
+        <th>@lang('index.rates.sale')</th>
+        <th>@lang('index.rates.buy')</th>
+        <th>@lang('general.created_at')</th>
+        <th>@lang('general.status')</th>
+        <th></th>
+    </x-slot:thead>
+
+</x-table>
+
+{{--  Add Exchange Rate Modal --}}
+<x-modal id="ModalAddRate" :title="'add'">
+
+    {{-- Model Body --}}
+    <x-slot:body>
+        <ul id="errorMsg"></ul>
+        <div class="row">
+            <div class="col-12 mb-3">
+                <label for="nameWithTitle" class="form-label">@lang('index.rates.name')  <span class="text-lowercase">\(Arabic)</span> </label>
+                <input name="name_ar" value="" id="name_ar" type="text" class="form-control" placeholder="ادخل الاسم باللغة العربية">
+            </div>
+            <div class="col-12 mb-3">
+                <label for="nameWithTitle" class="form-label">@lang('index.rates.name') <span class="text-lowercase">\(English)</span> </label>
+                <input name="name_en" value="" id="name_en" type="text" class="form-control" placeholder="ادخل الاسم باللغة الإنجليزية">
+            </div>
+        </div>
+        <hr class="my-4 mx-n4" />
+
+        <div class="row">
+            <div class="col-6 mb-3">
+                <label for="nameWithTitle" class="form-label">@lang('index.rates.sale')</label>
+                <input name="sale" value="" id="sale" type="text" class="form-control">
+            </div>
+            <div class="col-6 mb-3">
+                <label for="nameWithTitle" class="form-label">@lang('index.rates.buy')</label>
+                <input name="buy" value="" id="buy" type="text" class="form-control">
+            </div>
+        </div>
+    </x-slot:body>
+
+    {{-- Model Footer --}}
+    <x-slot:footer>
+        <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">@lang('general.cancel')</button>
+        <button class="btn btn-primary add_rate">@lang('general.save')</button>
+    </x-slot:footer>
+
+</x-modal>
+
+{{--  Edit Exchange Rate Modal --}}
+<x-modal id="ModalEditRate" :title="'edit'">
+
+    {{-- Model Body --}}
+    <x-slot:body>
+        <ul id="update_msgList"></ul>
+        <input hidden id="rate_id">
+        <div class="row">
+            <div class="col-12 mb-3">
+                <label for="nameWithTitle" class="form-label">@lang('index.rates.name')  <span class="text-lowercase">\(Arabic)</span> </label>
+                <input name="name_ar" value="" id="name_ar" type="text" class="form-control" placeholder="ادخل الاسم باللغة العربية">
+            </div>
+            <div class="col-12 mb-3">
+                <label for="nameWithTitle" class="form-label">@lang('index.rates.name') <span class="text-lowercase">\(English)</span> </label>
+                <input name="name_en" value="" id="name_en" type="text" class="form-control" placeholder="ادخل الاسم باللغة الإنجليزية">
+            </div>
+        </div>
+        <hr class="my-4 mx-n4" />
+
+        <div class="row">
+            <div class="col-6 mb-3">
+                <label for="nameWithTitle" class="form-label">@lang('index.rates.sale')</label>
+                <input name="sale" value="" id="sale" type="text" class="form-control">
+            </div>
+            <div class="col-6 mb-3">
+                <label for="nameWithTitle" class="form-label">@lang('index.rates.buy')</label>
+                <input name="buy" value="" id="buy" type="text" class="form-control">
+            </div>
+        </div>
+    </x-slot:body>
+
+    {{-- Model Footer --}}
+    <x-slot:footer>
+        <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">@lang('general.cancel')</button>
+        <button type="submit" class="btn btn-primary" id="update_rate">@lang('general.save')</button>
+    </x-slot:footer>
+
+</x-modal>
+
+{{--  Delete Exchange Rate Modal --}}
+<x-modal id="ModalDeleteRate" :title="'delete'">
+
+    {{-- Model Body --}}
+    <x-slot:body>
+        <input type="hidden" id="rate_id">
+        <div class="row">
+            <div class="col mb-3">
+                <h3>@lang('messages.confirm_delete_message')</h3>
+            </div>
+        </div>
+    </x-slot:body>
+
+    {{-- Model Footer --}}
+    <x-slot:footer>
+        <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">@lang('general.cancel')</button>
+        <button type="submit" class="btn btn-danger" id="delete_rate">@lang('general.yes')</button>
+    </x-slot:footer>
+
+</x-modal>

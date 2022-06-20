@@ -9,5 +9,6 @@ return [
     'web_info'       => 'Manage Web Info',
     'users'          => 'Manage Users',
     'index'          => 'Dashboard',
-    'add_service'    => 'Add Service'
+    'add_service'    => 'Add Service',
+    'exchange_rate'  => 'Exchange Rate'
 ];

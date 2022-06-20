@@ -63,6 +63,16 @@ return [
         'branch'            => 'فرع'
     ],
 
+    'rates' => [
+        'name'           => 'اسم العملة',
+        'sale'           => 'بيع',
+        'buy'            => 'شراء',
+        'id'             => 'رقم العملة',
+        'Currency'       => 'العملة',
+        'exchange_rates' => 'اسعار العملات'
+
+    ],
+
     'messages' => [
         'delete_message' => 'هل انت متأكد من الحذف؟'
     ]

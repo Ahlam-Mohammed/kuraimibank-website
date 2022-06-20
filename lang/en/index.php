@@ -63,6 +63,16 @@ return [
         'branch'            => 'Branch'
     ],
 
+    'rates' => [
+        'name'           => 'Currency',
+        'sale'           => 'Sale',
+        'buy'            => 'Buy',
+        'id'             => 'Currency ID',
+        'Currency'       => 'Currency',
+        'exchange_rates' => 'Exchange Rates'
+
+    ],
+
     'messages' => [
         'delete_message' => 'Are you sure to delete?'
     ]

@@ -3,6 +3,7 @@
 use App\Http\Controllers\api\CategoryController;
 use App\Http\Controllers\api\CityController;
 use App\Http\Controllers\api\CountryController;
+use App\Http\Controllers\api\ExchangeRateController;
 use App\Http\Controllers\api\ServiceController;
 use App\Http\Controllers\api\ServicePointController;
 use App\Http\Controllers\api\SubCategoryController;
@@ -45,6 +46,10 @@ Route::prefix('dashboard')->name('api.')->group(function (){
     //********* Services API Route *********//
     Route::apiResource('services', ServiceController::class);
     Route::get('services/activate/{id}', [ServiceController::class, 'activate'])->name('services.activate');
+
+    //********* Exchange Rate API Route *********//
+    Route::apiResource('rates', ExchangeRateController::class);
+    Route::get('rates/activate/{id}', [ExchangeRateController::class, 'activate'])->name('rates.activate');
 
 });
 
