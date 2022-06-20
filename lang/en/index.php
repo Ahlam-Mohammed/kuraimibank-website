@@ -49,6 +49,20 @@ return [
         'branches'   => 'Branches',
     ],
 
+    'service' => [
+        'name'              => 'Service Name',
+        'id'                => 'Id',
+        'desc'              => 'Service Description',
+        'background'        => 'Service Background',
+        'image'             => 'Service Image',
+        'other_advantage'   => 'Other Advantage',
+        'service_condition' => 'Service Condition',
+        'service'           => 'Service',
+        'services'          => 'Services',
+        'category'          => 'Service Category',
+        'branch'            => 'Branch'
+    ],
+
     'messages' => [
         'delete_message' => 'Are you sure to delete?'
     ]

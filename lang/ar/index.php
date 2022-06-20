@@ -49,6 +49,20 @@ return [
         'branches'   => 'الفروع',
     ],
 
+    'service' => [
+        'name'              => 'اسم الخدمة',
+        'id'                => 'رقم الخدمة',
+        'desc'              => 'وصف للخدمة',
+        'background'        => 'صورة خلفية الخدمة',
+        'image'             => 'صورة الخدمة',
+        'other_advantage'   => 'مميزات آخرى',
+        'service_condition' => 'شروط الخدمة',
+        'service'           => 'الخدمة',
+        'services'          => 'الخدمات',
+        'category'          => 'تصنيف الخدمة',
+        'branch'            => 'فرع'
+    ],
+
     'messages' => [
         'delete_message' => 'هل انت متأكد من الحذف؟'
     ]
