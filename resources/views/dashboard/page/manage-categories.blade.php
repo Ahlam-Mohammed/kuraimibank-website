@@ -12,7 +12,7 @@
 
     <h4 class="fw-bold py-3 mb-4">
         <span class="fw-light">
-            @lang('page.categories')
+           @lang('page.categories')
         </span>
     </h4>
 

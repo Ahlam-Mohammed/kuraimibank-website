@@ -1,11 +1,16 @@
 @extends('dashboard.layout.master')
 
 @section('title')
-    Dashboard
+    @lang('page.index')
 @stop
 
 @section('content')
 
-{{-- TODO --}}
+
+    <div class="row">
+        <div class="col-lg d-flex justify-content-center align-items-center mt-5">
+            <img src="{{ asset('images/kuraimi-logo.svg') }}" width="50%">
+        </div>
+    </div>
 
 @stop

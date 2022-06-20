@@ -1,11 +1,11 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme" style="background-color: #342a4a !important;">
 
     <div class="app-brand demo ">
-        <a href="index-2.html" class="app-brand-link">
+        <a href="{{ route('dashboard.index') }}" class="app-brand-link">
             <span class="app-brand-logo demo">
                 <img src="{{ asset('images/logo.svg') }}">
             </span>
-            <span class="app-brand-text demo menu-text fw-bolder ms-2">الكريمي</span>
+            <span class="app-brand-text demo fs-4 menu-text fw-bold ms-2">بنك الـكـريـمـي</span>
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -17,13 +17,21 @@
 
     {{--  Navbar  --}}
     <ul class="menu-inner py-1">
+        <li class="menu-item
+        @if(Route::currentRouteName() === 'dashboard.index') active @endif">
+            <a href="{{ route('dashboard.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-dashboard"></i>
+                <div>@lang('page.index')</div>
+            </a>
+        </li>
+
 
         {{-- service_points --}}
         <li class="menu-item
         @if(Route::currentRouteName() === 'dashboard.service.point' ||
             Route::currentRouteName() === 'dashboard.region') active @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <i class="menu-icon tf-icons bx bx-location-plus"></i>
                 <div>@lang('page.service_points')</div>
             </a>
             <ul class="menu-sub">
@@ -40,11 +48,35 @@
             </ul>
         </li>
 
+        {{-- services --}}
+        <li class="menu-item
+        @if(Route::currentRouteName() === 'dashboard.services' ||
+            Route::currentRouteName() === 'dashboard.service.create') active @endif">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div>@lang('page.services')</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('dashboard.services') }}" class="menu-link">
+                        <div>@lang('page.services')</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('dashboard.service.create') }}" class="menu-link">
+                        <div>@lang('page.add_service')</div>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+
+        {{-- services --}}
         <li class="menu-item
         @if(Route::currentRouteName() === 'dashboard.categories' ||
             Route::currentRouteName() === 'dashboard.subs.category') active @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div>@lang('page.categories')</div>
             </a>
             <ul class="menu-sub">
@@ -56,6 +88,38 @@
                 <li class="menu-item">
                     <a href="{{ route('dashboard.subs.category') }}" class="menu-link">
                         <div>@lang('page.sub_categories')</div>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+
+        {{-- web info --}}
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                <div>@lang('page.web_info')</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="" class="menu-link">
+                        <div>@lang('page.web_info')</div>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+
+        {{-- users --}}
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-user"></i>
+                <div>@lang('page.users')</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="" class="menu-link">
+                        <div>@lang('page.users')</div>
                     </a>
                 </li>
 

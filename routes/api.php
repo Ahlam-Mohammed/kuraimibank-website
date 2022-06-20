@@ -3,6 +3,7 @@
 use App\Http\Controllers\api\CategoryController;
 use App\Http\Controllers\api\CityController;
 use App\Http\Controllers\api\CountryController;
+use App\Http\Controllers\api\ServiceController;
 use App\Http\Controllers\api\ServicePointController;
 use App\Http\Controllers\api\SubCategoryController;
 use Illuminate\Http\Request;
@@ -40,6 +41,10 @@ Route::prefix('dashboard')->name('api.')->group(function (){
     //********* Sub Categories API Route *********//
     Route::apiResource('sub/category', SubCategoryController::class);
     Route::get('sub/category/activate/{id}', [SubCategoryController::class, 'activate'])->name('sub.category.activate');
+
+    //********* Services API Route *********//
+    Route::apiResource('services', ServiceController::class);
+    Route::get('services/activate/{id}', [ServiceController::class, 'activate'])->name('services.activate');
 
 });
 
