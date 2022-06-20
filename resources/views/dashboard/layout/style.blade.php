@@ -2,7 +2,7 @@
 <link rel="canonical" href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/">
 
 <!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template//assets/img/favicon/favicon.ico" />
+<link rel="icon" type="image/x-icon" href="{{ asset('images/logo-color.svg') }}" />
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
