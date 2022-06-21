@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers\dashboard;
 
 use App\Enum\WebInfoEnum;
 use App\Http\Controllers\Controller;
 use App\Models\WebInfo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Lang;
 
 class WebInfoController extends Controller
 {
@@ -26,7 +27,7 @@ class WebInfoController extends Controller
             ]
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', Lang::get('messages.updated_message'));
     }
 
     //********* Get Vision *********//
@@ -46,7 +47,7 @@ class WebInfoController extends Controller
             ]
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', Lang::get('messages.updated_message'));
     }
 
     //********* Get Strategy *********//
@@ -66,6 +67,6 @@ class WebInfoController extends Controller
             ]
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', Lang::get('messages.updated_message'));
     }
 }
