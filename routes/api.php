@@ -8,7 +8,6 @@ use App\Http\Controllers\api\NewsController;
 use App\Http\Controllers\api\ServiceController;
 use App\Http\Controllers\api\ServicePointController;
 use App\Http\Controllers\api\SubCategoryController;
-use App\Http\Controllers\api\WebInfoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

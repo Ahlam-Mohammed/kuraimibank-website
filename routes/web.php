@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\api\WebInfoController;
-use App\Http\Controllers\dashboard\HomeController;
+use App\Http\Controllers\dashboard\ContactInfoController;
 use App\Http\Controllers\dashboard\ServiceController;
+use App\Http\Controllers\dashboard\WebInfoController;
 use App\Http\Controllers\LocaleController;
 use Illuminate\Support\Facades\Route;
 
@@ -56,6 +56,13 @@ Route::prefix('dashboard/')->middleware('web')->name('dashboard.')->group(functi
 
     });
 
+    //********* ContactInf Route *********//
+    Route::controller(ContactInfoController::class)->name('contact.')->group(function (){
+
+        Route::get('social-index', 'indexSocial')->name('social.index');
+        Route::post('social-update', 'updateSocial')->name('social.update');
+
+    });
 
 
 

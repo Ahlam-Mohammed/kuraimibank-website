@@ -118,6 +118,11 @@
                         <div>@lang('page.strategy')</div>
                     </a>
                 </li>
+                <li class="menu-item">
+                    <a href="{{ route('dashboard.contact.social.index') }}" class="menu-link">
+                        <div>@lang('page.social')</div>
+                    </a>
+                </li>
 
             </ul>
         </li>

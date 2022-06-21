@@ -14,5 +14,7 @@ return [
     'news'           => 'News',
     'about'          => 'About Al-Kuraimi',
     'vision'         => 'The vision of Al-Kuraimi',
-    'strategy'       => 'Strategy Statement'
+    'strategy'       => 'Strategy Statement',
+    'social'         => 'Social Media',
+    'contact'        => 'Contact Us'
 ];
