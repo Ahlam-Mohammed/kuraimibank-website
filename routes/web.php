@@ -29,6 +29,7 @@ Route::prefix('dashboard/')->middleware('web')->name('dashboard.')->group(functi
     Route::view('/manage-subs-category', 'dashboard.page.manage-subs-category')->name('subs.category');
     Route::view('/manage-services', 'dashboard.page.manage-services')->name('services');
     Route::view('/manage-exchange-rates', 'dashboard.page.manage-exchange-rate')->name('rates');
+    Route::view('/manage-news', 'dashboard.page.manage-news')->name('news');
 
 
     //********* Services Route *********//

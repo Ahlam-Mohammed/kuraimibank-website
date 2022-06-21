@@ -10,5 +10,6 @@ return [
     'users'          => 'Manage Users',
     'index'          => 'Dashboard',
     'add_service'    => 'Add Service',
-    'exchange_rate'  => 'Exchange Rate'
+    'exchange_rate'  => 'Exchange Rate',
+    'news'           => 'News'
 ];

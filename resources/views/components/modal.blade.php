@@ -8,7 +8,7 @@
 
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form>
+            <form enctype="multipart/form-data">
                 {{-- Model Body --}}
                 <div class="modal-body"> {{ $body }} </div>
 

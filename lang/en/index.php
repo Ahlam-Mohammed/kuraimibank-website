@@ -70,7 +70,15 @@ return [
         'id'             => 'Currency ID',
         'Currency'       => 'Currency',
         'exchange_rates' => 'Exchange Rates'
+    ],
 
+    'news' => [
+        'id'         => 'ID',
+        'title'      => 'News Title',
+        'desc'       => 'News Description',
+        'image'      => 'News Image',
+        'background' => 'News Background',
+        'news'       => 'News'
     ],
 
     'messages' => [

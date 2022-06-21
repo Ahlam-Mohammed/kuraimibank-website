@@ -70,7 +70,15 @@ return [
         'id'             => 'رقم العملة',
         'Currency'       => 'العملة',
         'exchange_rates' => 'اسعار العملات'
+    ],
 
+    'news' => [
+        'id'         => 'ID',
+        'title'      => 'العنوان',
+        'desc'       => 'الوصف',
+        'image'      => 'صورة للخبر',
+        'background' => 'صورة الخلفية',
+        'news'       => 'آخر الأخبار'
     ],
 
     'messages' => [

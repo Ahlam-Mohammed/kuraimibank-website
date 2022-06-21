@@ -110,11 +110,19 @@
             </ul>
         </li>
 
-        {{-- users --}}
+        {{-- exchange_rate --}}
         <li class="menu-item">
             <a href="{{ route('dashboard.rates') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-chart"></i>
                 <div>@lang('page.exchange_rate')</div>
+            </a>
+        </li>
+
+        {{-- News --}}
+        <li class="menu-item">
+            <a href="{{ route('dashboard.news') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-window-open"></i>
+                <div>@lang('page.news')</div>
             </a>
         </li>
 
