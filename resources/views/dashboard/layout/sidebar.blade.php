@@ -123,6 +123,11 @@
                         <div>@lang('page.social')</div>
                     </a>
                 </li>
+                <li class="menu-item">
+                    <a href="{{ route('dashboard.contact.contact.index') }}" class="menu-link">
+                        <div>@lang('page.contact')</div>
+                    </a>
+                </li>
 
             </ul>
         </li>

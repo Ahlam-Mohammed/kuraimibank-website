@@ -24,7 +24,9 @@
                 @enderror
             </div>
 
-            <button type="submit" class="btn btn-primary">@lang('general.update')</button>
+            <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary">@lang('general.update')</button>
+            </div>
         </form>
     </div>
 </div>

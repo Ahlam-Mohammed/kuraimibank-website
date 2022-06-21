@@ -42,25 +42,33 @@ Route::prefix('dashboard/')->middleware('web')->name('dashboard.')->group(functi
         Route::post('service-store', 'store')->name('store');
     });
 
-    //********* WebInf Route *********//
+    //********* Web Info Route *********//
     Route::controller(WebInfoController::class)->name('web-info.')->group(function (){
 
+        ###### About ######
         Route::get('about-index', 'indexAbout')->name('about.index');
         Route::post('about-update', 'updateAbout')->name('about.update');
 
+        ###### Vision ######
         Route::get('vision-index', 'indexVision')->name('vision.index');
         Route::post('vision-update', 'updateVision')->name('vision.update');
 
+        ###### Strategy ######
         Route::get('strategy-index', 'indexStrategy')->name('strategy.index');
         Route::post('strategy-update', 'updateStrategy')->name('strategy.update');
 
     });
 
-    //********* ContactInf Route *********//
+    //********* Contact Info Route *********//
     Route::controller(ContactInfoController::class)->name('contact.')->group(function (){
 
+        ###### Social ######
         Route::get('social-index', 'indexSocial')->name('social.index');
         Route::post('social-update', 'updateSocial')->name('social.update');
+
+        ###### Contact ######
+        Route::get('contact-index', 'indexContact')->name('contact.index');
+        Route::post('contact-update', 'updateContact')->name('contact.update');
 
     });
 

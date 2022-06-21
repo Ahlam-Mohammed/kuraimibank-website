@@ -81,6 +81,15 @@ return [
         'news'       => 'News'
     ],
 
+    'contact' => [
+        'tel'      => 'Tel',
+        'tollFree' => 'Toll Free',
+        'fax'      => 'Fax',
+        'box'      => 'P.O.Box',
+        'email'    => 'Email'
+    ],
+
+
     'messages' => [
         'delete_message' => 'Are you sure to delete?'
     ]
