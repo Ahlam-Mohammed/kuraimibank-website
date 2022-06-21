@@ -69,4 +69,10 @@ class WebInfoController extends Controller
 
         return redirect()->back()->with('success', Lang::get('messages.updated_message'));
     }
+
+    //********* Get Principles *********//
+    public function indexPrinciple()
+    {
+        return view('dashboard.page.manage_web_info.principle');
+    }
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\api\CityController;
 use App\Http\Controllers\api\CountryController;
 use App\Http\Controllers\api\ExchangeRateController;
 use App\Http\Controllers\api\NewsController;
+use App\Http\Controllers\api\PrincipleController;
 use App\Http\Controllers\api\ServiceController;
 use App\Http\Controllers\api\ServicePointController;
 use App\Http\Controllers\api\SubCategoryController;
@@ -51,6 +52,10 @@ Route::prefix('dashboard')->name('api.')->group(function (){
     //********* Exchange Rate API Route *********//
     Route::apiResource('rates', ExchangeRateController::class);
     Route::get('rates/activate/{id}', [ExchangeRateController::class, 'activate'])->name('rates.activate');
+
+    //********* Principle API Route *********//
+    Route::apiResource('principles', PrincipleController::class);
+    Route::get('principles/activate/{id}', [PrincipleController::class, 'activate'])->name('principles.activate');
 
     //********* News API Route *********//
     Route::apiResource('news', NewsController::class);

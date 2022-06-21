@@ -16,5 +16,6 @@ return [
     'vision'         => 'The vision of Al-Kuraimi',
     'strategy'       => 'Strategy Statement',
     'social'         => 'Social Media',
-    'contact'        => 'Contact Us'
+    'contact'        => 'Contact Us',
+    'principle'      => 'Values and operational principles',
 ];

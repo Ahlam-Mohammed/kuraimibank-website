@@ -97,7 +97,9 @@
         </li>
 
         {{-- web info --}}
-        <li class="menu-item">
+        <li class="menu-item
+        @if(str_contains(Route::currentRouteName(), 'dashboard.web-info') === true ||
+            str_contains(Route::currentRouteName(), 'dashboard.contact') === true) active @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
                 <div>@lang('page.web_info')</div>
@@ -116,6 +118,11 @@
                 <li class="menu-item">
                     <a href="{{ route('dashboard.web-info.strategy.index') }}" class="menu-link">
                         <div>@lang('page.strategy')</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('dashboard.web-info.principle.index') }}" class="menu-link">
+                        <div>@lang('page.principle')</div>
                     </a>
                 </li>
                 <li class="menu-item">
@@ -163,12 +170,6 @@
 
             </ul>
         </li>
-
-        <!-- Apps & Pages -->
-{{--        <li class="menu-header small text-uppercase">--}}
-{{--            <span class="menu-header-text">Apps &amp; Pages</span>--}}
-{{--        </li>--}}
-
 
     </ul>
 </aside>

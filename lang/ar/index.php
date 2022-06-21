@@ -89,6 +89,13 @@ return [
         'email'    => ' البريد الالكتروني'
     ],
 
+    'principle' => [
+        'id'         => 'رقم القيمة',
+        'title'      => 'عنوان القيمة',
+        'desc'       => 'الوصف',
+        'principles' => 'القيم'
+    ],
+
     'messages' => [
         'delete_message' => 'هل انت متأكد من الحذف؟'
     ]

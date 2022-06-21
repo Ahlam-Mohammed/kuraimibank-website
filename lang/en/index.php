@@ -89,6 +89,13 @@ return [
         'email'    => 'Email'
     ],
 
+    'principle' => [
+        'id'         => 'ID',
+        'title'      => 'Title Principle',
+        'desc'       => 'Description Principle',
+        'principles' => 'Principles'
+    ],
+
 
     'messages' => [
         'delete_message' => 'Are you sure to delete?'

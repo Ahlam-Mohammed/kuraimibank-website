@@ -57,6 +57,9 @@ Route::prefix('dashboard/')->middleware('web')->name('dashboard.')->group(functi
         Route::get('strategy-index', 'indexStrategy')->name('strategy.index');
         Route::post('strategy-update', 'updateStrategy')->name('strategy.update');
 
+        ###### Principle ######
+        Route::get('principle-index', 'indexPrinciple')->name('principle.index');
+
     });
 
     //********* Contact Info Route *********//
