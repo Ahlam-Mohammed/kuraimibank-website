@@ -11,5 +11,8 @@ return [
     'index'          => 'Dashboard',
     'add_service'    => 'Add Service',
     'exchange_rate'  => 'Exchange Rate',
-    'news'           => 'News'
+    'news'           => 'News',
+    'about'          => 'About Al-Kuraimi',
+    'vision'         => 'The vision of Al-Kuraimi',
+    'strategy'       => 'Strategy Statement'
 ];

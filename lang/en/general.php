@@ -12,6 +12,7 @@ return [
     'add'              => 'Add',
     'active'           => 'Active',
     'deactivation'     => 'Deactivation',
-    'created_at'       => 'Created At'
+    'created_at'       => 'Created At',
+    'update'           => 'Update'
 
 ];

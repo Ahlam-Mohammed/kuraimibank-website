@@ -12,5 +12,6 @@ return [
     'add'           => 'إضافة',
     'active'        => 'تفعيل',
     'deactivation'  => 'إلغاء التفعيل',
-    'created_at'    => 'تاريخ الإنشاء'
+    'created_at'    => 'تاريخ الإنشاء',
+    'update'        => 'تحديث'
 ];

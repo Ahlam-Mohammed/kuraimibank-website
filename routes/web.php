@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\WebInfoController;
 use App\Http\Controllers\dashboard\HomeController;
 use App\Http\Controllers\dashboard\ServiceController;
 use App\Http\Controllers\LocaleController;
@@ -31,11 +32,28 @@ Route::prefix('dashboard/')->middleware('web')->name('dashboard.')->group(functi
     Route::view('/manage-exchange-rates', 'dashboard.page.manage-exchange-rate')->name('rates');
     Route::view('/manage-news', 'dashboard.page.manage-news')->name('news');
 
+    Route::view('/about', 'dashboard.page.manage_web_info.about')->name('about');
+//    Route::view('/vision', 'dashboard.page.manage_web_info.vision')->name('vision');
+    Route::view('/strategy', 'dashboard.page.manage_web_info.strategy')->name('strategy');
 
     //********* Services Route *********//
     Route::controller(ServiceController::class)->name('service.')->group(function (){
         Route::get('service-create', 'create')->name('create');
         Route::post('service-store', 'store')->name('store');
+    });
+
+    //********* WebInf Route *********//
+    Route::controller(WebInfoController::class)->name('web-info.')->group(function (){
+
+        Route::get('about-index', 'indexAbout')->name('about.index');
+        Route::post('about-update', 'updateAbout')->name('about.update');
+
+        Route::get('vision-index', 'indexVision')->name('vision.index');
+        Route::post('vision-update', 'updateVision')->name('vision.update');
+
+        Route::get('strategy-index', 'indexStrategy')->name('strategy.index');
+        Route::post('strategy-update', 'updateStrategy')->name('strategy.update');
+
     });
 
 

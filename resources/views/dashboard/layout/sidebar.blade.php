@@ -17,6 +17,8 @@
 
     {{--  Navbar  --}}
     <ul class="menu-inner py-1">
+
+        {{--   Dashboard     --}}
         <li class="menu-item
         @if(Route::currentRouteName() === 'dashboard.index') active @endif">
             <a href="{{ route('dashboard.index') }}" class="menu-link">
@@ -102,8 +104,18 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="" class="menu-link">
-                        <div>@lang('page.web_info')</div>
+                    <a href="{{ route('dashboard.web-info.about.index') }}" class="menu-link">
+                        <div>@lang('page.about')</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('dashboard.web-info.vision.index') }}" class="menu-link">
+                        <div>@lang('page.vision')</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('dashboard.web-info.strategy.index') }}" class="menu-link">
+                        <div>@lang('page.strategy')</div>
                     </a>
                 </li>
 
