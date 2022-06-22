@@ -19,5 +19,6 @@ return [
     'contact'        => 'طرق التواصل',
     'principle'      => 'القيم والمبادئ',
     'privacy-policy' => 'سياسية الخصوصية',
-    'partner'        => 'إدارة شركائنا'
+    'partner'        => 'إدارة شركائنا',
+    'financial_reports' => 'التقارير المالية'
 ];

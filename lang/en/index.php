@@ -92,6 +92,11 @@ return [
         'partner'    => 'Partner'
     ],
 
+    'report' => [
+        'name' => 'Report Title',
+        'file' => 'Report File'
+    ],
+
     'contact' => [
         'tel'      => 'Tel',
         'tollFree' => 'Toll Free',

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\dashboard\ContactInfoController;
 use App\Http\Controllers\dashboard\OurPartnerController;
+use App\Http\Controllers\dashboard\ReportController;
 use App\Http\Controllers\dashboard\ServiceController;
 use App\Http\Controllers\dashboard\WebInfoController;
 use App\Http\Controllers\LocaleController;
@@ -72,13 +73,27 @@ Route::prefix('dashboard/')->middleware('web')->name('dashboard.')->group(functi
     //********* Our Partner Route *********//
     Route::controller(OurPartnerController::class)->name('partner.')->group(function (){
 
-        Route::get('partner-index', 'index')->name('partner.index');
-        Route::post('partner-store', 'store')->name('partner.store');
-        Route::post('partner-update/{id}', 'update')->name('partner.update');
-        Route::get('partner-delete/{id}', 'destroy')->name('partner.delete');
-        Route::get('partner-active/{id}', 'activate')->name('partner.active');
+        Route::get('partner-index', 'index')->name('index');
+        Route::post('partner-store', 'store')->name('store');
+        Route::post('partner-update/{id}', 'update')->name('update');
+        Route::get('partner-delete/{id}', 'destroy')->name('delete');
+        Route::get('partner-active/{id}', 'activate')->name('active');
 
     });
+
+    //********* financial_reports Route *********//
+//    Route::controller(ReportController::class)->name('report.')->group(function (){
+//
+//        Route::get('report-index', 'index')->name('index');
+//        Route::post('report-store', 'store')->name('store');
+//        Route::post('report-update/{id}', 'update')->name('update');
+//        Route::get('report-delete/{id}', 'destroy')->name('delete');
+//        Route::get('report-active/{id}', 'activate')->name('active');
+//
+//    });
+
+    Route::resource('reports', ReportController::class);
+    Route::get('reports/active/{id}', [ReportController::class, 'activate'])->name('reports.active');
 
     //********* Contact Info Route *********//
     Route::controller(ContactInfoController::class)->name('contact.')->group(function (){

@@ -137,9 +137,17 @@
 
         {{-- Partner --}}
         <li class="menu-item">
-            <a href="{{ route('dashboard.partner.partner.index') }}" class="menu-link">
+            <a href="{{ route('dashboard.partner.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-chart"></i>
                 <div>@lang('page.partner')</div>
+            </a>
+        </li>
+
+        {{-- financial_reports --}}
+        <li class="menu-item">
+            <a href="{{ route('dashboard.reports.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-chart"></i>
+                <div>@lang('page.financial_reports')</div>
             </a>
         </li>
 

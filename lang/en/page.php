@@ -19,5 +19,6 @@ return [
     'contact'        => 'Contact Us',
     'principle'      => 'Values and operational principles',
     'privacy-policy' => 'Privacy policy',
-    'partner'        => 'Our Partner'
+    'partner'        => 'Our Partner',
+    'financial_reports' => 'Financial Reports'
 ];
