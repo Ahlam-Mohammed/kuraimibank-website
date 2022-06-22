@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers\dashboard;
 
+use App\Enum\SettingEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ServiceRequest;
+use App\Http\Resources\CategoryResource;
 use App\Models\Category;
-use App\Models\Order;
 use App\Models\Service;
 use App\Traits\Uploads;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator;
 
 class ServiceController extends Controller
 {
@@ -19,7 +17,9 @@ class ServiceController extends Controller
 
     public function create()
     {
-        $categories = Category::where('is_active', 1)->get();
+        $categories = Category::where('is_active', 1)->with('parent')->get();
+        $categories = CategoryResource::collection($categories);
+
         return view('dashboard.page.add-service', compact('categories'));
     }
 
@@ -28,25 +28,16 @@ class ServiceController extends Controller
         ##### validator #####
         $this->validate($request, $request->rules());
 
-        $data = [];
-
         if ($request->hasFile('image'))
         {
-//            $file    = $request->file('image');
-//            $newName = uniqid() . '.'. $file->extension();
-//            $file->storePubliclyAs('public/uploads/services', $newName);
-//            $data['image'] = $newName;
-            $imageName = $this->storeImage($request->file('image'), 'uploads/services');
+            $imageName = $this->storeImage(
+                $request->file('image'), SettingEnum::PATH_SERVICE_IMAGE);
         }
 
         if ($request->hasFile('background'))
         {
-//            $file    = $request->file('background');
-//            $newName = uniqid() . '.'. $file->extension();
-//            $file->storePubliclyAs('public/uploads/services', $newName);
-//            $data['background'] = $newName;
-            $backgroundName = $this->storeImage($request->file('background'), 'uploads/services');
-
+            $backgroundName = $this->storeImage(
+                $request->file('background'), SettingEnum::PATH_SERVICE_IMAGE);
         }
 
         if ($imageName && $backgroundName){
@@ -69,6 +60,7 @@ class ServiceController extends Controller
                 ],
                 'background'  => $backgroundName,
                 'image'       => $imageName,
+                'position'    => $request->position,
                 'category_id' => $request->category_id
             ]);
         }
@@ -76,18 +68,18 @@ class ServiceController extends Controller
         return redirect()->route('dashboard.services')->with('success', Lang::get('messages.stored_message'));
     }
 
-//    public function show($id)
-//    {
-//        $service = Service::find($id);
-//        $categories = Category::all();
-//
-//        if($service) {
-//            return view('dashboard.page.edit-service', compact('service', 'categories'));
-//        }
-//        else {
-//            return redirect()->back()->with('danger', Lang::get('messages.not_found'));
-//        }
-//    }
+    public function edit(Service $service)
+    {
+        $service    = Service::find(1);
+        $categories = Category::all();
+
+        if($service) {
+            return view('dashboard.page.edit-service', compact('service', 'categories'));
+        }
+        else {
+            return redirect()->back()->with('danger', Lang::get('messages.not_found'));
+        }
+    }
 
 //    public function update(ServiceRequest $request, $id)
 //    {

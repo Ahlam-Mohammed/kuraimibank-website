@@ -32,14 +32,16 @@ Route::prefix('dashboard/')->middleware('web')->name('dashboard.')->group(functi
     Route::view('/manage-exchange-rates', 'dashboard.page.manage-exchange-rate')->name('rates');
     Route::view('/manage-news', 'dashboard.page.manage-news')->name('news');
 
-    Route::view('/about', 'dashboard.page.manage_web_info.about')->name('about');
+//    Route::view('/about', 'dashboard.page.manage_web_info.about')->name('about');
 //    Route::view('/vision', 'dashboard.page.manage_web_info.vision')->name('vision');
-    Route::view('/strategy', 'dashboard.page.manage_web_info.strategy')->name('strategy');
+//    Route::view('/strategy', 'dashboard.page.manage_web_info.strategy')->name('strategy');
 
     //********* Services Route *********//
     Route::controller(ServiceController::class)->name('service.')->group(function (){
         Route::get('service-create', 'create')->name('create');
         Route::post('service-store', 'store')->name('store');
+        Route::get('service-edit/{service}', 'edit')->name('edit');
+        Route::post('service-update', 'update')->name('update');
     });
 
     //********* Web Info Route *********//

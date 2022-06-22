@@ -76,17 +76,6 @@
                 <div class="invalid-feedback"> {{ $message }} </div>
                 @enderror
             </div>
-
-            <div class="col-md-6">
-                <label for="selectpickerBasic" class="form-label">Position</label>
-                <select name="position" value="{{ old('position') }}" id="position" class="selectpicker w-100  @error('position') is-invalid @enderror" data-style="btn-default">
-                    <option value="section">section</option>
-                    <option value="home">Home</option>
-                </select>
-                @error('position')
-                <div class="invalid-feedback"> {{ $message }} </div>
-                @enderror
-            </div>
         </div>
         <hr class="my-4 mx-n4" />
 

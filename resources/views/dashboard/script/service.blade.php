@@ -14,74 +14,6 @@
             .catch(error => console.error(error));
     }
 
-    //********* Creat New Category *********//
-    // el('.add_category').addEventListener('click', async (e) => {
-    //     e.preventDefault();
-    //
-    //     const response = await axios
-    //         .post('http://127.0.0.1:8000/api/dashboard/categories', {
-    //             name_ar: el('#name_ar').value,
-    //             name_en: el('#name_en').value,
-    //         }, {
-    //             headers: { 'Content-type': 'application/json; charset=UTF-8' }
-    //         });
-    //
-    //     if(response.status === 400) {
-    //         renderMsgError(response);
-    //     }
-    //     else {
-    //         renderMsgSuccess(response, '#ModalAddCategory', 'primary');
-    //     }
-    // });
-
-    //********* Edit Category *********//
-    // async function edit_category(id) {
-    //
-    //     let category_id = id;
-    //
-    //     await axios
-    //         .get(`http://127.0.0.1:8000/api/dashboard/categories/${category_id}`, {
-    //             name_ar: el('#name_ar').value,
-    //             name_en: el('#name_en').value,
-    //         }, {
-    //             headers: {'Content-type': 'application/json; charset=UTF-8'}
-    //         })
-    //         .then(response => {
-    //             if (response.status === 404) {
-    //                 renderMsgError(response);
-    //                 el('#ModalEditCategory .btn-close').click();
-    //             } else {
-    //                 el('#ModalEditCategory #name_ar').value = response.data.category.name;
-    //                 el('#ModalEditCategory #name_en').value = response.data.category.name;
-    //                 el('#ModalEditCategory #category_id').value = category_id;
-    //             }
-    //         })
-    //         .catch(error => console.error(error));
-    // }
-
-    //********* Update Category *********//
-    // el('#update_category').addEventListener('click', async (e) => {
-    //     e.preventDefault();
-    //     let category_id = el('#ModalEditCategory #category_id').value;
-    //
-    //     await axios
-    //         .put(`http://127.0.0.1:8000/api/dashboard/categories/${category_id}`, {
-    //             name_ar: el('#ModalEditCategory #name_ar').value,
-    //             name_en: el('#ModalEditCategory #name_en').value,
-    //             _method: 'PUT'
-    //         }, {
-    //             headers: {'Content-type': 'application/json; charset=UTF-8'}
-    //         })
-    //         .then(response => {
-    //             if (response.status === 400) {
-    //                 renderMsgError(response);
-    //             } else {
-    //                 renderMsgSuccess(response, '#ModalEditCategory', 'primary');
-    //             }
-    //         })
-    //         .catch(error => console.error(error));
-    // })
-
     //********* Delete Service *********//
     async function delete_service(id) {
         el('#ModalDeleteService #service_id').value = id;
@@ -106,6 +38,14 @@
             .catch(error => console.error(error));
     })
 
+    //********* Update Service *********//
+    async function update_service(id) {
+
+        await axios
+            .get(`http://127.0.0.1:8000/ar/dashboard/service-edit/${id}`, {
+                headers: {'Content-type': 'application/json; charset=UTF-8'}
+            });
+    }
 
     //********* Activate Service *********//
     async function active_service(id) {
@@ -146,7 +86,7 @@
                     </td>
                     <td>
                         <x-dropdown-table>
-                            <a class="dropdown-item edit_category" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
+                            <a class="dropdown-item edit_category" href="/dashboard/service-edit/${item}"><i class="bx bx-edit-alt me-1"></i>
                                 @lang('general.edit')
                             </a>
                             <button class="dropdown-item delete_category" onclick="delete_service(${item.id})" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalDeleteService" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>

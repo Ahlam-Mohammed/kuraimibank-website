@@ -53,7 +53,8 @@
         {{-- services --}}
         <li class="menu-item
         @if(Route::currentRouteName() === 'dashboard.services' ||
-            Route::currentRouteName() === 'dashboard.service.create') active @endif">
+            Route::currentRouteName() === 'dashboard.service.create' ||
+            Route::currentRouteName() === 'dashboard.categories') active @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
                 <div>@lang('page.services')</div>
@@ -65,31 +66,13 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{ route('dashboard.service.create') }}" class="menu-link">
-                        <div>@lang('page.add_service')</div>
-                    </a>
-                </li>
-
-            </ul>
-        </li>
-
-        {{-- services --}}
-        <li class="menu-item
-        @if(Route::currentRouteName() === 'dashboard.categories' ||
-            Route::currentRouteName() === 'dashboard.subs.category') active @endif">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div>@lang('page.categories')</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
                     <a href="{{ route('dashboard.categories') }}" class="menu-link">
                         <div>@lang('page.categories')</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{ route('dashboard.subs.category') }}" class="menu-link">
-                        <div>@lang('page.sub_categories')</div>
+                    <a href="{{ route('dashboard.service.create') }}" class="menu-link">
+                        <div>@lang('page.add_service')</div>
                     </a>
                 </li>
 

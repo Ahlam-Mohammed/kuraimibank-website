@@ -22,9 +22,7 @@ return new class extends Migration
             $table->json('other_advantage')->nullable();
             $table->json('service_condition')->nullable();
             $table->boolean('is_active')->default(1);
-
-            $table->foreignId('sub_category_id')->nullable();
-            $table->foreign('sub_category_id')->references('id')->on('sub_categories')->onDelete('cascade');
+            $table->string('position')->nullable();
 
             $table->foreignId('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

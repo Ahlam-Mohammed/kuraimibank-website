@@ -34,7 +34,6 @@ class ServiceSeeder extends Seeder
                 'ar' => 'شروط فتح الحساب:',
                 'en'
             ],
-            'sub_category_id' => 1,
             'category_id'     => 1
         ]);
 
@@ -79,7 +78,6 @@ class ServiceSeeder extends Seeder
                 'ar' => 'شروط فتح الحساب:',
                 'en'
             ],
-            'sub_category_id' => 1,
             'category_id'     => 1
         ]);
     }
