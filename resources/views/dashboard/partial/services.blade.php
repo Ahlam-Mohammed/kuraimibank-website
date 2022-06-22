@@ -20,7 +20,7 @@
         <th></th>
     </x-slot:thead>
 
-
+    <x-slot:tbody></x-slot:tbody>
 
 </x-table>
 
