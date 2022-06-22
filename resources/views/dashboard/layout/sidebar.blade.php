@@ -135,6 +135,14 @@
             </a>
         </li>
 
+        {{-- Partner --}}
+        <li class="menu-item">
+            <a href="{{ route('dashboard.partner.partner.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-chart"></i>
+                <div>@lang('page.partner')</div>
+            </a>
+        </li>
+
         {{-- News --}}
         <li class="menu-item">
             <a href="{{ route('dashboard.news') }}" class="menu-link">

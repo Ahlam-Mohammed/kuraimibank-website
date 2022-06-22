@@ -9,6 +9,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form enctype="multipart/form-data">
+                @csrf
                 {{-- Model Body --}}
                 <div class="modal-body"> {{ $body }} </div>
 

@@ -18,5 +18,6 @@ return [
     'social'         => 'Social Media',
     'contact'        => 'Contact Us',
     'principle'      => 'Values and operational principles',
-    'privacy-policy' => 'Privacy policy'
+    'privacy-policy' => 'Privacy policy',
+    'partner'        => 'Our Partner'
 ];

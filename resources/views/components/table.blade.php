@@ -14,7 +14,9 @@
             <thead>{{ $thead }}</thead>
 
             {{-- Table Body --}}
-            <tbody class="table-border-bottom-0"></tbody>
+            <tbody class="table-border-bottom-0">
+                {{ $tbody }}
+            </tbody>
 
         </table>
     </div>

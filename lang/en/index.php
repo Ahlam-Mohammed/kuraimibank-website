@@ -84,6 +84,14 @@ return [
         'news'       => 'News'
     ],
 
+    'partner' => [
+        'id'         => 'ID',
+        'name'       => 'Partner Name',
+        'desc'       => 'Partner Description',
+        'image'      => 'Partner Image',
+        'partner'    => 'Partner'
+    ],
+
     'contact' => [
         'tel'      => 'Tel',
         'tollFree' => 'Toll Free',
