@@ -7,12 +7,11 @@ trait Uploads
     public function storeImage($dataImage, $pathImage): bool|string
     {
         if ($dataImage != null) {
-            $truck_img = time() . rand(1111111, 9999999) . '.' . $dataImage->extension();
-            $dataImage->move(public_path($pathImage), $truck_img);
-            return $truck_img;
-        } else {
-            return false;
+            return $this->moveImageToStorage($dataImage, $pathImage);
         }
+        else
+            return false;
+
     }
 
     public function updateImage($dataImage, $pathImage, $oldName): bool|string
@@ -20,13 +19,11 @@ trait Uploads
         if (file_exists($oldName)) {
             @unlink($oldName);
         }
-        if ($dataImage != null) {
-            $truck_img = time() . rand(1111111111, 9999999999) . '.' . $dataImage->extension();
-            $dataImage->move(public_path($pathImage), $truck_img);
-            return  $truck_img;
-        } else {
+        if ($dataImage != null)
+            return $this->moveImageToStorage($dataImage, $pathImage);
+        else
             return false;
-        }
+
     }
 
     public function deleteImage($oldName): bool
@@ -37,5 +34,17 @@ trait Uploads
         } else {
             return false;
         }
+    }
+
+    protected function moveImageToStorage($dataImage, $pathImage): string
+    {
+        $newName = $this->generateRandomName($dataImage);
+        $dataImage->storePubliclyAs($pathImage, $newName);
+        return $newName;
+    }
+
+    private function generateRandomName($dataImage): string
+    {
+        return uniqid() . time() . rand(1111111, 9999999) . '.' . $dataImage->extension();
     }
 }
