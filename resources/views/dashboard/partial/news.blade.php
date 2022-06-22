@@ -25,16 +25,19 @@
 
     {{-- Model Body --}}
     <x-slot:body>
-        <ul id="errorMsg"></ul>
         <div class="row">
             <div class="col-12 mb-3">
                 <label for="nameWithTitle" class="form-label">@lang('index.news.title')  <span class="text-lowercase">\(Arabic)</span> </label>
                 <input name="title_ar" value="" id="title_ar" type="text" class="form-control" placeholder="ادخل العنوان باللغة العربية">
+                <div id="title_error_ar" class="invalid-feedback" style="display: block"></div>
             </div>
+
             <div class="col-12 mb-3">
                 <label for="nameWithTitle" class="form-label">@lang('index.news.title') <span class="text-lowercase">\(English)</span> </label>
                 <input name="title_en" value="" id="title_en" type="text" class="form-control" placeholder="ادخل العنوان باللغة الإنجليزية">
+                <div id="title_error_en" class="invalid-feedback" style="display: block"></div>
             </div>
+
         </div>
         <hr class="my-4 mx-n4" />
 
@@ -43,16 +46,13 @@
             <div class="col-12">
                 <label class="form-label" for="desc_ar">@lang('index.news.desc') <span class="text-lowercase">\(Arabic)</span></label>
                 <textarea name="desc_ar" class="form-control  @error('desc_ar') is-invalid @enderror" id="desc_ar" rows="3" placeholder="ادخل الوصف باللغة العربية"></textarea>
-                @error('desc_ar')
-                    <div class="invalid-feedback"> {{ $message }} </div>
-                @enderror
+                <div id="desc_error_ar" class="invalid-feedback" style="display: block"></div>
             </div>
+
             <div class="col-12">
                 <label class="form-label" for="desc_en">@lang('index.news.desc') <span class="text-lowercase">\(English)</span></label>
                 <textarea name="desc_en" class="form-control  @error('desc_en') is-invalid @enderror" id="desc_en" rows="3" placeholder="ادخل الوصف باللغة الإنجليزية"></textarea>
-                @error('desc_en')
-                    <div class="invalid-feedback"> {{ $message }} </div>
-                @enderror
+                <div id="desc_error_en" class="invalid-feedback" style="display: block"></div>
             </div>
         </div>
         <hr class="my-4 mx-n4" />
@@ -62,16 +62,13 @@
             <div class="col-12">
                 <label class="form-label" for="desc_ar">@lang('index.news.background')</label>
                 <input name="background" id="background" type="file" class="form-control @error('background') is-invalid @enderror">
-                @error('background')
-                    <div class="invalid-feedback"> {{ $message }} </div>
-                @enderror
+                <div id="background_error" class="invalid-feedback" style="display: block"></div>
             </div>
+
             <div class="col-12">
                 <label class="form-label" for="desc_ar">@lang('index.news.image')</label>
                 <input name="image" id="image" type="file" class="form-control @error('image') is-invalid @enderror">
-                @error('image')
-                    <div class="invalid-feedback"> {{ $message }} </div>
-                @enderror
+                <div id="image_error" class="invalid-feedback" style="display: block"></div>
             </div>
 
         </div>

@@ -68,6 +68,8 @@ Route::prefix('dashboard/')->middleware('web')->name('dashboard.')->group(functi
 
     });
 
+
+
     //********* Contact Info Route *********//
     Route::controller(ContactInfoController::class)->name('contact.')->group(function (){
 

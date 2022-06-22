@@ -36,11 +36,20 @@
 
     //********* Render Message Errors *********//
     let renderMsgError = (response) => {
-        el('#errorMsg').innerHTML = '';
-        el('#errorMsg').addClass('alert alert-danger');
-
-        response.errors.forEach((element, index, err_value) => {
-            el('#errorMsg').innerHTML = `<li> ${err_value} </li>`;
+        Object.keys(response.errors)
+        .forEach(key => {
+            key === 'title_ar' ?
+                el('#title_error_ar').innerHTML = `${response.errors[key]}` : '';
+            key === 'title_en' ?
+                el('#title_error_en').innerHTML = `${response.errors[key]}` : '';
+            key === 'desc_ar' ?
+                el('#desc_error_ar').innerHTML = `${response.errors[key]}` : '';
+            key === 'desc_en' ?
+                el('#desc_error_en').innerHTML = `${response.errors[key]}` : '';
+            key === 'background' ?
+                el('#background_error').innerHTML = `${response.errors[key]}` : '';
+            key === 'image' ?
+                el('#image_error').innerHTML = `${response.errors[key]}` : '';
         });
     }
 
@@ -50,7 +59,7 @@
 
         el('.alert').style.display = 'block';
         el('.alert').classList.add(`alert-${type}`);
-        el('.alert div#span').innerHTML = `<span> ${response.data.message} </span>`;
+        el('.alert div#span').innerHTML = `<span> ${response.message} </span>`;
     }
 
     //********* Render Message Successful *********//
@@ -78,25 +87,32 @@
 
     //********* Creat New news *********//
     el('.add_news').addEventListener('click', async (e) => {
+
         e.preventDefault();
 
-        const response = await axios
-            .post('http://127.0.0.1:8000/api/dashboard/news', {
-                title_ar: el('#title_ar').value,
-                title_en: el('#title_en').value,
-                desc_ar: el('#desc_ar').value,
-                desc_en: el('#desc_en').value,
-                background: el('#background').value,
-                image: el('#image').value
-            }, {
-                headers: { 'Content-type': 'application/json; charset=UTF-8' }
-            });
+        let formData = new FormData();
 
-        if(response.status === 400) {
-            renderMsgError(response);
+        formData.append('title_ar', el('#title_ar').value);
+        formData.append('title_en', el('#title_en').value);
+        formData.append('desc_ar', el('#desc_ar').value);
+        formData.append('desc_en', el('#desc_en').value);
+        formData.append('background', el('#background').files[0]);
+        formData.append('image', el('#image').files[0]);
+
+
+        console.log(formData)
+
+        const response = await axios
+            .post('http://127.0.0.1:8000/api/dashboard/news', formData, {
+                headers: { "Content-Type": "multipart/form-data; charset=UTF-8"} });
+
+        if(response.data.status === 400) {
+            console.log(response.data.errors)
+            renderMsgError(response.data);
         }
         else {
-            renderMsgSuccess(response, '#ModalAddNews', 'primary');
+            console.log(response.data)
+            renderMsgSuccess(response.data, '#ModalAddNews', 'primary');
         }
     });
 

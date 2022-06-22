@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers\api;
 
+use App\Enum\SettingEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\NewsRequest;
 use App\Http\Resources\NewsResource;
 use App\Models\News;
+use App\Traits\Uploads;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Validator;
+use Lang;
 
 class NewsController extends Controller
 {
+    use Uploads;
     /**
      * Display a listing of the resource.
      */
@@ -23,17 +27,36 @@ class NewsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(NewsRequest $request)
+    public function store(Request $request)
     {
-        $validated = $request->validated();
+        $validator = Validator::make($request->all(), [
+            'title_ar'   => 'required|max:191',
+            'title_en'   => 'required|max:191',
+            'desc_ar'    => 'required',
+            'desc_en'    => 'required',
+            'image'      => 'nullable|image|mimes:jpeg,jpg,png,svg|max:2048',
+            'background' => 'required|image|mimes:jpeg,jpg,png,svg|max:2048',
+        ]);
 
-        if(!$validated) {
+        if($validator->fails()) {
             return response()->json([
                 'status' => 400,
-                'errors' => $validated->messages()
+                'errors' => $validator->messages()
             ]);
         }
         else {
+            if ($request->hasFile('background'))
+            {
+                $background = $this->storeImage(
+                    $request->file('background'), SettingEnum::PATH_NEWS_IMAGE);
+            }
+
+            if ($request->hasFile('image'))
+            {
+                $image = $this->storeImage(
+                    $request->file('image'), SettingEnum::PATH_NEWS_IMAGE);
+            }
+
             News::create([
                 'title' => [
                     'ar' => $request->title_ar,
@@ -43,8 +66,8 @@ class NewsController extends Controller
                     'ar' => $request->desc_ar,
                     'en' => $request->desc_en
                 ],
-                'image'       => '$request->image',
-                'background'  => '$request->background'
+                'image'       => $image,
+                'background'  => $background
             ]);
 
             return response()->json([

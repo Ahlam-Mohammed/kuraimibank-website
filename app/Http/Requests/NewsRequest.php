@@ -28,8 +28,8 @@ class NewsRequest extends FormRequest
             'title_en'   => 'required|max:191',
             'desc_ar'    => 'required',
             'desc_en'    => 'required',
-//            'image'      => 'nullable|image|mimes:jpeg,jpg,png,svg|max:2048',
-//            'background' => 'required|image|mimes:jpeg,jpg,png,svg|max:2048',
+            'image'      => 'nullable|image|mimes:jpeg,jpg,png,svg|max:2048',
+            'background' => 'required|image|mimes:jpeg,jpg,png,svg|max:2048',
 
         ];
     }
