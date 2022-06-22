@@ -59,6 +59,10 @@ Route::prefix('dashboard/')->middleware('web')->name('dashboard.')->group(functi
         Route::get('strategy-index', 'indexStrategy')->name('strategy.index');
         Route::post('strategy-update', 'updateStrategy')->name('strategy.update');
 
+        ###### Policy ######
+        Route::get('policy-index', 'indexPolicy')->name('policy.index');
+        Route::post('policy-update', 'updatePolicy')->name('policy.update');
+
         ###### Principle ######
         Route::get('principle-index', 'indexPrinciple')->name('principle.index');
 

@@ -75,4 +75,24 @@ class WebInfoController extends Controller
     {
         return view('dashboard.page.manage_web_info.principle');
     }
+
+    //********* Get Privacy policy *********//
+    public function indexPolicy()
+    {
+        $policy = WebInfo::where('key', WebInfoEnum::POLICY)->first();
+        return view('dashboard.page.manage_web_info.privacy-policy', compact('policy'));
+    }
+
+    //********* Update Privacy policy *********//
+    public function updatePolicy(Request $request)
+    {
+        WebInfo::updateOrCreate(['key' => WebInfoEnum::POLICY],[
+            'value' => [
+                'ar' => $request->policy_ar,
+                'en' => $request->policy_en
+            ]
+        ]);
+
+        return redirect()->back()->with('success', Lang::get('messages.updated_message'));
+    }
 }

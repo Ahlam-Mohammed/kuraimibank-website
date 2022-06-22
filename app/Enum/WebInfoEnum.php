@@ -8,6 +8,7 @@ class WebInfoEnum
     const ABOUT    = 'about';
     const VISION   = 'vision';
     const STRATEGY = 'strategy';
+    const POLICY   = 'policy';
 
     //********* Social *********//
     const FACEBOOK  = 'facebook';

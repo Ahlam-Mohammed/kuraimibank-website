@@ -104,6 +104,11 @@
                     </a>
                 </li>
                 <li class="menu-item">
+                    <a href="{{ route('dashboard.web-info.policy.index') }}" class="menu-link">
+                        <div>@lang('page.privacy-policy')</div>
+                    </a>
+                </li>
+                <li class="menu-item">
                     <a href="{{ route('dashboard.web-info.principle.index') }}" class="menu-link">
                         <div>@lang('page.principle')</div>
                     </a>
