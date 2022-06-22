@@ -34,9 +34,14 @@ Route::prefix('dashboard/')->middleware('web')->name('dashboard.')->group(functi
     Route::view('/manage-exchange-rates', 'dashboard.page.manage-exchange-rate')->name('rates');
     Route::view('/manage-news', 'dashboard.page.manage-news')->name('news');
 
-//    Route::view('/about', 'dashboard.page.manage_web_info.about')->name('about');
-//    Route::view('/vision', 'dashboard.page.manage_web_info.vision')->name('vision');
-//    Route::view('/strategy', 'dashboard.page.manage_web_info.strategy')->name('strategy');
+
+    //********* Our Partner Route *********//
+    Route::resource('partners', OurPartnerController::class);
+    Route::get('partners/active/{id}', [OurPartnerController::class, 'activate'])->name('partners.active');
+
+    //********* financial_reports Route *********//
+    Route::resource('reports', ReportController::class);
+    Route::get('reports/active/{id}', [ReportController::class, 'activate'])->name('reports.active');
 
     //********* Services Route *********//
     Route::controller(ServiceController::class)->name('service.')->group(function (){
@@ -69,31 +74,6 @@ Route::prefix('dashboard/')->middleware('web')->name('dashboard.')->group(functi
         Route::get('principle-index', 'indexPrinciple')->name('principle.index');
 
     });
-
-    //********* Our Partner Route *********//
-    Route::controller(OurPartnerController::class)->name('partner.')->group(function (){
-
-        Route::get('partner-index', 'index')->name('index');
-        Route::post('partner-store', 'store')->name('store');
-        Route::post('partner-update/{id}', 'update')->name('update');
-        Route::get('partner-delete/{id}', 'destroy')->name('delete');
-        Route::get('partner-active/{id}', 'activate')->name('active');
-
-    });
-
-    //********* financial_reports Route *********//
-//    Route::controller(ReportController::class)->name('report.')->group(function (){
-//
-//        Route::get('report-index', 'index')->name('index');
-//        Route::post('report-store', 'store')->name('store');
-//        Route::post('report-update/{id}', 'update')->name('update');
-//        Route::get('report-delete/{id}', 'destroy')->name('delete');
-//        Route::get('report-active/{id}', 'activate')->name('active');
-//
-//    });
-
-    Route::resource('reports', ReportController::class);
-    Route::get('reports/active/{id}', [ReportController::class, 'activate'])->name('reports.active');
 
     //********* Contact Info Route *********//
     Route::controller(ContactInfoController::class)->name('contact.')->group(function (){

@@ -137,7 +137,7 @@
 
         {{-- Partner --}}
         <li class="menu-item">
-            <a href="{{ route('dashboard.partner.index') }}" class="menu-link">
+            <a href="{{ route('dashboard.partners.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-chart"></i>
                 <div>@lang('page.partner')</div>
             </a>
