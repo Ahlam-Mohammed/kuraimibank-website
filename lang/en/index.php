@@ -35,11 +35,14 @@ return [
     ],
 
     'service_category' => [
-        'id'         => 'ID',
-        'name'       => 'Category Name',
-        'category'   => 'Category',
-        'categories' => 'Categories',
-        'add_branch' => 'Add Branch for Category'
+        'id'              => 'ID',
+        'name'            => 'Category Name',
+        'category'        => 'Category',
+        'categories'      => 'Categories',
+        'add_branch'      => 'Add Branch for Category',
+        'parent'          => 'Parent',
+        'type_category'   => 'Category',
+        'type_branch'     => 'Branch',
     ],
 
     'sub_category' => [

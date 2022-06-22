@@ -17,6 +17,10 @@ return new class extends Migration
             $table->id();
             $table->json('name');
             $table->boolean('is_active')->default(1);
+            $table->boolean('is_branch')->default(0);
+
+            $table->foreignId('category_id')->nullable();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

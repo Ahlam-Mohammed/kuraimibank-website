@@ -13,6 +13,7 @@
     <x-slot:thead>
         <th>@lang('index.service_category.id')</th>
         <th>@lang('index.service_category.name')</th>
+        <th>@lang('index.service_category.parent')</th>
         <th>@lang('general.created_at')</th>
         <th>@lang('general.status')</th>
         <th></th>

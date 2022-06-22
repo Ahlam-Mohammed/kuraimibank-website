@@ -24,7 +24,6 @@ return [
         'working_hours' => 'أوقات الدوام',
         'service_point' => 'نقاط الخدمة',
         'category'      => 'نوع النقطة',
-        'type'          => 'Type'
     ],
 
     'category' => [
@@ -35,11 +34,14 @@ return [
     ],
 
     'service_category' => [
-        'id'         => 'رقم الصنف',
-        'name'       => 'اسم الصنف',
-        'category'   => 'الصنف',
-        'categories' => 'الأصناف',
-        'add_branch' => 'إضافة فرع للصنف'
+        'id'              => 'رقم الصنف',
+        'name'            => 'الاسم',
+        'category'        => 'الصنف',
+        'categories'      => 'الأصناف',
+        'add_branch'      => 'إضافة فرع للصنف',
+        'parent'          => 'Parent',
+        'type_category'   => 'صنف',
+        'type_branch'     => 'فرع',
     ],
 
     'sub_category' => [

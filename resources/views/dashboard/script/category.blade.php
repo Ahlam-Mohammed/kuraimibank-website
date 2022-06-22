@@ -136,7 +136,7 @@
         e.preventDefault();
 
         const response = await axios
-            .post('http://127.0.0.1:8000/api/dashboard/sub/category', {
+            .post('http://127.0.0.1:8000/api/dashboard/categories', {
                 name_ar: el('#ModalAddBranch #name_ar').value,
                 name_en: el('#ModalAddBranch #name_en').value,
                 category_id: el('#ModalAddBranch #category_id').value
@@ -161,7 +161,10 @@
                 .insertRow().innerHTML =
                 `<tr>
                     <td><strong> ${item.id} </strong></td>
-                    <td> ${item.name} </td>
+                    <td> ${item.name} -
+                        <span class="text-primary"> (${item.is_branch ? `@lang('index.service_category.type_branch')` : `@lang('index.service_category.type_category')`}) </span>
+                    </td>
+                    <td> ${item.is_branch ? item.parent.name : `___`} </td>
                     <td> ${item.created_at} </td>
                     <td> ${item.is_active ?
                         `<span class="badge bg-label-primary me-1">@lang('general.activated')</span>` :
@@ -169,9 +172,10 @@
                     </td>
                     <td>
                         <x-dropdown-table>
-                            <button class="dropdown-item active_category" type="button" onclick="add_branch(${item.id})" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalAddBranch" href="javascript:void(0);"><i class="tf-icons bx bx-plus"></i>
+                            ${item.is_branch ? `` :
+                            `<button class="dropdown-item active_category" type="button" onclick="add_branch(${item.id})" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalAddBranch" href="javascript:void(0);"><i class="tf-icons bx bx-plus"></i>
                                 @lang('index.service_category.add_branch')
-                            </button>
+                            </button>`}
                             <button class="dropdown-item edit_category" onclick="edit_category(${item.id})" type="button" data-bs-toggle="modal" data-bs-target="#ModalEditCategory" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
                                 @lang('general.edit')
                             </button>

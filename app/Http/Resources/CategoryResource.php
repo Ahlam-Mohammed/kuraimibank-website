@@ -18,6 +18,8 @@ class CategoryResource extends JsonResource
             'id'         => $this->id,
             'name'       => $this->name,
             'is_active'  => $this->is_active,
+            'is_branch'  => $this->is_branch,
+            'parent'     => new CategoryResource($this->parent),
             'created_at' => $this->created_at->format('Y/m/d - h:m A'),
             'updated_at' => $this->updated_at->format('Y/m/d - h:m A')
         ];

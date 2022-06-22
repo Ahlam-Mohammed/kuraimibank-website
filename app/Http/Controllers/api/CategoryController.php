@@ -16,7 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::latest()->get();
+        $categories = Category::latest()->with('parent')->get();
         return CategoryResource::collection($categories);
     }
 
@@ -34,11 +34,14 @@ class CategoryController extends Controller
             ]);
         }
         else {
-            Category::create([
+            $category = Category::create([
                 'name' => [
                     'ar' => $request->name_ar,
                     'en' => $request->name_en
-                ]]);
+                ],
+                'category_id' => $request->category_id]);
+
+            !$request->category_id ?: $category->update(['is_branch' => !$category->is_branch]);
 
             return response()->json([
                 'status'  => 200,
@@ -113,7 +116,14 @@ class CategoryController extends Controller
         $category = Category::find($id);
 
         if($category) {
+
+            $branches = Category::where('category_id', $category->id)->get();
+            foreach ($branches as $branch) {
+                $branch->delete();
+            }
+
             $category->delete();
+
             return response()->json([
                 'status'  => 200,
                 'message' => Lang::get('messages.deleted_message')
@@ -135,6 +145,10 @@ class CategoryController extends Controller
         $category = Category::find($id);
 
         if($category) {
+            $branches = Category::where('category_id', $category->id)->get();
+            foreach ($branches as $branch) {
+                $branch->update(['is_active' => !$category->is_active]);
+            }
             $category->update(['is_active' => !$category->is_active]);
             return response()->json([
                 'status'  => 200,
