@@ -22,7 +22,7 @@ Route::get('change-language/{locale}', [LocaleController::class, 'switch'])->nam
 | Dashboard Routes
 |--------------------------------------------------------------------------|
 */
-Route::prefix('dashboard/')->middleware('web')->name('dashboard.')->group(function (){
+Route::prefix('dashboard/')->middleware('web','auth')->name('dashboard.')->group(function (){
 
     //********* Pages Route *********//
     Route::view('/', 'dashboard.page.index')->name('index');
@@ -91,3 +91,7 @@ Route::prefix('dashboard/')->middleware('web')->name('dashboard.')->group(functi
 
 
 });
+
+Auth::routes();
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

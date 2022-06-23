@@ -13,6 +13,12 @@ return [
     'active'           => 'Active',
     'deactivation'     => 'Deactivation',
     'created_at'       => 'Created At',
-    'update'           => 'Update'
+    'update'           => 'Update',
+    'login'            => 'Login',
+    'email'            => 'Email Address',
+    'password'      => 'Password',
+    'forgot'        => 'Forgot Your Password?',
+    'remember'      => 'Remember Me',
+    'logout'        => 'Logout'
 
 ];
