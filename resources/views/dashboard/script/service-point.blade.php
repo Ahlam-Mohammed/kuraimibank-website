@@ -1,6 +1,9 @@
 <script>
     $(document).ready( () => {
 
+        const els = (element) => document.querySelectorAll(element);
+        const el  = (element) => document.querySelector(element);
+
         fetchCountries();
 
         // Add New Service Point
@@ -31,7 +34,7 @@
                 data,
                 success (response) {
                     if (response.status === 400) {
-                        renderMsgError(response);
+                        renderMsgError(response, '#ModalAddServicePoint');
                     } else {
                         renderMsgSuccess(response, '#ModalAddServicePoint');
                     }
@@ -103,7 +106,7 @@
                 dataType: "json",
                 success(response) {
                     if (response.status === 400) {
-                        renderMsgError(response);
+                        renderMsgError(response, '#ModalEditServicePoint');
                     } else {
                         renderMsgSuccess(response, '#ModalEditServicePoint');
                     }
@@ -217,12 +220,26 @@
             });
         }
 
-        let renderMsgError = (response) => {
-            $('#errorMsg').html('').addClass('alert alert-danger');
-
-            $.each(response.errors, (key, err_value) => {
-                $('#errorMsg').append(`<li> ${err_value} </li>`);
-            });
+        let renderMsgError = (response, modal) => {
+            Object.keys(response.errors)
+                .forEach(key => {
+                    key === 'name_ar' ?
+                        el(modal + ' #name_error_ar').innerHTML = `${response.errors[key]}` : '';
+                    key === 'name_en' ?
+                        el(modal + ' #name_error_en').innerHTML = `${response.errors[key]}` : '';
+                    key === 'address_ar' ?
+                        el(modal + ' #address_error_ar').innerHTML = `${response.errors[key]}` : '';
+                    key === 'address_en' ?
+                        el(modal + ' #address_error_en').innerHTML = `${response.errors[key]}` : '';
+                    key === 'working_hours_ar' ?
+                        el(modal + ' #working_hours_error_ar').innerHTML = `${response.errors[key]}` : '';
+                    key === 'working_hours_en' ?
+                        el(modal + ' #working_hours_error_en').innerHTML = `${response.errors[key]}` : '';
+                    key === 'phone' ?
+                        el(modal + ' #phone_error').innerHTML = `${response.errors[key]}` : '';
+                    key === 'second_phone' ?
+                        el(modal + ' #second_phone_error').innerHTML = `${response.errors[key]}` : '';
+                });
         }
 
         let renderMsgSuccess = (response, modal) => {

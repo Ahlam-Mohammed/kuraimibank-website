@@ -1,6 +1,9 @@
 <script>
     $(document).ready( () => {
 
+        const els = (element) => document.querySelectorAll(element);
+        const el  = (element) => document.querySelector(element);
+
         fetchCountries();
 
         // Add New Country
@@ -21,7 +24,7 @@
                 data,
                 success (response) {
                     if (response.status === 400) {
-                        renderMsgError(response);
+                        renderMsgError(response, '#ModalAddCountry');
                     } else {
                         renderMsgSuccess(response, '#ModalAddCountry');
                     }
@@ -75,7 +78,7 @@
                 dataType: "json",
                 success(response) {
                     if (response.status === 400) {
-                        renderMsgError(response);
+                        renderMsgError(response, '#ModalEditCountry');
                     } else {
                         renderMsgSuccess(response, '#ModalEditCountry');
                     }
@@ -187,12 +190,14 @@
             });
         }
 
-        let renderMsgError = (response) => {
-            $('#errorMsg').html('').addClass('alert alert-danger');
-
-            $.each(response.errors, (key, err_value) => {
-                $('#errorMsg').append(`<li> ${err_value} </li>`);
-            });
+        let renderMsgError = (response, modal) => {
+            Object.keys(response.errors)
+                .forEach(key => {
+                    key === 'name_ar' ?
+                        el(modal + ' #name_error_ar').innerHTML = `${response.errors[key]}` : '';
+                    key === 'name_en' ?
+                        el(modal + ' #name_error_en').innerHTML = `${response.errors[key]}` : '';
+                });
         }
 
         let renderMsgSuccess = (response, modal) => {

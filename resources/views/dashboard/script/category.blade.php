@@ -9,7 +9,6 @@
         axios.get('http://127.0.0.1:8000/api/dashboard/categories')
             .then(response => {
                 renderTableContent(response);
-                console.log(response)
             })
             .catch(error => console.error(error));
     }
@@ -26,11 +25,11 @@
                 headers: { 'Content-type': 'application/json; charset=UTF-8' }
             });
 
-        if(response.status === 400) {
-            renderMsgError(response);
+        if(response.data.status === 400) {
+            renderMsgError(response.data, '#ModalAddCategory');
         }
         else {
-            renderMsgSuccess(response, '#ModalAddCategory', 'primary');
+            renderMsgSuccess(response.data, '#ModalAddCategory', 'primary');
         }
     });
 
@@ -48,7 +47,7 @@
             })
             .then(response => {
                 if (response.status === 404) {
-                    renderMsgError(response);
+                    renderMsgError(response.data);
                     el('#ModalEditCategory .btn-close').click();
                 } else {
                     el('#ModalEditCategory #name_ar').value = response.data.category.name;
@@ -73,10 +72,12 @@
                 headers: {'Content-type': 'application/json; charset=UTF-8'}
             })
             .then(response => {
-                if (response.status === 400) {
-                    renderMsgError(response);
+                if (response.data.status === 400) {
+                    console.log(response.data)
+                    renderMsgError(response.data, '#ModalEditCategory');
                 } else {
-                    renderMsgSuccess(response, '#ModalEditCategory', 'primary');
+                    console.log(response.data)
+                    renderMsgSuccess(response.data, '#ModalEditCategory', 'primary');
                 }
             })
             .catch(error => console.error(error));
@@ -144,11 +145,11 @@
                 headers: { 'Content-type': 'application/json; charset=UTF-8' }
             });
 
-        if(response.status === 400) {
-            renderMsgError(response);
+        if(response.data.status === 400) {
+            renderMsgError(response.data, '#ModalAddBranch');
         }
         else {
-            renderMsgSuccess(response, '#ModalAddBranch', 'primary');
+            renderMsgSuccess(response.data, '#ModalAddBranch', 'primary');
         }
     });
 
@@ -192,13 +193,14 @@
     }
 
     //********* Render Message Errors *********//
-    let renderMsgError = (response) => {
-        el('#errorMsg').innerHTML = '';
-        el('#errorMsg').addClass('alert alert-danger');
-
-        response.errors.forEach((element, index, err_value) => {
-            el('#errorMsg').innerHTML = `<li> ${err_value} </li>`;
-        });
+    let renderMsgError = (response, modal) => {
+        Object.keys(response.errors)
+            .forEach(key => {
+                key === 'name_ar' ?
+                    el(modal+' #name_error_ar').innerHTML = `${response.errors[key]}` : '';
+                key === 'name_en' ?
+                    el(modal+' #name_error_en').innerHTML = `${response.errors[key]}` : '';
+            });
     }
 
     //********* Render Message Successful *********//
@@ -218,7 +220,7 @@
 
         el('.alert').style.display = 'block';
         el('.alert').classList.add(`alert-${type}`);
-        el('.alert div#span').innerHTML = `<span> ${response.data.message} </span>`;
+        el('.alert div#span').innerHTML = `<span> ${response.message} </span>`;
     }
 
 </script>

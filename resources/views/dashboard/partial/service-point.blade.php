@@ -39,10 +39,12 @@
             <div class="col-12 mb-3">
                 <label for="nameWithTitle" class="form-label">@lang('index.service_point.name')  <span class="text-lowercase">\(Arabic)</span> </label>
                 <input name="name_ar" id="name_ar" type="text" class="form-control" placeholder="ادخل الاسم باللغة العربية">
+                <div id="name_error_ar" class="invalid-feedback" style="display: block"></div>
             </div>
             <div class="col-12 mb-3">
                 <label for="nameWithTitle" class="form-label">@lang('index.service_point.name') <span class="text-lowercase">\(English)</span> </label>
                 <input name="name_en" id="name_en" type="text" class="form-control" placeholder="ادخل الاسم باللغة الإنجليزية">
+                <div id="name_error_en" class="invalid-feedback" style="display: block"></div>
             </div>
         </div>
         <hr class="my-0">
@@ -51,10 +53,12 @@
             <div class="col-12 mb-3">
                 <label for="nameWithTitle" class="form-label">@lang('index.service_point.address')  <span class="text-lowercase">\(Arabic)</span> </label>
                 <input name="address_ar" id="address_ar" type="text" class="form-control" placeholder="ادخل العنوان باللغة العربية">
+                <div id="address_error_ar" class="invalid-feedback" style="display: block"></div>
             </div>
             <div class="col-12 mb-3">
                 <label for="nameWithTitle" class="form-label">@lang('index.service_point.address') <span class="text-lowercase">\(English)</span> </label>
                 <input name="address_en" id="address_en" type="text" class="form-control" placeholder="ادخل العنوان باللغة الإنجليزية">
+                <div id="address_error_en" class="invalid-feedback" style="display: block"></div>
             </div>
         </div>
         <hr class="my-0">
@@ -63,10 +67,12 @@
             <div class="col-12 mb-3">
                 <label for="nameWithTitle" class="form-label">@lang('index.service_point.working_hours')  <span class="text-lowercase">\(Arabic)</span> </label>
                 <input name="working_hours_ar" id="working_hours_ar" type="text" class="form-control" placeholder="ادخل اوقات العمل باللغة العربية">
+                <div id="working_hours_error_ar" class="invalid-feedback" style="display: block"></div>
             </div>
             <div class="col-12 mb-3">
                 <label for="nameWithTitle" class="form-label">@lang('index.service_point.working_hours') <span class="text-lowercase">\(English)</span> </label>
                 <input name="working_hours_en" id="working_hours_en" type="text" class="form-control" placeholder="ادخل اوقات العمل باللغة الإنجليزية">
+                <div id="working_hours_error_en" class="invalid-feedback" style="display: block"></div>
             </div>
         </div>
         <hr class="my-0">
@@ -75,10 +81,12 @@
             <div class="col-12 mb-3">
                 <label for="nameWithTitle" class="form-label">@lang('index.service_point.phone') </label>
                 <input name="phone" id="phone" type="text" class="form-control" placeholder="ادخل رقم الهاتف">
+                <div id="phone_error" class="invalid-feedback" style="display: block"></div>
             </div>
             <div class="col-12 mb-3">
                 <label for="nameWithTitle" class="form-label">@lang('index.service_point.second_phone') </label>
                 <input name="second_phone" id="second_phone" type="text" class="form-control" placeholder="ادخل رقم الهاتف">
+                <div id="second_phone_error" class="invalid-feedback" style="display: block"></div>
             </div>
         </div>
         <hr class="my-0">
@@ -128,10 +136,12 @@
             <div class="col-12 mb-3">
                 <label for="nameWithTitle" class="form-label">@lang('index.service_point.name')  <span class="text-lowercase">\(Arabic)</span> </label>
                 <input name="name_ar" id="name_ar" type="text" class="form-control" placeholder="ادخل الاسم باللغة العربية">
+                <div id="name_error_ar" class="invalid-feedback" style="display: block"></div>
             </div>
             <div class="col-12 mb-3">
                 <label for="nameWithTitle" class="form-label">@lang('index.service_point.name') <span class="text-lowercase">\(English)</span> </label>
                 <input name="name_en" id="name_en" type="text" class="form-control" placeholder="ادخل الاسم باللغة الإنجليزية">
+                <div id="name_error_en" class="invalid-feedback" style="display: block"></div>
             </div>
         </div>
         <hr class="my-0">
@@ -140,10 +150,12 @@
             <div class="col-12 mb-3">
                 <label for="nameWithTitle" class="form-label">@lang('index.service_point.address')  <span class="text-lowercase">\(Arabic)</span> </label>
                 <input name="address_ar" id="address_ar" type="text" class="form-control" placeholder="ادخل العنوان باللغة العربية">
+                <div id="address_error_ar" class="invalid-feedback" style="display: block"></div>
             </div>
             <div class="col-12 mb-3">
                 <label for="nameWithTitle" class="form-label">@lang('index.service_point.address') <span class="text-lowercase">\(English)</span> </label>
                 <input name="address_en" id="address_en" type="text" class="form-control" placeholder="ادخل العنوان باللغة الإنجليزية">
+                <div id="address_error_en" class="invalid-feedback" style="display: block"></div>
             </div>
         </div>
         <hr class="my-0">
@@ -152,10 +164,12 @@
             <div class="col-12 mb-3">
                 <label for="nameWithTitle" class="form-label">@lang('index.service_point.working_hours')  <span class="text-lowercase">\(Arabic)</span> </label>
                 <input name="working_hours_ar" id="working_hours_ar" type="text" class="form-control" placeholder="ادخل اوقات العمل باللغة العربية">
+                <div id="working_hours_error_ar" class="invalid-feedback" style="display: block"></div>
             </div>
             <div class="col-12 mb-3">
                 <label for="nameWithTitle" class="form-label">@lang('index.service_point.working_hours') <span class="text-lowercase">\(English)</span> </label>
                 <input name="working_hours_en" id="working_hours_en" type="text" class="form-control" placeholder="ادخل اوقات العمل باللغة الإنجليزية">
+                <div id="working_hours_error_en" class="invalid-feedback" style="display: block"></div>
             </div>
         </div>
         <hr class="my-0">
@@ -164,10 +178,12 @@
             <div class="col-12 mb-3">
                 <label for="nameWithTitle" class="form-label">@lang('index.service_point.phone') </label>
                 <input name="phone" id="phone" type="text" class="form-control" placeholder="ادخل رقم الهاتف">
+                <div id="phone_error" class="invalid-feedback" style="display: block"></div>
             </div>
             <div class="col-12 mb-3">
                 <label for="nameWithTitle" class="form-label">@lang('index.service_point.second_phone') </label>
                 <input name="second_phone" id="second_phone" type="text" class="form-control" placeholder="ادخل رقم الهاتف">
+                <div id="second_phone_error" class="invalid-feedback" style="display: block"></div>
             </div>
         </div>
         <hr class="my-0">

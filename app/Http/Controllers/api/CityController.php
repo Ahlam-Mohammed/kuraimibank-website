@@ -8,7 +8,9 @@ use App\Http\Resources\CityResource;
 use App\Http\Resources\CountryResource;
 use App\Models\City;
 use App\Models\Country;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Validator;
 
 class CityController extends Controller
 {
@@ -26,14 +28,18 @@ class CityController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CityRequest $request)
+    public function store(Request $request)
     {
-        $validated = $request->validated();
+        $validator = Validator::make($request->all(), [
+            'name_ar'     => 'required|max:191',
+            'name_en'     => 'required|max:191',
+            'country_id'  => 'required',
+        ]);
 
-        if(!$validated) {
+        if($validator->fails()) {
             return response()->json([
                 'status' => 400,
-                'errors' => $validated->messages()
+                'errors' => $validator->messages()
             ]);
         }
         else {
@@ -78,14 +84,17 @@ class CityController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(CityRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $validated = $request->validated();
+        $validator = Validator::make($request->all(), [
+            'name_ar'     => 'required|max:191',
+            'name_en'     => 'required|max:191',
+        ]);
 
-        if(!$validated) {
+        if($validator->fails()) {
             return response()->json([
                 'status' => 400,
-                'errors' => $validated->messages()
+                'errors' => $validator->messages()
             ]);
         }
         else {

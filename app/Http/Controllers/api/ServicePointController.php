@@ -9,6 +9,7 @@ use App\Models\City;
 use App\Models\ServicePoint;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Validator;
 
 class ServicePointController extends Controller
 {
@@ -25,14 +26,25 @@ class ServicePointController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ServicePointRequest $request)
+    public function store(Request $request)
     {
-        $validated = $request->validated();
+        $validator = Validator::make($request->all(), [
+            'name_ar'          => 'required|max:191',
+            'name_en'          => 'required|max:191',
+            'address_ar'       => 'required|max:191',
+            'address_en'       => 'required|max:191',
+            'working_hours_ar' => 'required|max:191',
+            'working_hours_en' => 'required|max:191',
+            'phone'            => 'required|regex:/^([0-9]*)$/|not_regex:/[a-z]/|min:6|max:19',
+            'second_phone'     => 'nullable|regex:/^([0-9]*)$/|not_regex:/[a-z]/|min:6|max:19',
+            'category'         => 'required',
+            'city_id'          => 'required'
+        ]);
 
-        if(!$validated) {
+        if($validator->fails()) {
             return response()->json([
                 'status' => 400,
-                'errors' => $validated->messages()
+                'errors' => $validator->messages()
             ]);
         }
         else {
@@ -87,14 +99,25 @@ class ServicePointController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(ServicePointRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $validated = $request->validated();
+        $validator = Validator::make($request->all(), [
+            'name_ar'          => 'required|max:191',
+            'name_en'          => 'required|max:191',
+            'address_ar'       => 'required|max:191',
+            'address_en'       => 'required|max:191',
+            'working_hours_ar' => 'required|max:191',
+            'working_hours_en' => 'required|max:191',
+            'phone'            => 'required|regex:/^([0-9]*)$/|not_regex:/[a-z]/|min:6|max:19',
+            'second_phone'     => 'nullable|regex:/^([0-9]*)$/|not_regex:/[a-z]/|min:6|max:19',
+            'category'         => 'required',
+            'city_id'          => 'required'
+        ]);
 
-        if(!$validated) {
+        if($validator->fails()) {
             return response()->json([
                 'status' => 400,
-                'errors' => $validated->messages()
+                'errors' => $validator->messages()
             ]);
         }
         else {
