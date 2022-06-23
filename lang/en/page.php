@@ -10,6 +10,7 @@ return [
     'users'          => 'Manage Users',
     'index'          => 'Dashboard',
     'add_service'    => 'Add Service',
+    'edit_service'   => 'Edit Service',
     'exchange_rate'  => 'Exchange Rate',
     'news'           => 'News',
     'about'          => 'About Al-Kuraimi',

@@ -61,7 +61,7 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="{{ route('dashboard.services') }}" class="menu-link">
+                    <a href="{{ route('dashboard.services.index') }}" class="menu-link">
                         <div>@lang('page.services')</div>
                     </a>
                 </li>
@@ -71,7 +71,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{ route('dashboard.service.create') }}" class="menu-link">
+                    <a href="{{ route('dashboard.services-create') }}" class="menu-link">
                         <div>@lang('page.add_service')</div>
                     </a>
                 </li>

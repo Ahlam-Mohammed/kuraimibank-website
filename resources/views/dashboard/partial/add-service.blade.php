@@ -1,6 +1,6 @@
 <div class="card mb-4">
     <h5 class="card-header">@lang('page.add_service')</h5>
-    <form action="{{ route('dashboard.service.store') }}" class="card-body" method="post" enctype="multipart/form-data" novalidat>
+    <form action="{{ route('dashboard.services.store') }}" class="card-body" method="post" enctype="multipart/form-data" novalidat>
         @csrf
         {{--   Service Name     --}}
         <div class="row g-3">

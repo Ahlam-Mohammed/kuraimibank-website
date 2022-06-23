@@ -1,7 +1,7 @@
 @extends('dashboard.layout.master')
 
 @section('title')
-    @lang('page.add_service')
+    @lang('page.edit_service')
 @stop
 
 @push('scripts_after')
@@ -24,7 +24,7 @@
 
     <h4 class="fw-bold py-3 mb-4">
         <span class="fw-light">
-           @lang('page.services') / @lang('page.add_service')
+           @lang('page.services') / @lang('page.edit_service')
         </span>
     </h4>
 
@@ -32,7 +32,7 @@
 
     <div class="row">
         <div class="col-lg">
-            @include('dashboard.partial.add-service')
+            @include('dashboard.partial.edit-service')
         </div>
     </div>
 

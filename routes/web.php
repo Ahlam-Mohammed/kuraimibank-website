@@ -30,7 +30,7 @@ Route::prefix('dashboard/')->middleware('web','auth')->name('dashboard.')->group
     Route::view('/manage-regions', 'dashboard.page.manage-regions')->name('region');
     Route::view('/manage-categories', 'dashboard.page.manage-categories')->name('categories');
     Route::view('/manage-subs-category', 'dashboard.page.manage-subs-category')->name('subs.category');
-    Route::view('/manage-services', 'dashboard.page.manage-services')->name('services');
+//    Route::view('/manage-services', 'dashboard.page.manage-services')->name('services');
     Route::view('/manage-exchange-rates', 'dashboard.page.manage-exchange-rate')->name('rates');
     Route::view('/manage-news', 'dashboard.page.manage-news')->name('news');
 
@@ -44,12 +44,16 @@ Route::prefix('dashboard/')->middleware('web','auth')->name('dashboard.')->group
     Route::get('reports/active/{id}', [ReportController::class, 'activate'])->name('reports.active');
 
     //********* Services Route *********//
-    Route::controller(ServiceController::class)->name('service.')->group(function (){
-        Route::get('service-create', 'create')->name('create');
-        Route::post('service-store', 'store')->name('store');
-        Route::get('service-edit/{service}', 'edit')->name('edit');
-        Route::post('service-update', 'update')->name('update');
+    Route::controller(ServiceController::class)->group(function (){
+        Route::get('services-index', 'index')->name('services.index');
+        Route::post('services-update/{id}', 'update')->name('services-update');
+        Route::post('services-edit', 'edit')->name('services-edit');
+        Route::get('services-create', 'create')->name('services-create');
+        Route::post('services-store', 'store')->name('services.store');
+        Route::post('services.delete/{id}', 'destroy')->name('services.destroy');
+        Route::get('services/active/{id}', 'activate')->name('services.active');
     });
+
 
     //********* Web Info Route *********//
     Route::controller(WebInfoController::class)->name('web-info.')->group(function (){

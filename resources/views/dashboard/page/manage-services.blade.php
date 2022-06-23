@@ -5,7 +5,7 @@
 @stop
 
 @push('scripts_after')
-    @include('dashboard.script.service')
+{{--    @include('dashboard.script.service')--}}
 @endpush
 
 @section('content')

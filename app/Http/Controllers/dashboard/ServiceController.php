@@ -9,11 +9,18 @@ use App\Http\Resources\CategoryResource;
 use App\Models\Category;
 use App\Models\Service;
 use App\Traits\Uploads;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 
 class ServiceController extends Controller
 {
     use Uploads;
+
+    public function index()
+    {
+        $services = Service::latest()->with(['category', 'subCategory'])->get();
+        return view('dashboard.page.manage-services', compact('services'));
+    }
 
     public function create()
     {
@@ -65,14 +72,14 @@ class ServiceController extends Controller
             ]);
         }
 
-        return redirect()->route('dashboard.services')->with('success', Lang::get('messages.stored_message'));
+        return redirect()->route('dashboard.services.index')->with('success', Lang::get('messages.stored_message'));
     }
 
-    public function edit(Service $service)
+    public function edit(Request $request)
     {
-        $service    = Service::find(1);
+        $service    = Service::find($request->id);
+//        dd($service);
         $categories = Category::all();
-
         if($service) {
             return view('dashboard.page.edit-service', compact('service', 'categories'));
         }
@@ -81,55 +88,89 @@ class ServiceController extends Controller
         }
     }
 
-//    public function update(ServiceRequest $request, $id)
-//    {
-//        ##### validator #####
+    public function update(Request $request, $id)
+    {
+        ##### validator #####
 //        $this->validate($request, $request->rules());
-//
-//        $service = Service::find($id);
-//
-//        if ($request->file('image')) {
-//            $imageName = $this->updateImage($request->file('image'),
-//                'uploads/services', $service->image);
-//        } else {
-//            $imageName = $service->image;
-//        }
-//
-//        if ($request->file('background')) {
-//            $backgroundName = $this->updateImage($request->file('background'),
-//                'uploads/services', $service->background);
-//        } else {
-//            $backgroundName = $service->background;
-//        }
-//
-//        if($service) {
-//            $service->name = [
-//                'ar' => $request->name_ar,
-//                'en' => $request->name_en
-//            ];
-//            $service->desc = [
-//                'ar' => $request->desc_ar,
-//                'en' => $request->desc_en
-//            ];
-//            $service->other_advantage = [
-//                'ar' => $request->other_advantage_ar,
-//                'en' => $request->other_advantage_en
-//            ];
-//            $service->service_condition = [
-//                'ar' => $request->service_condition_ar,
-//                'en' => $request->service_condition_en
-//            ];
-//            $service->background  = $backgroundName;
-//            $service->image       = $imageName;
-//            $service->category_id = $request->category_id;
-//
-//            $service->update();
-//
-//            return redirect()->route('dashboard.services')->with('success', Lang::get('messages.updated_message'));
-//        }
-//        else {
-//            return redirect()->back()->with('danger', Lang::get('messages.not_found'));
-//
-//        }
-//    }
+
+        $service = Service::find($id);
+
+        if ($request->file('image')) {
+            $imageName = $this->updateImage($request->file('image'),
+                SettingEnum::PATH_SERVICE_IMAGE, $service->image);
+        } else {
+            $imageName = $service->image;
+        }
+
+        if ($request->file('background')) {
+            $backgroundName = $this->updateImage($request->file('background'),
+                SettingEnum::PATH_SERVICE_IMAGE, $service->background);
+        } else {
+            $backgroundName = $service->background;
+        }
+
+        if($service) {
+            $service->name = [
+                'ar' => $request->name_ar,
+                'en' => $request->name_en
+            ];
+            $service->desc = [
+                'ar' => $request->desc_ar,
+                'en' => $request->desc_en
+            ];
+            $service->other_advantage = [
+                'ar' => $request->other_advantage_ar,
+                'en' => $request->other_advantage_en
+            ];
+            $service->service_condition = [
+                'ar' => $request->service_condition_ar,
+                'en' => $request->service_condition_en
+            ];
+            $service->background  = $backgroundName;
+            $service->image       = $imageName;
+            $service->category_id = $request->category_id;
+
+            $service->update();
+
+            return redirect()->route('dashboard.services.index')->with('success', Lang::get('messages.updated_message'));
+        }
+        else {
+            return redirect()->back()->with('danger', Lang::get('messages.not_found'));
+
+        }
+    }
+
+    public function destroy($id)
+    {
+        $service = Service::find($id);
+        if ($service)
+        {
+            $image = $service->image;
+            $this->deleteImage($image);
+
+            $background = $service->background;
+            $this->deleteImage($background);
+
+            $service->delete();
+
+            return redirect()->back()->with('success',  Lang::get('messages.deleted_message'));
+        }
+        return redirect()->back()->with('danger',  Lang::get('messages.not_found'));
+    }
+
+    public function show()
+    {
+
+    }
+
+    public function activate($id)
+    {
+        $service = Service::find($id);
+
+        if($service) {
+            $service->update(['is_active' => !$service->is_active]);
+            return redirect()->back()->with('success',  Lang::get('messages.updated_message'));
+        }
+        redirect()->back()->with('danger',  Lang::get('messages.not_found'));
+    }
 }
