@@ -37,13 +37,18 @@
     }
 
     //********* Render Message Errors *********//
-    let renderMsgError = (response) => {
-        el('#errorMsg').innerHTML = '';
-        el('#errorMsg').addClass('alert alert-danger');
-
-        response.errors.forEach((element, index, err_value) => {
-            el('#errorMsg').innerHTML = `<li> ${err_value} </li>`;
-        });
+    let renderMsgError = (response, modal) => {
+        Object.keys(response.errors)
+            .forEach(key => {
+                key === 'name_ar' ?
+                    el(modal + ' #name_error_ar').innerHTML = `${response.errors[key]}` : '';
+                key === 'name_en' ?
+                    el(modal + ' #name_error_en').innerHTML = `${response.errors[key]}` : '';
+                key === 'sale' ?
+                    el(modal + ' #sale_error').innerHTML = `${response.errors[key]}` : '';
+                key === 'buy' ?
+                    el(modal + ' #buy_error').innerHTML = `${response.errors[key]}` : '';
+            });
     }
 
     //********* Render Alert  *********//
@@ -92,8 +97,8 @@
                 headers: { 'Content-type': 'application/json; charset=UTF-8' }
             });
 
-        if(response.status === 400) {
-            renderMsgError(response);
+        if(response.data.status === 400) {
+            renderMsgError(response.data, '#ModalAddRate');
         }
         else {
             renderMsgSuccess(response, '#ModalAddRate', 'primary');
@@ -145,8 +150,8 @@
                 headers: {'Content-type': 'application/json; charset=UTF-8'}
             })
             .then(response => {
-                if (response.status === 400) {
-                    renderMsgError(response);
+                if (response.data.status === 400) {
+                    renderMsgError(response.data, '#ModalEditRate');
                 } else {
                     renderMsgSuccess(response, '#ModalEditRate', 'primary');
                 }

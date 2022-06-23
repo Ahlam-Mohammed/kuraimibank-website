@@ -34,10 +34,12 @@
             <div class="col-12 mb-3">
                 <label for="nameWithTitle" class="form-label">@lang('index.rates.name')  <span class="text-lowercase">\(Arabic)</span> </label>
                 <input name="name_ar" value="" id="name_ar" type="text" class="form-control" placeholder="ادخل الاسم باللغة العربية">
+                <div id="name_error_ar" class="invalid-feedback" style="display: block"></div>
             </div>
             <div class="col-12 mb-3">
                 <label for="nameWithTitle" class="form-label">@lang('index.rates.name') <span class="text-lowercase">\(English)</span> </label>
                 <input name="name_en" value="" id="name_en" type="text" class="form-control" placeholder="ادخل الاسم باللغة الإنجليزية">
+                <div id="name_error_en" class="invalid-feedback" style="display: block"></div>
             </div>
         </div>
         <hr class="my-4 mx-n4" />
@@ -46,10 +48,12 @@
             <div class="col-6 mb-3">
                 <label for="nameWithTitle" class="form-label">@lang('index.rates.sale')</label>
                 <input name="sale" value="" id="sale" type="text" class="form-control">
+                <div id="sale_error" class="invalid-feedback" style="display: block"></div>
             </div>
             <div class="col-6 mb-3">
                 <label for="nameWithTitle" class="form-label">@lang('index.rates.buy')</label>
                 <input name="buy" value="" id="buy" type="text" class="form-control">
+                <div id="buy_error" class="invalid-feedback" style="display: block"></div>
             </div>
         </div>
     </x-slot:body>
@@ -73,10 +77,12 @@
             <div class="col-12 mb-3">
                 <label for="nameWithTitle" class="form-label">@lang('index.rates.name')  <span class="text-lowercase">\(Arabic)</span> </label>
                 <input name="name_ar" value="" id="name_ar" type="text" class="form-control" placeholder="ادخل الاسم باللغة العربية">
+                <div id="name_error_ar" class="invalid-feedback" style="display: block"></div>
             </div>
             <div class="col-12 mb-3">
                 <label for="nameWithTitle" class="form-label">@lang('index.rates.name') <span class="text-lowercase">\(English)</span> </label>
                 <input name="name_en" value="" id="name_en" type="text" class="form-control" placeholder="ادخل الاسم باللغة الإنجليزية">
+                <div id="name_error_en" class="invalid-feedback" style="display: block"></div>
             </div>
         </div>
         <hr class="my-4 mx-n4" />
@@ -85,10 +91,12 @@
             <div class="col-6 mb-3">
                 <label for="nameWithTitle" class="form-label">@lang('index.rates.sale')</label>
                 <input name="sale" value="" id="sale" type="text" class="form-control">
+                <div id="sale_error" class="invalid-feedback" style="display: block"></div>
             </div>
             <div class="col-6 mb-3">
                 <label for="nameWithTitle" class="form-label">@lang('index.rates.buy')</label>
                 <input name="buy" value="" id="buy" type="text" class="form-control">
+                <div id="buy_error" class="invalid-feedback" style="display: block"></div>
             </div>
         </div>
     </x-slot:body>

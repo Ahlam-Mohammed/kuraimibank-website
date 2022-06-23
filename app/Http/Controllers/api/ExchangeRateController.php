@@ -8,6 +8,7 @@ use App\Http\Resources\ExchangeRateResource;
 use App\Models\ExchangeRate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Validator;
 
 class ExchangeRateController extends Controller
 {
@@ -23,14 +24,20 @@ class ExchangeRateController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ExchangeRateRequest $request)
+    public function store(Request $request)
     {
-        $validated = $request->validated();
+        $validator = Validator::make($request->all(), [
+            'name_ar'     => 'required|max:191',
+            'name_en'     => 'required|max:191',
+            'sale'        => 'required|numeric',
+            'buy'         => 'required|numeric'
+        ]);
 
-        if(!$validated) {
+
+        if($validator->fails()) {
             return response()->json([
                 'status' => 400,
-                'errors' => $validated->messages()
+                'errors' => $validator->messages()
             ]);
         }
         else {
@@ -74,14 +81,19 @@ class ExchangeRateController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(ExchangeRateRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $validated = $request->validated();
+        $validator = Validator::make($request->all(), [
+            'name_ar'     => 'required|max:191',
+            'name_en'     => 'required|max:191',
+            'sale'        => 'required|numeric',
+            'buy'         => 'required|numeric'
+        ]);
 
-        if(!$validated) {
+        if($validator->fails()) {
             return response()->json([
                 'status' => 400,
-                'errors' => $validated->messages()
+                'errors' => $validator->messages()
             ]);
         }
         else {
