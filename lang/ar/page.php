@@ -21,5 +21,6 @@ return [
     'principle'      => 'القيم والمبادئ',
     'privacy-policy' => 'سياسية الخصوصية',
     'partner'        => 'إدارة شركائنا',
+    'job'        => 'إدارة الوظائف',
     'financial_reports' => 'التقارير المالية'
 ];

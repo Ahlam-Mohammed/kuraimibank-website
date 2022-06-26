@@ -21,5 +21,6 @@ return [
     'principle'      => 'Values and operational principles',
     'privacy-policy' => 'Privacy policy',
     'partner'        => 'Our Partner',
+    'job'        => 'Manage Jobs',
     'financial_reports' => 'Financial Reports'
 ];

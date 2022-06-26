@@ -92,6 +92,13 @@ return [
         'partner'    => 'Partner'
     ],
 
+    'job' => [
+        'id'         => 'ID',
+        'name'       => 'Job Name',
+        'desc'       => 'Job Description',
+        'job'       => 'Jobs'
+    ],
+
     'report' => [
         'name' => 'Report Title',
         'file' => 'Report File'

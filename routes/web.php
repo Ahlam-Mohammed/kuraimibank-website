@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\dashboard\ContactInfoController;
+use App\Http\Controllers\dashboard\JobController;
 use App\Http\Controllers\dashboard\OurPartnerController;
 use App\Http\Controllers\dashboard\ReportController;
 use App\Http\Controllers\dashboard\ServiceController;
@@ -38,6 +39,10 @@ Route::prefix('dashboard/')->middleware('web','auth')->name('dashboard.')->group
     //********* Our Partner Route *********//
     Route::resource('partners', OurPartnerController::class);
     Route::get('partners/active/{id}', [OurPartnerController::class, 'activate'])->name('partners.active');
+
+    //********* Our Jobs Route *********//
+    Route::resource('jobs', JobController::class);
+    Route::get('jobs/active/{id}', [JobController::class, 'activate'])->name('jobs.active');
 
     //********* financial_reports Route *********//
     Route::resource('reports', ReportController::class);

@@ -161,18 +161,10 @@
 
         {{-- users --}}
         <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-user"></i>
-                <div>@lang('page.users')</div>
+            <a href="{{route('dashboard.jobs.index')}}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div>@lang('page.job')</div>
             </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="" class="menu-link">
-                        <div>@lang('page.users')</div>
-                    </a>
-                </li>
-
-            </ul>
         </li>
 
     </ul>

@@ -65,4 +65,17 @@
     .app-brand .layout-menu-toggle {
         background-color: #695d85 !important;
     }
+    .btn-primary{
+        background-color: #695d85 !important;
+        border-color: #695d85 !important;
+        box-shadow: 0 0.125rem 0.25rem 0 rgb(105 93 133 / 44%) !important;
+    }
+    }
+    .btn-label-primary:hover{
+        background: #695d85 !important; color: #FFFFFF !important;
+    }
+    .btn-label-primary {
+        color: #695d85 !important;
+    }
+
 </style>
