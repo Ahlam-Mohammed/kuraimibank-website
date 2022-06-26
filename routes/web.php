@@ -31,7 +31,7 @@ Route::prefix('dashboard/')->middleware('web','auth')->name('dashboard.')->group
     Route::view('/manage-regions', 'dashboard.page.manage-regions')->name('region');
     Route::view('/manage-categories', 'dashboard.page.manage-categories')->name('categories');
     Route::view('/manage-subs-category', 'dashboard.page.manage-subs-category')->name('subs.category');
-//    Route::view('/manage-services', 'dashboard.page.manage-services')->name('services');
+    Route::view('/manage-users', 'dashboard.page.manage-users')->name('users');
     Route::view('/manage-exchange-rates', 'dashboard.page.manage-exchange-rate')->name('rates');
     Route::view('/manage-news', 'dashboard.page.manage-news')->name('news');
 

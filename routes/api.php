@@ -9,6 +9,7 @@ use App\Http\Controllers\api\PrincipleController;
 use App\Http\Controllers\api\ServiceController;
 use App\Http\Controllers\api\ServicePointController;
 use App\Http\Controllers\api\SubCategoryController;
+use App\Http\Controllers\api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -60,6 +61,10 @@ Route::prefix('dashboard')->name('api.')->group(function (){
     //********* News API Route *********//
     Route::apiResource('news', NewsController::class);
     Route::get('news/activate/{id}', [NewsController::class, 'activate'])->name('news.activate');
+
+    //********* Users API Route *********//
+    Route::apiResource('users', UserController::class);
+    Route::get('users/activate/{id}', [UserController::class, 'activate'])->name('users.activate');
 
 });
 

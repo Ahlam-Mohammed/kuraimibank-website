@@ -18,15 +18,12 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $permission = Permission::create(['name' => 'all']);
-        Role::create(['name' => 'ADMIN'])->givePermissionTo($permission);
-
         User::create([
             'name' => 'Admin',
             'email' => 'ahlam.m.alfashq@gmail.com',
             'email_verified_at' => now(),
             'password' =>bcrypt( '123456789')
-        ])->assignRole('ADMIN');
+        ])->assignRole('SUPER_ADMIN');
 
         User::create([
             'name' => 'Admin',

@@ -1,22 +1,26 @@
 @extends('dashboard.layout.master')
 
 @section('title')
-    @lang('page.jobs')
+    @lang('page.users')
 @stop
+
+@push('scripts_after')
+    @include('dashboard.script.users')
+@endpush
 
 @section('content')
 
     <h4 class="fw-bold py-3 mb-4">
         <span class="fw-light">
-            @lang('page.job')
+           @lang('page.users')
         </span>
     </h4>
 
-    <x-alert />
+    <x-alert/>
 
     <div class="row">
         <div class="col-lg">
-            @include('dashboard.partial.job')
+            @include('dashboard.partial.users')
         </div>
     </div>
 

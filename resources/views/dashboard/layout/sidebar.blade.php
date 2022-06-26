@@ -159,11 +159,19 @@
             </a>
         </li>
 
-        {{-- users --}}
+        {{-- Job --}}
         <li class="menu-item">
             <a href="{{route('dashboard.jobs.index')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
                 <div>@lang('page.job')</div>
+            </a>
+        </li>
+
+        {{-- User --}}
+        <li class="menu-item">
+            <a href="{{route('dashboard.users')}}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user"></i>
+                <div>@lang('page.users')</div>
             </a>
         </li>
 
