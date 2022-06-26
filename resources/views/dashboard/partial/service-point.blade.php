@@ -115,6 +115,18 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="row">
+                <div class="col-5">
+                    <input type="text" class="form-control" placeholder="lat" name="lat" id="lat">
+                </div>
+                <div class="col-5">
+                    <input type="text" class="form-control" placeholder="lng" name="lng" id="lng">
+                </div>
+            </div>
+            <div id="map" style="height:400px; width: 800px;" class="my-3 map"></div>
+        </div>
+
     </x-slot:body>
 
     {{-- Model Footer --}}
@@ -210,6 +222,18 @@
                     @endforeach
                 </select>
             </div>
+        </div>
+
+        <div class="row">
+            <div class="row">
+                <div class="col-5">
+                    <input type="text" class="form-control" placeholder="lat" name="lat" id="lat">
+                </div>
+                <div class="col-5">
+                    <input type="text" class="form-control" placeholder="lng" name="lng" id="lng">
+                </div>
+            </div>
+            <div id="mapp" style="height:400px; width: 800px;" class="my-3 map"></div>
         </div>
 
     </x-slot:body>

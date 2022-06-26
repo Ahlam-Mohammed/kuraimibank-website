@@ -22,6 +22,8 @@ class ServicePointResource extends JsonResource
             'second_phone'  => $this->second_phone,
             'working_hours' => $this->working_hours,
             'category'      => $this->category,
+            'lng'           => $this->lng,
+            'lat'           => $this->lat,
             'is_active'     => $this->is_active,
             'city_id'       => $this->city_id,
             'city'          => new CityResource($this->city),

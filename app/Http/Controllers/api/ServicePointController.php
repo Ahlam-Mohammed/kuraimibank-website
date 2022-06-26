@@ -65,6 +65,8 @@ class ServicePointController extends Controller
                 'phone'        => $request->phone,
                 'second_phone' => $request->second_phone,
                 'category'     => $request->category,
+                'lng'          => $request->lng,
+                'lat'          => $request->lat,
                 'city_id'      => $request->city_id
             ]);
 
@@ -141,6 +143,8 @@ class ServicePointController extends Controller
                 $point->phone        = $request->phone;
                 $point->second_phone = $request->second_phone;
                 $point->category     = $request->category;
+                $point->lng          = $request->lng;
+                $point->lat          = $request->lat;
                 $point->city_id      = $request->city_id;
 
                 $point->update();

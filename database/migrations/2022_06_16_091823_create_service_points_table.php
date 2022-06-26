@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('second_phone');
             $table->json('working_hours');
             $table->string('category');
+            $table->decimal('lat')->nullable();
+            $table->decimal('lng')->nullable();
             $table->boolean('is_active')->default(1);
 
             $table->foreignId('city_id');

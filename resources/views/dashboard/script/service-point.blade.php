@@ -1,3 +1,5 @@
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"
+        type="text/javascript"></script>
 <script>
     $(document).ready( () => {
 
@@ -22,7 +24,9 @@
                 'phone': $('#phone').val(),
                 'second_phone': $('#second_phone').val(),
                 'category': $('#category').val(),
-                'city_id': $('#city_id').val()
+                'city_id': $('#city_id').val(),
+                'lat': $('#lat').val(),
+                'lng': $('#lng').val()
             }
 
             console.log(data)
@@ -67,6 +71,8 @@
                         $('#ModalEditServicePoint #phone').val(response.service_point.phone);
                         $('#ModalEditServicePoint #second_phone').val(response.service_point.second_phone);
                         $('#ModalEditServicePoint #category').val(response.service_point.category);
+                        $('#ModalEditServicePoint #lng').val(response.service_point.lng);
+                        $('#ModalEditServicePoint #lat').val(response.service_point.lat);
                         $('#ModalEditServicePoint #city_id').val(response.service_point.city_id);
                         $('#ModalEditServicePoint #service_point_id').val(service_point_id);
                     }
@@ -93,6 +99,8 @@
                 'phone': $('#ModalEditServicePoint #phone').val(),
                 'second_phone': $('#ModalEditServicePoint #second_phone').val(),
                 'category': $('#ModalEditServicePoint #category').val(),
+                'lat': $('#ModalEditServicePoint #lat').val(),
+                'lng': $('#ModalEditServicePoint #lng').val(),
                 'city_id': $('#ModalEditServicePoint #city_id').val(),
                 '_method': 'PUT'
             }
@@ -254,4 +262,36 @@
 
     })
 
+</script>
+
+<script>
+    let map;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: 15.9272, lng: 47.406 },
+            zoom: 4,
+            scrollwheel: true,
+        });
+
+        const uluru = { lat: -34.397, lng: 150.644 };
+        let marker = new google.maps.Marker({
+            position: uluru,
+            map: map,
+            draggable: true
+        });
+
+        google.maps.event.addListener(marker,'position_changed',
+            function (){
+                let lat = marker.position.lat()
+                let lng = marker.position.lng()
+                $('#lat').val(lat)
+                $('#lng').val(lng)
+            })
+
+        google.maps.event.addListener(map,'click',
+            function (event){
+                pos = event.latLng
+                marker.setPosition(pos)
+            })
+    }
 </script>
