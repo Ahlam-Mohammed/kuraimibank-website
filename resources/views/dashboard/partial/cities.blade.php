@@ -21,7 +21,35 @@
         <th></th>
     </x-slot:thead>
 
-    <x-slot:tbody></x-slot:tbody>
+    <x-slot:tbody>
+        @foreach($cities as $city)
+            <tr>
+                <td><strong> {{ $city->id }} </strong></td>
+                <td> {{ $city->name }} </td>
+                <td> {{ $city->country->name }} </td>
+                <td>
+                    @if($city->is_active)
+                        <span class="badge bg-label-primary me-1">@lang('general.activated')</span>
+                    @else
+                        <span class="badge bg-label-secondary me-1">@lang('general.not_activated')</span>
+                    @endif
+                </td>
+                <td>
+                    <x-dropdown-table>
+                        <button class="dropdown-item edit_city" value="{{ $city->id }}" type="button" data-bs-toggle="modal" data-bs-target="#ModalEditCountry" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
+                            @lang('general.edit')
+                        </button>
+                        <button class="dropdown-item delete_city" type="button" value="{{ $city->id }}" data-bs-toggle="modal"  data-bs-target="#ModalDeleteCountry" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
+                            @lang('general.delete')
+                        </button>
+                        <button class="dropdown-item active_city" type="button" value="{{ $city->id }}" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
+                            @if($city->is_active) @lang('general.deactivation') @else @lang('general.active') @endif
+                        </button>
+                    </x-dropdown-table>
+                </td>
+            </tr>
+        @endforeach
+    </x-slot:tbody>
 
 </x-table>
 

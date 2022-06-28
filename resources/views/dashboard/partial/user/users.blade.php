@@ -20,7 +20,41 @@
         <th></th>
     </x-slot:thead>
 
-    <x-slot:tbody></x-slot:tbody>
+    <x-slot:tbody>
+        @foreach($users as $user)
+            <tr>
+                <td><strong> {{ $user->id }} </strong></td>
+                <td> {{ $user->name }} </td>
+                <td> {{ $user->email }} </td>
+                <td>  </td>
+                <td> {{ $user->created_at }} </td>
+                <td>
+                    @if($user->is_active)
+                        <span class="badge bg-label-primary me-1">@lang('general.activated')</span>
+                    @else
+                        <span class="badge bg-label-secondary me-1">@lang('general.not_activated')</span>
+                    @endif
+                </td>
+                <td>
+                    <x-dropdown-table>
+                        <button class="dropdown-item" onclick="edit_user({{ $user->id }})" type="button" data-bs-toggle="modal" data-bs-target="#ModalEditUser" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
+                            @lang('general.edit')
+                        </button>
+                        <button class="dropdown-item" onclick="delete_user({{ $user->id }})" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalDeleteUser" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
+                            @lang('general.delete')
+                        </button>
+                        <button class="dropdown-item" type="button" onclick="active_user({{ $user->id }})" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
+                            @if($user->is_active)
+                                @lang('general.deactivation')
+                            @else
+                                @lang('general.active')
+                            @endif
+                        </button>
+                    </x-dropdown-table>
+                </td>
+            </tr>
+        @endforeach
+    </x-slot:tbody>
 
 </x-table>
 
@@ -63,8 +97,8 @@
             <div class="col-12 mb-4">
                 <label for="select2Multiple" class="form-label">@lang('index.users.role')</label>
                 <select name="roles[]" id="select2Multiple" class="select2 form-select" multiple>
-{{--                    @if(isset($roles))--}}
-{{--                        @foreach($roles as $role)--}}
+{{--                    @if(isset($user))--}}
+{{--                        @foreach($user as $role)--}}
 {{--                            <option>{{ $role }}</option>--}}
 {{--                        @endforeach--}}
 {{--                    @endif--}}

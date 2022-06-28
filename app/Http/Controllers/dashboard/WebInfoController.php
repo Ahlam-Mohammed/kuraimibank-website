@@ -14,7 +14,7 @@ class WebInfoController extends Controller
     public function indexAbout()
     {
         $about = WebInfo::where('key', WebInfoEnum::ABOUT)->first();
-        return view('dashboard.page.manage_web_info.about', compact('about'));
+        return view('dashboard.page.web_info.about', compact('about'));
     }
 
     //********* Update About *********//
@@ -34,7 +34,7 @@ class WebInfoController extends Controller
     public function indexVision()
     {
         $vision = WebInfo::where('key', WebInfoEnum::VISION)->first();
-        return view('dashboard.page.manage_web_info.vision', compact('vision'));
+        return view('dashboard.page.web_info.vision', compact('vision'));
     }
 
     //********* Update Vision *********//
@@ -54,7 +54,7 @@ class WebInfoController extends Controller
     public function indexStrategy()
     {
         $strategy = WebInfo::where('key', WebInfoEnum::STRATEGY)->first();
-        return view('dashboard.page.manage_web_info.strategy', compact('strategy'));
+        return view('dashboard.page.web_info.strategy', compact('strategy'));
     }
 
     //********* Update Strategy *********//
@@ -73,14 +73,14 @@ class WebInfoController extends Controller
     //********* Get Principles *********//
     public function indexPrinciple()
     {
-        return view('dashboard.page.manage_web_info.principle');
+        return view('dashboard.page.web_info.principle');
     }
 
     //********* Get Privacy policy *********//
     public function indexPolicy()
     {
         $policy = WebInfo::where('key', WebInfoEnum::POLICY)->first();
-        return view('dashboard.page.manage_web_info.privacy-policy', compact('policy'));
+        return view('dashboard.page.web_info.privacy-policy', compact('policy'));
     }
 
     //********* Update Privacy policy *********//

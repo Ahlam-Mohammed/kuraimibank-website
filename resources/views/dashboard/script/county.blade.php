@@ -4,8 +4,6 @@
         const els = (element) => document.querySelectorAll(element);
         const el  = (element) => document.querySelector(element);
 
-        fetchCountries();
-
         // Add New Country
         $(document).on('click', '.add_country',function(e) {
 

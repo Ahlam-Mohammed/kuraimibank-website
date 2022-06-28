@@ -175,5 +175,13 @@
             </a>
         </li>
 
+        {{-- roles --}}
+        <li class="menu-item">
+            <a href="{{route('dashboard.roles.index')}}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user"></i>
+                <div>@lang('page.roles')</div>
+            </a>
+        </li>
+
     </ul>
 </aside>

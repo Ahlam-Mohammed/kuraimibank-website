@@ -6,8 +6,6 @@
         const els = (element) => document.querySelectorAll(element);
         const el  = (element) => document.querySelector(element);
 
-        fetchCountries();
-
         // Add New Service Point
         $(document).on('click', '.add_service_point',function(e) {
 

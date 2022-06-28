@@ -20,7 +20,41 @@
         <th></th>
     </x-slot:thead>
 
-    <x-slot:tbody></x-slot:tbody>
+    <x-slot:tbody>
+        @foreach($rates as $rate)
+            <tr>
+                <td><strong> {{ $rate->id }} </strong></td>
+                <td> {{ $rate->name }} </td>
+                <td> {{ $rate->sale }} </td>
+                <td> {{ $rate->buy }} </td>
+                <td> {{ $rate->created_at }} </td>
+                <td>
+                    @if($rate->is_active)
+                        <span class="badge bg-label-primary me-1">@lang('general.activated')</span>
+                    @else
+                        <span class="badge bg-label-secondary me-1">@lang('general.not_activated')</span>
+                    @endif
+                </td>
+                <td>
+                    <x-dropdown-table>
+                        <button class="dropdown-item" onclick="edit_rate({{ $rate->id }})" type="button" data-bs-toggle="modal" data-bs-target="#ModalEditRate" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
+                            @lang('general.edit')
+                        </button>
+                        <button class="dropdown-item" onclick="delete_rate({{ $rate->id }})" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalDeleteRate" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
+                            @lang('general.delete')
+                        </button>
+                        <button class="dropdown-item" type="button" onclick="active_rate({{ $rate->id }})" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
+                           @if($rate->is_active)
+                                @lang('general.deactivation')
+                            @else
+                                @lang('general.active')
+                            @endif
+                        </button>
+                    </x-dropdown-table>
+                </td>
+            </tr>
+        @endforeach
+    </x-slot:tbody>
 
 </x-table>
 

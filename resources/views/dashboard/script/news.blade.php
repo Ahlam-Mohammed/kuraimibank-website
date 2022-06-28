@@ -73,8 +73,6 @@
         fetchNews();
     }
 
-    fetchNews();
-
     //********* Fetch Data From API *********//
     function fetchNews() {
         axios.get('http://127.0.0.1:8000/api/dashboard/news')

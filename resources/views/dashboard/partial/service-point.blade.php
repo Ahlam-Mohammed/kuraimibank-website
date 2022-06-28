@@ -25,7 +25,37 @@
         <th></th>
     </x-slot:thead>
 
-    <x-slot:tbody></x-slot:tbody>
+    <x-slot:tbody>
+        @foreach($points as $point)
+            <tr>
+                <td><strong> {{ $point->id }} </strong></td>
+                <td> {{ $point->name }} </td>
+                <td> {{ $point->category }} </td>
+                <td> {{ $point->city->name }} </td>
+                <td> {{ $point->city->country->name }} </td>
+                <td>
+                    @if($point->is_active)
+                        <span class="badge bg-label-primary me-1">@lang('general.activated')</span>
+                    @else
+                        <span class="badge bg-label-secondary me-1">@lang('general.not_activated')</span>
+                    @endif
+                </td>
+                <td>
+                    <x-dropdown-table>
+                        <button class="dropdown-item edit_service_point" value="{{ $point->id }}" type="button" data-bs-toggle="modal" data-bs-target="#ModalEditCity" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
+                            @lang('general.edit')
+                        </button>
+                        <button class="dropdown-item delete_service_point" type="button" value="{{ $point->id }}" data-bs-toggle="modal"  data-bs-target="#ModalDeleteCity" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
+                            @lang('general.delete')
+                        </button>
+                        <button class="dropdown-item active_service_point" type="button" value="{{ $point->id }}" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
+                            @if($point->is_active)  @lang('general.deactivation') @else @lang('general.active') @endif
+                        </button>
+                    </x-dropdown-table>
+                </td>
+            </tr>
+        @endforeach
+    </x-slot:tbody>
 
 </x-table>
 

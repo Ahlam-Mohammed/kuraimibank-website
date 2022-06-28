@@ -20,7 +20,7 @@
 
     <div class="row">
         <div class="col-lg">
-            @include('dashboard.partial.users')
+            @include('dashboard.partial.user.users')
         </div>
     </div>
 

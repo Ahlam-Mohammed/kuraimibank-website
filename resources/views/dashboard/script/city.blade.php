@@ -4,8 +4,6 @@
 
     $(document).ready( () => {
 
-        fetchCountries();
-
         // Add New City
         $(document).on('click', '.add_city',function(e) {
 

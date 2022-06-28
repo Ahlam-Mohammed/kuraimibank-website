@@ -69,8 +69,6 @@
         fetchRates();
     }
 
-    fetchUsers();
-
     //********* Fetch Data From API *********//
     function fetchUsers() {
         axios.get('http://127.0.0.1:8000/api/dashboard/users')
@@ -158,7 +156,7 @@
     }
 
     //********* Delete User *********//
-    el('#delete').addEventListener('click', async (e) => {
+    el('#ModalDeleteUser #delete').addEventListener('click', async (e) => {
         e.preventDefault();
         let user_id = el('#ModalDeleteUser #user_id').value;
 

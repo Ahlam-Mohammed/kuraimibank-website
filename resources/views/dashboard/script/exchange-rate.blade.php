@@ -71,8 +71,6 @@
         fetchRates();
     }
 
-    fetchRates();
-
     //********* Fetch Data From API *********//
     function fetchRates() {
         axios.get('http://127.0.0.1:8000/api/dashboard/rates')

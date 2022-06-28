@@ -19,7 +19,59 @@
         <th></th>
     </x-slot:thead>
 
-    <x-slot:tbody></x-slot:tbody>
+    <x-slot:tbody>
+        @foreach($categories as  $category)
+            <tr>
+                <td><strong> {{ $category->id }} </strong></td>
+                <td> {{ $category->name }} -
+                    <span class="text-primary">
+                        @if($category->is_branch)
+                            ( @lang('index.service_category.type_branch') )
+                        @else
+                            ( @lang('index.service_category.type_category') )
+                        @endif
+                    </span>
+                </td>
+                <td>
+                    @if($category->is_branch)
+                        {{ $category->parent->name }}
+                    @else
+                        ----
+                    @endif
+                </td>
+                <td> {{ $category->created_at }} </td>
+                <td>
+                    @if($category->is_category)
+                        <span class="badge bg-label-primary me-1">@lang('general.activated')</span>
+                    @else
+                        <span class="badge bg-label-secondary me-1">@lang('general.not_activated')</span>
+                    @endif
+                </td>
+                <td>
+                    <x-dropdown-table>
+                        @if(! $category->is_branch)
+                            <button class="dropdown-item active_category" type="button" onclick="add_branch({{ $category->id }})" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalAddBranch" href="javascript:void(0);"><i class="tf-icons bx bx-plus"></i>
+                                @lang('index.service_category.add_branch')
+                            </button>
+                        @endif
+                        <button class="dropdown-item edit_category" onclick="edit_category({{ $category->id }})" type="button" data-bs-toggle="modal" data-bs-target="#ModalEditCategory" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
+                            @lang('general.edit')
+                        </button>
+                        <button class="dropdown-item delete_category" onclick="delete_category({{ $category->id }})" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalDeleteCategory" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
+                            @lang('general.delete')
+                        </button>
+                        <button class="dropdown-item active_category" type="button" onclick="active_category({{ $category->id }})" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
+                            @if($category->is_active)
+                                @lang('general.deactivation')
+                            @else
+                                @lang('general.active')
+                            @endif
+                        </button>
+                    </x-dropdown-table>
+                </td>
+            </tr>
+        @endforeach
+    </x-slot:tbody>
 
 </x-table>
 

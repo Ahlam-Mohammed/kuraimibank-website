@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\dashboard\ContactInfoController;
+use App\Http\Controllers\dashboard\HomeController;
 use App\Http\Controllers\dashboard\JobController;
 use App\Http\Controllers\dashboard\OurPartnerController;
 use App\Http\Controllers\dashboard\ReportController;
+use App\Http\Controllers\dashboard\RoleController;
 use App\Http\Controllers\dashboard\ServiceController;
 use App\Http\Controllers\dashboard\WebInfoController;
 use App\Http\Controllers\LocaleController;
@@ -26,15 +28,15 @@ Route::get('change-language/{locale}', [LocaleController::class, 'switch'])->nam
 Route::prefix('dashboard/')->middleware('web','auth')->name('dashboard.')->group(function (){
 
     //********* Pages Route *********//
-    Route::view('/', 'dashboard.page.index')->name('index');
-    Route::view('/manage-service-points', 'dashboard.page.manage-service-points')->name('service.point');
-    Route::view('/manage-regions', 'dashboard.page.manage-regions')->name('region');
-    Route::view('/manage-categories', 'dashboard.page.manage-categories')->name('categories');
-    Route::view('/manage-subs-category', 'dashboard.page.manage-subs-category')->name('subs.category');
-    Route::view('/manage-users', 'dashboard.page.manage-users')->name('users');
-    Route::view('/manage-exchange-rates', 'dashboard.page.manage-exchange-rate')->name('rates');
-    Route::view('/manage-news', 'dashboard.page.manage-news')->name('news');
-
+    Route::controller(HomeController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('manage-users', 'users')->name('users');
+        Route::get('/manage-categories', 'categories')->name('categories');
+        Route::get('/manage-regions', 'regions')->name('region');
+        Route::get('/manage-exchange-rates', 'rates')->name('rates');
+        Route::get('/manage-news', 'news')->name('news');
+        Route::get('/manage-service-points', 'servicePoint')->name('service.point');
+    });
 
     //********* Our Partner Route *********//
     Route::resource('partners', OurPartnerController::class);
@@ -58,7 +60,6 @@ Route::prefix('dashboard/')->middleware('web','auth')->name('dashboard.')->group
         Route::post('services.delete/{id}', 'destroy')->name('services.destroy');
         Route::get('services/active/{id}', 'activate')->name('services.active');
     });
-
 
     //********* Web Info Route *********//
     Route::controller(WebInfoController::class)->name('web-info.')->group(function (){
@@ -97,7 +98,8 @@ Route::prefix('dashboard/')->middleware('web','auth')->name('dashboard.')->group
 
     });
 
-
+    //********* Roles Route *********//
+    Route::resource('roles', RoleController::class);
 
 });
 

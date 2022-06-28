@@ -2,8 +2,6 @@
     const els = (element) => document.querySelectorAll(element);
     const el  = (element) => document.querySelector(element);
 
-    fetchCategories();
-
     //********* Fetch Data From API *********//
     function fetchCategories() {
         axios.get('http://127.0.0.1:8000/api/dashboard/categories')
