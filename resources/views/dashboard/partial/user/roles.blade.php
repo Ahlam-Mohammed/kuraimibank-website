@@ -3,7 +3,7 @@
 
     {{-- Table Title --}}
     <x-slot:title>
-        <h5 class="card-header">@lang('index.users.users')</h5>
+        <h5 class="card-header">@lang('index.roles.roles')</h5>
         <button type="button" data-bs-toggle="modal" data-bs-target="#ModalAddRole" class="btn rounded-pill btn-icon btn-label-primary">
             <span class="tf-icons bx bx-plus"></span>
         </button>
@@ -17,7 +17,108 @@
         <th></th>
     </x-slot:thead>
 
-    <x-slot:tbody></x-slot:tbody>
+    <x-slot:tbody>
+        @foreach($roles as $role)
+            <tr>
+                <td><strong> {{ $role->id }} </strong></td>
+                <td> {{ $role->name }} </td>
+                <td> {{ $role->created_at }} </td>
+                <td>
+                    <x-dropdown-table>
+                        <button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#ModalEditRole-{{ $role->id, $role->name, $role->display_name }}" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
+                            @lang('general.edit')
+                        </button>
+                        <button class="dropdown-item" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalDeleteRole" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
+                            @lang('general.delete')
+                        </button>
+                    </x-dropdown-table>
+                </td>
+            </tr>
+            {{--  Edit Role Modal --}}
+            <form action="{{ route('dashboard.roles.update', $role) }}" method="post">
+                @csrf @method('PUT')
+                <x-modal id="ModalEditRole-{{ $role->id, $role->name, $role->display_name }}" :title="'edit'">
+
+                    {{-- Model Body --}}
+                    <x-slot:body>
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <label for="nameWithTitle" class="form-label">@lang('index.roles.name')</label>
+                                <input name="name" value="{{ $role->name }}" id="name" type="text" class="form-control @error('name') is-invalid @enderror">
+                                @error('name')
+                                <div class="invalid-feedback"> {{ $message }} </div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <label for="nameWithTitle" class="form-label">@lang('index.roles.display-name')</label>
+                                <input name="display_name" value="{{ $role->display_name }}" id="display_name" type="text" class="form-control  @error('display_name') is-invalid @enderror">
+                                @error('display_name')
+                                    <div class="invalid-feedback"> {{ $message }} </div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <label for="nameWithTitle" class="form-label">@lang('index.roles.permission')</label>
+                            <div class="col-12 my-3">
+                                <div class="form-check">
+                                    <input onClick="selectAll(this)" class="form-check-input" type="checkbox" id="defaultCheck2">
+                                    <label class="form-check-label" for="defaultCheck2">
+                                        @lang('general.select-all')
+                                    </label>
+                                </div>
+                            </div>
+                            @foreach($permissions as $permission)
+                                <div class="col-6 mb-3">
+                                    <div class="form-check">
+                                        <input @if(in_array($role->name, $permission->getRoleNames()->toArray() )) checked @endif name="permissions[]" value="{{ $permission->name }}" class="form-check-input" type="checkbox" id="defaultCheck2">
+                                        <label class="form-check-label" for="defaultCheck2">
+                                            {{ $permission->name }}
+                                        </label>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+
+                    </x-slot:body>
+
+                    {{-- Model Footer --}}
+                    <x-slot:footer>
+                        <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">@lang('general.cancel')</button>
+                        <button type="submit" class="btn btn-primary">@lang('general.save')</button>
+                    </x-slot:footer>
+
+                </x-modal>
+            </form>
+
+            {{--  Delete User Modal --}}
+            <form action="{{ route('dashboard.roles.destroy', $role) }}" method="post">
+                @csrf @method('DELETE')
+                <x-modal id="ModalDeleteRole" :title="'delete'">
+
+                    {{-- Model Body --}}
+                    <x-slot:body>
+                        <input type="hidden" id="user_id">
+                        <div class="row">
+                            <div class="col mb-3">
+                                <h3>@lang('messages.confirm_delete_message')</h3>
+                            </div>
+                        </div>
+                    </x-slot:body>
+
+                    {{-- Model Footer --}}
+                    <x-slot:footer>
+                        <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">@lang('general.cancel')</button>
+                        <button type="submit" class="btn btn-danger" id="delete">@lang('general.yes')</button>
+                    </x-slot:footer>
+
+                </x-modal>
+            </form>
+        @endforeach
+    </x-slot:tbody>
 
 </x-table>
 
@@ -32,24 +133,37 @@
             <div class="row">
                 <div class="col-12 mb-3">
                     <label for="nameWithTitle" class="form-label">@lang('index.roles.name')</label>
-                    <input name="name" value="" id="name" type="text" class="form-control">
-                    <div id="name_error" class="invalid-feedback" style="display: block"></div>
+                    <input name="name" value="" id="name" type="text" class="form-control @error('name') is-invalid @enderror">
+                    @error('name')
+                        <div class="invalid-feedback"> {{ $message }} </div>
+                    @enderror
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-12 mb-3">
                     <label for="nameWithTitle" class="form-label">@lang('index.roles.display-name')</label>
-                    <input name="display_name" value="" id="display_name" type="text" class="form-control">
-                    <div id="display_name_error" class="invalid-feedback" style="display: block"></div>
+                    <input name="display_name" value="" id="display_name" type="text" class="form-control  @error('display_name') is-invalid @enderror">
+                    @error('display_name')
+                        <div class="invalid-feedback"> {{ $message }} </div>
+                    @enderror
                 </div>
             </div>
 
             <div class="row">
+                <label for="nameWithTitle" class="form-label">@lang('index.roles.permission')</label>
+                <div class="col-12 my-3">
+                    <div class="form-check">
+                        <input onClick="selectAll(this)" class="form-check-input" type="checkbox" id="defaultCheck2">
+                        <label class="form-check-label" for="defaultCheck2">
+                            @lang('general.select-all')
+                        </label>
+                    </div>
+                </div>
                 @foreach($permissions as $permission)
                     <div class="col-6 mb-3">
                         <div class="form-check">
-                            <input name="permission[{{ $permission->id }}]" class="form-check-input" type="checkbox" id="defaultCheck2" checked="">
+                            <input name="permissions[]" value="{{ $permission->name }}" class="form-check-input" type="checkbox" id="defaultCheck2">
                             <label class="form-check-label" for="defaultCheck2">
                                 {{ $permission->name }}
                             </label>
@@ -68,67 +182,3 @@
 
     </x-modal>
 </form>
-
-{{--  Edit Exchange Rate Modal --}}
-<x-modal id="ModalEditRate" :title="'edit'">
-
-    {{-- Model Body --}}
-    <x-slot:body>
-        <ul id="update_msgList"></ul>
-        <input hidden id="rate_id">
-        <div class="row">
-            <div class="col-12 mb-3">
-                <label for="nameWithTitle" class="form-label">@lang('index.rates.name')  <span class="text-lowercase">\(Arabic)</span> </label>
-                <input name="name_ar" value="" id="name_ar" type="text" class="form-control" placeholder="ادخل الاسم باللغة العربية">
-                <div id="name_error_ar" class="invalid-feedback" style="display: block"></div>
-            </div>
-            <div class="col-12 mb-3">
-                <label for="nameWithTitle" class="form-label">@lang('index.rates.name') <span class="text-lowercase">\(English)</span> </label>
-                <input name="name_en" value="" id="name_en" type="text" class="form-control" placeholder="ادخل الاسم باللغة الإنجليزية">
-                <div id="name_error_en" class="invalid-feedback" style="display: block"></div>
-            </div>
-        </div>
-        <hr class="my-4 mx-n4" />
-
-        <div class="row">
-            <div class="col-6 mb-3">
-                <label for="nameWithTitle" class="form-label">@lang('index.rates.sale')</label>
-                <input name="sale" value="" id="sale" type="text" class="form-control">
-                <div id="sale_error" class="invalid-feedback" style="display: block"></div>
-            </div>
-            <div class="col-6 mb-3">
-                <label for="nameWithTitle" class="form-label">@lang('index.rates.buy')</label>
-                <input name="buy" value="" id="buy" type="text" class="form-control">
-                <div id="buy_error" class="invalid-feedback" style="display: block"></div>
-            </div>
-        </div>
-    </x-slot:body>
-
-    {{-- Model Footer --}}
-    <x-slot:footer>
-        <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">@lang('general.cancel')</button>
-        <button type="submit" class="btn btn-primary" id="update_rate">@lang('general.save')</button>
-    </x-slot:footer>
-
-</x-modal>
-
-{{--  Delete User Modal --}}
-<x-modal id="ModalDeleteUser" :title="'delete'">
-
-    {{-- Model Body --}}
-    <x-slot:body>
-        <input type="hidden" id="user_id">
-        <div class="row">
-            <div class="col mb-3">
-                <h3>@lang('messages.confirm_delete_message')</h3>
-            </div>
-        </div>
-    </x-slot:body>
-
-    {{-- Model Footer --}}
-    <x-slot:footer>
-        <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">@lang('general.cancel')</button>
-        <button type="submit" class="btn btn-danger" id="delete">@lang('general.yes')</button>
-    </x-slot:footer>
-
-</x-modal>
