@@ -169,7 +169,7 @@
 
         {{-- User --}}
         <li class="menu-item">
-            <a href="{{route('dashboard.users')}}" class="menu-link">
+            <a href="{{route('dashboard.users.index')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-user"></i>
                 <div>@lang('page.users')</div>
             </a>

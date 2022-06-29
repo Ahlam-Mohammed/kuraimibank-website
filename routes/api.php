@@ -62,10 +62,6 @@ Route::prefix('dashboard')->name('api.')->group(function (){
     Route::apiResource('news', NewsController::class);
     Route::get('news/activate/{id}', [NewsController::class, 'activate'])->name('news.activate');
 
-    //********* Users API Route *********//
-    Route::apiResource('users', UserController::class);
-    Route::get('users/activate/{id}', [UserController::class, 'activate'])->name('users.activate');
-
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

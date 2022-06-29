@@ -4,10 +4,6 @@
     @lang('page.users')
 @stop
 
-@push('scripts_after')
-    @include('dashboard.script.users')
-@endpush
-
 @section('content')
 
     <h4 class="fw-bold py-3 mb-4">

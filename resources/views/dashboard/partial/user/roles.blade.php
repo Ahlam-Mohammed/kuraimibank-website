@@ -28,7 +28,7 @@
                         <button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#ModalEditRole-{{ $role->id, $role->name, $role->display_name }}" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
                             @lang('general.edit')
                         </button>
-                        <button class="dropdown-item" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalDeleteRole" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
+                        <button class="dropdown-item" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalDeleteRole-{{ $role->id }}" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
                             @lang('general.delete')
                         </button>
                     </x-dropdown-table>
@@ -95,9 +95,9 @@
             </form>
 
             {{--  Delete User Modal --}}
-            <form action="{{ route('dashboard.roles.destroy', $role) }}" method="post">
+            <form action="{{ route('dashboard.roles.destroy', $role->id) }}" method="post">
                 @csrf @method('DELETE')
-                <x-modal id="ModalDeleteRole" :title="'delete'">
+                <x-modal id="ModalDeleteRole-{{ $role->id }}" :title="'delete'">
 
                     {{-- Model Body --}}
                     <x-slot:body>

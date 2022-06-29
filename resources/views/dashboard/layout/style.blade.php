@@ -76,5 +76,9 @@
     .btn-label-primary {
         color: #695d85 !important;
     }
+    .bg-label-info {
+        background-color: #695d851c!important;
+        color: #695d85 !important;
+    }
 
 </style>

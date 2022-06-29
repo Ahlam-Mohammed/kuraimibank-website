@@ -7,6 +7,7 @@ use App\Http\Controllers\dashboard\OurPartnerController;
 use App\Http\Controllers\dashboard\ReportController;
 use App\Http\Controllers\dashboard\RoleController;
 use App\Http\Controllers\dashboard\ServiceController;
+use App\Http\Controllers\dashboard\UserController;
 use App\Http\Controllers\dashboard\WebInfoController;
 use App\Http\Controllers\LocaleController;
 use Illuminate\Support\Facades\Route;
@@ -30,13 +31,15 @@ Route::prefix('dashboard/')->middleware('web','auth')->name('dashboard.')->group
     //********* Pages Route *********//
     Route::controller(HomeController::class)->group(function () {
         Route::get('/', 'index')->name('index');
-        Route::get('manage-users', 'users')->name('users');
         Route::get('/manage-categories', 'categories')->name('categories');
         Route::get('/manage-regions', 'regions')->name('region');
         Route::get('/manage-exchange-rates', 'rates')->name('rates');
         Route::get('/manage-news', 'news')->name('news');
         Route::get('/manage-service-points', 'servicePoint')->name('service.point');
     });
+
+    //********* Users Route *********//
+    Route::resource('users', UserController::class);
 
     //********* Our Partner Route *********//
     Route::resource('partners', OurPartnerController::class);

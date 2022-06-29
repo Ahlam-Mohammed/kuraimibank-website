@@ -16,7 +16,7 @@
         <th>@lang('index.users.email')</th>
         <th>@lang('index.users.role')</th>
         <th>@lang('general.created_at')</th>
-        <th>@lang('general.status')</th>
+{{--        <th>@lang('general.status')</th>--}}
         <th></th>
     </x-slot:thead>
 
@@ -26,156 +26,207 @@
                 <td><strong> {{ $user->id }} </strong></td>
                 <td> {{ $user->name }} </td>
                 <td> {{ $user->email }} </td>
-                <td>  </td>
-                <td> {{ $user->created_at }} </td>
                 <td>
-                    @if($user->is_active)
-                        <span class="badge bg-label-primary me-1">@lang('general.activated')</span>
-                    @else
-                        <span class="badge bg-label-secondary me-1">@lang('general.not_activated')</span>
+                    @if(!empty($user->getRoleNames()))
+                        @foreach($user->getRoleNames()->toArray() as $role)
+                            <label class="badge bg-label-info">{{ $role }}</label>
+                        @endforeach
                     @endif
                 </td>
+                <td> {{ $user->created_at }} </td>
+{{--                <td>--}}
+{{--                    @if($user->is_active)--}}
+{{--                        <span class="badge bg-label-primary me-1">@lang('general.activated')</span>--}}
+{{--                    @else--}}
+{{--                        <span class="badge bg-label-secondary me-1">@lang('general.not_activated')</span>--}}
+{{--                    @endif--}}
+{{--                </td>--}}
                 <td>
                     <x-dropdown-table>
-                        <button class="dropdown-item" onclick="edit_user({{ $user->id }})" type="button" data-bs-toggle="modal" data-bs-target="#ModalEditUser" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
+                        <button class="dropdown-item" onclick="edit_user({{ $user->id }})" type="button" data-bs-toggle="modal" data-bs-target="#ModalEditUser-{{ $user->id, $user->name, $user->email }}" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
                             @lang('general.edit')
                         </button>
-                        <button class="dropdown-item" onclick="delete_user({{ $user->id }})" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalDeleteUser" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
+                        <button class="dropdown-item" onclick="delete_user({{ $user->id }})" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalDeleteUser-{{ $user->id }}" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
                             @lang('general.delete')
                         </button>
-                        <button class="dropdown-item" type="button" onclick="active_user({{ $user->id }})" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
-                            @if($user->is_active)
-                                @lang('general.deactivation')
-                            @else
-                                @lang('general.active')
-                            @endif
-                        </button>
+{{--                        <button class="dropdown-item" type="button" onclick="active_user({{ $user->id }})" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>--}}
+{{--                            @if($user->is_active)--}}
+{{--                                @lang('general.deactivation')--}}
+{{--                            @else--}}
+{{--                                @lang('general.active')--}}
+{{--                            @endif--}}
+{{--                        </button>--}}
                     </x-dropdown-table>
                 </td>
             </tr>
+
+            {{--  Edit User Modal --}}
+            <form action="{{ route('dashboard.users.update', $user) }}" method="post">
+                @csrf @method('PUT')
+                <x-modal id="ModalEditUser-{{ $user->id, $user->name, $user->email }}" :title="'edit'">
+
+                    {{-- Model Body --}}
+                    <x-slot:body>
+
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <label for="nameWithTitle" class="form-label">@lang('index.users.name')</label>
+                                <input name="name" value="{{ $user->name }}" id="name" type="text" class="form-control  @error('name') is-invalid @enderror">
+                                @error('name')
+                                <div class="invalid-feedback"> {{ $message }} </div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <label for="nameWithTitle" class="form-label">@lang('index.users.email')</label>
+                                <input name="email" value="{{ $user->email }}" id="email" type="email" class="form-control  @error('email') is-invalid @enderror">
+                                @error('email')
+                                    <div class="invalid-feedback"> {{ $message }} </div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <label for="nameWithTitle" class="form-label">@lang('index.users.password')</label>
+                                <input name="password" id="password" type="password" class="form-control  @error('password') is-invalid @enderror">
+                                @error('password')
+                                <div class="invalid-feedback"> {{ $message }} </div>
+                                @enderror
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label for="password-confirm" class="form-label">@lang('index.users.confirm')</label>
+                                <input id="confirm" type="password" class="form-control"  name="confirm"  autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <label for="role" class="form-label">@lang('index.users.roles')</label>
+                                <select name="roles[]" id="role" class="selectpicker @error('roles') is-invalid @enderror w-100" data-style="btn-default" multiple data-icon-base="bx" data-tick-icon="bx-check text-primary">
+                                    @if(isset($roles))
+                                        @foreach($roles as $role)
+                                            <option
+                                                @foreach($user->getRoleNames() as $r)
+                                                        @if($r === $role) selected @endif
+                                                @endforeach >
+                                                {{ $role }}
+                                            </option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                                @error('roles')
+                                <span id="exampleInputEmail1-error" class="error invalid-feedback">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+
+                    </x-slot:body>
+
+                    {{-- Model Footer --}}
+                    <x-slot:footer>
+                        <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">@lang('general.cancel')</button>
+                        <button type="submit" class="btn btn-primary" id="update_rate">@lang('general.save')</button>
+                    </x-slot:footer>
+
+                </x-modal>
+            </form>
+
+            {{--  Delete User Modal --}}
+            <form action="{{ route('dashboard.users.destroy', $user->id) }}" method="post">
+                @csrf @method('DELETE')
+                <x-modal id="ModalDeleteUser-{{ $user->id }}" :title="'delete'">
+
+                    {{-- Model Body --}}
+                    <x-slot:body>
+                        <input type="hidden" id="user_id">
+                        <div class="row">
+                            <div class="col mb-3">
+                                <h3>@lang('messages.confirm_delete_message')</h3>
+                            </div>
+                        </div>
+                    </x-slot:body>
+
+                    {{-- Model Footer --}}
+                    <x-slot:footer>
+                        <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">@lang('general.cancel')</button>
+                        <button type="submit" class="btn btn-danger">@lang('general.yes')</button>
+                    </x-slot:footer>
+
+                </x-modal>
+            </form>
         @endforeach
     </x-slot:tbody>
 
 </x-table>
 
 {{--  Add User Modal --}}
-<x-modal id="ModalAddUser" :title="'add'">
+<form action="{{ route('dashboard.users.store') }}" method="post">
+    @csrf
+    <x-modal id="ModalAddUser" :title="'add'">
 
-    {{-- Model Body --}}
-    <x-slot:body>
+        {{-- Model Body --}}
+        <x-slot:body>
 
-        <div class="row">
-            <div class="col-12 mb-3">
-                <label for="nameWithTitle" class="form-label">@lang('index.users.name')</label>
-                <input name="name" value="" id="name" type="text" class="form-control">
-                <div id="name_error" class="invalid-feedback" style="display: block"></div>
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <label for="nameWithTitle" class="form-label">@lang('index.users.name')</label>
+                    <input name="name" value="{{ old('name') }}" id="name" type="text" class="form-control  @error('name') is-invalid @enderror">
+                    @error('name')
+                        <div class="invalid-feedback"> {{ $message }} </div>
+                    @enderror
+                </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-12 mb-3">
-                <label for="nameWithTitle" class="form-label">@lang('index.users.email')</label>
-                <input name="email" value="" id="email" type="email" class="form-control">
-                <div id="email_error" class="invalid-feedback" style="display: block"></div>
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <label for="nameWithTitle" class="form-label">@lang('index.users.email')</label>
+                    <input name="email" value="{{ old('email') }}" id="email" type="email" class="form-control  @error('email') is-invalid @enderror">
+                    @error('email')
+                        <div class="invalid-feedback"> {{ $message }} </div>
+                    @enderror
+                </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-12 mb-3">
-                <label for="nameWithTitle" class="form-label">@lang('index.users.password')</label>
-                <input name="password" value="" id="password" type="password" class="form-control">
-                <div id="password_error" class="invalid-feedback" style="display: block"></div>
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <label for="nameWithTitle" class="form-label">@lang('index.users.password')</label>
+                    <input name="password" id="password" type="password" class="form-control  @error('password') is-invalid @enderror">
+                    @error('password')
+                        <div class="invalid-feedback"> {{ $message }} </div>
+                    @enderror
+                </div>
+                <div class="col-12 mb-3">
+                    <label for="password-confirm" class="form-label">@lang('index.users.confirm')</label>
+                    <input id="confirm" type="password" class="form-control"  name="confirm" required autocomplete="new-password">
+                </div>
             </div>
-        </div>
 
-        <div class="row mb-3">
-            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">@lang('index.users.confirm')</label>
-            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-        </div>
-
-        <div class="row">
-            <div class="col-12 mb-4">
-                <label for="select2Multiple" class="form-label">@lang('index.users.role')</label>
-                <select name="roles[]" id="select2Multiple" class="select2 form-select" multiple>
-{{--                    @if(isset($user))--}}
-{{--                        @foreach($user as $role)--}}
-{{--                            <option>{{ $role }}</option>--}}
-{{--                        @endforeach--}}
-{{--                    @endif--}}
-                </select>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <label for="role" class="form-label">@lang('index.users.roles')</label>
+                    <select name="roles[]" id="role" class="selectpicker @error('roles') is-invalid @enderror w-100" data-style="btn-default" multiple data-icon-base="bx" data-tick-icon="bx-check text-primary">
+                        @if(isset($roles))
+                            @foreach($roles as $role)
+                                <option>{{ $role }}</option>
+                            @endforeach
+                        @endif
+                    </select>
+                    @error('roles')
+                        <span id="exampleInputEmail1-error" class="error invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
             </div>
-        </div>
 
-    </x-slot:body>
+        </x-slot:body>
 
-    {{-- Model Footer --}}
-    <x-slot:footer>
-        <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">@lang('general.cancel')</button>
-        <button class="btn btn-primary add_rate">@lang('general.save')</button>
-    </x-slot:footer>
+        {{-- Model Footer --}}
+        <x-slot:footer>
+            <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">@lang('general.cancel')</button>
+            <button type="submit" class="btn btn-primary">@lang('general.save')</button>
+        </x-slot:footer>
 
-</x-modal>
-
-{{--  Edit Exchange Rate Modal --}}
-<x-modal id="ModalEditRate" :title="'edit'">
-
-    {{-- Model Body --}}
-    <x-slot:body>
-        <ul id="update_msgList"></ul>
-        <input hidden id="rate_id">
-        <div class="row">
-            <div class="col-12 mb-3">
-                <label for="nameWithTitle" class="form-label">@lang('index.rates.name')  <span class="text-lowercase">\(Arabic)</span> </label>
-                <input name="name_ar" value="" id="name_ar" type="text" class="form-control" placeholder="ادخل الاسم باللغة العربية">
-                <div id="name_error_ar" class="invalid-feedback" style="display: block"></div>
-            </div>
-            <div class="col-12 mb-3">
-                <label for="nameWithTitle" class="form-label">@lang('index.rates.name') <span class="text-lowercase">\(English)</span> </label>
-                <input name="name_en" value="" id="name_en" type="text" class="form-control" placeholder="ادخل الاسم باللغة الإنجليزية">
-                <div id="name_error_en" class="invalid-feedback" style="display: block"></div>
-            </div>
-        </div>
-        <hr class="my-4 mx-n4" />
-
-        <div class="row">
-            <div class="col-6 mb-3">
-                <label for="nameWithTitle" class="form-label">@lang('index.rates.sale')</label>
-                <input name="sale" value="" id="sale" type="text" class="form-control">
-                <div id="sale_error" class="invalid-feedback" style="display: block"></div>
-            </div>
-            <div class="col-6 mb-3">
-                <label for="nameWithTitle" class="form-label">@lang('index.rates.buy')</label>
-                <input name="buy" value="" id="buy" type="text" class="form-control">
-                <div id="buy_error" class="invalid-feedback" style="display: block"></div>
-            </div>
-        </div>
-    </x-slot:body>
-
-    {{-- Model Footer --}}
-    <x-slot:footer>
-        <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">@lang('general.cancel')</button>
-        <button type="submit" class="btn btn-primary" id="update_rate">@lang('general.save')</button>
-    </x-slot:footer>
-
-</x-modal>
-
-{{--  Delete User Modal --}}
-<x-modal id="ModalDeleteUser" :title="'delete'">
-
-    {{-- Model Body --}}
-    <x-slot:body>
-        <input type="hidden" id="user_id">
-        <div class="row">
-            <div class="col mb-3">
-                <h3>@lang('messages.confirm_delete_message')</h3>
-            </div>
-        </div>
-    </x-slot:body>
-
-    {{-- Model Footer --}}
-    <x-slot:footer>
-        <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">@lang('general.cancel')</button>
-        <button type="submit" class="btn btn-danger" id="delete">@lang('general.yes')</button>
-    </x-slot:footer>
-
-</x-modal>
+    </x-modal>
+</form>
