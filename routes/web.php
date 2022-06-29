@@ -7,6 +7,7 @@ use App\Http\Controllers\dashboard\OurPartnerController;
 use App\Http\Controllers\dashboard\ReportController;
 use App\Http\Controllers\dashboard\RoleController;
 use App\Http\Controllers\dashboard\ServiceController;
+use App\Http\Controllers\dashboard\SettingController;
 use App\Http\Controllers\dashboard\UserController;
 use App\Http\Controllers\dashboard\WebInfoController;
 use App\Http\Controllers\LocaleController;
@@ -40,6 +41,15 @@ Route::prefix('dashboard/')->middleware('web','auth')->name('dashboard.')->group
 
     //********* Users Route *********//
     Route::resource('users', UserController::class);
+
+    //********* User Setting Route *********//
+    Route::controller(SettingController::class)->group(function (){
+        Route::get('/settings', 'index')->name('settings');
+        Route::post('update-avatar', 'updateAvatar')->name('update.avatar');
+        Route::post('update-account', 'updateAccount')->name('update.account');
+        Route::post('update-password', 'updatePassword')->name('update.password');
+        Route::get('delete-account', 'deleteAccount')->name('delete.account');
+    });
 
     //********* Our Partner Route *********//
     Route::resource('partners', OurPartnerController::class);

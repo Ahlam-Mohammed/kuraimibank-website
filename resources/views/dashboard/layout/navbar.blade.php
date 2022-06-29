@@ -49,13 +49,11 @@
                         </a>
                     </li>
                     @foreach(config('locales.languages') as $key => $val)
-{{--                        <li>--}}
-                            @if ($key != app()->getLocale())
-                                <a href="{{ route('change-language', $key) }}" class="dropdown-item">
-                                    <span class="align-middle">{{ $val['name'] }}</span>
-                                </a>
-                            @endif
-{{--                        </li>--}}
+                        @if ($key != app()->getLocale())
+                            <a href="{{ route('change-language', $key) }}" class="dropdown-item">
+                                <span class="align-middle">{{ $val['name'] }}</span>
+                            </a>
+                        @endif
                     @endforeach
                 </ul>
             </li>
@@ -65,7 +63,7 @@
             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                        <img src="{{ asset('images/logo-color.svg') }}" alt class="w-px-40 h-auto rounded-circle">
+                        <img src="{{ asset('storage/users/'. Auth::user()->avatar) }}" alt class="w-px-40 h-auto rounded-circle">
                     </div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
@@ -79,7 +77,7 @@
                                 </div>
                                 <div class="flex-grow-1">
                                     <span class="fw-semibold d-block"> {{ Auth::user()->name }}</span>
-{{--                                    <small class="text-muted"> {{ Auth::user()->getRoleNames() }}</small>--}}
+                                    <small class="text-muted"> {{ Auth::user()->email }}</small>
                                 </div>
                             </div>
                         </a>
@@ -88,11 +86,17 @@
                         <div class="dropdown-divider"></div>
                     </li>
                     <li>
+                        <a class="dropdown-item" href="{{ route('dashboard.settings') }}">
+                            <i class="bx bx-cog me-2"></i>
+                            <span class="align-middle">@lang('general.settings')</span>
+                        </a>
+                    </li>
+                    <li>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                            document.getElementById('logout-form').submit();" target="_blank">
                             <i class="bx bx-power-off me-2"></i>
-                            <span class="align-middle">{{ __('Logout') }}</span>
+                            <span class="align-middle">@lang('general.logout')</span>
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
