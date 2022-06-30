@@ -13,6 +13,14 @@ class ReportController extends Controller
 {
     use Uploads;
 
+    function __construct()
+    {
+        $this->middleware('Permissions:report-list', ['only' => ['index']]);
+        $this->middleware('Permissions:report-create', ['only' => ['store']]);
+        $this->middleware('Permissions:report-edit', ['only' => [ 'update']]);
+        $this->middleware('Permissions:report-delete', ['only' => ['destroy', 'activate']]);
+    }
+
     public function index()
     {
         $reports = FinancialReport::all();

@@ -4,9 +4,11 @@
     {{-- Table Title --}}
     <x-slot:title>
         <h5 class="card-header">@lang('index.principle.principles')</h5>
-        <button type="button" data-bs-toggle="modal" data-bs-target="#ModalAddPrinciple" class="btn rounded-pill btn-icon btn-label-primary">
-            <span class="tf-icons bx bx-plus"></span>
-        </button>
+        @can('principle-create')
+            <button type="button" data-bs-toggle="modal" data-bs-target="#ModalAddPrinciple" class="btn rounded-pill btn-icon btn-label-primary">
+                <span class="tf-icons bx bx-plus"></span>
+            </button>
+        @endcan
     </x-slot:title>
 
     {{-- Table Header --}}

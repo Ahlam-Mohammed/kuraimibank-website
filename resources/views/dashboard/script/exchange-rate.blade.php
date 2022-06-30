@@ -21,15 +21,19 @@
                     </td>
                     <td>
                         <x-dropdown-table>
+                        @can('exchange-rate-edit')
                             <button class="dropdown-item" onclick="edit_rate(${item.id})" type="button" data-bs-toggle="modal" data-bs-target="#ModalEditRate" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
                                 @lang('general.edit')
-                </button>
-                <button class="dropdown-item" onclick="delete_rate(${item.id})" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalDeleteRate" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
+                            </button>
+                        @endcan
+                        @can('exchange-rate-delete')
+                            <button class="dropdown-item" onclick="delete_rate(${item.id})" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalDeleteRate" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
                                  @lang('general.delete')
-                </button>
-                <button class="dropdown-item" type="button" onclick="active_rate(${item.id})" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
+                            </button>
+                            <button class="dropdown-item" type="button" onclick="active_rate(${item.id})" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
                                 ${item.is_active ? `@lang('general.deactivation')` : `@lang('general.active')`}
                             </button>
+                        @endcan
                         </x-dropdown-table>
                     </td>
                 </tr>`

@@ -21,12 +21,7 @@ class PermissionSeeder extends Seeder
         Schema::disableForeignKeyConstraints();
         Role::truncate();
         Permission::truncate();
-//        $arrayOfPermissionNames = [
-//            [
-//                'ar' => 'arabic',
-//                'en' => 'engl'
-//            ]
-//        ];
+
         $arrayOfPermissionNames = [
             'role-list',
             'role-create',
@@ -39,35 +34,76 @@ class PermissionSeeder extends Seeder
             'user-delete',
             'user-activate',
 
-            'city-list',
-            'city-create',
-            'city-edit',
-            'city-delete',
-            'city-activate',
-
-            'country-list',
-            'country-create',
-            'country-edit',
-            'country-delete',
-            'country-activate',
-
-            'service-point-list',
-            'service-point-create',
-            'service-point-edit',
-            'service-point-delete',
-            'service-point-activate',
-
+//            'city-list',
+//            'city-create',
+//            'city-edit',
+//            'city-delete',
+//            'city-activate',
+//
+//            'country-list',
+//            'country-create',
+//            'country-edit',
+//            'country-delete',
+//            'country-activate',
+//
+//            'service-point-list',
+//            'service-point-create',
+//            'service-point-edit',
+//            'service-point-delete',
+//            'service-point-activate',
+//
             'service-list',
             'service-create',
             'service-edit',
             'service-delete',
-            'service-activate',
 
             'category-list',
             'category-create',
             'category-edit',
             'category-delete',
-            'category-activate',
+
+            'exchange-rate-list',
+            'exchange-rate-create',
+            'exchange-rate-edit',
+            'exchange-rate-delete',
+
+            'report-list',
+            'report-create',
+            'report-edit',
+            'report-delete',
+
+            'news-list',
+            'news-create',
+            'news-edit',
+            'news-delete',
+
+            'job-list',
+            'job-create',
+            'job-edit',
+            'job-delete',
+
+            'principle-list',
+            'principle-create',
+            'principle-edit',
+            'principle-delete',
+
+            'about-list',
+            'about-edit',
+
+            'vision-list',
+            'vision-edit',
+
+            'strategy-list',
+            'strategy-edit',
+
+            'policy-list',
+            'policy-edit',
+
+            'social-list',
+            'social-edit',
+
+            'contact-list',
+            'contact-edit',
 
         ];
         $permissions = collect($arrayOfPermissionNames)->map(function ($permission) {
@@ -84,7 +120,7 @@ class PermissionSeeder extends Seeder
         Role::create([
             'name'          =>  "ADMIN",
             'display_name'   => "ADMIN",
-        ]);
+        ])->givePermissionTo(Permission::all());;
 
 
     }

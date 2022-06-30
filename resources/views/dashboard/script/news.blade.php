@@ -19,15 +19,19 @@
                     </td>
                     <td>
                         <x-dropdown-table>
+                        @can('news-list')
                             <button class="dropdown-item" onclick="edit_news(${item.id})" type="button" data-bs-toggle="modal" data-bs-target="#ModalEditNews" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
                                 @lang('general.edit')
                             </button>
+                        @endcan
+                        @can('news-delete')
                             <button class="dropdown-item" onclick="delete_news(${item.id})" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalDeleteNews" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
                                  @lang('general.delete')
                             </button>
                             <button class="dropdown-item" type="button" onclick="active_news(${item.id})" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
                                 ${item.is_active ? `@lang('general.deactivation')` : `@lang('general.active')`}
                             </button>
+                        @endcan
                         </x-dropdown-table>
                     </td>
                 </tr>`

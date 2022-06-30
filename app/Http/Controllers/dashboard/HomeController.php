@@ -15,7 +15,8 @@ class HomeController extends Controller
     function __construct()
     {
         $this->middleware('Permissions:category-list', ['only' => ['categories']]);
-
+        $this->middleware('Permissions:exchange-rate-list', ['only' => ['rates']]);
+        $this->middleware('Permissions:news-list', ['only' => ['news']]);
     }
 
     //********* Home Dashboard Page *********//

@@ -151,15 +151,19 @@
                     </td>
                     <td>
                         <x-dropdown-table>
+                        @can('principle-edit')
                             <button class="dropdown-item" onclick="edit_principle(${item.id})" type="button" data-bs-toggle="modal" data-bs-target="#ModalEditPrinciple" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
                                 @lang('general.edit')
                             </button>
+                        @endcan
+                        @can('principle-delete')
                             <button class="dropdown-item" onclick="delete_principle(${item.id})" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalDeletePrinciple" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
                                  @lang('general.delete')
                             </button>
                             <button class="dropdown-item" type="button" onclick="active_principle(${item.id})" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
                                 ${item.is_active ? `@lang('general.deactivation')` : `@lang('general.active')`}
                             </button>
+                        @endcan
                         </x-dropdown-table>
                     </td>
                 </tr>`

@@ -4,9 +4,11 @@
     {{-- Table Title --}}
     <x-slot:title>
         <h5 class="card-header">@lang('index.news.news')</h5>
-        <button type="button" data-bs-toggle="modal" data-bs-target="#ModalAddNews" class="btn rounded-pill btn-icon btn-label-primary">
-            <span class="tf-icons bx bx-plus"></span>
-        </button>
+        @can('news-create')
+            <button type="button" data-bs-toggle="modal" data-bs-target="#ModalAddNews" class="btn rounded-pill btn-icon btn-label-primary">
+                <span class="tf-icons bx bx-plus"></span>
+            </button>
+        @endcan
     </x-slot:title>
 
     {{-- Table Header --}}
@@ -33,19 +35,23 @@
                 </td>
                 <td>
                     <x-dropdown-table>
-                        <button class="dropdown-item" onclick="edit_news({{ $new->id }})" type="button" data-bs-toggle="modal" data-bs-target="#ModalEditNews" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
-                            @lang('general.edit')
-                        </button>
-                        <button class="dropdown-item" onclick="delete_news({{ $new->id }})" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalDeleteNews" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
-                            @lang('general.delete')
-                        </button>
-                        <button class="dropdown-item" type="button" onclick="active_news({{ $new->id }})" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
-                            @if($new->is_active)
-                                @lang('general.deactivation')
-                            @else
-                                @lang('general.active')
-                            @endif
-                        </button>
+                        @can('news-edit')
+                            <button class="dropdown-item" onclick="edit_news({{ $new->id }})" type="button" data-bs-toggle="modal" data-bs-target="#ModalEditNews" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
+                                @lang('general.edit')
+                            </button>
+                        @endcan
+                        @can('news-delete')
+                            <button class="dropdown-item" onclick="delete_news({{ $new->id }})" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalDeleteNews" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
+                                @lang('general.delete')
+                            </button>
+                            <button class="dropdown-item" type="button" onclick="active_news({{ $new->id }})" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
+                                @if($new->is_active)
+                                    @lang('general.deactivation')
+                                @else
+                                    @lang('general.active')
+                                @endif
+                            </button>
+                        @endcan
                     </x-dropdown-table>
                 </td>
             </tr>

@@ -4,9 +4,11 @@
     {{-- Table Title --}}
     <x-slot:title>
         <h5 class="card-header">@lang('page.financial_reports')</h5>
-        <button type="button" data-bs-toggle="modal" data-bs-target="#ModalAddReport" class="btn rounded-pill btn-icon btn-label-primary">
-            <span class="tf-icons bx bx-plus"></span>
-        </button>
+        @can('report.create')
+            <button type="button" data-bs-toggle="modal" data-bs-target="#ModalAddReport" class="btn rounded-pill btn-icon btn-label-primary">
+                <span class="tf-icons bx bx-plus"></span>
+            </button>
+        @endcan
     </x-slot:title>
 
     {{-- Table Header --}}
@@ -33,17 +35,21 @@
                 </td>
                 <td>
                     <x-dropdown-table>
-                        <button class="dropdown-item"  type="button" data-bs-toggle="modal" data-bs-target="#ModalEditReport-{{ $report->id, $report->name, $report->file }}">
-                            <i class="bx bx-edit-alt me-1"></i>
-                            @lang('general.edit')
-                        </button>
-                        <button class="dropdown-item" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalDeleteReport-{{ $report->id }}">
-                            <i class="bx bx-trash me-1"></i>
-                            @lang('general.delete')
-                        </button>
-                        <a class="dropdown-item" href="{{ route('dashboard.reports.active', $report->id) }}"><i class="bx bx-edit-alt me-1"></i>
-                            @if($report->is_active ) @lang('general.deactivation') @else @lang('general.active')@endif
-                        </a>
+                       @can('report-edit')
+                            <button class="dropdown-item"  type="button" data-bs-toggle="modal" data-bs-target="#ModalEditReport-{{ $report->id, $report->name, $report->file }}">
+                                <i class="bx bx-edit-alt me-1"></i>
+                                @lang('general.edit')
+                            </button>
+                       @endcan
+                       @can('report-delete')
+                           <button class="dropdown-item" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalDeleteReport-{{ $report->id }}">
+                               <i class="bx bx-trash me-1"></i>
+                               @lang('general.delete')
+                           </button>
+                           <a class="dropdown-item" href="{{ route('dashboard.reports.active', $report->id) }}"><i class="bx bx-edit-alt me-1"></i>
+                               @if($report->is_active ) @lang('general.deactivation') @else @lang('general.active')@endif
+                           </a>
+                       @endcan
                     </x-dropdown-table>
                 </td>
             </tr>

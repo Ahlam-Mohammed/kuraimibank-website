@@ -4,9 +4,11 @@
     {{-- Table Title --}}
     <x-slot:title>
         <h5 class="card-header">@lang('index.roles.roles')</h5>
-        <button type="button" data-bs-toggle="modal" data-bs-target="#ModalAddRole" class="btn rounded-pill btn-icon btn-label-primary">
-            <span class="tf-icons bx bx-plus"></span>
-        </button>
+        @can('role-create')
+            <button type="button" data-bs-toggle="modal" data-bs-target="#ModalAddRole" class="btn rounded-pill btn-icon btn-label-primary">
+                <span class="tf-icons bx bx-plus"></span>
+            </button>
+        @endcan
     </x-slot:title>
 
     {{-- Table Header --}}
@@ -25,12 +27,16 @@
                 <td> {{ $role->created_at }} </td>
                 <td>
                     <x-dropdown-table>
-                        <button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#ModalEditRole-{{ $role->id, $role->name, $role->display_name }}" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
-                            @lang('general.edit')
-                        </button>
-                        <button class="dropdown-item" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalDeleteRole-{{ $role->id }}" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
-                            @lang('general.delete')
-                        </button>
+                        @can('role-edit')
+                            <button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#ModalEditRole-{{ $role->id, $role->name, $role->display_name }}" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
+                                @lang('general.edit')
+                            </button>
+                        @endcan
+                        @can('role-delete')
+                            <button class="dropdown-item" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalDeleteRole-{{ $role->id }}" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
+                                @lang('general.delete')
+                            </button>
+                        @endcan
                     </x-dropdown-table>
                 </td>
             </tr>

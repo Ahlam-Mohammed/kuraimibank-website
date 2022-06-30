@@ -10,6 +10,19 @@ use Illuminate\Support\Facades\Lang;
 
 class WebInfoController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('Permissions:about-list', ['only' => ['indexAbout']]);
+        $this->middleware('Permissions:about-edit', ['only' => ['updateAbout']]);
+        $this->middleware('Permissions:vision-list', ['only' => ['indexVision']]);
+        $this->middleware('Permissions:vision-edit', ['only' => ['updateVision']]);
+        $this->middleware('Permissions:strategy-list', ['only' => ['indexStrategy']]);
+        $this->middleware('Permissions:strategy-edit', ['only' => ['updateStrategy']]);
+        $this->middleware('Permissions:policy-list', ['only' => ['indexPolicy']]);
+        $this->middleware('Permissions:policy-edit', ['only' => ['updatePolicy']]);
+        $this->middleware('Permissions:principle-list', ['only' => ['indexPrinciple']]);
+    }
+
     //********* Get About *********//
     public function indexAbout()
     {

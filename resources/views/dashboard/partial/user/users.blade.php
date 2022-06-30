@@ -4,9 +4,11 @@
     {{-- Table Title --}}
     <x-slot:title>
         <h5 class="card-header">@lang('index.users.users')</h5>
-        <button type="button" data-bs-toggle="modal" data-bs-target="#ModalAddUser" class="btn rounded-pill btn-icon btn-label-primary">
-            <span class="tf-icons bx bx-plus"></span>
-        </button>
+        @can('user-create')
+            <button type="button" data-bs-toggle="modal" data-bs-target="#ModalAddUser" class="btn rounded-pill btn-icon btn-label-primary">
+                <span class="tf-icons bx bx-plus"></span>
+            </button>
+        @endcan
     </x-slot:title>
 
     {{-- Table Header --}}
@@ -43,12 +45,16 @@
 {{--                </td>--}}
                 <td>
                     <x-dropdown-table>
-                        <button class="dropdown-item" onclick="edit_user({{ $user->id }})" type="button" data-bs-toggle="modal" data-bs-target="#ModalEditUser-{{ $user->id, $user->name, $user->email }}" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
-                            @lang('general.edit')
-                        </button>
-                        <button class="dropdown-item" onclick="delete_user({{ $user->id }})" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalDeleteUser-{{ $user->id }}" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
-                            @lang('general.delete')
-                        </button>
+                        @can('user-edit')
+                            <button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#ModalEditUser-{{ $user->id, $user->name, $user->email }}" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
+                                @lang('general.edit')
+                            </button>
+                        @endcan
+                        @can('user-delete')
+                            <button class="dropdown-item" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalDeleteUser-{{ $user->id }}" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
+                                @lang('general.delete')
+                            </button>
+                        @endcan
 {{--                        <button class="dropdown-item" type="button" onclick="active_user({{ $user->id }})" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>--}}
 {{--                            @if($user->is_active)--}}
 {{--                                @lang('general.deactivation')--}}

@@ -10,6 +10,14 @@ use Illuminate\Support\Facades\Lang;
 
 class ContactInfoController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('Permissions:social-list', ['only' => ['indexSocial']]);
+        $this->middleware('Permissions:social-edit', ['only' => ['updateSocial']]);
+        $this->middleware('Permissions:contact-list', ['only' => ['indexContact']]);
+        $this->middleware('Permissions:contact-edit', ['only' => ['updateContact']]);
+    }
+
     //********* Get Social *********//
     public function indexSocial()
     {
@@ -19,7 +27,7 @@ class ContactInfoController extends Controller
         $instagram = ContactInfo::where('key', WebInfoEnum::INSTAGRAM)->first();
         $google    = ContactInfo::where('key', WebInfoEnum::GOOGLE)->first();
 
-        return view('dashboard.page.manage_web_info.social',
+        return view('dashboard.page.web_info.social',
             compact('facebook', 'twitter', 'whatsapp', 'instagram', 'google'));
     }
 
@@ -63,7 +71,7 @@ class ContactInfoController extends Controller
         $box      = ContactInfo::where('key', WebInfoEnum::P_O_BOX)->first();
         $email    = ContactInfo::where('key', WebInfoEnum::EMAIL)->first();
 
-        return view('dashboard.page.manage_web_info.contact',
+        return view('dashboard.page.web_info.contact',
             compact('tel', 'tollFree', 'fax', 'box', 'email'));
     }
 

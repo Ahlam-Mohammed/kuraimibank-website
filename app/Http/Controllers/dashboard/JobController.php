@@ -9,6 +9,14 @@ use Lang;
 
 class JobController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('Permissions:job-list', ['only' => ['index']]);
+        $this->middleware('Permissions:job-create', ['only' => ['store']]);
+        $this->middleware('Permissions:job-edit', ['only' => [ 'update']]);
+        $this->middleware('Permissions:job-delete', ['only' => ['destroy', 'activate']]);
+    }
+
     public function index()
     {
         $jobs = Job::all();
