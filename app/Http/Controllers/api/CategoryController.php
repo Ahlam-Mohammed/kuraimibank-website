@@ -12,6 +12,14 @@ use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
+//    function __construct()
+//    {
+//        $this->middleware('Permissions:category-list', ['only' => ['index']]);
+//        $this->middleware('Permissions:category-create', ['only' => ['store', 'create']]);
+//        $this->middleware('Permissions:category-edit', ['only' => ['show', 'update']]);
+//        $this->middleware('Permissions:category-delete', ['only' => ['destroy', 'activate']]);
+//    }
+
     /**
      * Display a listing of the resource.
      */

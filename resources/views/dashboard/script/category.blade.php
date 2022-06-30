@@ -171,19 +171,23 @@
                     </td>
                     <td>
                         <x-dropdown-table>
-                            ${item.is_branch ? `` :
-                            `<button class="dropdown-item active_category" type="button" onclick="add_branch(${item.id})" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalAddBranch" href="javascript:void(0);"><i class="tf-icons bx bx-plus"></i>
-                                @lang('index.service_category.add_branch')
-                            </button>`}
-                            <button class="dropdown-item edit_category" onclick="edit_category(${item.id})" type="button" data-bs-toggle="modal" data-bs-target="#ModalEditCategory" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
-                                @lang('general.edit')
-                            </button>
-                            <button class="dropdown-item delete_category" onclick="delete_category(${item.id})" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalDeleteCategory" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
-                                 @lang('general.delete')
-                            </button>
-                            <button class="dropdown-item active_category" type="button" onclick="active_category(${item.id})" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
-                                ${item.is_active ? `@lang('general.deactivation')` : `@lang('general.active')`}
-                            </button>
+                            @can('category-edit')
+                                ${item.is_branch ? `` :
+                                `<button class="dropdown-item active_category" type="button" onclick="add_branch(${item.id})" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalAddBranch" href="javascript:void(0);"><i class="tf-icons bx bx-plus"></i>
+                                        @lang('index.service_category.add_branch')
+                                </button>`}
+                                 <button class="dropdown-item edit_category" onclick="edit_category(${item.id})" type="button" data-bs-toggle="modal" data-bs-target="#ModalEditCategory" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
+                                       @lang('general.edit')
+                                </button>
+                            @endcan
+                            @can('category-delete')
+                                <button class="dropdown-item delete_category" onclick="delete_category(${item.id})" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalDeleteCategory" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
+                                     @lang('general.delete')
+                                </button>
+                                <button class="dropdown-item active_category" type="button" onclick="active_category(${item.id})" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
+                                    ${item.is_active ? `@lang('general.deactivation')` : `@lang('general.active')`}
+                                </button>
+                            @endcan
                         </x-dropdown-table>
                     </td>
                 </tr>`

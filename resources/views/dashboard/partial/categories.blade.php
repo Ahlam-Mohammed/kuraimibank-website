@@ -4,9 +4,11 @@
     {{-- Table Title --}}
     <x-slot:title>
         <h5 class="card-header">@lang('index.service_category.categories')</h5>
-        <button type="button" data-bs-toggle="modal" data-bs-target="#ModalAddCategory" class="btn rounded-pill btn-icon btn-label-primary">
-            <span class="tf-icons bx bx-plus"></span>
-        </button>
+        @can('category-create')
+            <button type="button" data-bs-toggle="modal" data-bs-target="#ModalAddCategory" class="btn rounded-pill btn-icon btn-label-primary">
+                <span class="tf-icons bx bx-plus"></span>
+            </button>
+        @endcan
     </x-slot:title>
 
     {{-- Table Header --}}
@@ -49,24 +51,28 @@
                 </td>
                 <td>
                     <x-dropdown-table>
-                        @if(! $category->is_branch)
-                            <button class="dropdown-item active_category" type="button" onclick="add_branch({{ $category->id }})" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalAddBranch" href="javascript:void(0);"><i class="tf-icons bx bx-plus"></i>
-                                @lang('index.service_category.add_branch')
-                            </button>
-                        @endif
-                        <button class="dropdown-item edit_category" onclick="edit_category({{ $category->id }})" type="button" data-bs-toggle="modal" data-bs-target="#ModalEditCategory" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
-                            @lang('general.edit')
-                        </button>
-                        <button class="dropdown-item delete_category" onclick="delete_category({{ $category->id }})" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalDeleteCategory" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
-                            @lang('general.delete')
-                        </button>
-                        <button class="dropdown-item active_category" type="button" onclick="active_category({{ $category->id }})" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
-                            @if($category->is_active)
-                                @lang('general.deactivation')
-                            @else
-                                @lang('general.active')
+                        @can('category-edit')
+                            @if(! $category->is_branch)
+                                <button class="dropdown-item active_category" type="button" onclick="add_branch({{ $category->id }})" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalAddBranch" href="javascript:void(0);"><i class="tf-icons bx bx-plus"></i>
+                                    @lang('index.service_category.add_branch')
+                                </button>
                             @endif
-                        </button>
+                            <button class="dropdown-item edit_category" onclick="edit_category({{ $category->id }})" type="button" data-bs-toggle="modal" data-bs-target="#ModalEditCategory" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
+                                @lang('general.edit')
+                            </button>
+                        @endcan
+                       @can('category-delete')
+                            <button class="dropdown-item delete_category" onclick="delete_category({{ $category->id }})" type="button"  data-bs-toggle="modal"  data-bs-target="#ModalDeleteCategory" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
+                                @lang('general.delete')
+                            </button>
+                            <button class="dropdown-item active_category" type="button" onclick="active_category({{ $category->id }})" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
+                                @if($category->is_active)
+                                    @lang('general.deactivation')
+                                @else
+                                    @lang('general.active')
+                                @endif
+                            </button>
+                       @endcan
                     </x-dropdown-table>
                 </td>
             </tr>

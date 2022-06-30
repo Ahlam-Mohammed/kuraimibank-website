@@ -12,6 +12,12 @@ use App\Models\ServicePoint;
 
 class HomeController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('Permissions:category-list', ['only' => ['categories']]);
+
+    }
+
     //********* Home Dashboard Page *********//
     public function index()
     {
@@ -22,7 +28,7 @@ class HomeController extends Controller
     public function categories()
     {
         $categories = Category::latest()->get();
-        return view('dashboard.page.manage-categories', compact('categories'));
+        return view('dashboard.page.service.manage-categories', compact('categories'));
     }
 
     //********* Cities & Countries Management Page *********//
