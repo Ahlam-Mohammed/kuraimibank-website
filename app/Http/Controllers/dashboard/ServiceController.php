@@ -16,10 +16,18 @@ class ServiceController extends Controller
 {
     use Uploads;
 
+    function __construct()
+    {
+        $this->middleware('Permissions:service-list', ['only' => ['index']]);
+        $this->middleware('Permissions:service-create', ['only' => ['store', 'create']]);
+        $this->middleware('Permissions:service-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('Permissions:service-delete', ['only' => ['destroy', 'activate']]);
+    }
+
     public function index()
     {
         $services = Service::latest()->with(['category', 'subCategory'])->get();
-        return view('dashboard.page.manage-services', compact('services'));
+        return view('dashboard.page.service.manage-services', compact('services'));
     }
 
     public function create()
@@ -27,7 +35,7 @@ class ServiceController extends Controller
         $categories = Category::where('is_active', 1)->with('parent')->get();
         $categories = CategoryResource::collection($categories);
 
-        return view('dashboard.page.add-service', compact('categories'));
+        return view('dashboard.page.service.add-service', compact('categories'));
     }
 
     public function store(ServiceRequest $request)
@@ -75,13 +83,19 @@ class ServiceController extends Controller
         return redirect()->route('dashboard.services.index')->with('success', Lang::get('messages.stored_message'));
     }
 
+    public function show(Request $request)
+    {
+        $service = Service::find($request->id);
+        return view('dashboard.page.service.show-service', compact('service'));
+    }
+
     public function edit(Request $request)
     {
         $service    = Service::find($request->id);
 //        dd($service);
         $categories = Category::all();
         if($service) {
-            return view('dashboard.page.edit-service', compact('service', 'categories'));
+            return view('dashboard.page.service.edit-service', compact('service', 'categories'));
         }
         else {
             return redirect()->back()->with('danger', Lang::get('messages.not_found'));
@@ -153,14 +167,9 @@ class ServiceController extends Controller
 
             $service->delete();
 
-            return redirect()->back()->with('success',  Lang::get('messages.deleted_message'));
+            return redirect()->route('dashboard.services.index')->with('success',  Lang::get('messages.deleted_message'));
         }
         return redirect()->back()->with('danger',  Lang::get('messages.not_found'));
-    }
-
-    public function show()
-    {
-
     }
 
     public function activate($id)

@@ -19,6 +19,7 @@ return [
     'password'      => 'Password',
     'forgot'        => 'Forgot Your Password?',
     'remember'      => 'Remember Me',
-    'logout'        => 'Logout'
+    'logout'        => 'Logout',
+    'details'       => 'Details'
 
 ];

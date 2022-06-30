@@ -68,6 +68,7 @@ Route::prefix('dashboard/')->middleware('web','auth')->name('dashboard.')->group
         Route::get('services-index', 'index')->name('services.index');
         Route::post('services-update/{id}', 'update')->name('services-update');
         Route::post('services-edit', 'edit')->name('services-edit');
+        Route::post('services-show', 'show')->name('services-show');
         Route::get('services-create', 'create')->name('services-create');
         Route::post('services-store', 'store')->name('services.store');
         Route::post('services.delete/{id}', 'destroy')->name('services.destroy');

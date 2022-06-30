@@ -46,10 +46,6 @@ Route::prefix('dashboard')->name('api.')->group(function (){
     Route::apiResource('sub/category', SubCategoryController::class);
     Route::get('sub/category/activate/{id}', [SubCategoryController::class, 'activate'])->name('sub.category.activate');
 
-    //********* Services API Route *********//
-    Route::apiResource('services', ServiceController::class);
-    Route::get('services/activate/{id}', [ServiceController::class, 'activate'])->name('services.activate');
-
     //********* Exchange Rate API Route *********//
     Route::apiResource('rates', ExchangeRateController::class);
     Route::get('rates/activate/{id}', [ExchangeRateController::class, 'activate'])->name('rates.activate');
