@@ -114,12 +114,10 @@ class PermissionSeeder extends Seeder
 
         Role::create([
             'name'          =>  "SUPER_ADMIN",
-            'display_name'   => "SUPER_ADMIN",
         ])->givePermissionTo(Permission::all());
 
         Role::create([
             'name'          =>  "ADMIN",
-            'display_name'   => "ADMIN",
         ])->givePermissionTo(Permission::all());;
 
 

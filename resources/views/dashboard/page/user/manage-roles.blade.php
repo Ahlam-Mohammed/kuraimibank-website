@@ -1,7 +1,7 @@
 @extends('dashboard.layout.master')
 
 @section('title')
-    @lang('page.user')
+    @lang('page.roles')
 @stop
 
 @push('scripts_after')
@@ -12,7 +12,7 @@
 
     <h4 class="fw-bold py-3 mb-4">
         <span class="fw-light">
-           @lang('page.user')
+           @lang('page.roles')
         </span>
     </h4>
 

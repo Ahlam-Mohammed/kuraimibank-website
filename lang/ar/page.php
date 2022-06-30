@@ -22,5 +22,13 @@ return [
     'privacy-policy' => 'سياسية الخصوصية',
     'partner'        => 'إدارة شركائنا',
     'job'        => 'إدارة الوظائف',
-    'financial_reports' => 'التقارير المالية'
+    'financial_reports' => 'التقارير المالية',
+    'roles'             => 'Role Manage',
+    'role'              => 'Role Manage',
+    'user'              => 'إدارة المستخدمين',
+    'service'           => 'إدارة الخدمات',
+    'category'          => 'إدارة الخدمات',
+    'exchange-rate'     => 'أسعار العملات',
+    'report'            => 'إدارة التقارير',
+    'policy'            => 'سياسة الخصوصية'
 ];

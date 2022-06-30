@@ -5,10 +5,11 @@
     <x-slot:title>
         <h5 class="card-header">@lang('index.roles.roles')</h5>
         @can('role-create')
-            <button type="button" data-bs-toggle="modal" data-bs-target="#ModalAddRole" class="btn rounded-pill btn-icon btn-label-primary">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#addRoleModal" class="btn rounded-pill btn-icon btn-label-primary">
                 <span class="tf-icons bx bx-plus"></span>
             </button>
         @endcan
+
     </x-slot:title>
 
     {{-- Table Header --}}
@@ -58,16 +59,6 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-12 mb-3">
-                                <label for="nameWithTitle" class="form-label">@lang('index.roles.display-name')</label>
-                                <input name="display_name" value="{{ $role->display_name }}" id="display_name" type="text" class="form-control  @error('display_name') is-invalid @enderror">
-                                @error('display_name')
-                                    <div class="invalid-feedback"> {{ $message }} </div>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row">
                             <label for="nameWithTitle" class="form-label">@lang('index.roles.permission')</label>
                             <div class="col-12 my-3">
                                 <div class="form-check">
@@ -91,7 +82,6 @@
 
                     </x-slot:body>
 
-                    {{-- Model Footer --}}
                     <x-slot:footer>
                         <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">@lang('general.cancel')</button>
                         <button type="submit" class="btn btn-primary">@lang('general.save')</button>
@@ -128,63 +118,117 @@
 
 </x-table>
 
-{{--  Add Role Modal --}}
-<form action="{{ route('dashboard.roles.store') }}" method="post">
-    @csrf
-    <x-modal id="ModalAddRole" :title="'add'">
-
-        {{-- Model Body --}}
-        <x-slot:body>
-
-            <div class="row">
-                <div class="col-12 mb-3">
-                    <label for="nameWithTitle" class="form-label">@lang('index.roles.name')</label>
-                    <input name="name" value="" id="name" type="text" class="form-control @error('name') is-invalid @enderror">
-                    @error('name')
-                        <div class="invalid-feedback"> {{ $message }} </div>
-                    @enderror
+<div class="modal fade" id="addRoleModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-simple modal-dialog-centered modal-add-new-role">
+        <div class="modal-content p-3 p-md-5">
+            <div class="modal-body">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="text-center mb-4">
+                    <h3 class="role-title">Add New Role</h3>
+                    <p>Set role permissions</p>
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12 mb-3">
-                    <label for="nameWithTitle" class="form-label">@lang('index.roles.display-name')</label>
-                    <input name="display_name" value="" id="display_name" type="text" class="form-control  @error('display_name') is-invalid @enderror">
-                    @error('display_name')
+                <!-- Add role form -->
+                <form action="{{ route('dashboard.roles.store') }}" method="post" class="row g-3">
+                    @csrf
+                    <div class="col-12 mb-4">
+                        <label class="form-label" for="modalRoleName">Role Name</label>
+                        <input name="name" value="" id="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="ادخل اسم الدور" tabindex="-1" />
+                        @error('name')
                         <div class="invalid-feedback"> {{ $message }} </div>
-                    @enderror
-                </div>
-            </div>
-
-            <div class="row">
-                <label for="nameWithTitle" class="form-label">@lang('index.roles.permission')</label>
-                <div class="col-12 my-3">
-                    <div class="form-check">
-                        <input onClick="selectAll(this)" class="form-check-input" type="checkbox" id="defaultCheck2">
-                        <label class="form-check-label" for="defaultCheck2">
-                            @lang('general.select-all')
-                        </label>
+                        @enderror
                     </div>
-                </div>
-                @foreach($permissions as $permission)
-                    <div class="col-6 mb-3">
-                        <div class="form-check">
-                            <input name="permissions[]" value="{{ $permission->name }}" class="form-check-input" type="checkbox" id="defaultCheck2">
-                            <label class="form-check-label" for="defaultCheck2">
-                                {{ $permission->name }}
-                            </label>
+                    <div class="col-12">
+                        <!-- Permission table -->
+                        <div class="table-responsive">
+                            <table class="table table-flush-spacing">
+                                <tbody>
+                                <tr>
+                                    <td class="text-nowrap fw-semibold">Role Access <i class="bx bx-info-circle bx-xs" data-bs-toggle="tooltip" data-bs-placement="top" title="Allows a full access to the system"></i></td>
+                                    <td>
+                                        <div class="form-check">
+                                            <input onClick="selectAll(this)" class="form-check-input" type="checkbox" id="defaultCheck2">
+                                            <label class="form-check-label" for="defaultCheck2">
+                                                @lang('general.select-all')
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                @php
+                                    $permissions = [
+                                        'role', 'user', 'service', 'category',
+                                        'exchange-rate', 'report', 'news', 'job',
+                                        'principle'];
+
+                                    $webPermissions = ['about', 'vision', 'strategy', 'policy', 'social', 'contact'];
+                                @endphp
+
+                                @foreach($permissions as $permission)
+                                    <tr>
+                                        <td class="text-nowrap fw-semibold">@lang('page.'.$permission)</td>
+                                        <td>
+                                            <div class="d-flex">
+                                                <div class="form-check me-3 me-lg-5">
+                                                    <input name="permissions[]" value="{{$permission.'-list'}}" class="form-check-input" type="checkbox" id="userManagementRead" />
+                                                    <label class="form-check-label" for="userManagementRead">
+                                                        @lang('general.read')
+                                                    </label>
+                                                </div>
+                                                <div class="form-check me-3 me-lg-5">
+                                                    <input name="permissions[]" value='{{$permission.'-create'}}' class="form-check-input" type="checkbox" id="userManagementWrite" />
+                                                    <label class="form-check-label" for="userManagementWrite">
+                                                        @lang('general.add')
+                                                    </label>
+                                                </div>
+                                                <div class="form-check me-3 me-lg-5">
+                                                    <input name="permissions[]" value={{$permission.'-edit'}} class="form-check-input" type="checkbox" id="userManagementCreate" />
+                                                    <label class="form-check-label" for="userManagementCreate">
+                                                        @lang('general.edit')
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input name="permissions[]" value={{$permission.'-delete'}} class="form-check-input" type="checkbox" id="userManagementCreate" />
+                                                    <label class="form-check-label" for="userManagementCreate">
+                                                        @lang('general.delete')
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+
+                                @foreach($webPermissions as $permission)
+                                    <tr>
+                                        <td class="text-nowrap fw-semibold">@lang('page.'.$permission)</td>
+                                        <td>
+                                            <div class="d-flex">
+                                                <div class="form-check me-3 me-lg-5">
+                                                    <input name="permissions[]" value="{{$permission.'-list'}}" class="form-check-input" type="checkbox" id="userManagementRead" />
+                                                    <label class="form-check-label" for="userManagementRead">
+                                                        @lang('general.read')
+                                                    </label>
+                                                </div>
+                                                <div class="form-check me-3 me-lg-5">
+                                                    <input name="permissions[]" value="{{$permission.'-edit'}}"class="form-check-input" type="checkbox" id="userManagementCreate" />
+                                                    <label class="form-check-label" for="userManagementCreate">
+                                                        @lang('general.edit')
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
                         </div>
+                        <!-- Permission table -->
                     </div>
-                @endforeach
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn btn-primary me-sm-3 me-1">@lang('general.save')</button>
+                        <button type="reset" class="btn btn-label-secondary" data-bs-dismiss="modal" aria-label="Close">@lang('general.cancel')</button>
+                    </div>
+                </form>
+                <!--/ Add role form -->
             </div>
-
-        </x-slot:body>
-
-        {{-- Model Footer --}}
-        <x-slot:footer>
-            <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">@lang('general.cancel')</button>
-            <button class="btn btn-primary add_role">@lang('general.save')</button>
-        </x-slot:footer>
-
-    </x-modal>
-</form>
+        </div>
+    </div>
+</div>

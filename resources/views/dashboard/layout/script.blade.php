@@ -57,4 +57,7 @@
 
 <script src="{{ asset('js/app.js') }}"></script>
 
+<script src="{{ asset('js/app-access-roles.js') }}"></script>
+<script src="{{ asset('assets/js/modal-add-role.js') }}"></script>
+
 @stack('scripts_after')

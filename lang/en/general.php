@@ -20,6 +20,10 @@ return [
     'forgot'        => 'Forgot Your Password?',
     'remember'      => 'Remember Me',
     'logout'        => 'Logout',
-    'details'       => 'Details'
+    'details'       => 'Details',
+    'read'          => 'Read',
+    'select-all'    => 'Select All',
+    'settings'      => 'Settings',
+    'upload'        => 'Upload Image'
 
 ];

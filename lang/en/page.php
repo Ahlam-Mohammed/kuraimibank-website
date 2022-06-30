@@ -22,5 +22,13 @@ return [
     'privacy-policy' => 'Privacy policy',
     'partner'        => 'Our Partner',
     'job'        => 'Manage Jobs',
-    'financial_reports' => 'Financial Reports'
+    'financial_reports' => 'Financial Reports',
+    'roles'             => 'Role Manage',
+    'role'              => 'Role Manage',
+    'user'              => 'Users Manage',
+    'service'           => 'Services Manage',
+    'category'          => 'Category Manage',
+    'exchange-rate'     => 'Exchange Manage',
+    'report'            => 'Reports Manage',
+    'policy'            => 'Privacy policy'
 ];

@@ -30,26 +30,20 @@ class RoleController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name'         => ['required', 'unique:roles', 'regex:/^[a-zA-Z ]+$/'],
-            'display_name' => ['required', 'string', 'regex:/^[a-zA-Z ]+$/'],
-        ]);
+//        dd($request->permissions);
+        $request->validate(['name' => ['required', 'unique:roles', 'regex:/^[a-zA-Z ]+$/']]);
 
         $role = Role::create($request->all());
         $role->syncPermissions($request->permissions);
-
 
         return back()->with('success', Lang::get('messages.stored_message'));
     }
 
     public function update(Request $request, Role $role)
     {
-        $request->validate([
-            'name'         => ['required', 'string'],
-            'display_name' => ['required', 'string'],
-        ]);
+        $request->validate(['name' => ['required', 'string']]);
 
-        $role->update(['name' => $request->name, 'display_name' => $request->display_name]);
+        $role->update(['name' => $request->name]);
 
         DB::table('role_has_permissions')->where('role_id', $role->id)->delete();
         $role->syncPermissions($request->permissions);

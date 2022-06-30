@@ -119,6 +119,23 @@ return [
         'principles' => 'Principles'
     ],
 
+    'roles' => [
+        'id'  => 'ID',
+        'name' => 'Role Name',
+        'roles' => 'Roles'
+    ],
+
+    'users' => [
+        'id' => 'ID',
+        'name' => 'Name User',
+        'email' => 'Email User',
+        'role'  => 'Role User',
+        'users' => 'Users',
+        'password' => 'Password',
+        'confirm' => 'Confirm Password',
+        'roles'   => 'Roles'
+    ],
+
 
     'messages' => [
         'delete_message' => 'Are you sure to delete?'
