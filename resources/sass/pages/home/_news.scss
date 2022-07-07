@@ -1,0 +1,201 @@
+@use '../../utilities/_mixins/shadow' as *;
+@use '../../utilities/_mixins/header' as *;
+@use "../../utilities/_mixins/border" as *;
+@use "../../utilities/_mixins/flex" as *;
+@use "../../utilities/_mixins/font-size" as *;
+@use "../../utilities/_mixins/animation" as *;
+@use "../../utilities/_mixins/container" as *;
+@use "../../utilities/variables" as *;
+
+$news-card-height: 490px;
+$news-card-top-height: 340px;
+$news-card-bottom-height: $news-card-height - $news-card-top-height;
+
+.news-section {
+  @include header;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  padding-bottom: 4rem;
+  position: relative;
+  overflow: hidden;
+
+  .content {
+    padding-top: 7rem;
+
+    .news__slide {
+      width: 85%;
+      margin: auto;
+    }
+
+    .news__title {
+      @include font-size('lg');
+      color: $gray-darker-color;
+      font-weight: bold;
+    }
+
+    .news__more {
+      margin-top: 2rem;
+      @include font-size('base');
+      font-weight: 400;
+      color: $secondary-light-color;
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        width: 40px;
+        height: 2px;
+        background-color: $secondary-light-color;
+        left: 0;
+        right: 0;
+        bottom: -4px;
+      }
+    }
+
+    .news__desc {
+      @include font-size('sm');
+      margin-top: 1rem;
+      font-weight: 300;
+    }
+
+    .prev, .next {
+      width: calc(15% / 2);
+    }
+
+    .news {
+      height: $news-card-height;
+      width: 88%;
+      margin: auto;
+      background-color: $white;
+      position: relative;
+
+      .news__img {
+        height: $news-card-top-height;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .news__footer {
+        padding: 2.5rem 2rem;
+        @include flex(start, start) {
+          flex-direction: column;
+        }
+      }
+
+      .news__details {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: none;
+
+        .details__top {
+          height: $news-card-top-height;
+          background-color: rgba(145, 134, 176, 0.73);
+          padding: 1rem 2rem;
+          @include flex(center, end){
+            flex-direction: column;
+          }
+          @include x-animation(opacity-top 0.6s ease-out);
+
+          .news__desc, .news__title {
+            color: $white;
+            @include x-animation(news-details 0.6s ease-out)
+          }
+
+        }
+
+        .details__bottom {
+          background-color: #9186B0;
+          height: $news-card-bottom-height;
+          @include flex(center, center);
+          @include x-animation(opacity-bottom 0.6s ease-out);
+
+          .news__more {
+            color: $white;
+            &::before {
+              background-color: $white;
+            }
+          }
+        }
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        height: 50px;
+        width: 1.5px;
+        background-color: $white;
+        transform: translateX(-50%);
+        z-index: 2;
+        @include x-animation(line 1s ease-out);
+        display: none;
+      }
+
+      &:hover .news__details,
+      &:hover::before{
+        display: block;
+      }
+
+      &:hover .news__footer > .news__title,
+      &:hover .news__footer > .news__more {
+        display: none;
+      }
+    }
+  }
+
+  .news-section-footer {
+    @include flex(center, center);
+    margin-top: 3rem;
+  }
+
+  .layer-3 {
+    position: absolute;
+    bottom: 3px;
+    left: -3px;
+    width: 100px;
+  }
+}
+
+@include x-keyframes(news-details) {
+  from {
+    transform: translateY(-10%);
+    opacity: .4
+  }
+  to {
+
+    transform: translateY(0%);
+    opacity: 1
+  }
+}
+
+@include x-keyframes(opacity-top) {
+  from {
+    background-color: rgba(145, 134, 176, 0.49);
+  }
+  to {
+    background-color: rgba(145, 134, 176, 0.73);
+  }
+}
+
+@include x-keyframes(opacity-bottom) {
+  from {
+    //height: 120px;
+    background-color: rgba(145, 134, 176, 0.73);
+  }
+  to {
+    //height: $news-card-bottom-height;
+    background-color: rgba(145, 134, 176, 1);
+  }
+}
+
+@include x-keyframes(line) {
+  from {
+    height: 10px;
+  }
+  to {
+    height: 50px;
+  }
+}

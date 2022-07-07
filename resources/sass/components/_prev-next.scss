@@ -1,0 +1,14 @@
+@use "../utilities/_mixins/flex" as *;
+@use "../utilities/variables" as *;
+@use "../utilities/_mixins/font-size" as *;
+
+/* Next & previous buttons */
+.prev, .next {
+  @include flex(center, center);
+  a{
+    cursor: pointer;
+    color: $secondary-light-color;
+    font-weight: bold;
+    @include font-size('xl');
+  }
+}

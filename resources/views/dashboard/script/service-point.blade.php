@@ -77,6 +77,7 @@
                 }
             });
             $('.btn-close').find('input').val('');
+            initMapTow(response.service_point.lat, response.service_point.lng);
 
         });
 
@@ -118,7 +119,6 @@
                     }
                 }
             });
-
         });
 
         // Delete Service Point
@@ -264,12 +264,14 @@
 
 <script>
     let map;
+    let mapTow;
+
     function initMap() {
         map = new google.maps.Map(document.getElementById("map"), {
-            center: { lat: 15.9272, lng: 47.406 },
-            zoom: 4,
+            center: { lat: 15.970322860037507, lng: 46.856072407079935 },
+            zoom: 5,
             scrollwheel: true,
-        });
+        })
 
         const uluru = { lat: -34.397, lng: 150.644 };
         let marker = new google.maps.Marker({
@@ -292,4 +294,35 @@
                 marker.setPosition(pos)
             })
     }
+
+    function initMapTow(lat, lng) {
+        mapTow = new google.maps.Map(document.getElementById("mapTow"), {
+            center: { lat: lat, lng: lng },
+            zoom: 5,
+            scrollwheel: true,
+        })
+
+        const uluru = { lat: -34.397, lng: 150.644 };
+        let marker = new google.maps.Marker({
+            position: uluru,
+            map: mapTow,
+            draggable: true
+        });
+
+        google.maps.event.addListener(marker,'position_changed',
+            function (){
+                let lat = marker.position.lat()
+                let lng = marker.position.lng()
+                $('#lat').val(lat)
+                $('#lng').val(lng)
+            })
+
+        google.maps.event.addListener(map,'click',
+            function (event){
+                pos = event.latLng
+                marker.setPosition(pos)
+            })
+    }
+
+    initMap()
 </script>

@@ -21,6 +21,15 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('change-language/{locale}', [LocaleController::class, 'switch'])->name('change-language');
 
+/*
+|--------------------------------------------------------------------------
+| Frontend Routes
+|--------------------------------------------------------------------------|
+*/
+Route::view('/', 'frontend.index');
+
+
+
 
 /*
 |--------------------------------------------------------------------------

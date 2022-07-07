@@ -1,0 +1,106 @@
+@use '../../utilities/_mixins/shadow' as *;
+@use '../../utilities/_mixins/header' as *;
+@use "../../utilities/_mixins/border" as *;
+@use "../../utilities/_mixins/flex" as *;
+@use "../../utilities/_mixins/font-size" as *;
+@use "../../utilities/_mixins/animation" as *;
+@use "../../utilities/_mixins/container" as *;
+@use "../../utilities/variables" as *;
+
+.app{
+  padding: 4rem 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  overflow: hidden;
+
+  > .row{
+    background-color: #F4F7FB;
+    @include header{
+      text-align: start;
+    }
+
+    header > p{
+      @include font-size('sm');
+      margin-top: 1.5rem;
+      margin-bottom: 3rem;
+      color: $gray-dark-color;
+      width: 85%;
+    }
+
+    .app_image{
+      width: 80%;
+      padding-right: 3rem;
+    }
+
+    .app__card{
+      position: relative;
+
+      .card {
+        background-color: $white;
+        width: 80%;
+        height: 300px;
+        border-radius: 18px;
+        padding: 2rem;
+        transform: scale(0.8) translate(-124%, -12%);
+        position: absolute;
+
+        &.active {
+          transform: inherit;
+        }
+
+        header {
+          h1 {
+            @include font-size('xl');
+            color: #000;
+            margin-bottom: 1.5rem;
+          }
+        }
+
+        span {
+          @include font-size('sm');
+          color: $gray-color;
+          font-weight: 500;
+          margin-bottom: 1rem;
+        }
+
+        .btn-app {
+          @include flex(center, space-between){
+            gap: 6px;
+          };
+          color: $secondary-light-color;
+          border-color: #73659A;
+          padding: 0.1rem 0.5rem;
+          p {
+            @include flex(start, center) {
+              flex-direction: column;
+            };
+            span {
+              color: $secondary-light-color;
+              @include font-size('xs');
+              margin: 0;
+            }
+            span:nth-child(1) {
+              text-transform: uppercase;
+            }
+            span:nth-child(2) {
+              text-transform: capitalize;
+              @include font-size('base');
+              font-weight: bold;
+              margin-top: -5px;
+            }
+          }
+          i{
+            @include font-size('2xl')
+          }
+        }
+
+        .card__footer{
+          margin-top: 1rem;
+          @include flex(center, start) {
+            gap: 30px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+@use '../utilities/variables' as *;
+@use '../utilities/_mixins/breakpoints' as *;
+@use '../utilities/_mixins/container' as *;
+@use "../utilities/_mixins/flex" as *;
+
+.header{
+    @include flex(center, space-between);
+    @include container();
+    padding: 26px 0;
+    @include breakpoints('md') {
+        @include flex(center, center);
+    }
+    @include breakpoints('sm') {
+        @include flex(center, center);
+    }
+    @include breakpoints('') {
+        @include flex(center, center);
+    }
+    
+    .header__box{
+        @include flex(center, space-between) {
+            gap: 28px;
+        };
+        @include breakpoints('md') {
+            display: none;
+        }
+        @include breakpoints('sm') {
+            display: none;
+        }
+        @include breakpoints('') {
+            display: none;
+        }
+    
+        .header__item{
+            color: $white;
+            @include flex(center, space-between) {
+                gap: 8px;
+            }
+        }
+    }
+}

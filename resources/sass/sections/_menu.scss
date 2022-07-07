@@ -1,0 +1,43 @@
+@use '../utilities/variables' as *;
+@use '../utilities/_mixins/breakpoints' as *;
+@use '../utilities/_mixins/container' as *;
+
+.menu {
+    @include container();
+    background-color: $white;
+    padding: 5rem;
+    display: none;
+    max-height: 400px;
+    height: 400px;
+    background-size: 75%;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 23%;
+    z-index: 999;
+    .menu__title{
+        color: $secondary-light-color;
+        font-size: 38px;
+        width: 30%;
+    }
+
+    .menu__item{
+        width: 25%;
+        .menu__item_title{
+            color: $secondary-lighter-color;
+            margin-bottom: 2rem;
+        }
+        li{
+            padding: 0 20px;
+            margin: 20px 0;
+            list-style: arabic-indic !important;
+            &::marker{
+                color: $gray-lighter-color;
+            }
+            a{
+                color: $gray-color;
+            }
+        }
+    }
+}

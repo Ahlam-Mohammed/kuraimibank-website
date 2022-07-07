@@ -1,0 +1,55 @@
+@use "../../utilities/variables" as *;
+@use '../../utilities/_mixins/breakpoints' as *;
+@use '../../utilities/_mixins/container' as *;
+@use '../../utilities/_mixins/shadow' as *;
+@use '../../utilities/_mixins/header' as *;
+@use "../../utilities/_mixins/flex" as *;
+@use "../../utilities/_mixins/font-size" as *;
+
+.currency{
+  background-repeat: repeat-x;
+
+  >.currency_content{
+    @include container();
+    @include box-shadow();
+    @include flex(center, space-between);
+    background-color: $white;
+    padding: 2rem;
+
+    @include breakpoints('sm') {
+      display: none;
+    }
+
+    .box{
+      @include flex(center, space-around);
+      border: 1px solid $gray-lighter-color;
+      padding: 10px 0;
+      width: 26%;
+      font-weight: 500;
+
+      .box__item{
+        @include flex(center, center) {
+          gap: 16px;
+          flex-direction: column;
+        }
+        @include font-size('sm');
+        color: #959595;
+
+        //@include breakpoints('md') {
+        //  flex-direction: row;
+        //}
+
+        &.title{
+          font-weight: bold;
+          color: $gray-dark-color;
+        }
+        &.sale{
+          :not(:first-child){ color: $green-color; }
+        }
+        &.buy{
+          :not(:first-child){ color: $orange-color; }
+        }
+      }
+    }
+  }
+}

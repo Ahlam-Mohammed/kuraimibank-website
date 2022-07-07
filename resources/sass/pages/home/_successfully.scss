@@ -1,0 +1,83 @@
+@use "../../utilities/variables" as *;
+@use '../../utilities/_mixins/breakpoints' as *;
+@use '../../utilities/_mixins/container' as *;
+@use '../../utilities/_mixins/shadow' as *;
+@use '../../utilities/_mixins/header' as *;
+@use "../../utilities/_mixins/border" as *;
+@use "../../utilities/_mixins/flex" as *;
+@use "../../utilities/_mixins/font-size" as *;
+@use "../../utilities/_mixins/animation" as *;
+@use "../../utilities/_mixins/linear-gradient" as *;
+
+.successfully-section {
+  background-image: linear-gradient(93deg,#31214F, #402E60);
+  @include header;
+  padding: 4rem 0;
+  position: relative;
+  z-index: 0;
+
+  header{
+    text-align: start;
+    h1{
+      color: $white;
+      padding-right: 5rem;
+    }
+  }
+
+  .content {
+    width: 90%;
+    margin: auto;
+    padding-top: 5rem;
+    position: relative;
+
+    .successfully{
+      @include flex(start, center) {
+        flex-direction: column;
+        position: relative;
+      }
+      padding: 2rem;
+      .successfully__number, .successfully__title {
+        color: $white;
+      }
+
+      .successfully__number {
+        @include font-size('5xl');
+        font-weight: 400;
+        b{ margin: 12px}
+      }
+
+      .successfully__title {
+        @include font-size('base');
+        font-weight: 400;
+        text-align: initial;
+        margin-top: 4px;
+        width: 80%;
+      }
+
+      &::before{
+        content: '';
+        position: absolute;
+        width: 78%;
+        height: 3px;
+        background-color: #A99DCD;
+        bottom: 0;
+        border-radius: 6px;
+      }
+    }
+
+  }
+
+  .successfully__bg{
+    position: absolute;
+    left: 16%;
+    font-weight: 400;
+    top: 50%;
+    z-index: -1;
+    font-size: 26rem;
+    color: #362655;
+    span{
+      color: #2F1F4D;
+      font-weight: bold;
+    }
+  }
+}

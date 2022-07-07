@@ -1,0 +1,23 @@
+@use '../utilities/variables' as *;
+@use "../utilities/_mixins/font-size" as *;
+@use "../utilities/_mixins/flex" as *;
+
+.btn{
+    background-color: transparent;
+    padding: 0.8rem 1rem;
+    border: 1.3px solid;
+    font-family: 'Tajawal', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    @include font-size('base');
+
+    &.btn-outline-primary{
+        color: $secondary-light-color;
+        border-color: #73659A;
+        width: 150px;
+        &:hover {
+            color: $white;
+            background-color: #73659A;
+        }
+    }
+}

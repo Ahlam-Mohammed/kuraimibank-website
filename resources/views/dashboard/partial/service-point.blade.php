@@ -263,7 +263,7 @@
                     <input type="text" class="form-control" placeholder="lng" name="lng" id="lng">
                 </div>
             </div>
-            <div id="mapp" style="height:400px; width: 800px;" class="my-3 map"></div>
+            <div id="mapTow" style="height:400px; width: 800px;" class="my-3 map"></div>
         </div>
 
     </x-slot:body>

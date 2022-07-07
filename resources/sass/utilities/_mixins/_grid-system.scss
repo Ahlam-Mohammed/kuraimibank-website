@@ -1,0 +1,62 @@
+@use "sass:math";
+
+$grid__bp-sm: 576;
+$grid__bp-md: 768;
+$grid__bp-lg: 992;
+$grid__bp-xl: 1200;
+$grid__bp-xxl: 1400;
+$grid__cols: 12;
+
+$map-grid-props: (
+        '': 0,
+        '-sm': $grid__bp-sm,
+        '-md': $grid__bp-md,
+        '-lg': $grid__bp-lg,
+        '-xl': $grid__bp-xl,
+        '-xxl': $grid__bp-xxl
+);
+
+@mixin create-media-query($breakpoint, $min-or-max) {
+  @if($breakpoint == 0) {
+    @content;
+  } @else {
+    @media screen and (#{$min-or-max}-width: $breakpoint * 1px) {
+      @content;
+    }
+  }
+}
+
+@mixin create-col-classes($modifier, $grid-cols, $breakpoint) {
+  @include create-media-query($breakpoint, 'min') {
+    .col#{$modifier}-offset-0 {
+      margin-left: 0;
+    }
+    @for $i from 1 through $grid-cols {
+      .col#{$modifier}-#{$i} {
+        flex-basis: math.div(100, math.div($grid-cols, $i))  * 1%;
+      }
+      .col#{$modifier}-offset-#{$i} {
+        margin-left: math.div(100, math.div($grid-cols, $i))  * 1%;
+      }
+    }
+  }
+}
+
+.container {
+  max-width: $grid__bp-md * 1px;
+  margin: 0 auto;
+  &--fluid {
+    margin: 0;
+    max-width: 100%;
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  @each $modifier, $breakpoint in $map-grid-props {
+    @include create-col-classes($modifier, $grid__cols, $breakpoint);
+  }
+}

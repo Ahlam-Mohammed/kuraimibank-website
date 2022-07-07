@@ -1,0 +1,42 @@
+///
+/// Add animation to element.
+/// @param {List} $values
+///
+/// @output
+/// ```css
+///     -webkit-animation: <values>;
+///             animation: <values>;
+/// ```
+///
+/// @example
+///   .selector {
+///
+///   }
+///
+
+@mixin x-animation ($values) {
+  -webkit-animation: $values;
+  animation: $values;
+}
+
+
+///
+/// Generates keyframe animations.
+///
+/// @param {String} $name
+///
+/// @example
+///    @include x-keyframes(jump) {
+///      from { top: 0; }
+///      to { top: -10px; }
+///    }
+///
+@mixin x-keyframes ($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+}

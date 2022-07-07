@@ -1,0 +1,7 @@
+@mixin linear-gradient-lighter() {
+  background-image: linear-gradient(#423064, #73659A);
+}
+
+@mixin linear-gradient-darker() {
+  background-image: linear-gradient(#423064, #261A3C);
+}

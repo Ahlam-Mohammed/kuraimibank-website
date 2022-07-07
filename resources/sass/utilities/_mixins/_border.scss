@@ -1,0 +1,4 @@
+@use "../../utilities/variables" as *;
+@mixin border($color) {
+  border: 1px solid $color;
+}

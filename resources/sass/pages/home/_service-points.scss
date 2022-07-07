@@ -1,0 +1,94 @@
+@use "../../utilities/variables" as *;
+@use '../../utilities/_mixins/breakpoints' as *;
+@use '../../utilities/_mixins/container' as *;
+@use '../../utilities/_mixins/shadow' as *;
+@use '../../utilities/_mixins/header' as *;
+@use "../../utilities/_mixins/border" as *;
+@use "../../utilities/_mixins/flex" as *;
+@use "../../utilities/_mixins/font-size" as *;
+@use "../../utilities/_mixins/animation" as *;
+
+.service-points-section {
+  padding: 3rem 0;
+  background-size: 50%;
+  background-repeat: repeat-x;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  .content {
+    width: 80%;
+    margin: auto;
+    padding-top: 3rem;
+
+    .service-points__details {
+      @include flex(start,  space-evenly) {
+        flex-direction: column;
+      }
+
+      header {
+        text-align: initial;
+        font-weight: bold ;
+        @include font-size('3xl');
+        padding: 20px 0;
+        color: $secondary-light-color;
+      }
+
+      .service-points__desc {
+        @include flex(center, space-between) {
+          gap: 30px;
+        }
+      }
+
+      .box{
+        @include flex(center, center){
+          flex-direction: column;
+        }
+        color: $secondary-light-color;
+        @include font-size('2xl');
+
+        .box__title {
+          font-weight: bold;
+          position: relative;
+          &.line::before {
+            content: '';
+            position: absolute;
+            width: 1px;
+            height: 28px;
+            left: -30px;
+            top: 0;
+            background-color: $secondary-light-color;
+            bottom: 6px;
+          }
+        }
+
+        .box__desc {
+          @include font-size('base')
+        }
+      }
+    }
+
+    .service-points__map {
+      text-align: end;
+      img {
+        width: 85%;
+      }
+    }
+
+  }
+
+  .layer-4 {
+    position: absolute;
+    z-index: -1;
+    width: 100px;
+    top: 73px;
+    right: -16px;
+  }
+
+  .layer-5 {
+    position: absolute;
+    z-index: -1;
+    width: 50px;
+    left: -4px;
+    bottom: 0;
+  }
+}

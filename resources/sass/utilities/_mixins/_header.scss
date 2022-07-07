@@ -1,0 +1,12 @@
+@use '../variables' as *;
+@use "font-size" as *;
+
+@mixin header {
+    margin: auto;
+    text-align: center;
+    font-weight: bold ;
+    @include font-size('2xl');
+    padding: 20px 0;
+    color: $secondary-light-color;
+    @content
+}
