@@ -1,0 +1,127 @@
+@use "../utilities/variables" as *;
+@use '../utilities/_mixins/breakpoints' as *;
+@use '../utilities/_mixins/container' as *;
+@use '../utilities/_mixins/shadow' as *;
+@use '../utilities/_mixins/header' as *;
+@use "../utilities/_mixins/border" as *;
+@use "../utilities/_mixins/flex" as *;
+@use "../utilities/_mixins/font-size" as *;
+@use "../utilities/_mixins/animation" as *;
+
+footer{
+    background-color: #8D80B3;
+    padding-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+
+    .logo {
+        @include flex(center, center);
+        padding: 2rem 0;
+        width: 80%;
+        margin: auto;
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            background-color: #B5ACCC;
+            width: 100%;
+            height: 2px;
+            border-radius: 8px;
+            bottom: 0;
+        }
+    }
+
+    .content {
+        padding-top: 3rem;
+        width: 80%;
+        margin: auto;
+        .footer__nav {
+            @include flex(start, start) {
+                flex-direction: column;
+                gap: 2px;
+            }
+            color: $white;
+            @include font-size('sm');
+            .nav__title {
+                font-weight: bold;
+            }
+            .nav__item {
+                font-weight: 300;
+                cursor: pointer;
+                &:hover{
+                    color: $main-color;
+                    font-weight: 400;
+                }
+            }
+        }
+
+        .footer__social {
+            @include flex(center, space-between);
+            .social {
+                @include flex(center, center){
+                    gap: 48px;
+                };
+                @include font-size('lg');
+                color: $white;
+            }
+            .app {
+                @include flex(center, center){
+                    gap: 16px;
+                };
+                .btn-app {
+                    @include flex(center, space-between){
+                        gap: 6px;
+                    };
+                    color: $white;
+                    border-color: $white;
+                    padding: 0.1rem 0.3rem;
+                    p {
+                        @include flex(start, center) {
+                            flex-direction: column;
+                        };
+                        span {
+                            color: $white;
+                            font-size: 10px;
+                            margin: 0;
+                        }
+                        span:nth-child(1) {
+                            font-weight: 300;
+                            text-transform: uppercase;
+                        }
+                        span:nth-child(2) {
+                            text-transform: capitalize;
+                            @include font-size('xs');
+                            font-weight: 400;
+                            margin-top: -5px;
+                        }
+                    }
+                    i{
+                        @include font-size('2xl')
+                    }
+                }
+            }
+        }
+
+        .footer__last {
+            @include flex(center, center);
+            font-size: 12px;
+            font-weight: 400;
+            color: $white;
+        }
+    }
+
+    .bg-right {
+        position: absolute;
+        right: -158px;
+        top: -60px;
+        width: 34%;
+    }
+
+    .bg-left {
+        position: absolute;
+        left: -158px;
+        top: 37%;
+        width: 39%;
+        transform: scaleX(-1);
+    }
+}

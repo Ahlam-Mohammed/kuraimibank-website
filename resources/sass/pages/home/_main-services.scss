@@ -16,12 +16,14 @@
   //@include container();
   padding-top: 3rem;
   padding-bottom: 4rem;
+    position: relative;
+    z-index: 0;
 
-  header {
-    @include header();
-  }
+      header {
+        @include header();
+      }
 
-  nav {
+      nav {
     @extend %width;
     padding-top: 3.5rem;
     @include flex(center, space-between);
@@ -50,7 +52,7 @@
     }
   }
 
-  .content {
+    .content {
     padding-top: 2.5rem;
     position: relative;
 
@@ -105,6 +107,13 @@
       }
     }
   }
+
+    .layer-3 {
+        position: absolute;
+        width: 7%;
+        bottom: -21%;
+        z-index: 9999999;
+    }
 }
 
 @include x-keyframes(down-to-up) {

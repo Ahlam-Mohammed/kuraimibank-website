@@ -98,5 +98,6 @@
         </div>
         <div class="main__service__bg" style="background-image: url({{ asset('images/bg-design.png') }});"></div>
     </section>
+    <img class="layer-3" src="{{ asset('images/layer-3.png') }}">
 </section>
 <!-- End Main Services Section  -->
