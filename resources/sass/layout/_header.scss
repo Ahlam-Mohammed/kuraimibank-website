@@ -8,34 +8,51 @@
     @include container();
     padding: 26px 0;
     @include breakpoints('md') {
-        @include flex(center, center);
+        display: none;
     }
     @include breakpoints('sm') {
-        @include flex(center, center);
+        display: none;
     }
     @include breakpoints('') {
-        @include flex(center, center);
+        display: none;
     }
-    
-    .header__box{
-        @include flex(center, space-between) {
-            gap: 28px;
-        };
+}
+
+.header__mobile {
+    padding: 26px 0;
+    text-align: center;
+    &.row{
+        display: none;
         @include breakpoints('md') {
-            display: none;
+            @include flex(center, space-around);
         }
         @include breakpoints('sm') {
-            display: none;
+            @include flex(center, space-around);
         }
         @include breakpoints('') {
-            display: none;
+            @include flex(center, space-around);
         }
-    
-        .header__item{
-            color: $white;
-            @include flex(center, space-between) {
-                gap: 8px;
-            }
+    }
+
+    .header__box .header__item{
+        justify-content: center;
+        @include breakpoints('') {
+            display: none;
+        }    }
+    .header__box{
+        display: block;
+    }
+}
+
+.header__box{
+    @include flex(center, space-between) {
+        gap: 28px;
+    };
+
+    .header__item{
+        color: $white;
+        @include flex(center, space-between) {
+            gap: 8px;
         }
     }
 }

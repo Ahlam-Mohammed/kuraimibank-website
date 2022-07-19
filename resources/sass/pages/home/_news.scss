@@ -23,8 +23,23 @@ $news-card-bottom-height: $news-card-height - $news-card-top-height;
     padding-top: 7rem;
 
     .news__slide {
+      overflow: hidden;
       width: 85%;
       margin: auto;
+      .slides_wrapper {
+        flex-wrap: nowrap;
+        display: -webkit-box;
+        position: relative;
+        height: 500px;
+        .slide-js {
+          position: absolute;
+          transform: translateX(100%);
+          width: 30%;
+          &.active {
+            transform: translateX(-115%);
+          }
+        }
+      }
     }
 
     .news__title {
@@ -63,7 +78,7 @@ $news-card-bottom-height: $news-card-height - $news-card-top-height;
 
     .news {
       height: $news-card-height;
-      width: 88%;
+      //width: 88%;
       margin: auto;
       background-color: $white;
       position: relative;
@@ -88,6 +103,8 @@ $news-card-bottom-height: $news-card-height - $news-card-top-height;
         right: 0;
         bottom: 0;
         display: none;
+        clip-path: circle(1px at 50% 50px);
+        @include x-animation(news__details 1s forwards 0.5s);
 
         .details__top {
           height: $news-card-top-height;
@@ -96,11 +113,11 @@ $news-card-bottom-height: $news-card-height - $news-card-top-height;
           @include flex(center, end){
             flex-direction: column;
           }
-          @include x-animation(opacity-top 0.6s ease-out);
+          //@include x-animation(opacity-top 0.6s ease-out);
 
           .news__desc, .news__title {
             color: $white;
-            @include x-animation(news-details 0.6s ease-out)
+            //@include x-animation(news-details 0.6s ease-out)
           }
 
         }
@@ -109,7 +126,7 @@ $news-card-bottom-height: $news-card-height - $news-card-top-height;
           background-color: #9186B0;
           height: $news-card-bottom-height;
           @include flex(center, center);
-          @include x-animation(opacity-bottom 0.6s ease-out);
+          //@include x-animation(opacity-bottom 0.6s ease-out);
 
           .news__more {
             color: $white;
@@ -130,7 +147,7 @@ $news-card-bottom-height: $news-card-height - $news-card-top-height;
         background-color: $white;
         transform: translateX(-50%);
         z-index: 2;
-        @include x-animation(line 1s ease-out);
+        @include x-animation(line 0.8s ease-out);
         display: none;
       }
 
@@ -138,11 +155,11 @@ $news-card-bottom-height: $news-card-height - $news-card-top-height;
       &:hover::before{
         display: block;
       }
-
-      &:hover .news__footer > .news__title,
-      &:hover .news__footer > .news__more {
-        display: none;
-      }
+      //
+      //&:hover .news__footer > .news__title,
+      //&:hover .news__footer > .news__more {
+      //  display: none;
+      //}
     }
   }
 
@@ -199,3 +216,23 @@ $news-card-bottom-height: $news-card-height - $news-card-top-height;
     height: 50px;
   }
 }
+
+@include x-keyframes(news__details) {
+  from {
+    -webkit-clip-path: circle(6px at 50% 50px);
+    clip-path: circle(6px at 50% 50px);
+  }
+  to {
+    -webkit-clip-path: circle(130% at 50% 50px);
+    clip-path: circle(130% at 50% 50px);
+  }
+}
+
+.top {
+  z-index: 3;
+  transition: 0.5s ease transform;
+}
+
+//.slide__next {
+//  transform: translateX(-115%);
+//}

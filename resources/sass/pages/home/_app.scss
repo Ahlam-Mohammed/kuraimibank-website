@@ -5,6 +5,7 @@
 @use "../../utilities/_mixins/font-size" as *;
 @use "../../utilities/_mixins/animation" as *;
 @use "../../utilities/_mixins/container" as *;
+@use "../../utilities/_mixins/breakpoints" as *;
 @use "../../utilities/variables" as *;
 
 .app{
@@ -12,11 +13,22 @@
   background-repeat: no-repeat;
   background-size: contain;
   overflow: hidden;
+  position: relative;
 
   > .row{
     background-color: #F4F7FB;
     @include header{
       text-align: start;
+      @include breakpoints('md') {
+        text-align: center;
+      }
+      @include breakpoints('sm') {
+        text-align: center;
+      }
+      @include breakpoints('') {
+        text-align: center;
+      }
+
     }
 
     header > p{
@@ -25,15 +37,49 @@
       margin-bottom: 3rem;
       color: $gray-dark-color;
       width: 85%;
+      @include breakpoints('md') {
+        width: 80%;
+        margin-inline-end: auto;
+        margin-inline-start: auto;
+      }
+      @include breakpoints('sm') {
+        width: 90%;
+        margin-inline-end: auto;
+        margin-inline-start: auto;
+      }
+      @include breakpoints('') {
+        width: 90%;
+        margin-inline-end: auto;
+        margin-inline-start: auto;
+      }
     }
 
     .app_image{
       width: 80%;
       padding-right: 3rem;
+      @include breakpoints('md'){
+        display: none;
+      }
+      @include breakpoints('sm'){
+        display: none;
+      }
+      @include breakpoints(''){
+        display: none;
+      }
     }
 
     .app__card{
       position: relative;
+      height: 300px;
+      @include breakpoints('md'){
+        height: 360px;
+      }
+      @include breakpoints('sm'){
+        height: 360px;
+      }
+      @include breakpoints(''){
+        height: 360px;
+      }
 
       .card {
         background-color: $white;
@@ -44,8 +90,26 @@
         transform: scale(0.8) translate(-124%, -12%);
         position: absolute;
 
+        @include breakpoints('md') {
+          transform: scale(1) translate(-141%, -10%);
+          width: 66%;
+        }
+
+        @include breakpoints('sm') {
+          width: 80%;
+          right: 10%;
+        }
+        @include breakpoints('') {
+          width: 80%;
+          right: 10%;
+        }
+
         &.active {
           transform: inherit;
+          @include breakpoints('md') {
+            transform: translate(-50%, 0%) scale(1.2);
+            left: 50%;
+          }
         }
 
         header {
@@ -98,6 +162,15 @@
           margin-top: 1rem;
           @include flex(center, start) {
             gap: 30px;
+          }
+          @include breakpoints('md'){
+            justify-content: center;
+          }
+          @include breakpoints('sm'){
+            justify-content: center;
+          }
+          @include breakpoints(''){
+            justify-content: center;
           }
         }
       }

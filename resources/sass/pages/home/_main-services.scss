@@ -16,21 +16,40 @@
   //@include container();
   padding-top: 3rem;
   padding-bottom: 4rem;
-    position: relative;
-    z-index: 0;
+  position: relative;
 
-      header {
-        @include header();
-      }
+  header {
+    @include header();
+  }
 
-      nav {
+  nav {
     @extend %width;
     padding-top: 3.5rem;
     @include flex(center, space-between);
 
+    @include breakpoints('md')  {
+      padding-top: 1rem;
+      justify-content: space-around;
+    }
+    @include breakpoints('sm')  {
+      display: none;
+    }
+    @include breakpoints('')  {
+      display: none;
+    }
+
     .nav__item {
       cursor: pointer;
       color: $gray-lighter2-color;
+      @include breakpoints('md')  {
+        font-size: 14px;
+      }
+      @include breakpoints('sm')  {
+        font-size: 12px;
+      }
+      @include breakpoints('')  {
+        font-size: 12px;
+      }
       &.active {
         color: $gray-darker-color;
         position: relative;
@@ -52,7 +71,7 @@
     }
   }
 
-    .content {
+  .content {
     padding-top: 2.5rem;
     position: relative;
 
@@ -64,6 +83,15 @@
       opacity: 0.1;
       z-index: -1;
       bottom: 40px;
+      @include breakpoints('md'){
+        height: 240px;
+      }
+      @include breakpoints('sm'){
+        height: 240px;
+      }@include breakpoints(''){
+         height: 240px;
+       }
+
     }
 
     .service{
@@ -75,6 +103,19 @@
 
       .right{
         padding: 4rem 3rem 0;
+
+        @include breakpoints('sm') {
+          @include flex(center, space-evenly) {
+            flex-direction: column;
+          }
+          padding: 0 1rem;
+        }
+        @include breakpoints('') {
+          @include flex(center, space-evenly) {
+            flex-direction: column;
+          }
+          padding: 0 1rem;
+        }
       }
 
       .service__title {
@@ -82,6 +123,13 @@
         color: $secondary-light-color;
         margin-bottom: 2rem;
         @include x-animation(down-to-up 0.8s ease-out);
+
+        @include breakpoints('sm') {
+          margin-bottom: 0;
+        }
+        @include breakpoints('') {
+          margin-bottom: 0;
+        }
       }
 
       .service__desc{
@@ -90,6 +138,20 @@
         width: 80%;
         margin-bottom: 3rem;
         @include x-animation(down-to-up 0.8s ease-out);
+        @include breakpoints('md') {
+          width: 100%;
+          font-size: 14px;
+        }
+        @include breakpoints('sm') {
+          width: 100%;
+          font-size: 14px;
+          margin-bottom: 0;
+        }
+        @include breakpoints('') {
+          width: 100%;
+          font-size: 14px;
+          margin-bottom: 0;
+        }
       }
 
       >.right .btn{
@@ -100,20 +162,35 @@
         background-color: #7F71A5;
         height: 100%;
         @include flex(center, center);
+        @include breakpoints('sm') {
+          display: none;
+        }
+        @include breakpoints('') {
+          display: none;
+        }
         img{
           width: 100%;
           @include x-animation(down-to-up 0.8s ease-out);
         }
       }
+
+      @include breakpoints('sm') {
+        height: 320px;
+        text-align: center;
+      }
+      @include breakpoints('') {
+        height: 320px;
+        text-align: center;
+      }
     }
   }
 
-    .layer-3 {
-        position: absolute;
-        width: 7%;
-        bottom: -21%;
-        z-index: 9999999;
-    }
+  .layer-3 {
+    position: absolute;
+    width: 7%;
+    bottom: -21%;
+    z-index: 9999999;
+  }
 }
 
 @include x-keyframes(down-to-up) {

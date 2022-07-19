@@ -19,10 +19,38 @@
     width: 80%;
     margin: auto;
     padding-top: 3rem;
+    @include breakpoints('md'){
+      padding-top: 0;
+    }
+    @include breakpoints('sm'){
+      padding-top: 0;
+    }
+    @include breakpoints(''){
+      padding-top: 0;
+    }
 
     .service-points__details {
       @include flex(start,  space-evenly) {
         flex-direction: column;
+      }
+
+      @include breakpoints('md'){
+        @include flex(center,  space-evenly) {
+          flex-direction: column;
+          gap: 26px;
+        }
+      }
+      @include breakpoints('sm'){
+        @include flex(center,  space-evenly) {
+          flex-direction: column;
+          gap: 26px;
+        }
+      }
+      @include breakpoints(''){
+        @include flex(center,  space-evenly) {
+          flex-direction: column;
+          gap: 26px;
+        }
       }
 
       header {
@@ -72,6 +100,15 @@
       img {
         width: 85%;
       }
+      @include breakpoints('md'){
+        display: none;
+      }
+      @include breakpoints('sm'){
+        display: none;
+      }
+      @include breakpoints(''){
+        display: none;
+      }
     }
 
   }
@@ -82,6 +119,21 @@
     width: 100px;
     top: 73px;
     right: -16px;
+    @include breakpoints('md') {
+      width: 80px;
+      top: 73px;
+      right: -29px;
+    }
+    @include breakpoints('sm') {
+      width: 80px;
+      top: 73px;
+      right: -29px;
+    }
+    @include breakpoints('') {
+      width: 80px;
+      top: 73px;
+      right: -29px;
+    }
   }
 
   .layer-5 {
@@ -90,5 +142,37 @@
     width: 50px;
     left: -4px;
     bottom: 0;
+    @include breakpoints('md') {
+      width: 42px;
+      left: -15px;
+    }
+    @include breakpoints('sm') {
+      width: 42px;
+      left: -15px;
+    }
+    @include breakpoints('') {
+      width: 42px;
+      left: -15px;
+    }
+  }
+  .map-bg{
+    display: none;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 0;
+    z-index: -1;
+    opacity: 0.3;
+    @include breakpoints('md'){
+      display: block;
+      left: 10%;
+      width: 80%;
+    }
+    @include breakpoints('sm'){
+      display: block;
+    }
+    @include breakpoints(''){
+      display: block;
+    }
   }
 }

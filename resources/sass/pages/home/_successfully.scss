@@ -21,6 +21,14 @@
     h1{
       color: $white;
       padding-right: 5rem;
+      @include breakpoints('sm') {
+        padding: 0;
+        text-align: center;
+      }
+      @include breakpoints('') {
+        padding: 0;
+        text-align: center;
+      }
     }
   }
 
@@ -36,12 +44,25 @@
         position: relative;
       }
       padding: 2rem;
+      cursor: pointer;
+      @include breakpoints('sm') {
+        padding: 1rem;
+      }
+      @include breakpoints('') {
+        padding: 1rem;
+      }
       .successfully__number, .successfully__title {
         color: $white;
       }
 
       .successfully__number {
         @include font-size('5xl');
+        @include breakpoints('sm') {
+          @include font-size('3xl')
+        }
+        @include breakpoints('') {
+          @include font-size('3xl')
+        }
         font-weight: 400;
         b{ margin: 12px}
       }
@@ -52,6 +73,14 @@
         text-align: initial;
         margin-top: 4px;
         width: 80%;
+        @include breakpoints('sm') {
+          @include font-size('sm');
+          width: 100%;
+        }
+        @include breakpoints('') {
+          @include font-size('sm');
+          width: 100%;
+        }
       }
 
       &::before{
@@ -69,15 +98,42 @@
 
   .successfully__bg{
     position: absolute;
-    left: 16%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-weight: 400;
     top: 50%;
     z-index: -1;
-    font-size: 26rem;
+    font-size: 30rem;
     color: #362655;
     span{
       color: #2F1F4D;
-      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
     }
+    @include breakpoints('md') {
+      font-size: 15rem;
+    }
+    @include breakpoints('sm') {
+      font-size: 9rem;
+    }
+    @include breakpoints('') {
+      font-size: 9rem;
+    }
+    @include x-animation(successfully__bg 0.5s ease-out)
+  }
+}
+
+.opacity {
+  @include x-animation(successfully__bg 0.5s ease-out)
+}
+
+@include x-keyframes(successfully__bg) {
+  from {
+    opacity: 0
+  }
+  to {
+    opacity: 1
   }
 }

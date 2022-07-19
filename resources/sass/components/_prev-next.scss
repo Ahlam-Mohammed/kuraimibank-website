@@ -4,9 +4,9 @@
 
 /* Next & previous buttons */
 .prev, .next {
+  cursor: pointer;
   @include flex(center, center);
   a{
-    cursor: pointer;
     color: $secondary-light-color;
     font-weight: bold;
     @include font-size('xl');
