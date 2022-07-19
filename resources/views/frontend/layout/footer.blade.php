@@ -1,9 +1,9 @@
 <footer>
     <div class="logo">
-        <img src="{{ asset('images/logok.svg') }}" alt="">
+        <img src="{{ asset('images/logok.svg') }}" alt="logo">
     </div>
     <div class="content row">
-        <article class="col-2">
+        <article class="col-lg-2 col-md-4 col-6">
             <nav class="footer__nav">
                 <h4 class="nav__title">البنك</h4>
                 <a class="nav__item"> عن البنك</a>
@@ -17,7 +17,7 @@
             </nav>
         </article>
 
-        <article class="col-2">
+        <article class="col-lg-2 col-md-4 col-6">
             <nav class="footer__nav">
                 <h4 class="nav__title">شركائنا</h4>
                 <a class="nav__item">موني جرام</a>
@@ -28,7 +28,7 @@
             </nav>
         </article>
 
-        <article class="col-2">
+        <article class="col-lg-2 col-md-4 col-6">
             <nav class="footer__nav">
                 <h4 class="nav__title">الخدمات</h4>
                 <a class="nav__item">خدمات الأفراد</a>
@@ -39,7 +39,7 @@
             </nav>
         </article>
 
-        <article class="col-2">
+        <article class="col-lg-2 col-md-4 col-6">
             <nav class="footer__nav">
                 <h4 class="nav__title">التقارير</h4>
                 <a class="nav__item">التقارير المالية</a>
@@ -47,14 +47,14 @@
             </nav>
         </article>
 
-        <article class="col-2">
+        <article class="col-lg-2 col-md-4 col-6">
             <nav class="footer__nav">
                 <h4 class="nav__title">نقاط الخدمة</h4>
                 <a class="nav__item">الفروع وماكينات الصرافة</a>
             </nav>
         </article>
 
-        <article class="col-2">
+        <article class="col-lg-2 col-md-4 col-6">
             <nav class="footer__nav">
                 <h4 class="nav__title">تواصل معنا</h4>
                 <a class="nav__item"> تلفون : 967 1 503888 </a>
@@ -94,6 +94,6 @@
             <span>kuraimibank 2022 ©</span>
         </article>
     </div>
-    <img class="bg-right" src="images/footer.png" alt="bg">
-    <img class="bg-left" src="images/footer.png" alt="bg">
+    <img class="bg-right" src="{{ asset('images/footer.png') }}" alt="background image">
+    <img class="bg-left" src="{{ asset('images/footer.png') }}" alt="background image">
 </footer>

@@ -1,10 +1,10 @@
 <!-- Start Kura-imi App Section  -->
 <section class="app" style="background-image: url({{ asset('images/vector/app-top.svg') }})">
     <div class="row">
-        <div class="col-6">
-            <img class="app_image" src="{{ asset('images/phone.png') }}" alt="">
+        <div class="col-lg-6">
+            <img class="app_image" src="{{ asset('images/phone.png') }}" alt="phone image">
         </div>
-        <div class="col-6" style="position: relative">
+        <div class="col-lg-6 col-12" style="position: relative">
             <header>
                 <h1>تطبيقات البنك</h1>
                 <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من
@@ -80,5 +80,5 @@
         </div>
     </div>
 </section>
-<img src="{{ asset('images/vector/app-bottom.svg') }}" width="100%" style="position: relative; bottom: 101px; z-index: -1">
+<img src="{{ asset('images/vector/app-bottom.svg') }}" alt="background" width="100%" style="position: relative; bottom: 101px; z-index: -1">
 <!-- End Kura-imi App Section  -->

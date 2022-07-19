@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $grid__bp-sm: 576;
 $grid__bp-md: 768;
 $grid__bp-lg: 992;
@@ -31,10 +33,10 @@ $map-grid-props: (
     }
     @for $i from 1 through $grid-cols {
       .col#{$modifier}-#{$i} {
-        flex-basis: (100 / ($grid-cols / $i) ) * 1%;
+        flex-basis: math.div(100, math.div($grid-cols, $i))  * 1%;
       }
       .col#{$modifier}-offset-#{$i} {
-        margin-left: (100 / ($grid-cols / $i) ) * 1%;
+        margin-left: math.div(100, math.div($grid-cols, $i))  * 1%;
       }
     }
   }

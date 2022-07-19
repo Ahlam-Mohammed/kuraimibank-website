@@ -1,8 +1,8 @@
 <!-- Start Currency Section  -->
 <section class="currency" style="background-image: url({{ asset('images/header-bg.png') }});">
-    <div class="currency_content">
+    <div class="currency_content row">
 
-        <article class="box">
+        <article class="box col-lg-3 col-md-3 col-sm-5  col-12">
             <div class="box__item title">
                 <span>دولار امريكي</span>
                 <span></span>
@@ -17,7 +17,7 @@
             </div>
         </article>
 
-        <article class="box">
+        <article class="box col-lg-3 col-md-3 col-sm-5  col-12">
             <div class="box__item title">
                 <span>دولار امريكي</span>
                 <span></span>
@@ -32,7 +32,7 @@
             </div>
         </article>
 
-        <article class="box">
+        <article class="box col-lg-3 col-md-3 col-sm-5  col-12">
             <div class="box__item title">
                 <span>دولار امريكي</span>
                 <span></span>
@@ -47,7 +47,7 @@
             </div>
         </article>
 
-        <button class="btn btn-outline-primary">تحويل العملات</button>
+        <button class="btn btn-outline-primary col-lg-2 col-md-2 col-sm-5  col-12">تحويل العملات</button>
     </div>
 
 </section>
