@@ -1,7 +1,7 @@
 @extends('frontend.layout.master')
 
     @section('title')
-        @lang('page.home')
+        @lang('الصفحة الرئيسيه')
     @stop
 
     @section('landing')
