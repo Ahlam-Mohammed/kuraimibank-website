@@ -10,6 +10,11 @@
     background-size: cover;
     background-position: 0 4%;
     position: relative;
+    background-color: #73659A;
+    @include breakpoints('xxl') {
+        height: 900px;
+        background-position: center -119px;
+    }
     @include breakpoints('md') {
         height: 600px;
         background-position: center;
@@ -25,7 +30,7 @@
         background-position: center top;
         background-image: url("../../images/bg-mobile.jpg") !important;
     }
-    
+
     .landing__intro{
         height: 550px;
         @include flex(start, center) {
@@ -72,6 +77,30 @@
             @include breakpoints('') {
                 @include font-size('lg');
             }
-        }    
+        }
+        p.desc{
+            @include font-size('lg');
+            margin-top: 26px;
+            width: 50%;
+            span {
+                color: $orange-color;
+                font-weight: bold;
+            }
+        }
+        &.intro--service{
+            justify-content: start;
+            padding-top: 7rem;
+            padding-inline-start: 5rem;
+            .btn {
+                margin-top: 1rem;
+            }
+        }
+    }
+
+    .service--image {
+        position: absolute;
+        width: 31%;
+        bottom: 26%;
+        left: 4.6%;
     }
 }
