@@ -2110,6 +2110,74 @@ footer .bg-left {
   width: 9%;
 }
 
+.other__section {
+  margin: auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5rem; /* 24px */
+  line-height: 2rem; /* 32px */
+  padding: 20px 0;
+  color: #73659A;
+}
+
+.other__section .content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 4rem 0;
+  transform: translateX(143px);
+  background-repeat-y: no-repeat;
+  background-size: 80%;
+  background-position-y: center;
+}
+
+.other__section .content .card {
+  width: 24%;
+  height: 424px;
+}
+
+.other__section .content .card .card__img {
+  background-image: linear-gradient(#A99DCD, #8F82B5, #73659A);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 374px;
+}
+
+.other__section .content .card .card__img img {
+  width: 100%;
+}
+
+.other__section .content .card .card__title {
+  color: #393E41;
+  text-align: start;
+  margin-top: 2rem;
+  font-size: 1rem; /* 16px */
+  line-height: 1.5rem; /* 24px */
+}
+
+.other__section .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 1.5rem auto;
+}
+
+.other__section .buttons button {
+  width: 55px;
+  height: 55px;
+  font-size: 1.875rem; /* 30px */
+  line-height: 2.25rem; /* 36px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ECF1FA;
+  color: #73659A;
+  border: 0;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -2137,27 +2205,27 @@ body {
 }
 
 @media (min-width: 1400px) {
-  .landing {
+  .landing.home {
     height: 900px;
     background-position: center -119px;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
-  .landing {
+  .landing.home {
     height: 600px;
     background-position: center;
     background-image: url("../../images/bg-mobile.jpg") !important;
   }
 }
 @media (min-width: 576px) and (max-width: 767px) {
-  .landing {
+  .landing.home {
     height: 600px;
     background-position: center top;
     background-image: url("../../images/bg-mobile.jpg") !important;
   }
 }
 @media (max-width: 576px) {
-  .landing {
+  .landing.home {
     height: 480px;
     background-position: center top;
     background-image: url("../../images/bg-mobile.jpg") !important;

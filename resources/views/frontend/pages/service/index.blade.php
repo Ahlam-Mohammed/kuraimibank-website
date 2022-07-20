@@ -6,7 +6,7 @@
 
 @section('landing')
     <!-- Start Landing Section  -->
-    <section class="landing" style="background-image: url({{ asset('images/bg-service-header.png') }});">
+    <section class="landing service" style="background-image: url({{ asset('images/bg-service-header.png') }});">
 
         {{-- Service Image --}}
         <img class="service--image" src="{{ asset('images/service-3.png') }}" alt="service image">
@@ -54,5 +54,8 @@
 
     {{--  Success stories Section  --}}
     @include('frontend.pages.service.success-stories')
+
+    {{--  Other Services Section  --}}
+    @include('frontend.pages.service.other-services')
 
 @endsection

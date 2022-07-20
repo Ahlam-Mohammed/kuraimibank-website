@@ -6,7 +6,7 @@
 
     @section('landing')
         <!-- Start Landing Section  -->
-        <section class="landing" style="background-image: url({{ asset('images/2.jpg') }});">
+        <section class="landing home" style="background-image: url({{ asset('images/2.jpg') }});">
 
             <!-- Start Header Section  -->
             @include('frontend.layout.header')

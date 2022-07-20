@@ -1,0 +1,57 @@
+@use "../../utilities/variables" as *;
+@use '../../utilities/_mixins/breakpoints' as *;
+@use '../../utilities/_mixins/container' as *;
+@use '../../utilities/_mixins/shadow' as *;
+@use '../../utilities/_mixins/header' as *;
+@use "../../utilities/_mixins/flex" as *;
+@use "../../utilities/_mixins/font-size" as *;
+
+.other__section{
+    @include header;
+
+    .content{
+        width: 100%;
+        @include flex(center, center){
+            gap: 40px;
+        };
+        padding: 4rem 0;
+        transform: translateX(143px);
+        background-repeat-y: no-repeat;
+        background-size: 80%;
+        background-position-y: center;
+        .card{
+            width: 24%;
+            height: 424px;
+
+            .card__img{
+                background-image: linear-gradient(#A99DCD,#8F82B5,#73659A);
+                @include flex(center, center);
+                height: 374px;
+                img{
+                    width: 100%;
+                }
+            }
+            .card__title{
+                color: #393E41;
+                text-align: start;
+                margin-top: 2rem;
+                @include font-size('base')
+            }
+        }
+    }
+    .buttons{
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin: 1.5rem auto;
+        button{
+            width: 55px;
+            height: 55px;
+            @include font-size('3xl');
+            @include flex(center, center);
+            background-color: #ECF1FA;
+            color: $secondary-light-color;
+            border: 0;
+        }
+    }
+}

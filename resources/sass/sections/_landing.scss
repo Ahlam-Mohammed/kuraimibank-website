@@ -11,25 +11,26 @@
     background-position: 0 4%;
     position: relative;
     background-color: #73659A;
-    @include breakpoints('xxl') {
-        height: 900px;
-        background-position: center -119px;
-    }
-    @include breakpoints('md') {
-        height: 600px;
-        background-position: center;
-        background-image: url("../../images/bg-mobile.jpg") !important;
-    }
-    @include breakpoints('sm') {
-        height: 600px;
-        background-position: center top;
-        background-image: url("../../images/bg-mobile.jpg") !important;
-    }
-    @include breakpoints('') {
-        height: 480px;
-        background-position: center top;
-        background-image: url("../../images/bg-mobile.jpg") !important;
-    }
+    &.home{
+        @include breakpoints('xxl') {
+            height: 900px;
+            background-position: center -119px;
+        }
+        @include breakpoints('md') {
+            height: 600px;
+            background-position: center;
+            background-image: url("../../images/bg-mobile.jpg") !important;
+        }
+        @include breakpoints('sm') {
+            height: 600px;
+            background-position: center top;
+            background-image: url("../../images/bg-mobile.jpg") !important;
+        }
+        @include breakpoints('') {
+            height: 480px;
+            background-position: center top;
+            background-image: url("../../images/bg-mobile.jpg") !important;
+        }    }
 
     .landing__intro{
         height: 550px;
