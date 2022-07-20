@@ -27,6 +27,7 @@ Route::get('change-language/{locale}', [LocaleController::class, 'switch'])->nam
 |--------------------------------------------------------------------------|
 */
 Route::view('/', 'frontend.index');
+Route::view('/service', 'frontend.pages.service.index');
 
 
 

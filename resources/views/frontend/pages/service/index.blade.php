@@ -30,6 +30,9 @@
         <!-- End Landing Introduction Section  -->
     </section>
 
+    {{-- Service advantages --}}
+    @include('frontend.pages.service.advantage')
+
 @stop
 
 @section('content')

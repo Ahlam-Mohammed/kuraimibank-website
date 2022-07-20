@@ -13,7 +13,7 @@
 
 @yield('landing')
 
-<main>
+<main style="overflow: hidden">
     @yield('content')
 </main>
 
