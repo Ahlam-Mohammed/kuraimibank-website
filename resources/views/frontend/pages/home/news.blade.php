@@ -16,31 +16,7 @@
                 <div class="slide-js">
                     <article class="news">
                         <!-- News Image -->
-                        <div class="news__img" style="background-image: url({{ asset('images/news1.png') }})"></div>
-                        <div class="news__footer">
-                            <!-- News Title -->
-                            <h3 class="news__title">مشروع تحديث أنظمة البنك</h3>
-                            <a class="news__more">المزيد</a>
-                            <!-- News Details -->
-                            <article class="news__details">
-                                <div class="details__top">
-                                    <h3 class="news__title">مشروع تحديث أنظمة البنك</h3>
-                                    <p class="news__desc">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من
-                                        مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التي يولدها التطبيق.</p>
-                                </div>
-                                <div class="details__bottom">
-                                    <a class="news__more">المزيد</a>
-                                </div>
-                            </article>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- Single News -->
-                <div class="slide-js active">
-                    <article class="news">
-                        <!-- News Image -->
-                        <div class="news__img" style="background-image: url({{ asset('images/news2.png') }})"></div>
+                        <div class="news__img" style="background-image: url({{ asset('uploads/news/news-1.png') }})"></div>
                         <div class="news__footer">
                             <!-- News Title -->
                             <h3 class="news__title">مشروع تحديث أنظمة البنك</h3>
@@ -64,7 +40,7 @@
                 <div class="slide-js">
                     <article class="news">
                         <!-- News Image -->
-                        <div class="news__img" style="background-image: url({{ asset('images/news1.png') }})"></div>
+                        <div class="news__img" style="background-image: url({{ asset('uploads/news/news-2.png') }})"></div>
                         <div class="news__footer">
                             <!-- News Title -->
                             <h3 class="news__title">مشروع تحديث أنظمة البنك</h3>
@@ -88,7 +64,7 @@
                 <div class="slide-js">
                     <article class="news">
                         <!-- News Image -->
-                        <div class="news__img" style="background-image: url({{ asset('images/news1.png') }})"></div>
+                        <div class="news__img" style="background-image: url({{ asset('uploads/news/news-3.png') }})"></div>
                         <div class="news__footer">
                             <!-- News Title -->
                             <h3 class="news__title">مشروع تحديث أنظمة البنك</h3>
@@ -108,53 +84,6 @@
                     </article>
                 </div>
 
-                <!-- Single News -->
-                <div class="slide-js">
-                    <article class="news">
-                        <!-- News Image -->
-                        <div class="news__img" style="background-image: url({{ asset('images/news2.png') }})"></div>
-                        <div class="news__footer">
-                            <!-- News Title -->
-                            <h3 class="news__title">مشروع تحديث أنظمة البنك</h3>
-                            <a class="news__more">المزيد</a>
-                            <!-- News Details -->
-                            <article class="news__details">
-                                <div class="details__top">
-                                    <h3 class="news__title">مشروع تحديث أنظمة البنك</h3>
-                                    <p class="news__desc">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من
-                                        مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التي يولدها التطبيق.</p>
-                                </div>
-                                <div class="details__bottom">
-                                    <a class="news__more">المزيد</a>
-                                </div>
-                            </article>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- Single News -->
-                <div class="slide-js">
-                    <article class="news">
-                        <!-- News Image -->
-                        <div class="news__img" style="background-image: url({{ asset('images/news1.png') }})"></div>
-                        <div class="news__footer">
-                            <!-- News Title -->
-                            <h3 class="news__title">مشروع تحديث أنظمة البنك</h3>
-                            <a class="news__more">المزيد</a>
-                            <!-- News Details -->
-                            <article class="news__details">
-                                <div class="details__top">
-                                    <h3 class="news__title">مشروع تحديث أنظمة البنك</h3>
-                                    <p class="news__desc">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من
-                                        مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التي يولدها التطبيق.</p>
-                                </div>
-                                <div class="details__bottom">
-                                    <a class="news__more">المزيد</a>
-                                </div>
-                            </article>
-                        </div>
-                    </article>
-                </div>
             </div>
         </div>
 

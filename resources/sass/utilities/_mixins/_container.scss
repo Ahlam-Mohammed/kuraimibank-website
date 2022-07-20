@@ -2,10 +2,10 @@
 
 @mixin container() {
     @include breakpoints(xxl){
-        width: 1320px; margin: auto;
+        width: 80%; margin: auto;
     }
     @include breakpoints(xl){
-        width: 1140px; margin: auto;
+        width: 80%; margin: auto;
     }
     @include breakpoints(lg){
         width: 960px; margin: auto;

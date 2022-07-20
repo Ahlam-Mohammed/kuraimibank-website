@@ -16,6 +16,7 @@
     height: 6px;
     display: block;
     cursor: pointer;
+    transition: 0.5s ease height;
 
     &.active {
       background-color: $secondary-light-color;
@@ -38,4 +39,8 @@
     transform: scale(1) translate(-50%, -50%);
     left: 50%;
   }
+}
+
+.dot-animation {
+  transition: 1.5s ease transform;
 }

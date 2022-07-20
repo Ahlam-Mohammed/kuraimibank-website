@@ -1,0 +1,26 @@
+//// Fonts
+//@import url('https://fonts.googleapis.com/css?family=Nunito');
+//
+//// Variables
+//@import 'variables';
+//
+//// Bootstrap
+//@import '~bootstrap/scss/bootstrap';
+
+// Layout
+@import '../../resources/sass/layout/_layout-dir';
+
+// pages
+@import '../../resources/sass/pages/_page-dir';
+
+//Base Styles
+@import '../../resources/sass/base/_base-dir';
+
+// sections
+@import '../../resources/sass/sections/_section-dir';
+
+// components
+@import '../../resources/sass/components/_component-dir';
+
+// grid system
+@import "../../resources/sass/utilities/_mixins/grid-system";

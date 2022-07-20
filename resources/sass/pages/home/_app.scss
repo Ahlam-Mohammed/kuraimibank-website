@@ -90,6 +90,9 @@
         transform: scale(0.8) translate(-124%, -12%);
         position: absolute;
 
+        @include breakpoints('xxl') {
+          height: 380px;
+        }
         @include breakpoints('md') {
           transform: scale(1) translate(-141%, -10%);
           width: 66%;
@@ -176,4 +179,9 @@
       }
     }
   }
+}
+
+
+.card-animation {
+  transition: 1.5s ease transform;
 }

@@ -15,7 +15,9 @@
   padding: 4rem 0;
   position: relative;
   z-index: 0;
-
+  @include breakpoints('xxl') {
+    padding: 8rem 0;
+  }
   header{
     text-align: start;
     h1{

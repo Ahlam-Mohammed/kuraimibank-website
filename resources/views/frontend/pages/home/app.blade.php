@@ -11,9 +11,9 @@
                     مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التي يولدها التطبيق.</p>
             </header>
             <div class="app__card">
-                <article class="card active">
+                <article class="card card-js active">
                     <header>
-                        <h1>الكريمي جوال</h1>
+                        <h1>الكريمي جوال - card 1</h1>
                     </header>
                     <div class="row">
                         <span class="col-4">التحويل بين الحسابات</span>
@@ -42,9 +42,9 @@
                     </div>
                 </article>
 
-                <article class="card">
+                <article class="card card-js">
                     <header>
-                        <h1>الكريمي جوال</h1>
+                        <h1>الكريمي جوال - card 2</h1>
                     </header>
                     <div class="row">
                         <span class="col-4">التحويل بين الحسابات</span>
