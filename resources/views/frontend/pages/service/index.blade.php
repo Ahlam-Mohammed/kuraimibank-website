@@ -52,5 +52,7 @@
         <h1>لتحسين مشروعك الخاص وتطويره</h1>
     </section>
 
+    {{--  Success stories Section  --}}
+    @include('frontend.pages.service.success-stories')
 
 @endsection

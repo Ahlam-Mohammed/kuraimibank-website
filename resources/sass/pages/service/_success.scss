@@ -1,0 +1,92 @@
+@use "../../utilities/variables" as *;
+@use '../../utilities/_mixins/breakpoints' as *;
+@use '../../utilities/_mixins/container' as *;
+@use '../../utilities/_mixins/shadow' as *;
+@use '../../utilities/_mixins/header' as *;
+@use "../../utilities/_mixins/flex" as *;
+@use "../../utilities/_mixins/font-size" as *;
+
+.success-story__section{
+    @include header {
+        text-align: start;
+    }
+    padding: 4rem;
+    position: relative;
+    .row{
+        margin-top: 3rem;
+    }
+    .story{
+        height: 500px;
+        background-size: cover;
+        background-position-x: 100%;
+        position: relative;
+        z-index: 0;
+        padding: 5rem 4rem;
+        @include box-shadow;
+        &::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image:  linear-gradient(101deg ,#ffffff00, #bdb6cf7d, #73659ad4);
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+        }
+        .story__title {
+            color: $white;
+            @include font-size('2xl');
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .story__desc {
+            color: $white;
+            @include font-size('sm');
+            font-weight: 400;
+            width: 38%;
+        }
+        .more{
+            @include font-size('xs');
+            color: $white;
+            position: relative;
+            margin-top: 1rem;
+            &:before{
+                content: '';
+                position: absolute;
+                height: 1px;
+                width: 100%;
+                bottom: -3px;
+                left: -197%;
+                background-color: $white;
+            }
+        }
+    }
+
+    .buttons{
+        display: flex;
+        justify-content: end;
+        gap: 20px;
+        margin-top: 1.5rem;
+        button{
+            width: 55px;
+            height: 55px;
+            @include font-size('3xl');
+            @include flex(center, center);
+        }
+    }
+
+    .layer-7{
+        position: absolute;
+        top: -20%;
+        left: -2%;
+        width: 9%;
+    }
+    .layer-3{
+        position: absolute;
+        bottom: -7%;
+        right: -5%;
+        width: 9%;
+    }
+}
