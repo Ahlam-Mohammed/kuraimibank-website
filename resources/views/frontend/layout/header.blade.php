@@ -11,9 +11,9 @@
         </a>
     </div>
     <!-- Logo  -->
-    <div>
+    <a href="/">
         <img src="{{ asset('images/logok.svg') }}" alt="">
-    </div>
+    </a>
     <!-- left section  -->
     <div class="header__box">
         <a class="header__item" href="">
