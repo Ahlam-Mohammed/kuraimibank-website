@@ -1,0 +1,69 @@
+@use "../../utilities/variables" as *;
+@use '../../utilities/_mixins/breakpoints' as *;
+@use '../../utilities/_mixins/container' as *;
+@use '../../utilities/_mixins/shadow' as *;
+@use '../../utilities/_mixins/header' as *;
+@use "../../utilities/_mixins/flex" as *;
+@use "../../utilities/_mixins/font-size" as *;
+
+.feature__section {
+    @include container;
+    padding: 6rem 2rem;
+    position: relative;
+    z-index: 0;
+    .content {
+        @include flex(start, space-between){
+            flex-wrap: inherit;
+        }
+        .feature__img{
+            @include flex(center, center);
+            img{
+                width: 70%;
+            }
+        }
+        .feature__details{
+            padding: 2rem 3rem;
+            .title{
+                @include font-size('2xl');
+                font-weight: bold;
+                color: $secondary-light-color;
+                margin-bottom: 2rem;
+            }
+            .desc{
+                color: #5D5D5D;
+                width: 90%;
+                @include font-size('sm');
+                line-height: 1.9;
+            }
+            .condition {
+                color: $secondary-light-color;
+                position: relative;
+                @include font-size('sm');
+                margin-top: 3rem;
+                &::before{
+                    content: '';
+                    position: absolute;
+                    background-color: $secondary-light-color;
+                    bottom: -3px;
+                    width: 55px;
+                    height: 1px;
+                }
+            }
+        }
+    }
+
+    .bg-service-left{
+        position: absolute;
+        width: 20%;
+        top: 4%;
+        left: -6%;
+    }
+
+    .bg-service-right{
+        position: absolute;
+        right: -21%;
+        width: 23%;
+        bottom: -10%;
+
+    }
+}

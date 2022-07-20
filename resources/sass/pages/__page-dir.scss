@@ -5,3 +5,9 @@
 @use "home/news";
 @use "home/successfully";
 @use "home/service-points";
+
+// Service Page
+@use "service/advantage";
+@use "service/navigation";
+@use "service/features";
+@use "service/short-desc";

@@ -20,4 +20,14 @@
             background-color: #73659A;
         }
     }
+
+    &.btn-orange {
+        background-color: $orange-color;
+        border: 0;
+        color: $white;
+        width: 150px;
+        &:hover {
+            background-color: #d56608;
+        }
+    }
 }

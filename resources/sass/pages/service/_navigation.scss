@@ -1,0 +1,31 @@
+@use "../../utilities/variables" as *;
+@use '../../utilities/_mixins/breakpoints' as *;
+@use '../../utilities/_mixins/container' as *;
+@use '../../utilities/_mixins/shadow' as *;
+@use '../../utilities/_mixins/header' as *;
+@use "../../utilities/_mixins/flex" as *;
+@use "../../utilities/_mixins/font-size" as *;
+
+.service_nav{
+    @include flex(center, space-between);
+    width: 48%;
+    margin: 10rem auto 0;
+    //transform: translateY(-160px);
+    a{
+        color: #CDCDCD;
+        @include font-size('sm');
+        &.active{
+            color: #73659A;
+            position: relative;
+            font-weight: bold;
+            &::before {
+                content: "";
+                position: absolute;
+                width: 58px;
+                height: 2px;
+                background-color: #73659A;
+                bottom: -4px;
+            }
+        }
+    }
+}

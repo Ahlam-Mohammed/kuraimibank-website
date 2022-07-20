@@ -36,7 +36,17 @@
 @stop
 
 @section('content')
+    <nav class="service_nav">
+        <a class="active" href="#feature">المميزات</a>
+        <a href="#condition">الشروط</a>
+        <a href="#">الإشتراك</a>
+        <a href="">أسئلة شائعة</a>
+    </nav>
 
+    {{--  Features Section  --}}
+    @include('frontend.pages.service.features')
+
+    
 
 
 @endsection
