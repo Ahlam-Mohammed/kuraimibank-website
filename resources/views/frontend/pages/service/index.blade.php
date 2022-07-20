@@ -46,7 +46,11 @@
     {{--  Features Section  --}}
     @include('frontend.pages.service.features')
 
-    
+    {{--  Short Description Section  --}}
+    <section class="short-desc__section">
+        <h1>خدمة مشروعي تتيح لك الفرصة</h1>
+        <h1>لتحسين مشروعك الخاص وتطويره</h1>
+    </section>
 
 
 @endsection
