@@ -31,11 +31,11 @@
 <header class="header__mobile row">
     <!-- right section  -->
     <div class="header__box col-2">
-        <a class="header__item" href="">
-            <i class="bi bi-telephone"></i>
-            <span>تواصل معنا</span>
+        <a class="header__item">
+            <span class="hamburger" onclick="openNav()">&#9776;</span>
         </a>
     </div>
+
     <!-- Logo  -->
     <div class="col-8">
         <img src="{{ asset('images/logok.svg') }}" alt="logo image">
@@ -43,7 +43,6 @@
     <!-- left section  -->
     <div class="header__box col-2">
         <a class="header__item" href="">
-            <i class="bi bi-search"></i>
             <span>EN</span>
         </a>
     </div>

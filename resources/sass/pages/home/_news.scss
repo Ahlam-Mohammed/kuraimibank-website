@@ -132,7 +132,8 @@ $news-card-bottom-height: $news-card-height - $news-card-top-height;
       position: relative;
 
       @include breakpoints('xxl') {
-        height: $news-card-height + 150px;
+        //height: $news-card-height + 150px;
+          height: 706px;
       }
 
       .news__img {

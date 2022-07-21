@@ -128,6 +128,10 @@
           color: $gray-color;
           font-weight: 500;
           margin-bottom: 1rem;
+            @include breakpoints('xxl') {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
         }
 
         .btn-app {

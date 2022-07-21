@@ -36,11 +36,15 @@
 
     .header__box .header__item{
         justify-content: center;
-        @include breakpoints('') {
-            display: none;
-        }    }
+    }
     .header__box{
         display: block;
+    }
+
+    .hamburger{
+        font-size:30px;
+        cursor:pointer;
+        color: $white;
     }
 }
 

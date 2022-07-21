@@ -91,13 +91,14 @@
   justify-content: center;
 }
 
-@media (max-width: 576px) {
-  .header__mobile .header__box .header__item {
-    display: none;
-  }
-}
 .header__mobile .header__box {
   display: block;
+}
+
+.header__mobile .hamburger {
+  font-size: 30px;
+  cursor: pointer;
+  color: #FFFFFF;
 }
 
 .header__box {
@@ -208,6 +209,70 @@
   bottom: 0;
 }
 
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #73659A;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  padding-inline-start: 4rem;
+  margin-top: 30px;
+}
+
+.overlay-content .nav__item {
+  position: relative;
+}
+
+.overlay-content .nav__item.active::before {
+  content: "";
+  width: 10px;
+  height: 2px;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.7882352941);
+  top: 50%;
+  right: -3%;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 26px;
+  color: #FFFFFF;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #FFFFFF;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {
+    font-size: 20px;
+  }
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
 footer {
   background-color: #8D80B3;
   padding-bottom: 2rem;
@@ -626,6 +691,11 @@ footer .bg-left {
   bottom: 40px;
 }
 
+@media (min-width: 1400px) {
+  .main-services .content .main__service__bg {
+    height: 335px;
+  }
+}
 @media (min-width: 768px) and (max-width: 991px) {
   .main-services .content .main__service__bg {
     height: 240px;
@@ -750,7 +820,7 @@ footer .bg-left {
 
 @media (min-width: 1400px) {
   .main-services .content .service {
-    height: 440px;
+    height: 475px;
   }
 }
 @media (min-width: 576px) and (max-width: 767px) {
@@ -975,6 +1045,12 @@ footer .bg-left {
   margin-bottom: 1rem;
 }
 
+@media (min-width: 1400px) {
+  .app > .row .app__card .card span {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+}
 .app > .row .app__card .card .btn-app {
   display: flex;
   align-items: center;
@@ -1204,7 +1280,7 @@ footer .bg-left {
 
 @media (min-width: 1400px) {
   .news-section .content .news {
-    height: 640px;
+    height: 706px;
   }
 }
 .news-section .content .news .news__img {

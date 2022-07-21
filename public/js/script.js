@@ -14,6 +14,15 @@ els('.landing .nav .nav__item').forEach (e => {
     })
 });
 
+// ########## hamburger button ##########
+function openNav() {
+    document.getElementById("nav--mobile").style.width = "100%";
+}
+
+function closeNav() {
+    document.getElementById("nav--mobile").style.width = "0%";
+}
+
 // ########## Slide Service ##########
 let slideIndex = 1;
 showSlides(slideIndex);
@@ -128,7 +137,7 @@ function getDotCard(index) {
 function autoLoopCard() {
     timeoutCardId = setTimeout(() => {
         getNextCard();
-    }, 3000);
+    }, 4000);
 }
 
 getActiveDot();
@@ -254,8 +263,11 @@ function getPrevSlide() {
     clearInterval(timeoutId);
     const current = document.querySelector(".slide__center");
     const [next, prev] = getNextPrev();
-    current.classList.add("top");
-    prev.classList.add("top");
+    // if (current.classList.contains("top")) {
+    //     return;
+    // }
+    // current.classList.add("top");
+    // prev.classList.add("top");
 
     current.classList.remove('slide__center');
     current.classList.add('slide__next');
@@ -279,7 +291,7 @@ function getPrevSlide() {
 function autoLoop() {
     timeoutId = setTimeout(() => {
         getNextSlide();
-    }, 5000);
+    }, 55000);
 }
 
 // getActiveDot();
