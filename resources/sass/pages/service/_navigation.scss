@@ -9,8 +9,12 @@
 .service_nav{
     @include flex(center, space-between);
     width: 48%;
-    margin: 10rem auto 0;
+    //margin: 10rem auto 0;
+    margin: auto;
     //transform: translateY(-160px);
+    @include breakpoints('xxl') {
+        margin: 3rem auto;
+    }
     a{
         color: #CDCDCD;
         @include font-size('sm');

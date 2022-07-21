@@ -9,7 +9,10 @@
 
 .advantage{
     background-repeat: repeat-x;
-    overflow: hidden;
+    //overflow: hidden;
+    height: 100px;
+    @include breakpoints('sm'){    height: auto;}
+    @include breakpoints(''){    height: auto;}
     >.advantage_content {
         @include container();
         @include flex(center, space-evenly);
@@ -17,24 +20,27 @@
         padding: 3rem 2rem;
         //position: relative;
         //transform: translateY(-67%);
-        transform: translate(-50%, -50%);
-        z-index: 9999999;
-        position: absolute;
-        left: 50%;
-        bottom: -60%;
+        //transform: translate(-50%, -50%);
+        //z-index: 9999999;
+        //position: absolute;
+        //left: 50%;
+        //bottom: -60%;
+        position: relative;
+        top: -194%;
 
         @include breakpoints('xxl') {
-            bottom: -20%;
+            //bottom: -20%;
         }
         @include breakpoints('xl') {
-            bottom: -20%;
+            //bottom: -20%;
         }
         @include breakpoints('lg') {
             width: 90%;
-            bottom: -24%;
+            //bottom: -24%;
+            top: -222%;
         }
         @include breakpoints('md') {
-            bottom: -22%;
+            //bottom: -22%;
             justify-content: space-between;
         }
         @include breakpoints('sm') {
@@ -105,7 +111,7 @@
     .bg-advantage-right{
         position: absolute;
         right: -12%;
-        top: 134%;
+        top: 98%;
         width: 24%;
         display: none;
         @include breakpoints('sm'){ display: block}

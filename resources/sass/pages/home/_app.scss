@@ -171,9 +171,11 @@
           }
           @include breakpoints('sm'){
             justify-content: center;
+              gap: 5px;
           }
           @include breakpoints(''){
             justify-content: center;
+              gap: 5px;
           }
         }
       }

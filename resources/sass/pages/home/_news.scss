@@ -46,15 +46,45 @@ $news-card-bottom-height: $news-card-height - $news-card-top-height;
           width: 30%;
             &.slide__next {
                 transform: translateX(0);
+                @include breakpoints('sm'){
+                    transform: translateX(100%);
+                    width: 100%;
+                }
+                @include breakpoints(''){
+                    transform: translateX(100%);
+                    width: 100%;
+                }
             }
             &.slide__prev {
                 transform: translate(-230%);
+                @include breakpoints('sm'){
+                    transform: translateX(-100%);
+                    width: 100%;
+                }
+                @include breakpoints(''){
+                    transform: translateX(-100%);
+                    width: 100%;
+                }
             }
             &.slide__center {
                 transform: translateX(-115%);
+                @include breakpoints('sm'){
+                    transform: translateX(0);
+                    width: 100%;
+                }
+                @include breakpoints(''){
+                    transform: translateX(0);
+                    width: 100%;
+                }
             }
             &.slide__out {
                 transform: translateX(100%);
+                @include breakpoints('sm'){
+                    width: 100%;
+                }
+                @include breakpoints(''){
+                    width: 100%;
+                }
             }
         }
       }

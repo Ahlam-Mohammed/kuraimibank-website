@@ -33,14 +33,18 @@
         }    }
 
     &.service{
+        @include breakpoints('xxl'){
+            background-position: center;
+            height: 875px;
+        }
         @include breakpoints('sm') {
             background-image: url("../../images/bg-service-mobile.png") !important;
-            background-position: 50% 105px;
+            background-position: 50% 137px;
             background-repeat: repeat-x;
         }
         @include breakpoints('') {
             background-image: url("../../images/bg-service-mobile.png") !important;
-            background-position: 50% 105px;
+            background-position: 50% 217px;
             background-repeat: repeat-x;
         }
     }
@@ -134,18 +138,22 @@
         bottom: 26%;
         left: 4.6%;
 
+        @include breakpoints('xxl') {
+            width: 25%;
+            bottom: 22%;
+        }
         @include breakpoints('md') {
             width: 40%;
-            bottom: 38%;
+            bottom: 25%;
         }
         @include breakpoints('sm') {
-            width: 56%;
+            width: 65%;
             bottom: 0%;
             left: 50%;
             transform: translate(-50%, 0%);
         }
         @include breakpoints('') {
-            width: 75%;
+            width: 67%;
             bottom: 0%;
             left: 50%;
             transform: translate(-50%, 0%);
