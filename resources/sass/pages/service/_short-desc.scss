@@ -13,6 +13,14 @@
     padding: 4rem 6rem;
     color: $secondary-light-color;
     @include font-size('2xl');
+    @include breakpoints('sm') {
+        @include font-size('xl');
+        padding: 2rem;
+    }
+    @include breakpoints('') {
+        @include font-size('xs');
+        padding: 3rem 1rem
+    }
     h1:first-child{
         text-align: start;
         margin-inline-start: 1rem;
@@ -21,5 +29,8 @@
         text-align: end;
         margin-inline-end: 1rem;
         margin-top: 3rem;
+        @include breakpoints('xxl') {
+            text-align: end;
+        }
     }
 }

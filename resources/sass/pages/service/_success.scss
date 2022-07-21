@@ -12,6 +12,16 @@
     }
     padding: 4rem;
     position: relative;
+    @include breakpoints('sm'){
+        padding: 4rem 0;
+    }
+    @include breakpoints(''){
+        padding: 3rem 0;
+    }
+    header h1 {
+        @include breakpoints('sm') {padding:0 2rem}
+        @include breakpoints('') {padding:0 2rem}
+    }
     .row{
         margin-top: 3rem;
     }
@@ -23,12 +33,17 @@
         z-index: 0;
         padding: 5rem 4rem;
         @include box-shadow;
+        @include breakpoints('sm') {padding:4rem 2rem 0}
+        @include breakpoints('') {padding:4rem 2rem 0; background-position-x: center;text-align: center}
         &::before{
             content: '';
             position: absolute;
             width: 100%;
             height: 100%;
             background-image:  linear-gradient(101deg ,#ffffff00, #bdb6cf7d, #73659ad4);
+            @include breakpoints('') {
+                background-image: linear-gradient(101deg,  rgba(189, 182, 207, 0.4901960784), rgba(115, 101, 154, 0.831372549))
+            }
             top: 0;
             bottom: 0;
             left: 0;
@@ -46,6 +61,8 @@
             @include font-size('sm');
             font-weight: 400;
             width: 38%;
+            @include breakpoints('sm') {width: 80%}
+            @include breakpoints('') {width: 100%}
         }
         .more{
             @include font-size('xs');
@@ -60,6 +77,8 @@
                 bottom: -3px;
                 left: -197%;
                 background-color: $white;
+                @include breakpoints('sm') {left: -97%;}
+                @include breakpoints('') {left: -97%;}
             }
         }
     }
@@ -69,6 +88,8 @@
         justify-content: end;
         gap: 20px;
         margin-top: 1.5rem;
+        @include breakpoints('sm'){justify-content: center}
+        @include breakpoints(''){justify-content: center}
         button{
             width: 55px;
             height: 55px;

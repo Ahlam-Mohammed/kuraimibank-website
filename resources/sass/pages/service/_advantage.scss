@@ -9,6 +9,7 @@
 
 .advantage{
     background-repeat: repeat-x;
+    overflow: hidden;
     >.advantage_content {
         @include container();
         @include flex(center, space-evenly);
@@ -22,12 +23,48 @@
         left: 50%;
         bottom: -60%;
 
+        @include breakpoints('xxl') {
+            bottom: -20%;
+        }
+        @include breakpoints('xl') {
+            bottom: -20%;
+        }
+        @include breakpoints('lg') {
+            width: 90%;
+            bottom: -24%;
+        }
+        @include breakpoints('md') {
+            bottom: -22%;
+            justify-content: space-between;
+        }
+        @include breakpoints('sm') {
+            transform: inherit;
+            position: initial;
+            text-align: center;
+        }
+        @include breakpoints('') {
+            transform: inherit;
+            position: initial;
+            text-align: center;
+        }
+
         .box{
             @include flex(start, start) {
                 flex-direction: column;
                 gap: 20px;
             }
             height: inherit;
+
+            @include breakpoints('sm') {
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 3rem;
+            }
+            @include breakpoints('') {
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 3rem;
+            }
 
             .box__number{
                 height: 70px;
@@ -55,5 +92,23 @@
                 @include font-size('sm')
             }
         }
+    }
+    .bg-advantage-left{
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 31%;
+        display: none;
+        @include breakpoints('sm'){ display: block}
+        @include breakpoints(''){display: block}
+    }
+    .bg-advantage-right{
+        position: absolute;
+        right: -12%;
+        top: 134%;
+        width: 24%;
+        display: none;
+        @include breakpoints('sm'){ display: block}
+        @include breakpoints(''){display: block}
     }
 }

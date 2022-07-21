@@ -11,6 +11,12 @@
     padding: 6rem 2rem;
     position: relative;
     z-index: 0;
+    @include breakpoints('sm'){
+        padding: 3rem 2rem
+    }
+    @include breakpoints(''){
+        padding: 2rem
+    }
     .content {
         @include flex(start, space-between){
             flex-wrap: inherit;
@@ -19,10 +25,13 @@
             @include flex(center, center);
             img{
                 width: 70%;
+                @include breakpoints('sm'){ width: 85%;}
+                @include breakpoints(''){ width: 100%;}
             }
         }
         .feature__details{
             padding: 2rem 3rem;
+            @include breakpoints(''){padding: 2rem 0;}
             .title{
                 @include font-size('2xl');
                 font-weight: bold;
@@ -34,6 +43,8 @@
                 width: 90%;
                 @include font-size('sm');
                 line-height: 1.9;
+                @include breakpoints('sm'){ width: 100%;}
+                @include breakpoints(''){ width: 100%;}
             }
             .condition {
                 color: $secondary-light-color;
@@ -50,6 +61,18 @@
                 }
             }
         }
+        @include breakpoints('sm'){
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        @include breakpoints(''){
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
     }
 
     .bg-service-left{
@@ -57,6 +80,10 @@
         width: 20%;
         top: 4%;
         left: -6%;
+        @include breakpoints('xxl') {
+            width: 22%;
+            left: -8%;
+        }
     }
 
     .bg-service-right{
@@ -64,6 +91,9 @@
         right: -21%;
         width: 23%;
         bottom: -10%;
-
+        @include breakpoints('xxl') {
+            right: -24%;
+            width: 24%;
+        }
     }
 }

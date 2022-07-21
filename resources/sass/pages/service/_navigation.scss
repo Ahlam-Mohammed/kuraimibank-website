@@ -28,4 +28,13 @@
             }
         }
     }
+
+    @include breakpoints('sm') {
+        margin: auto;
+        width: 80%;
+    }
+    @include breakpoints('') {
+        margin: auto;
+        width: 90%;
+    }
 }

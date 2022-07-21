@@ -32,6 +32,19 @@
             background-image: url("../../images/bg-mobile.jpg") !important;
         }    }
 
+    &.service{
+        @include breakpoints('sm') {
+            background-image: url("../../images/bg-service-mobile.png") !important;
+            background-position: 50% 105px;
+            background-repeat: repeat-x;
+        }
+        @include breakpoints('') {
+            background-image: url("../../images/bg-service-mobile.png") !important;
+            background-position: 50% 105px;
+            background-repeat: repeat-x;
+        }
+    }
+
     .landing__intro{
         height: 550px;
         @include flex(start, center) {
@@ -95,6 +108,23 @@
             .btn {
                 margin-top: 1rem;
             }
+            @include breakpoints('md') {
+                padding-top: 4rem;
+            }
+            @include breakpoints('sm') {
+                padding: 6rem 2rem 0;
+                justify-content: center;
+                align-items: center;
+            }
+            @include breakpoints('') {
+                padding: 6rem 2rem 0;
+                justify-content: center;
+                align-items: center;
+            }
+            p.desc{
+                @include breakpoints('sm'){width: 80%; text-align: center}
+                @include breakpoints(''){width: 100%; text-align: center}
+            }
         }
     }
 
@@ -103,5 +133,22 @@
         width: 31%;
         bottom: 26%;
         left: 4.6%;
+
+        @include breakpoints('md') {
+            width: 40%;
+            bottom: 38%;
+        }
+        @include breakpoints('sm') {
+            width: 56%;
+            bottom: 0%;
+            left: 50%;
+            transform: translate(-50%, 0%);
+        }
+        @include breakpoints('') {
+            width: 75%;
+            bottom: 0%;
+            left: 50%;
+            transform: translate(-50%, 0%);
+        }
     }
 }
