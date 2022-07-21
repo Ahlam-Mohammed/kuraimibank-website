@@ -34,7 +34,7 @@
 
     &.service{
         @include breakpoints('xxl'){
-            background-position: center;
+            //background-position: center;
             height: 875px;
         }
         @include breakpoints('sm') {

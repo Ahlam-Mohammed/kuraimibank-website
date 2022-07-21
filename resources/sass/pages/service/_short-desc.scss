@@ -14,7 +14,7 @@
     color: $secondary-light-color;
     @include font-size('2xl');
     @include breakpoints('xxl'){
-        padding: 4rem 16rem;
+        padding: 4rem 10rem;
     }
     @include breakpoints('sm') {
         @include font-size('xl');

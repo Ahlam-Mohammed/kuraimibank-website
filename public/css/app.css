@@ -2283,7 +2283,7 @@ footer .bg-left {
 
 @media (min-width: 1400px) {
   .short-desc__section {
-    padding: 4rem 16rem;
+    padding: 4rem 10rem;
   }
 }
 @media (min-width: 576px) and (max-width: 767px) {
@@ -2611,7 +2611,6 @@ body {
 }
 @media (min-width: 1400px) {
   .landing.service {
-    background-position: center;
     height: 875px;
   }
 }
