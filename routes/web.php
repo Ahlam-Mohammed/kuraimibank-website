@@ -27,8 +27,6 @@ Route::get('change-language/{locale}', [LocaleController::class, 'switch'])->nam
 | Frontend Routes
 |--------------------------------------------------------------------------|
 */
-//Route::view('/', 'frontend.index');
-Route::view('/service', 'frontend.pages.service.index');
 
 Route::controller(frontend\HomeController::class)->group(function (){
     Route::get('/', 'index')->name('home');
