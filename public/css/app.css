@@ -116,6 +116,10 @@
   gap: 8px;
 }
 
+.lang {
+  color: #FFFFFF;
+}
+
 .nav::after, .nav::before {
   content: "";
   position: absolute;

@@ -22,7 +22,17 @@
         </a>
         <a class="header__item" href="">
             <i class="bi bi-search"></i>
-            <span>EN</span>
+            @foreach (config('locales.languages') as $key => $val)
+                @if ($key != app()->getLocale())
+                    <a class="lang" href="{{route('change-language', $key)}}">
+                        @if ($key == 'en')
+                            EN
+                        @else
+                            AR
+                        @endif
+                    </a>
+                @endif
+            @endforeach
         </a>
     </div>
 </header>
@@ -43,7 +53,17 @@
     <!-- left section  -->
     <div class="header__box col-2">
         <a class="header__item" href="">
-            <span>EN</span>
+            @foreach (config('locales.languages') as $key => $val)
+                @if ($key != app()->getLocale())
+                    <a class="lang" href="{{route('change-language', $key)}}">
+                        @if ($key == 'en')
+                            EN
+                        @else
+                            AR
+                        @endif
+                    </a>
+                @endif
+            @endforeach
         </a>
     </div>
 </header>
