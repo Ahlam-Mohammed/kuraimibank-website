@@ -35,7 +35,7 @@
 
 
 
-        <ul class="navbar-nav flex-row align-items-center ms-auto">
+        <ul class="navbar-nav flex-row align-items-center" style="    margin-inline-start: auto;">
 
             <!-- Language -->
             <li class="nav-item dropdown-language dropdown me-2 me-xl-0">
