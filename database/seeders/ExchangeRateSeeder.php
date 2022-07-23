@@ -32,5 +32,14 @@ class ExchangeRateSeeder extends Seeder
             'sale' => 148.5,
             'buy'  => 148
         ]);
+
+        ExchangeRate::create([
+            'name' => [
+                'ar' => 'ريال سعودي - عدن',
+                'en' => "Saudi ryal-aden"
+            ],
+            'sale' => 148.5,
+            'buy'  => 148
+        ]);
     }
 }

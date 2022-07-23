@@ -12,6 +12,7 @@ use App\Http\Controllers\dashboard\UserController;
 use App\Http\Controllers\dashboard\WebInfoController;
 use App\Http\Controllers\LocaleController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\frontend;
 
 
 /*
@@ -26,8 +27,13 @@ Route::get('change-language/{locale}', [LocaleController::class, 'switch'])->nam
 | Frontend Routes
 |--------------------------------------------------------------------------|
 */
-Route::view('/', 'frontend.index');
+//Route::view('/', 'frontend.index');
 Route::view('/service', 'frontend.pages.service.index');
+
+Route::controller(frontend\HomeController::class)->group(function (){
+    Route::get('/', 'index')->name('home');
+    Route::get('service/{id}', 'detailsService')->name('service');
+});
 
 
 

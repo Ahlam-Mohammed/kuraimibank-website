@@ -26,19 +26,25 @@
         </section>
 
         {{--  Currency Section    --}}
-        @include('frontend.pages.home.currency')
+        @if(isset($rates))
+            @include('frontend.pages.home.currency')
+        @endif
     @stop
 
     @section('content')
 
         {{--  Main services Section    --}}
-        @include('frontend.pages.home.main-service')
+        @if(isset($services))
+            @include('frontend.pages.home.main-service')
+        @endif
 
         {{--  Kuraimi App Section    --}}
         @include('frontend.pages.home.app')
 
         {{--  News Section    --}}
-        @include('frontend.pages.home.news')
+        @if(isset($news))
+            @include('frontend.pages.home.news')
+        @endif
 
         {{--  Kuraimi Successfully Section    --}}
         @include('frontend.pages.home.successfully')
