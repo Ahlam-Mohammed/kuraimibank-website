@@ -5,6 +5,7 @@
 @use '../../utilities/_mixins/header' as *;
 @use "../../utilities/_mixins/flex" as *;
 @use "../../utilities/_mixins/font-size" as *;
+@use "../../utilities/_mixins/animation" as *;
 
 .service_nav{
     @include flex(center, space-between);
@@ -18,6 +19,7 @@
     a{
         color: #CDCDCD;
         @include font-size('sm');
+        cursor: pointer;
         &.active{
             color: #73659A;
             position: relative;
@@ -29,6 +31,7 @@
                 height: 2px;
                 background-color: #73659A;
                 bottom: -4px;
+                @include x-animation(line 0.6s ease-out)
             }
         }
     }
@@ -40,5 +43,14 @@
     @include breakpoints('') {
         margin: auto;
         width: 90%;
+    }
+}
+
+@include x-keyframes(line){
+    from{
+        width: 20px;
+    }
+    to{
+        width: 58px;
     }
 }

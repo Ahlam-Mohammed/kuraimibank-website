@@ -51,6 +51,31 @@ function showSlides(n) {
     dots[slideIndex-1].className += " active";
 }
 
+
+// ########## Feature Tap ##########
+function currentTap(n) {
+    showTaps(slideIndex = n);
+}
+
+function showTaps(n) {
+    let i;
+    let sections = document.querySelectorAll(".sections-js > *");
+    let taps     = document.querySelectorAll(".taps-js > *");
+
+    if (n > sections.length) slideIndex = 1
+    if (n < 1) slideIndex = sections.length
+    for (i = 0; i < sections.length; i++) {
+        sections[i].className = sections[i].className.replace(" active", "");
+    }
+    for (i = 0; i < taps.length; i++) {
+        taps[i].className = taps[i].className.replace("active", "");
+    }
+    sections[slideIndex-1].className += ' active';
+    taps[slideIndex-1].className += " active";
+}
+
+showTaps(slideIndex)
+
 // ########## Slide App ##########
 const cards = Array.from(document.querySelectorAll(".card-js"));
 let timeoutCardId;

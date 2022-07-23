@@ -24,6 +24,7 @@ class HomeController extends Controller
 
     public function detailsService($id)
     {
-        return view('frontend.pages.service.index');
+        $service = Service::where('id', $id)->where('is_active', 1)->first();
+        return view('frontend.pages.service.index', compact('service'));
     }
 }

@@ -2050,6 +2050,7 @@ footer .bg-left {
   color: #CDCDCD;
   font-size: 0.875rem; /* 14px */
   line-height: 1.25rem; /* 20px */
+  cursor: pointer;
 }
 
 .service_nav a.active {
@@ -2065,6 +2066,8 @@ footer .bg-left {
   height: 2px;
   background-color: #73659A;
   bottom: -4px;
+  -webkit-animation: line 0.6s ease-out;
+  animation: line 0.6s ease-out;
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
@@ -2079,10 +2082,27 @@ footer .bg-left {
     width: 90%;
   }
 }
+@-webkit-keyframes line {
+  from {
+    width: 20px;
+  }
+  to {
+    width: 58px;
+  }
+}
+@keyframes line {
+  from {
+    width: 20px;
+  }
+  to {
+    width: 58px;
+  }
+}
 .feature__section {
   padding: 6rem 2rem;
   position: relative;
   z-index: 0;
+  display: none;
 }
 
 @media (min-width: 1400px) {
@@ -2121,6 +2141,10 @@ footer .bg-left {
     margin: auto;
   }
 }
+.feature__section.active {
+  display: block;
+}
+
 @media (min-width: 576px) and (max-width: 767px) {
   .feature__section {
     padding: 3rem 2rem;
@@ -2173,6 +2197,8 @@ footer .bg-left {
   font-weight: bold;
   color: #73659A;
   margin-bottom: 2rem;
+  -webkit-animation: down-to-up 0.6s ease-out;
+  animation: down-to-up 0.6s ease-out;
 }
 
 .feature__section .content .feature__details .desc {
@@ -2181,6 +2207,8 @@ footer .bg-left {
   font-size: 0.875rem; /* 14px */
   line-height: 1.25rem; /* 20px */
   line-height: 1.9;
+  -webkit-animation: down-to-up 0.6s ease-out;
+  animation: down-to-up 0.6s ease-out;
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
@@ -2250,6 +2278,22 @@ footer .bg-left {
   .feature__section .bg-service-right {
     right: -24%;
     width: 24%;
+  }
+}
+@-webkit-keyframes opacity {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes opacity {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
   }
 }
 .short-desc__section {

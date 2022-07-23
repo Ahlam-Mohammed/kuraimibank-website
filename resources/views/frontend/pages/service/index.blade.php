@@ -9,7 +9,9 @@
     <section class="landing service" style="background-image: url({{ asset('images/bg-service-header.png') }});">
 
         {{-- Service Image --}}
-        <img class="service--image" src="{{ asset('images/service-3.png') }}" alt="service image">
+        @if(isset($service->image))
+            <img class="service--image" src="{{ asset(\App\Enum\SettingEnum::PATH_SERVICE_IMAGE.'/'.$service->image) }}" alt="service image">
+        @endif
 
         <!-- Start Header Section  -->
         @include('frontend.layout.header')
@@ -21,10 +23,10 @@
 
         <!-- Start Landing Introduction Section  -->
         <article class="landing__intro intro--service">
-            <h1>مشروعي</h1>
-            <p class="desc">بتمويلات تصل إلى  <span>50</span>  مليون ريال يمني، تخيل ماذا يمكنك أن تفعل لتطوير مشروعك؟
-                بنك الكريمي للتمويل الأصغر الإسلامي يساعدك لتجيب عن هذا التساؤل
-            </p>
+            @if(isset($service->name, $service->desc))
+                <h1>{{ $service->name }}</h1>
+                <p class="desc">{{ $service->desc }}</p>
+            @endif
             <button class="btn btn-orange">طلب خدمة</button>
         </article>
         <!-- End Landing Introduction Section  -->
@@ -36,12 +38,6 @@
 @stop
 
 @section('content')
-    <nav class="service_nav">
-        <a class="active" href="#feature">المميزات</a>
-        <a href="#condition">الشروط</a>
-        <a href="#">الإشتراك</a>
-        <a href="">أسئلة شائعة</a>
-    </nav>
 
     {{--  Features Section  --}}
     @include('frontend.pages.service.features')
