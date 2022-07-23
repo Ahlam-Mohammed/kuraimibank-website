@@ -104,6 +104,10 @@
             height: 380px;
             display: none;
 
+            &.active{
+                display: flex;
+            }
+
             .right{
                 padding: 4rem 3rem 0;
 

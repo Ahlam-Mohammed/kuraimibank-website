@@ -3,8 +3,25 @@
         <h1>قصص نجاح</h1>
     </header>
 
-    <div class="row">
+    <div class="row slides-js">
         <article class="story" style="background-image: url({{ asset('images/story-1.png') }})">
+            <h1 class="story__title">مولت مشروعي</h1>
+            <p class="story__desc">
+                هذا النص هو مثال لنص يمكن أن يستبدل
+                في نفس المساحة، لقد تم توليد هذا
+                النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل
+                في نفس المساحة، لقد تم توليد هذا
+                النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
+                النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
+                النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل
+                في نفس المساحة، لقد تم توليد هذا
+                النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل
+                في نفس المساحة، لقد تم توليد هذا
+                النص من مولد النص العربى
+            </p>
+            <a class="more">قراءة المزيد</a>
+        </article>
+        <article class="story" style="background-image: url({{ asset('images/story-2.png') }})">
             <h1 class="story__title">مولت مشروعي</h1>
             <p class="story__desc">
                 هذا النص هو مثال لنص يمكن أن يستبدل
@@ -23,8 +40,8 @@
         </article>
     </div>
     <div class="buttons">
-        <button class="btn btn-outline-primary"><</button>
-        <button class="btn btn-outline-primary">></button>
+        <button class="btn btn-outline-primary" onclick="plusSlides(-1)"><</button>
+        <button class="btn btn-outline-primary" onclick="plusSlides(1)">></button>
     </div>
 
     <img class="layer-7" src="{{ asset('images/layer-7.png') }}" alt="background">

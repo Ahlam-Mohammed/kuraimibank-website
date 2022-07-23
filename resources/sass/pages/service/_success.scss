@@ -5,6 +5,7 @@
 @use '../../utilities/_mixins/header' as *;
 @use "../../utilities/_mixins/flex" as *;
 @use "../../utilities/_mixins/font-size" as *;
+@use "../../utilities/_mixins/animation" as *;
 
 .success-story__section{
     @include header {
@@ -32,6 +33,10 @@
         position: relative;
         z-index: 0;
         padding: 5rem 4rem;
+        display: none;
+        &.active{
+            display: block;
+        }
         @include box-shadow;
         @include breakpoints('sm') {padding:4rem 2rem 0}
         @include breakpoints('') {padding:4rem 2rem 0; background-position-x: center;text-align: center}
@@ -49,12 +54,14 @@
             left: 0;
             right: 0;
             z-index: -1;
+            @include x-animation(linear-story 1s ease-out)
         }
         .story__title {
             color: $white;
             @include font-size('2xl');
             font-weight: bold;
             margin-bottom: 1rem;
+            @include x-animation(down-to-up 0.8s ease-out);
         }
         .story__desc {
             color: $white;
@@ -63,6 +70,7 @@
             width: 38%;
             @include breakpoints('sm') {width: 80%}
             @include breakpoints('') {width: 100%}
+            @include x-animation(down-to-up 0.8s ease-out);
         }
         .more{
             @include font-size('xs');
@@ -109,5 +117,15 @@
         bottom: -7%;
         right: -5%;
         width: 9%;
+    }
+}
+
+@include x-keyframes(linear-story){
+    from{
+        background-image: linear-gradient(101deg, rgba(255, 255, 255, 0), rgb(189 182 207 / 25%), rgb(115 101 154 / 49%));        opacity: 0.5;
+    }
+    to{
+        background-image: linear-gradient(101deg ,#ffffff00, #bdb6cf7d, #73659ad4);
+        opacity: 1;
     }
 }

@@ -13,8 +13,8 @@
         </nav>
     </div>
     <section class="content row">
-        <div class="col-lg-2 col-1 prev">
-            <a onclick="plusSlides(-1)">❮</a>
+        <div class="col-lg-2 col-1 prev" onclick="plusSlides(-1)">
+            <span>❮</span>
         </div>
         <div class="col-lg-8 col-10 slides-js">
             @foreach($services as $service)
@@ -32,8 +32,8 @@
                 </article>
             @endforeach
         </div>
-        <div class="col-lg-2 col-1 next">
-            <a onclick="plusSlides(1)">❯</a>
+        <div class="col-lg-2 col-1 next" onclick="plusSlides(1)">
+            <span>❯</span>
         </div>
         <div class="main__service__bg" style="background-image: url({{ asset('images/bg-design.png') }});"></div>
     </section>
