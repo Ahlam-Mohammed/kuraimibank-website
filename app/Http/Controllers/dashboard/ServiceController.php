@@ -143,6 +143,7 @@ class ServiceController extends Controller
             $service->background  = $backgroundName;
             $service->image       = $imageName;
             $service->category_id = $request->category_id;
+            $service->position    = $request->position;
 
             $service->update();
 

@@ -118,6 +118,23 @@
                             <div class="invalid-feedback"> {{ $message }} </div>
                             @enderror
                         </div>
+
+                        <div class="col-md-6">
+                            <label for="selectpickerBasic" class="form-label">Position</label>
+                            <select name="position" value="{{ $service->position }}" id="position" class="selectpicker w-100  @error('position') is-invalid @enderror" data-style="btn-default">
+                                <option value="{{ \App\Enum\SettingEnum::POSITION_HOME_MAIN }}"
+                                        @if($service->position === \App\Enum\SettingEnum::POSITION_HOME_MAIN) selected @endif>
+                                    {{ \App\Enum\SettingEnum::POSITION_HOME_MAIN }}
+                                </option>
+                                <option value="{{ \App\Enum\SettingEnum::POSITION_OTHER }}"
+                                        @if($service->position === \App\Enum\SettingEnum::POSITION_OTHER) selected @endif>
+                                    {{ \App\Enum\SettingEnum::POSITION_OTHER }}
+                                </option>
+                            </select>
+                            @error('position')
+                            <div class="invalid-feedback"> {{ $message }} </div>
+                            @enderror
+                        </div>
                     </div>
                     <hr class="my-4 mx-n4" />
 
