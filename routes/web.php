@@ -31,6 +31,7 @@ Route::get('change-language/{locale}', [LocaleController::class, 'switch'])->nam
 Route::controller(frontend\HomeController::class)->group(function (){
     Route::get('/', 'index')->name('home');
     Route::get('service/{id}', 'detailsService')->name('service');
+    Route::get('success-story/{id}', 'successStory')->name('success-story');
 });
 
 
