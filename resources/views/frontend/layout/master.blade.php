@@ -24,5 +24,7 @@
 @include('frontend.layout.footer')
 
 <script src="{{ asset('js/script.js') }}"></script>
+
+@stack('scripts_after')
 </body>
 </html>

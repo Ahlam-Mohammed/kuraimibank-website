@@ -6,7 +6,7 @@
     <div class="row">
         <nav class="col-lg-8 col-12 dots-js">
             @foreach($services as $service)
-                <a class="nav__item" onclick="currentSlide({{ $loop->index }})">
+                <a class="nav__item" onclick="currentSlide({{ $loop->index+1 }})">
                    @if(isset($service->name)) {{ $service->name }} @endif
                 </a>
             @endforeach

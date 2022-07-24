@@ -46,5 +46,7 @@
 
     </div>
 
+    <img class="layer-7" src="http://127.0.0.1:8000/images/layer-7.png" alt="background">
+
 </section>
 <!-- End Landing Section -->

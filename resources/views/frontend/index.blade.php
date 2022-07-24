@@ -4,6 +4,10 @@
         @lang('الصفحة الرئيسيه')
     @stop
 
+    @push('scripts_after')
+        <script src="{{ asset('js/home.js') }}"></script>
+    @endpush
+
     @section('landing')
         <!-- Start Landing Section  -->
         <section class="landing home" style="background-image: url({{ asset('images/2.jpg') }});">

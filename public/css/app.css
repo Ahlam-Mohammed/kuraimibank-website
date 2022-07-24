@@ -1352,8 +1352,8 @@ footer .bg-left {
   background-color: #FFFFFF;
   transform: translateX(-50%);
   z-index: 2;
-  -webkit-animation: line 0.8s ease-out;
-  animation: line 0.8s ease-out;
+  -webkit-animation: line-height 0.8s ease-out;
+  animation: line-height 0.8s ease-out;
   display: none;
 }
 
@@ -1427,7 +1427,7 @@ footer .bg-left {
     background-color: rgb(145, 134, 176);
   }
 }
-@-webkit-keyframes line {
+@-webkit-keyframes line-height {
   from {
     height: 10px;
   }
@@ -1435,7 +1435,7 @@ footer .bg-left {
     height: 50px;
   }
 }
-@keyframes line {
+@keyframes line-height {
   from {
     height: 10px;
   }
@@ -2656,6 +2656,7 @@ footer .bg-left {
 
 .story__section {
   position: relative;
+  margin-bottom: 2rem;
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
@@ -2984,6 +2985,13 @@ footer .bg-left {
   height: 50px;
   width: 50px;
   font-size: 36px;
+}
+
+.story__section .layer-7 {
+  position: absolute;
+  left: 0;
+  bottom: -89px;
+  width: 10%;
 }
 
 .bg-card-left {

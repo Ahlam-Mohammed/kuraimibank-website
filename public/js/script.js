@@ -14,6 +14,8 @@ els('.landing .nav .nav__item').forEach (e => {
     })
 });
 
+
+
 // ########## hamburger button ##########
 function openNav() {
     document.getElementById("nav--mobile").style.width = "100%";
@@ -23,9 +25,10 @@ function closeNav() {
     document.getElementById("nav--mobile").style.width = "0%";
 }
 
+
+
 // ########## Slide Service ##########
 let slideIndex = 1;
-showSlides(slideIndex);
 
 function plusSlides(n) {
     showSlides(slideIndex += n);
@@ -52,29 +55,6 @@ function showSlides(n) {
 }
 
 
-// ########## Feature Tap ##########
-function currentTap(n) {
-    showTaps(slideIndex = n);
-}
-
-function showTaps(n) {
-    let i;
-    let sections = document.querySelectorAll(".sections-js > *");
-    let taps     = document.querySelectorAll(".taps-js > *");
-
-    if (n > sections.length) slideIndex = 1
-    if (n < 1) slideIndex = sections.length
-    for (i = 0; i < sections.length; i++) {
-        sections[i].className = sections[i].className.replace(" active", "");
-    }
-    for (i = 0; i < taps.length; i++) {
-        taps[i].className = taps[i].className.replace("active", "");
-    }
-    sections[slideIndex-1].className += ' active';
-    taps[slideIndex-1].className += " active";
-}
-
-showTaps(slideIndex)
 
 // ########## Slide App ##########
 const cards = Array.from(document.querySelectorAll(".card-js"));
@@ -165,11 +145,6 @@ function autoLoopCard() {
     }, 4000);
 }
 
-getActiveDot();
-functionalDots();
-autoLoopCard();
-
-
 
 
 // ########## Successfully Section ##########
@@ -258,9 +233,9 @@ function getNextSlide() {
     clearInterval(timeoutId);
     const current = document.querySelector(".slide-js.slide__center");
     const [next, prev] = getNextPrev();
-    // if (current.classList.contains("top")) {
-    //     return;
-    // }
+    if (current.classList.contains("top")) {
+        return;
+    }
     current.classList.add("top");
     next.classList.add("top");
     prev.classList.add('top');
@@ -319,10 +294,28 @@ function autoLoop() {
     }, 55000);
 }
 
-// getActiveDot();
-// functionalDots();
-// getPosition()
-newsSlide()
-autoLoop();
+
+
+// ########## Feature Tap ##########
+function currentTap(n) {
+    showTaps(slideIndex = n);
+}
+
+function showTaps(n) {
+    let i;
+    let sections = document.querySelectorAll(".sections-js > *");
+    let taps     = document.querySelectorAll(".taps-js > *");
+
+    if (n > sections.length) slideIndex = 1
+    if (n < 1) slideIndex = sections.length
+    for (i = 0; i < sections.length; i++) {
+        sections[i].className = sections[i].className.replace(" active", "");
+    }
+    for (i = 0; i < taps.length; i++) {
+        taps[i].className = taps[i].className.replace("active", "");
+    }
+    sections[slideIndex-1].className += ' active';
+    taps[slideIndex-1].className += " active";
+}
 
 

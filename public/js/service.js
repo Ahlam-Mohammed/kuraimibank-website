@@ -1,0 +1,2 @@
+showTaps(slideIndex);
+showSlides(slideIndex);

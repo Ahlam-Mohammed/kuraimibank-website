@@ -44,6 +44,8 @@ $width-img: 100%;
 
 .story__section{
     position: relative;
+    //overflow: hidden;
+    margin-bottom: 2rem;
     @include breakpoints('sm'){    height: auto;}
     @include breakpoints(''){    height: auto;}
 
@@ -256,6 +258,12 @@ $width-img: 100%;
                 }
             }
         }
+    }
+    .layer-7{
+        position: absolute;
+        left: 0;
+        bottom: -89px;
+        width: 10%;
     }
 }
 

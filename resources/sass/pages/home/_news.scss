@@ -209,7 +209,7 @@ $news-card-bottom-height: $news-card-height - $news-card-top-height;
         background-color: $white;
         transform: translateX(-50%);
         z-index: 2;
-        @include x-animation(line 0.8s ease-out);
+        @include x-animation(line-height 0.8s ease-out);
         display: none;
       }
 
@@ -217,11 +217,6 @@ $news-card-bottom-height: $news-card-height - $news-card-top-height;
       &:hover::before{
         display: block;
       }
-      //
-      //&:hover .news__footer > .news__title,
-      //&:hover .news__footer > .news__more {
-      //  display: none;
-      //}
     }
   }
 
@@ -270,7 +265,7 @@ $news-card-bottom-height: $news-card-height - $news-card-top-height;
   }
 }
 
-@include x-keyframes(line) {
+@include x-keyframes(line-height) {
   from {
     height: 10px;
   }

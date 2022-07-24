@@ -4,6 +4,10 @@
     {{ $service->name }}
 @stop
 
+@push('scripts_after')
+    <script src="{{ asset('js/service.js') }}"></script>
+@endpush
+
 @section('landing')
     <!-- Start Landing Section  -->
     <section class="landing service" style="background-image: url({{ asset('images/bg-service-header.png') }});">
