@@ -25,6 +25,20 @@ class HomeController extends Controller
     public function detailsService($id)
     {
         $service = Service::where('id', $id)->where('is_active', 1)->first();
-        return view('frontend.pages.service.index', compact('service'));
+        if ($service) return view('frontend.pages.service.index', compact('service'));
+        return response('404');
+    }
+
+    public function successStory($id)
+    {
+        $story = [
+            'title' => 'مشروع تحديث أنظمة البنك',
+            'desc'  => '',
+            'image' => 'story-1.png'
+        ];
+
+        $news  = News::where('is_active', 1)->get();
+
+        return view('frontend.pages.successStory.index', compact('story', 'news'));
     }
 }

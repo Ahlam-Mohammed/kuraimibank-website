@@ -19,7 +19,7 @@
                 في نفس المساحة، لقد تم توليد هذا
                 النص من مولد النص العربى
             </p>
-            <a class="more">قراءة المزيد</a>
+            <a href="{{ route('success-story', 1) }}" class="more">قراءة المزيد</a>
         </article>
         <article class="story" style="background-image: url({{ asset('images/story-2.png') }})">
             <h1 class="story__title">مولت مشروعي</h1>
@@ -36,7 +36,7 @@
                 في نفس المساحة، لقد تم توليد هذا
                 النص من مولد النص العربى
             </p>
-            <a class="more">قراءة المزيد</a>
+            <a href="{{ route('success-story', 1) }}" class="more">قراءة المزيد</a>
         </article>
     </div>
     <div class="buttons">

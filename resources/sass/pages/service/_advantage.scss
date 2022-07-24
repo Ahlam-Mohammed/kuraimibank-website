@@ -18,29 +18,14 @@
         @include flex(center, space-evenly);
         background-color: $white;
         padding: 3rem 2rem;
-        //position: relative;
-        //transform: translateY(-67%);
-        //transform: translate(-50%, -50%);
-        //z-index: 9999999;
-        //position: absolute;
-        //left: 50%;
-        //bottom: -60%;
         position: relative;
         top: -194%;
 
-        @include breakpoints('xxl') {
-            //bottom: -20%;
-        }
-        @include breakpoints('xl') {
-            //bottom: -20%;
-        }
         @include breakpoints('lg') {
             width: 90%;
-            //bottom: -24%;
             top: -222%;
         }
         @include breakpoints('md') {
-            //bottom: -22%;
             justify-content: space-between;
         }
         @include breakpoints('sm') {

@@ -1,7 +1,7 @@
 @extends('frontend.layout.master')
 
 @section('title')
-    @lang('page.home')
+    {{ $service->name }}
 @stop
 
 @section('landing')
