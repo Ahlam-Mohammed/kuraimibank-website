@@ -1,0 +1,207 @@
+@use "../../utilities/variables" as *;
+@use '../../utilities/_mixins/breakpoints' as *;
+@use '../../utilities/_mixins/container' as *;
+@use '../../utilities/_mixins/shadow' as *;
+@use '../../utilities/_mixins/header' as *;
+@use "../../utilities/_mixins/flex" as *;
+@use "../../utilities/_mixins/font-size" as *;
+@use "../../utilities/_mixins/animation" as *;
+
+
+.landing{
+    &.contact{
+        background-position: center;
+        height: 558px;
+        @include breakpoints('sm'){
+            height: 450px;
+        }
+        @include breakpoints(''){
+            height: 450px;
+        }
+    }
+}
+
+.advantage_content{
+    &.contact{
+        align-items: start;
+        justify-content: space-between;
+        padding: 5rem;
+        margin-top: -154px;
+        overflow: hidden;
+        @include box-shadow;
+        @include breakpoints('sm'){
+            margin: auto;
+            padding: 2rem
+        }
+        @include breakpoints(''){
+            margin: auto;
+            padding: 2rem
+        }
+        .box__top{
+            @include flex(start, center){
+                gap: 10px;
+            };
+            @include breakpoints('sm'){
+                @include flex(center, center){
+                    flex-direction: column;
+                };
+            }
+            @include breakpoints(''){
+                @include flex(center, center){
+                    flex-direction: column;
+                };
+            }
+            .box__number{
+                margin-top: -20px;
+                height: 66px;
+                background-size: contain;
+                width: 66px;
+                background-repeat: no-repeat;
+
+                i{
+                    @include font-size('sm');
+                    color: $white;
+                }
+            }
+            .box__content{
+                width: 100%;
+                .box__title{
+                    color: $gray-dark-color;
+                    @include font-size('sm')
+                }
+            }
+        }
+
+        .box__bottom{
+            @include flex(start, center){
+                gap: 2px;
+                flex-direction: column;
+            };
+            @include breakpoints('sm'){align-items: center}
+            @include breakpoints(''){align-items: center}
+            .item{
+                @include font-size('xs');
+                color: $gray-dark-color;
+            }
+        }
+
+        .bg-card-left{
+            width: 13%;
+            left: -3%;
+            top: -17%;
+            @include breakpoints('sm'){
+                display: none;
+            }
+            @include breakpoints(''){
+                display: none;
+            }
+        }
+
+        .bg-advantage-right{
+            @include breakpoints('sm'){
+                right: 0;
+                top: 95%;
+                width: 14%;
+            }
+            @include breakpoints(''){
+                right: 0;
+                top: 95%;
+                width: 14%;
+            }
+        }
+    }
+    .card__title{
+        h1{
+            &::before{
+                right: -7%;
+                @include breakpoints('sm'){display: none}
+                @include breakpoints(''){display: none}
+            }
+        }
+        p{
+            @include font-size('base');
+            margin: 2rem 0;
+        }
+    }
+}
+
+.contact_us{
+    @include header;
+    h1{
+        color: $gray-darker-color;
+        font-weight: bold;
+        margin: 3rem 0;
+    }
+
+    .dyn-label {
+        position: relative;
+        padding-top: 24px;
+        width: 85%;
+        margin: 0.5rem auto;
+
+        input {
+            display: block;
+            width:100%;
+            padding: 2px 8px;
+            border:none;
+            border-bottom: 1px solid $gray-dark-color;
+            @include font-size('sm');
+            &::-webkit-input-placeholder {
+                color: $gray-dark-color;
+            }
+            &:focus {
+                outline: none;
+                border-bottom: 1px solid $secondary-light-color;
+            }
+            &:placeholder-shown {
+                + label {
+                    color: transparent;
+                    right: 9px;
+                    top: 27px;
+                }
+                &{
+                    border-bottom: 1px solid $secondary-light-color;
+                }
+            }
+        }
+        label {
+            position: absolute;
+            top: 0;
+            transition: all .3s ease-in-out;
+            cursor:text;
+            color: $secondary-light-color;
+            right: 9px;
+            @include font-size('xs');
+        }
+    }
+
+    .btn{
+        margin-top: 3rem;
+    }
+
+}
+
+.layer-8{
+    position: absolute;
+    top: 119%;
+    width: 9%;
+    left: 0;
+    @include breakpoints('sm'){
+        top: 173%;
+        width: 11%;
+        left: 0;
+    }
+    @include breakpoints(''){
+        top: 173%;
+        width: 11%;
+        left: 0;
+    }
+}
+
+.layer-9{
+    position: absolute;
+    top: 139%;
+    width: 18%;
+    right: -14%;
+}
+

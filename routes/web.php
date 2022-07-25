@@ -32,6 +32,8 @@ Route::controller(frontend\HomeController::class)->group(function (){
     Route::get('/', 'index')->name('home');
     Route::get('service/{id}', 'detailsService')->name('service');
     Route::get('success-story/{id}', 'successStory')->name('success-story');
+    Route::get('contact-us', 'contactUs')->name('contact-us');
+    Route::get('about-us', 'aboutUs')->name('about-us');
 });
 
 

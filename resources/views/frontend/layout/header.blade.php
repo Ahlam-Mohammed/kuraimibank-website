@@ -5,7 +5,7 @@
             <i class="bi bi-person"></i>
             <span>الوظائف</span>
         </a>
-        <a class="header__item" href="">
+        <a class="header__item" href="{{ route('contact-us') }}">
             <i class="bi bi-telephone"></i>
             <span>تواصل معنا</span>
         </a>

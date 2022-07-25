@@ -41,4 +41,14 @@ class HomeController extends Controller
 
         return view('frontend.pages.successStory.index', compact('story', 'news'));
     }
+
+    public function contactUs()
+    {
+        return view('frontend.pages.contact-us');
+    }
+
+    public function aboutUs()
+    {
+        return view('frontend.pages.about-us');
+    }
 }

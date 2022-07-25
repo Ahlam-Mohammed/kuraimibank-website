@@ -21,6 +21,17 @@
         }
     }
 
+    &.btn-primary{
+        color: $white;
+        border-color: #73659A;
+        background-color: $secondary-light-color;
+        width: 150px;
+        &:hover {
+            color: $white;
+            background-color: #6b5e91;
+        }
+    }
+
     &.btn-orange {
         background-color: $orange-color;
         border: 0;
