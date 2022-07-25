@@ -10,7 +10,7 @@
 
 @section('landing')
     <!-- Start Landing Section  -->
-    <section class="landing story" style="background-image: url({{ asset(\App\Enum\SettingEnum::PATH_STORY_IMAGE.'/'.$story['image']) }});">
+    <section class="landing bg-linear-gradient" style="background-image: url({{ asset(\App\Enum\SettingEnum::PATH_STORY_IMAGE.'/'.$story['image']) }});">
 
         <!-- Start Header Section  -->
         @include('frontend.layout.header')

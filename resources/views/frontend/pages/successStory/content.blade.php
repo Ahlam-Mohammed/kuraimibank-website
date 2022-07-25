@@ -4,7 +4,7 @@
 
         <img class="bg-card-left" src="{{ asset('images/layer-7.png') }}" alt="background">
 
-        <div class="story__title">
+        <div class="card__title">
             <h1>{{ $story['title'] }}</h1>
         </div>
 
