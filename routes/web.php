@@ -36,6 +36,7 @@ Route::controller(frontend\HomeController::class)->group(function (){
     Route::get('contact-us', 'contactUs')->name('contact-us');
     Route::get('about-us', 'aboutUs')->name('about-us');
     Route::get('partner', 'partner')->name('partner');
+    Route::get('administration-members', 'adminMembers')->name('admin-members');
 
 });
 

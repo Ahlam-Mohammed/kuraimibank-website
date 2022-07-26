@@ -1,0 +1,85 @@
+@use "../../utilities/variables" as *;
+@use '../../utilities/_mixins/breakpoints' as *;
+@use '../../utilities/_mixins/container' as *;
+@use '../../utilities/_mixins/shadow' as *;
+@use '../../utilities/_mixins/header' as *;
+@use "../../utilities/_mixins/flex" as *;
+@use "../../utilities/_mixins/font-size" as *;
+@use "../../utilities/_mixins/animation" as *;
+
+
+.card__section{
+    .card{
+        width: initial;
+        .card__img{
+            background-image: linear-gradient(#ffffff00, #fff0);
+        }
+        .card_title{
+            color: #393E41;
+            text-align: start;
+            margin-top: 1rem;
+            @include font-size('base')
+        }
+        .card_desc{
+            margin-top: 1rem;
+            color: $gray-dark-color;
+            @include font-size('lg')
+        }
+    }
+
+    .content{
+        @include flex(center, start){
+            gap: 1.4rem;
+        }
+        margin-bottom: 5rem;
+
+        &.row{
+            .card__title{
+                padding-inline-start: initial;
+                margin-bottom: initial;
+                margin-top: 3rem;
+            }
+        }
+    }
+
+    .card__title{
+        h1::before{
+            right: -30%;
+        }
+    }
+}
+
+.card__desc{
+    padding-inline-start: 4rem;
+    margin-bottom: 4rem;
+    p{
+        width: 40%;
+        color: $gray-dark-color;
+        @include font-size('lg');
+        font-weight: 500;
+        @include breakpoints('md'){width: 100%}
+        @include breakpoints('sm'){width: 100%}
+        @include breakpoints(''){width: 100%}
+    }
+
+}
+
+.layer-10{
+    position: absolute;
+    left: 0;
+    bottom: 70%;
+    width: 7%;
+}
+.layer-11{
+    position: absolute;
+    left: 0;
+    bottom: 48%;
+    width: 14%;
+}
+
+.layer-12{
+    position: absolute;
+    left: 0;
+    bottom: 6%;
+    width: 7%;
+}

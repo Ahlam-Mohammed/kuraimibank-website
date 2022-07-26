@@ -72,4 +72,9 @@ class HomeController extends Controller
     public function partner(){
         return view('frontend.pages.partner.index');
     }
+
+    public function adminMembers()
+    {
+        return view('frontend.pages.admin-members');
+    }
 }

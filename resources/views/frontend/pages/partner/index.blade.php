@@ -22,7 +22,6 @@
 
     </section>
 
-    {{--Content --}}
     <!-- Start advantage Section  -->
     <section class="card__section">
         <img class="layer-9" src="{{ asset('images/bg-service-page.png') }}" alt="background">
@@ -159,14 +158,7 @@
                 </div>
             </div>
 
-            <section class="section__bottom">
-                <h1>مشاركة الصفحة في</h1>
-                <div class="social">
-                    <i class="bi bi-facebook"></i>
-                    <i class="bi bi-twitter"></i>
-                    <i class="bi bi-instagram"></i>
-                </div>
-            </section>
+            <x-share-section/>
 
         </div>
 

@@ -19,25 +19,7 @@
         background-repeat-y: no-repeat;
         background-size: 80%;
         background-position-y: center;
-        .card{
-            width: 24%;
-            height: 424px;
 
-            .card__img{
-                background-image: linear-gradient(#A99DCD,#8F82B5,#73659A);
-                @include flex(center, center);
-                height: 374px;
-                img{
-                    width: 100%;
-                }
-            }
-            .card__title{
-                color: #393E41;
-                text-align: start;
-                margin-top: 2rem;
-                @include font-size('base')
-            }
-        }
     }
     .buttons{
         display: flex;
@@ -53,5 +35,25 @@
             color: $secondary-light-color;
             border: 0;
         }
+    }
+}
+
+.card{
+    width: 24%;
+    height: 424px;
+
+    .card__img{
+        background-image: linear-gradient(#A99DCD,#8F82B5,#73659A);
+        @include flex(center, center);
+        height: 374px;
+        img{
+            width: 100%;
+        }
+    }
+    .card__title{
+        color: #393E41;
+        text-align: start;
+        margin-top: 2rem;
+        @include font-size('base')
     }
 }

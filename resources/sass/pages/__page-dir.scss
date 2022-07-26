@@ -25,6 +25,10 @@
 @use "about/section";
 @use "about/principle";
 
-// partner
+// partner page
 @use "partner/landing-partner";
 @use "partner/section-partner";
+
+// adminMembers page
+@use "adminMembers/admin-members";
+@use "adminMembers/cards";
