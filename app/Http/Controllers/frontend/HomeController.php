@@ -5,6 +5,7 @@ namespace App\Http\Controllers\frontend;
 use App\Enum\SettingEnum;
 use App\Enum\WebInfoEnum;
 use App\Http\Controllers\Controller;
+use App\Models\ContactInfo;
 use App\Models\ExchangeRate;
 use App\Models\News;
 use App\Models\Principle;
@@ -47,7 +48,14 @@ class HomeController extends Controller
 
     public function contactUs()
     {
-        return view('frontend.pages.contact-us');
+        $tel      = ContactInfo::where('key', WebInfoEnum::TEL)->first();
+        $tollFree = ContactInfo::where('key', WebInfoEnum::TOLL_FREE)->first();
+        $fax      = ContactInfo::where('key', WebInfoEnum::FAX)->first();
+        $box      = ContactInfo::where('key', WebInfoEnum::P_O_BOX)->first();
+        $email    = ContactInfo::where('key', WebInfoEnum::EMAIL)->first();
+
+        return view('frontend.pages.contact-us',
+        compact('tel', 'tollFree', 'fax', 'box', 'email'));
     }
 
     public function aboutUs()

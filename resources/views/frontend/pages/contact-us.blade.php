@@ -42,10 +42,18 @@
                     <div class="box__content">
                         <h4 class="box__title">تواصل معنا</h4>
                         <div class="box__bottom" style="margin-top: 1rem">
-                            <a class="item"> تلفون : 967 1 503888 </a>
-                            <a class="item"> فاكس : 967 1 435400</a>
-                            <a class="item"> الرقم المجاني : 8008800</a>
-                            <a class="item">صندوق بريد : 19357</a>
+                            @if(isset($tel))
+                                <a class="item"> تلفون : <span>{{ $tel->value }}</span> </a>
+                            @endif
+                            @if(isset($fax))
+                                <a class="item"> فاكس : <span>{{ $fax->value }}</span> </a>
+                            @endif
+                            @if(isset($tollFree))
+                                <a class="item"> الرقم المجاني : <span>{{ $tollFree->value }}</span> </a>
+                            @endif
+                            @if(isset($box))
+                                <a class="item"> صندوق بريد : <span>{{ $box->value }}</span> </a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -60,7 +68,9 @@
                     <div class="box__content">
                         <h4 class="box__title">راسلنا على البريد الالكتروني</h4>
                         <div class="box__bottom" style="margin-top: 1rem">
-                            <a class="item"> تلفون : 967 1 503888 </a>
+                            @if(isset($email))
+                                <a class="item"> {{ $email->value }} </a>
+                            @endif
                         </div>
                     </div>
                 </div>
