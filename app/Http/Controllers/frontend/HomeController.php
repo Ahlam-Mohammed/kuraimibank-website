@@ -77,4 +77,9 @@ class HomeController extends Controller
     {
         return view('frontend.pages.admin-members');
     }
+
+    public function report()
+    {
+        return view('frontend.pages.report');
+    }
 }

@@ -42,8 +42,8 @@
         <article class="col-lg-2 col-md-4 col-6">
             <nav class="footer__nav">
                 <h4 class="nav__title">التقارير</h4>
-                <a class="nav__item">التقارير المالية</a>
-                <a class="nav__item">التقارير المالية</a>
+                <a href="{{ route('report') }}" class="nav__item">التقارير المالية</a>
+                <a href="{{ route('report') }}" class="nav__item">التقارير المالية</a>
             </nav>
         </article>
 

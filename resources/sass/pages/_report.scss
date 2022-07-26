@@ -1,0 +1,87 @@
+@use "../utilities/variables" as *;
+@use '../utilities/_mixins/breakpoints' as *;
+@use '../utilities/_mixins/container' as *;
+@use '../utilities/_mixins/shadow' as *;
+@use '../utilities/_mixins/header' as *;
+@use "../utilities/_mixins/flex" as *;
+@use "../utilities/_mixins/font-size" as *;
+@use "../utilities/_mixins/animation" as *;
+
+.landing{
+    &.report{
+        background-position: center;
+    }
+}
+
+.card__content {
+    .row{
+        &.report{
+            @include flex(center, space-between);
+            margin-bottom: 3rem;
+
+            .box{
+                background-color: $secondary-light-color;
+                height: 356px;
+                padding: 2rem;
+                position: relative;
+
+                .box__year{
+                    color: $white;
+                    @include font-size('5xl');
+                    text-align: end;
+                }
+
+                &::before{
+                    position: absolute;
+                    content: '';
+                    height: 130px;
+                    width: 8px;
+                    background-color: #FFFFFF;
+                    bottom: 0;
+                    right: 15%;
+                }
+
+                .box__title{
+                    font-size: 1.255rem;
+                    position: absolute;
+                    transform: rotate(90deg) translate(-50%, -402%);
+                    bottom: 0;
+                    right: 0;
+                    font-weight: 500;
+                }
+
+                &:hover{
+                    .box__title{
+                        position: absolute;
+                        bottom: 8%;
+                        left: 8%;
+                        right: initial;
+                        transform: none;
+                    }
+                    .box__link{
+                        transform: rotate(90deg) translate(-43%, -253%);
+                        bottom: 0;
+                        right: 0;
+                        display: block;
+                    }
+                }
+
+                .box__link{
+                    font-size: 1.255rem;
+                    position: absolute;
+                    display: none;
+                }
+
+            }
+        }
+    }
+}
+
+.card__section.report{
+    .bg-card-left{
+        top: -14%;
+    }
+    .layer-9{
+        top: 21%;
+    }
+}

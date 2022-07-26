@@ -4282,6 +4282,79 @@ footer .bg-left {
   width: 7%;
 }
 
+.landing.report {
+  background-position: center;
+}
+
+.card__content .row.report {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+
+.card__content .row.report .box {
+  background-color: #73659A;
+  height: 356px;
+  padding: 2rem;
+  position: relative;
+}
+
+.card__content .row.report .box .box__year {
+  color: #FFFFFF;
+  font-size: 3rem; /* 48px */
+  line-height: 1;
+  text-align: end;
+}
+
+.card__content .row.report .box::before {
+  position: absolute;
+  content: "";
+  height: 130px;
+  width: 8px;
+  background-color: #FFFFFF;
+  bottom: 0;
+  right: 15%;
+}
+
+.card__content .row.report .box .box__title {
+  font-size: 1.255rem;
+  position: absolute;
+  transform: rotate(90deg) translate(-50%, -402%);
+  bottom: 0;
+  right: 0;
+  font-weight: 500;
+}
+
+.card__content .row.report .box:hover .box__title {
+  position: absolute;
+  bottom: 8%;
+  left: 8%;
+  right: initial;
+  transform: none;
+}
+
+.card__content .row.report .box:hover .box__link {
+  transform: rotate(90deg) translate(-43%, -253%);
+  bottom: 0;
+  right: 0;
+  display: block;
+}
+
+.card__content .row.report .box .box__link {
+  font-size: 1.255rem;
+  position: absolute;
+  display: none;
+}
+
+.card__section.report .bg-card-left {
+  top: -14%;
+}
+
+.card__section.report .layer-9 {
+  top: 21%;
+}
+
 * {
   padding: 0;
   margin: 0;
