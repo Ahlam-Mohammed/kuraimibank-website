@@ -3514,6 +3514,11 @@ footer .bg-left {
   padding: 3.5rem 3rem;
   width: 94%;
   position: relative;
+  min-height: 700px;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 @media (min-width: 576px) and (max-width: 767px) {

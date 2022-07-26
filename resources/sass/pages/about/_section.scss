@@ -96,6 +96,10 @@
                 padding: 3.5rem 3rem;
                 width: 94%;
                 position: relative;
+                min-height: 700px;
+                @include flex(start, space-between){
+                    flex-direction: column;
+                }
                 @include breakpoints('sm'){
                     width: 96%;
                     margin: auto;
