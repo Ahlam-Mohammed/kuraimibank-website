@@ -1,6 +1,6 @@
 <nav class="nav">
     <a class="nav__item active" href="#">الرئيسية</a>
-    <a class="nav__item" href="#">عن البنك</a>
+    <a class="nav__item" href="{{ route('about-us') }}">عن البنك</a>
     <a class="nav__item" href="#">خدمات الأفراد</a>
     <a class="nav__item" href="#">خدمات الشركات</a>
     <a class="nav__item" href="#">كريمي اكسبرس</a>
@@ -13,7 +13,7 @@
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <div class="overlay-content">
         <a class="nav__item active" href="#">الرئيسية</a>
-        <a class="nav__item" href="#">عن البنك</a>
+        <a class="nav__item" href="{{ route('about-us') }}">عن البنك</a>
         <a class="nav__item" href="#">خدمات الأفراد</a>
         <a class="nav__item" href="#">خدمات الشركات</a>
         <a class="nav__item" href="#">كريمي اكسبرس</a>

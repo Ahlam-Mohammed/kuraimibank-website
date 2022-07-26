@@ -1,0 +1,199 @@
+@use "../../utilities/variables" as *;
+@use '../../utilities/_mixins/breakpoints' as *;
+@use '../../utilities/_mixins/container' as *;
+@use '../../utilities/_mixins/shadow' as *;
+@use '../../utilities/_mixins/header' as *;
+@use "../../utilities/_mixins/flex" as *;
+@use "../../utilities/_mixins/font-size" as *;
+@use "../../utilities/_mixins/animation" as *;
+
+.about__section{
+    background-color: #73659A;
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+    @include breakpoints('sm'){ padding: 0 0 3rem;}
+    @include breakpoints(''){ padding: 0 0 3rem;}
+    .content{
+        @include container;
+
+        .nav-box{
+            padding: 6rem 3rem;
+            @include breakpoints('sm'){ padding: 3rem 2rem;}
+            @include breakpoints(''){ padding: 3rem 2rem;}
+
+            header{
+                h1{
+                    @include font-size('4xl');
+                    color: $white;
+                }
+            }
+
+            nav{
+                margin-top: 3rem;
+                @include flex(start, center){
+                    flex-direction: column;
+                    gap: 3rem;
+                }
+
+                @include breakpoints('sm'){
+                    flex-direction: revert;
+                    justify-content: space-between;
+                    gap: initial;
+                }
+                @include breakpoints(''){
+                    flex-direction: revert;
+                    justify-content: space-between;
+                    gap: initial;
+                }
+                a{
+                    color: $white;
+                    @include font-size('xl');
+                    cursor: pointer;
+                    &.active{
+                        position: relative;
+                        padding-inline-start: 4rem;
+                        @include x-animation(padding 0.5s ease-out);
+                        @include breakpoints('sm'){
+                            padding-inline-start: 0;
+                            @include x-animation(no-padding 0.5s ease-out);
+                        }
+                        @include breakpoints(''){
+                            padding-inline-start: 0;
+                            @include x-animation(no-padding 0.5s ease-out);
+                        }
+                        &::before{
+                            position: absolute;
+                            content: '';
+                            top: 50%;
+                            right: -8%;
+                            width: 57px;
+                            height: 2px;
+                            background-color: $white;
+                            @include x-animation(width 0.5s ease-out);
+
+                            @include breakpoints('sm'){
+                                top: auto;
+                                right: auto;
+                                bottom: -14px;
+                            }
+                            @include breakpoints(''){
+                                top: auto;
+                                right: auto;
+                                bottom: -14px;
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+
+        .content-box{
+            .box{
+                color: $white;
+                border: 14px solid #A99DCD;
+                padding: 3.5rem 3rem;
+                width: 94%;
+                position: relative;
+                @include breakpoints('sm'){
+                    width: 96%;
+                    margin: auto;
+                    border: 8px solid #A99DCD;
+                    padding: 2rem;
+                }
+                @include breakpoints(''){
+                    width: 96%;
+                    margin: auto;
+                    border: 8px solid #A99DCD;
+                    padding: 2rem;
+                }
+                .box__title{
+                    @include font-size('2xl');
+                    @include x-animation(down-to-up 0.8s ease-out);
+                }
+                .box__desc{
+                    @include font-size('sm');
+                    @include x-animation(down-to-up 0.8s ease-out);
+                    margin-top: 2rem;
+                }
+                .box__link{
+                    margin-top: 4rem;
+                    @include flex(center, start){
+                        gap: 2rem;
+                    }
+                    a{
+                        @include font-size('sm');
+                        color: $white;
+                        font-weight: 500;
+                        position: relative;
+                        cursor: pointer;
+                        &::before{
+                            position: absolute;
+                            content: '';
+                            width: 100%;
+                            height: 2px;
+                            bottom: -2px;
+                            background-color: $white;
+                        }
+                    }
+                }
+                .slide{
+                    display: none;
+                    &.active{
+                        display: block;
+                    }
+                }
+            }
+            .box__bg{
+                width: 30%;
+                bottom: -7%;
+                left: -19%;
+                position: absolute;
+                filter: invert(15%);
+                @include breakpoints('sm'){
+                    width: 23%;
+                    bottom: -5%;
+                    left: -14%;
+                }
+                @include breakpoints(''){
+                    width: 23%;
+                    bottom: -5%;
+                    left: -14%;
+                }
+            }
+        }
+    }
+
+    .layer-7{
+        position: absolute;
+        width: 10%;
+        top: -79px;
+    }
+    .layer-5{
+        position: absolute;
+        width: 3%;
+        top: 30px;
+        left: 3px;
+    }
+}
+
+@include x-keyframes(padding){
+    from{
+        padding-inline-start: 0;
+    }
+    to{
+        padding-inline-start: 4rem;
+    };
+}
+
+@include x-keyframes(width){
+    from{
+        width: 27px;
+        opacity: 0;
+    }
+    to{
+        width: 57px;
+        opacity: 1;
+    };
+}

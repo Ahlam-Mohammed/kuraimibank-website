@@ -1,0 +1,169 @@
+@use "../../utilities/variables" as *;
+@use '../../utilities/_mixins/breakpoints' as *;
+@use '../../utilities/_mixins/container' as *;
+@use '../../utilities/_mixins/shadow' as *;
+@use '../../utilities/_mixins/header' as *;
+@use "../../utilities/_mixins/flex" as *;
+@use "../../utilities/_mixins/font-size" as *;
+@use "../../utilities/_mixins/animation" as *;
+
+.principle__section{
+    @include header;
+    background-color: #F2F5FA;
+    >header{
+        h1{
+            color: $gray-darker-color;
+        }
+        margin: 4rem auto;
+    }
+}
+
+.section{
+    margin-bottom: 10rem;
+    @include breakpoints('xxl'){ margin-bottom: 13rem; }
+    @include breakpoints('sm'){ margin-bottom: 5rem; }
+    @include breakpoints(''){ margin-bottom: 5rem; }
+    .section__title{
+        text-align: start;
+        padding-inline-start: 6rem;
+        margin-bottom: 3rem;
+        color: $secondary-light-color;
+        @include font-size('lg');
+        position: relative;
+        @include breakpoints('md'){
+            margin-bottom: 2rem;
+            padding-inline-start: 2rem;
+        }
+        @include breakpoints('sm'){
+            text-align: start;
+            padding-inline-start: 2rem;
+            margin-bottom: 2rem;
+        }
+        @include breakpoints(''){
+            text-align: start;
+            padding-inline-start: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        h1::before{
+            background-color: $orange-color;
+            position: absolute;
+            content: '';
+            height: 150px;
+            width: 3px;
+            top: 8px;
+            right: 5%;
+            @include breakpoints('md'){right: 2%}
+            @include breakpoints('sm'){height: 120px}
+            @include breakpoints(''){height: 120px}
+        }
+    }
+
+    .section__desc{
+        background-color: #73659A;
+        width: 84%;
+        height: 370px;
+        padding-inline-start: 6rem;
+        @include flex(center, start);
+        @include breakpoints('xxl') {
+            height: 600px;
+        }
+        @include breakpoints('md'){
+            width: 60%;
+            padding-inline-start: 2rem;
+        }
+        @include breakpoints('sm'){
+            width: 100%;
+            padding-inline-start: initial;
+            padding: 2rem;
+        }
+        @include breakpoints(''){
+            width: 100%;
+            padding-inline-start: initial;
+            padding: 2rem;
+        }
+        p{
+            font-size: 1rem;
+            line-height: 1.25rem;
+            width: 54%;
+            color: #FFFFFF;
+            font-weight: 400;
+            text-align: start;
+            @include breakpoints('md'){width: 80%;}
+            @include breakpoints('sm'){
+                width: 100%;
+                text-align: center;
+            }
+            @include breakpoints(''){
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+
+    .section__img{
+        text-align: end;
+        @include breakpoints('sm'){
+            margin: auto;
+            text-align: center;
+        }
+        @include breakpoints(''){
+            margin: auto;
+            text-align: center;
+        }
+        img{
+            width: 48%;
+            margin-top: -25%;
+            @include breakpoints('md'){
+                margin-top: -40%;
+            }
+            @include breakpoints('sm'){
+                width: 100%;
+                margin-top: auto;
+            }
+            @include breakpoints(''){
+                width: 100%;
+                margin-top: auto;
+            }
+        }
+    }
+
+    &.reverse{
+        .section__title{
+            text-align: center;
+            @include breakpoints('sm'){ text-align: start;}
+            @include breakpoints(''){ text-align: start;}
+            h1::before{
+                right: 50%;
+                @include breakpoints('md'){
+                    display: none;
+                }
+                @include breakpoints('sm'){ right: 5%;}
+                @include breakpoints(''){ right: 5%;}
+            }
+        }
+        .section__desc{
+            margin-bottom: -23%;
+            margin-inline-start: auto;
+            justify-content: end;
+            padding-inline-end: 6rem;
+            padding-inline-start: 0;
+            @include breakpoints('md'){
+                margin-bottom: -11%;
+            }
+            @include breakpoints('sm'){
+                padding-inline-start: initial;
+                padding-inline-end: initial;
+                margin-bottom: initial;
+            }
+            @include breakpoints(''){
+                padding-inline-start: initial;
+                padding-inline-end: initial;
+                margin-bottom: initial;
+            }
+        }
+        .section__img{
+            text-align: start;
+        }
+    }
+}

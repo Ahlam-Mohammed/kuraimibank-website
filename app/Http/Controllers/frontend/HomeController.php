@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Enum\SettingEnum;
+use App\Enum\WebInfoEnum;
 use App\Http\Controllers\Controller;
 use App\Models\ExchangeRate;
 use App\Models\News;
+use App\Models\Principle;
 use App\Models\Service;
+use App\Models\WebInfo;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -49,6 +52,12 @@ class HomeController extends Controller
 
     public function aboutUs()
     {
-        return view('frontend.pages.about-us');
+        $about    = WebInfo::where('key', WebInfoEnum::ABOUT)->first();
+        $vision   = WebInfo::where('key', WebInfoEnum::VISION)->first();
+        $strategy = WebInfo::where('key', WebInfoEnum::STRATEGY)->first();
+        $principles = Principle::where('is_active', 1)->get();
+
+        return view('frontend.pages.about.index',
+        compact('about', 'vision', 'strategy', 'principles'));
     }
 }
