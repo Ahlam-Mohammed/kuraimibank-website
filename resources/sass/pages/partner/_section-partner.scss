@@ -1,0 +1,95 @@
+@use "../../utilities/variables" as *;
+@use '../../utilities/_mixins/breakpoints' as *;
+@use '../../utilities/_mixins/container' as *;
+@use '../../utilities/_mixins/shadow' as *;
+@use '../../utilities/_mixins/header' as *;
+@use "../../utilities/_mixins/flex" as *;
+@use "../../utilities/_mixins/font-size" as *;
+@use "../../utilities/_mixins/animation" as *;
+
+.section-box{
+    border: 1px solid rgba(115, 101, 154, 0.11);
+    padding: 1.7rem 3rem;
+    margin-bottom: 5rem;
+    position: relative;
+
+    .section__number{
+        position: absolute;
+        top: -2%;
+        left: 0;
+        font-size: 7rem;
+        font-weight: 500;
+        color: #ECF1FA;
+    }
+
+    .section__details{
+        .title{
+            @include font-size('xl');
+            color: $gray-dark-color;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+        .desc{
+            @include font-size('base');
+            color: $gray-dark-color;
+            font-weight: 500;
+        }
+        .section__boxes{
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            gap: 2rem;
+            width: 80%;
+            margin-bottom: 4rem;
+
+            .section__box{
+                width: 32%;
+            }
+        }
+    }
+
+    .section__title{
+        @include font-size('3xl');
+        color: $gray-dark-color;
+        padding: 3rem;
+    }
+}
+
+.section__box{
+    width: 70%;
+    //padding: 2.1rem;
+    height: 137px;
+    border-radius: 23px;
+    @include box-shadow;
+    border: 1px solid rgba(115, 101, 154, 0.11);
+    @include flex(center, center);
+
+    img{
+        width: 100%;
+    }
+}
+
+.section__bottom{
+    width: 100%;
+    h1{
+        color: $secondary-light-color;
+    }
+    @include flex(center, center){
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .social{
+        @include flex(center, center){
+            gap: 2rem;
+        }
+        i{
+            color: #CDCDCD;
+            @include font-size('xl');
+            &:hover{
+                color: $secondary-light-color;
+            }
+        }
+    }
+}

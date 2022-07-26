@@ -93,6 +93,55 @@ $width-img: 100%;
             }
         }
 
+        .card__title{
+            @include font-size('2xl');
+            @include breakpoints('xxl'){
+                @include font-size('4xl');
+            }
+            @include breakpoints('md')
+            {
+                @include font-size('base')
+            }
+            @include breakpoints('sm')
+            {
+                @include font-size('base')
+            }
+            @include breakpoints('')
+            {
+                @include font-size('base')
+            }
+            color: $gray-dark-color;
+            margin-bottom: 3rem;
+            h1{
+                position: relative;
+                &::before{
+                    content: '';
+                    position: absolute;
+                    height: 2.5px;
+                    background-color: #686868;
+                    top: 60%;
+                    width: 60px;
+                    right: -15%;
+                    @include breakpoints('xxl'){
+                        width: 76px;
+                        right: -13%;
+                    }
+                    @include breakpoints('md')
+                    {
+                        width: 38px;
+                    }
+                    @include breakpoints('sm')
+                    {
+                        width: 38px;
+                    }
+                    @include breakpoints('')
+                    {
+                        width: 38px;
+                    }
+                }
+            }
+        }
+
         .grid{
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -239,51 +288,3 @@ $width-img: 100%;
     }
 }
 
-.card__title{
-    @include font-size('2xl');
-    @include breakpoints('xxl'){
-        @include font-size('4xl');
-    }
-    @include breakpoints('md')
-    {
-        @include font-size('base')
-    }
-    @include breakpoints('sm')
-    {
-        @include font-size('base')
-    }
-    @include breakpoints('')
-    {
-        @include font-size('base')
-    }
-    color: $gray-dark-color;
-    margin-bottom: 3rem;
-    h1{
-        position: relative;
-        &::before{
-            content: '';
-            position: absolute;
-            height: 2.5px;
-            background-color: #686868;
-            top: 60%;
-            width: 60px;
-            right: -15%;
-            @include breakpoints('xxl'){
-                width: 76px;
-                right: -13%;
-            }
-            @include breakpoints('md')
-            {
-                width: 38px;
-            }
-            @include breakpoints('sm')
-            {
-                width: 38px;
-            }
-            @include breakpoints('')
-            {
-                width: 38px;
-            }
-        }
-    }
-}

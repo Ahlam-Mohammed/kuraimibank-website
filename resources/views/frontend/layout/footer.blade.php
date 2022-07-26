@@ -20,11 +20,11 @@
         <article class="col-lg-2 col-md-4 col-6">
             <nav class="footer__nav">
                 <h4 class="nav__title">شركائنا</h4>
-                <a class="nav__item">موني جرام</a>
-                <a class="nav__item">ماستر كارد</a>
-                <a class="nav__item"> البنوك المراسلة</a>
-                <a class="nav__item">منظمة التمويل الدولية</a>
-                <a class="nav__item">تيمينوس</a>
+                <a href="{{ route('partner') }}" class="nav__item">موني جرام</a>
+                <a href="{{ route('partner') }}" class="nav__item">ماستر كارد</a>
+                <a href="{{ route('partner') }}" class="nav__item"> البنوك المراسلة</a>
+                <a href="{{ route('partner') }}" class="nav__item">منظمة التمويل الدولية</a>
+                <a href="{{ route('partner') }}" class="nav__item">تيمينوس</a>
             </nav>
         </article>
 

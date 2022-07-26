@@ -1,0 +1,109 @@
+@use "../../utilities/variables" as *;
+@use '../../utilities/_mixins/breakpoints' as *;
+@use '../../utilities/_mixins/container' as *;
+@use '../../utilities/_mixins/shadow' as *;
+@use '../../utilities/_mixins/header' as *;
+@use "../../utilities/_mixins/flex" as *;
+@use "../../utilities/_mixins/font-size" as *;
+@use "../../utilities/_mixins/animation" as *;
+
+.landing{
+    &.partner{
+        background-position: center;
+    }
+}
+
+.card__section{
+    position: relative;
+    margin-bottom: 2rem;
+    @include breakpoints('sm'){    height: auto;}
+    @include breakpoints(''){    height: auto;}
+
+    .card__content{
+        @include container();
+        background-color: $white;
+        overflow: hidden;
+        padding: 5rem 3rem 7rem;
+        @include breakpoints('xxl'){
+            padding: 7rem;
+        }
+        position: relative;
+        margin-top: -194px !important;
+        @include box-shadow;
+
+        @include breakpoints('md'){
+            padding: 2rem;
+        }
+        @include breakpoints('sm'){
+            padding: 2rem;
+        }
+        @include breakpoints(''){
+            padding: 2rem;
+        }
+    }
+
+    .card__title{
+        padding-inline-start: 3rem;
+        @include font-size('2xl');
+        @include breakpoints('xxl'){
+            @include font-size('4xl');
+        }
+        @include breakpoints('md')
+        {
+            @include font-size('base')
+        }
+        @include breakpoints('sm')
+        {
+            @include font-size('base')
+        }
+        @include breakpoints('')
+        {
+            @include font-size('base')
+        }
+        color: $gray-dark-color;
+        margin-bottom: 3rem;
+        h1{
+            position: relative;
+            &::before{
+                content: '';
+                position: absolute;
+                height: 2.5px;
+                background-color: #686868;
+                top: 60%;
+                width: 60px;
+                right: -52%;
+                @include breakpoints('xxl'){
+                    width: 76px;
+                    right: -13%;
+                }
+                @include breakpoints('md')
+                {
+                    width: 38px;
+                }
+                @include breakpoints('sm')
+                {
+                    width: 38px;
+                }
+                @include breakpoints('')
+                {
+                    width: 38px;
+                }
+            }
+        }
+    }
+
+    .bg-card-left{
+        top: -5%;
+    }
+
+    .layer-7{
+        position: absolute;
+        left: 0;
+        bottom: 66%;
+        width: 9%;
+    }
+
+    .layer-9{
+        top: 7%;
+    }
+}

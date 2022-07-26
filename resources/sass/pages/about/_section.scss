@@ -154,7 +154,7 @@
                 bottom: -7%;
                 left: -19%;
                 position: absolute;
-                filter: invert(15%);
+                mix-blend-mode: overlay;
                 @include breakpoints('sm'){
                     width: 23%;
                     bottom: -5%;

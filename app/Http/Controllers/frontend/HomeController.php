@@ -68,4 +68,8 @@ class HomeController extends Controller
         return view('frontend.pages.about.index',
         compact('about', 'vision', 'strategy', 'principles'));
     }
+
+    public function partner(){
+        return view('frontend.pages.partner.index');
+    }
 }
