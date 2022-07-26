@@ -23,5 +23,6 @@ class DatabaseSeeder extends Seeder
        $this->call(ServiceSeeder::class);
        $this->call(ExchangeRateSeeder::class);
        $this->call(NewsSeeder::class);
+       $this->call(WebInfoSeeder::class);
     }
 }
