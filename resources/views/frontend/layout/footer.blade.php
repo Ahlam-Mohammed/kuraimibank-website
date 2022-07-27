@@ -6,14 +6,14 @@
         <article class="col-lg-2 col-md-4 col-6">
             <nav class="footer__nav">
                 <h4 class="nav__title">البنك</h4>
-                <a href="{{ route('about-us') }}" class="nav__item"> عن البنك</a>
-                <a href="{{ route('about-us') }}" class="nav__item">الرؤية</a>
-                <a href="{{ route('about-us') }}" class="nav__item"> الرسالة</a>
-                <a href="{{ route('about-us') }}" class="nav__item">الأهداف</a>
-                <a href="{{ route('about-us') }}" class="nav__item">القيم والمبادئ</a>
+                <a href="{{ route('about-us', '#about') }}" class="nav__item"> عن البنك</a>
+                <a href="{{ route('about-us', '#vision') }}" class="nav__item">الرؤية</a>
+                <a href="{{ route('about-us', '#message') }}" class="nav__item"> الرسالة</a>
+                <a href="{{ route('about-us', '#goal') }}" class="nav__item">الأهداف</a>
+                <a href="{{ route('about-us', '#principle') }}" class="nav__item">القيم والمبادئ</a>
                 <a class="nav__item">بيان سياسة</a>
                 <a class="nav__item">مكافحة غسل</a>
-                <a class="nav__item">شركائنا</a>
+                <a href="{{ route('partner') }}" class="nav__item">شركائنا</a>
             </nav>
         </article>
 

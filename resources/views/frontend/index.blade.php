@@ -1,7 +1,7 @@
 @extends('frontend.layout.master')
 
     @section('title')
-        @lang('page.index')
+        الصفحة الرئيسية
     @stop
 
     @push('scripts_after')

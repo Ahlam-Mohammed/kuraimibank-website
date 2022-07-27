@@ -43,57 +43,68 @@
             </div>
 
             <div class="content row">
-                <article class="card">
-                    <div class="card__img">
-                        <img src="{{ asset('images/bank-image-3.PNG') }}" alt="service image">
-                    </div>
-                    <div class="card_title">
-                        <h1>ماجيد سند السماوي</h1>
-                    </div>
-                    <p class="card_desc">رئيس المجلس</p>
-                </article>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    <article class="card">
+                        <div class="card__img">
+                            <img src="{{ asset('images/bank-image-3.PNG') }}" alt="service image">
+                        </div>
+                        <div class="card_title">
+                            <h1>ماجيد سند السماوي</h1>
+                        </div>
+                        <p class="card_desc">رئيس المجلس</p>
+                    </article>
+                </div>
 
-                <article class="card">
-                    <div class="card__img">
-                        <img src="{{ asset('images/bank-image-2.PNG') }}" alt="service image">
-                    </div>
-                    <div class="card_title">
-                        <h1>هشام محمود الحاج</h1>
-                    </div>
-                    <p class="card_desc">رئيس المجلس</p>
-                </article>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    <article class="card">
+                        <div class="card__img">
+                            <img src="{{ asset('images/bank-image-2.PNG') }}" alt="service image">
+                        </div>
+                        <div class="card_title">
+                            <h1>هشام محمود الحاج</h1>
+                        </div>
+                        <p class="card_desc">رئيس المجلس</p>
+                    </article>
+                </div>
 
-                <article class="card">
-                    <div class="card__img">
-                        <img src="{{ asset('images/bank-image-1.PNG') }}" alt="service image">
-                    </div>
-                    <div class="card_title">
-                        <h1>هشام محمود الحاج</h1>
-                    </div>
-                    <p class="card_desc">رئيس المجلس</p>
-                </article>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    <article class="card">
+                        <div class="card__img">
+                            <img src="{{ asset('images/bank-image-1.PNG') }}" alt="service image">
+                        </div>
+                        <div class="card_title">
+                            <h1>هشام محمود الحاج</h1>
+                        </div>
+                        <p class="card_desc">رئيس المجلس</p>
+                    </article>
+                </div>
             </div>
 
             <div class="content row">
-                <article class="card">
-                    <div class="card__img">
-                        <img src="{{ asset('images/bank-image-5.PNG') }}" alt="service image">
-                    </div>
-                    <div class="card_title">
-                        <h1>ماجيد سند السماوي</h1>
-                    </div>
-                    <p class="card_desc">رئيس المجلس</p>
-                </article>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    <article class="card">
+                        <div class="card__img">
+                            <img src="{{ asset('images/bank-image-5.PNG') }}" alt="service image">
+                        </div>
+                        <div class="card_title">
+                            <h1>ماجيد سند السماوي</h1>
+                        </div>
+                        <p class="card_desc">رئيس المجلس</p>
+                    </article>
+                </div>
 
-                <article class="card">
-                    <div class="card__img">
-                        <img src="{{ asset('images/bank-image-4.PNG') }}" alt="service image">
-                    </div>
-                    <div class="card_title">
-                        <h1>هشام محمود الحاج</h1>
-                    </div>
-                    <p class="card_desc">رئيس المجلس</p>
-                </article>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    <article class="card">
+                        <div class="card__img">
+                            <img src="{{ asset('images/bank-image-4.PNG') }}" alt="service image">
+                        </div>
+                        <div class="card_title">
+                            <h1>هشام محمود الحاج</h1>
+                        </div>
+                        <p class="card_desc">رئيس المجلس</p>
+                    </article>
+                </div>
+
 
             </div>
 
@@ -102,7 +113,8 @@
                     <h1>هيئة الرقابة الشرعية البنك</h1>
                 </div>
 
-                <article class="card">
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    <article class="card">
                     <div class="card__img">
                         <img src="{{ asset('images/bank-image-2.PNG') }}" alt="service image">
                     </div>
@@ -111,8 +123,10 @@
                     </div>
                     <p class="card_desc">رئيس المجلس</p>
                 </article>
+                </div>
 
-                <article class="card">
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    <article class="card">
                     <div class="card__img">
                         <img src="{{ asset('images/bank-image-6.PNG') }}" alt="service image">
                     </div>
@@ -121,8 +135,10 @@
                     </div>
                     <p class="card_desc">رئيس المجلس</p>
                 </article>
+                </div>
 
-                <article class="card">
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    <article class="card">
                     <div class="card__img">
                         <img src="{{ asset('images/bank-image-1.PNG') }}" alt="service image">
                     </div>
@@ -131,6 +147,7 @@
                     </div>
                     <p class="card_desc">رئيس المجلس</p>
                 </article>
+                </div>
             </div>
 
             <div class="content row">
@@ -138,7 +155,8 @@
                     <h1>المحاسبون القانونيون</h1>
                 </div>
 
-                <article class="card">
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    <article class="card">
                     <div class="card__img">
                         <img src="{{ asset('images/bank-image-7.PNG') }}" alt="service image">
                     </div>
@@ -147,8 +165,10 @@
                     </div>
                     <p class="card_desc">رئيس المجلس</p>
                 </article>
+                </div>
 
-                <article class="card">
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    <article class="card">
                     <div class="card__img">
                         <img src="{{ asset('images/bank-image-4.PNG') }}" alt="service image">
                     </div>
@@ -157,6 +177,7 @@
                     </div>
                     <p class="card_desc">رئيس المجلس</p>
                 </article>
+                </div>
 
             </div>
             <x-share-section/>

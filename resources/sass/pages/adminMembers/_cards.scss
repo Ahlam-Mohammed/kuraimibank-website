@@ -10,9 +10,31 @@
 
 .card__section{
     .card{
-        width: initial;
+        width: 90%;;
+        margin: 2rem 0;
+        @include breakpoints('md'){
+            height: auto;
+        }
+        @include breakpoints('sm'){
+            height: auto;
+            margin: auto auto 2rem;
+        }
+        @include breakpoints(''){
+            height: auto;
+            margin: auto auto 2rem;
+        }
+
         .card__img{
             background-image: linear-gradient(#ffffff00, #fff0);
+            @include breakpoints('md'){
+                height: auto;
+            }
+            @include breakpoints('sm'){
+                height: auto;
+            }
+            @include breakpoints(''){
+                height: auto;
+            }
         }
         .card_title{
             color: #393E41;
@@ -28,23 +50,30 @@
     }
 
     .content{
-        @include flex(center, start){
-            gap: 1.4rem;
-        }
+        @include flex(center, start);
         margin-bottom: 5rem;
 
         &.row{
             .card__title{
                 padding-inline-start: initial;
-                margin-bottom: initial;
+                margin-bottom: 2rem;
                 margin-top: 3rem;
             }
         }
     }
 
     .card__title{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        @include breakpoints('sm'){
+            margin-bottom: 1.5rem;
+        }
+        @include breakpoints(''){
+            margin-bottom: 1.5rem;
+        }
         h1::before{
-            right: -30%;
+            position: initial;
         }
     }
 }
@@ -52,6 +81,17 @@
 .card__desc{
     padding-inline-start: 4rem;
     margin-bottom: 4rem;
+    @include breakpoints('md'){
+        padding-inline-start: initial;
+    }
+    @include breakpoints('sm'){
+        padding-inline-start: initial;
+        text-align: center;
+    }
+    @include breakpoints(''){
+        padding-inline-start: initial;
+        text-align: center;
+    }
     p{
         width: 40%;
         color: $gray-dark-color;

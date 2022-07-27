@@ -46,6 +46,15 @@
         cursor:pointer;
         color: $white;
     }
+
+    .logo img{
+        @include breakpoints('sm'){
+            width: 70%;
+        }
+        @include breakpoints(''){
+            width: 70%;
+        }
+    }
 }
 
 .header__box{

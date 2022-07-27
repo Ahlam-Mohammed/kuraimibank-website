@@ -7,6 +7,7 @@ use App\Enum\WebInfoEnum;
 use App\Http\Controllers\Controller;
 use App\Models\ContactInfo;
 use App\Models\ExchangeRate;
+use App\Models\FinancialReport;
 use App\Models\News;
 use App\Models\Principle;
 use App\Models\Service;
@@ -80,6 +81,7 @@ class HomeController extends Controller
 
     public function report()
     {
-        return view('frontend.pages.report');
+        $reports = FinancialReport::where('is_active', 1)->get();
+        return view('frontend.pages.report', compact('reports'));
     }
 }

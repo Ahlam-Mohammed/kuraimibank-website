@@ -1,4 +1,4 @@
-<section class="principle__section">
+<section class="principle__section" id="principle">
     <header>
         <h1>القيم والمبادئ</h1>
     </header>
@@ -13,7 +13,7 @@
                     <p>{{ $principle->desc }}</p>
                 </div>
                 <div class="section__img">
-                    <img src="{{ asset('images/principle-1.png') }}">
+                    <img src="{{ asset(\App\Enum\SettingEnum::PATH_PRINCIPLE_IMAGE.'/'.$principle->image) }}">
                 </div>
             </section>
         @endforeach

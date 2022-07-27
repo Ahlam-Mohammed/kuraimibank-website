@@ -17,18 +17,30 @@
     .row{
         &.report{
             @include flex(center, space-between);
-            margin-bottom: 3rem;
 
             .box{
                 background-color: $secondary-light-color;
                 height: 356px;
                 padding: 2rem;
                 position: relative;
+                background-size: contain;
+                transition: .5s;
+                width: 80%;
+                display: block;
+                margin: auto auto 3rem;
+
+                @include breakpoints('xxl'){
+                    height: 526px;
+                }
+                @include breakpoints('md'){
+                    height: 296px;
+                }
 
                 .box__year{
                     color: $white;
                     @include font-size('5xl');
                     text-align: end;
+                    transition: .5s;
                 }
 
                 &::before{
@@ -39,6 +51,7 @@
                     background-color: #FFFFFF;
                     bottom: 0;
                     right: 15%;
+                    transition: .5s;
                 }
 
                 .box__title{
@@ -48,28 +61,44 @@
                     bottom: 0;
                     right: 0;
                     font-weight: 500;
+                    color: $gray-dark-color;
                 }
 
                 &:hover{
+                    background-image: url("../../images/white-pdf.png") !important;
+
+                    &::before{
+                        background-color: $secondary-light-color;
+                    }
+
+                    .box__year{
+                        color: $secondary-light-color;
+                    }
+
                     .box__title{
                         position: absolute;
                         bottom: 8%;
                         left: 8%;
                         right: initial;
                         transform: none;
+                        color: $secondary-light-color;
                     }
                     .box__link{
-                        transform: rotate(90deg) translate(-43%, -253%);
-                        bottom: 0;
-                        right: 0;
-                        display: block;
+                        display: flex;
                     }
                 }
 
                 .box__link{
                     font-size: 1.255rem;
                     position: absolute;
+                    bottom: 0;
+                    right: 0;
                     display: none;
+                    -webkit-text-stroke: 0.4px black;
+                    color: transparent;
+                    flex-direction: row-reverse;
+                    gap: 0.3rem;
+                    transform: rotate(90deg) translate(-40%, -294%);
                 }
 
             }

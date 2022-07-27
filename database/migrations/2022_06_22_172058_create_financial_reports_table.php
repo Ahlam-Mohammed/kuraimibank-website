@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('financial_reports', function (Blueprint $table) {
             $table->id();
             $table->json('name');
+            $table->integer('year')->nullable();
             $table->string('file');
             $table->boolean('is_active')->default(1);
 

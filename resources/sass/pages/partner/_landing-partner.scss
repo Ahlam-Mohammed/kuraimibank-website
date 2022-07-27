@@ -72,15 +72,14 @@
         color: $gray-dark-color;
         margin-bottom: 3rem;
         h1{
-            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
             &::before{
                 content: '';
-                position: absolute;
                 height: 2.5px;
                 background-color: #686868;
-                top: 60%;
                 width: 60px;
-                right: -52%;
                 @include breakpoints('xxl'){
                     width: 76px;
                     right: -13%;

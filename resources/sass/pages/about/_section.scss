@@ -50,6 +50,8 @@
                     color: $white;
                     @include font-size('xl');
                     cursor: pointer;
+                    @include breakpoints('sm'){font-size: 0.85rem;}
+                    @include breakpoints(''){font-size: 0.85rem;}
                     &.active{
                         position: relative;
                         padding-inline-start: 4rem;

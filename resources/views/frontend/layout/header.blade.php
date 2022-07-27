@@ -11,7 +11,7 @@
         </a>
     </div>
     <!-- Logo  -->
-    <a href="/">
+    <a href="{{ route('home') }}">
         <img src="{{ asset('images/logok.svg') }}" alt="">
     </a>
     <!-- left section  -->
@@ -47,7 +47,7 @@
     </div>
 
     <!-- Logo  -->
-    <div class="col-8">
+    <div class="col-8 logo">
         <img src="{{ asset('images/logok.svg') }}" alt="logo image">
     </div>
     <!-- left section  -->

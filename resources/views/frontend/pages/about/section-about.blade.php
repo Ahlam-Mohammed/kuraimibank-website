@@ -7,15 +7,15 @@
             </header>
             <nav class="dots-js">
                 @if(isset($about))
-                    <a class="" onclick="currentSlide(1)">من نحن</a>
+                    <a onclick="currentSlide(1)" id="about">من نحن</a>
                 @endif
                 @if(isset($vision))
-                        <a class="" onclick="currentSlide(2)">الرؤية</a>
+                        <a onclick="currentSlide(2)" id="vision">الرؤية</a>
                 @endif
-                <a class="" onclick="currentSlide(3)">الرسالة</a>
+                <a onclick="currentSlide(3)" id="message">الرسالة</a>
                 <a class="" onclick="currentSlide(4)">الوضوح و الشفافية</a>
                 @if(isset($strategy))
-                        <a class="" onclick="currentSlide(5)">الغايات</a>
+                        <a onclick="currentSlide(5)" id="goal">الغايات</a>
                 @endif
             </nav>
         </div>

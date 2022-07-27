@@ -54,7 +54,7 @@
                 <a href="">الهيكل التنظيمي</a>
             </li>
             <li>
-                <a href="">مجلس الإدارة</a>
+                <a href="{{ route('admin-members') }}">مجلس الإدارة</a>
             </li>
         </ul>
     </div>

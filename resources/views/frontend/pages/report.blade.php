@@ -35,39 +35,15 @@
             </div>
 
             <div class="row report">
-                <article class="col-3 box">
-                    <h1 class="box__year">2018</h1>
-                    <p class="box__title">التقارير المالية 2018</p>
-                    <a class="box__link">استعراض</a>
-                </article>
-                <article class="col-3 box">
-                    <h1 class="box__year">2018</h1>
-                    <p class="box__title">التقارير المالية 2018</p>
-                    <a class="box__link">استعراض</a>
-                </article>
-                <article class="col-3 box">
-                    <h1 class="box__year">2018</h1>
-                    <p class="box__title">التقارير المالية 2018</p>
-                    <a class="box__link">استعراض</a>
-                </article>
-            </div>
-
-            <div class="row report">
-                <article class="col-3 box">
-                    <h1 class="box__year">2018</h1>
-                    <p class="box__title">التقارير المالية 2018</p>
-                    <a class="box__link">استعراض</a>
-                </article>
-                <article class="col-3 box">
-                    <h1 class="box__year">2018</h1>
-                    <p class="box__title">التقارير المالية 2018</p>
-                    <a class="box__link">استعراض</a>
-                </article>
-                <article class="col-3 box">
-                    <h1 class="box__year">2018</h1>
-                    <p class="box__title">التقارير المالية 2018</p>
-                    <a class="box__link">استعراض</a>
-                </article>
+                @foreach($reports as $report)
+                    <article class="col-lg-4 col-md-4 col-sm-6 col-12 ">
+                        <div class="box" style="background-image: url({{ asset('images/pdf.png') }})">
+                            <h1 class="box__year">{{ $report->year }}</h1>
+                            <p class="box__title">{{ $report->name }}</p>
+                            <a href="{{ asset('uploads/pdf/'.$report->file) }}" download target="_blank" class="box__link"><i class="bi bi-arrow-left"></i>استعراض</a>
+                        </div>
+                    </article>
+                @endforeach
             </div>
 
             <x-share-section/>
