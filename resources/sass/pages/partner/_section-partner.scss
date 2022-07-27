@@ -12,6 +12,13 @@
     padding: 1.7rem 3rem;
     margin-bottom: 5rem;
     position: relative;
+    @include breakpoints('sm'){
+        padding: 1rem;
+    }
+    @include breakpoints('') {
+        padding: 0;
+        border: 0;
+    }
 
     .section__number{
         position: absolute;
@@ -20,9 +27,14 @@
         font-size: 7rem;
         font-weight: 500;
         color: #ECF1FA;
+        @include breakpoints(''){ display: none }
     }
 
     .section__details{
+        @include breakpoints(''){
+            margin-top: 2rem;
+            text-align: center;
+        }
         .title{
             @include font-size('xl');
             color: $gray-dark-color;
@@ -33,6 +45,9 @@
             @include font-size('base');
             color: $gray-dark-color;
             font-weight: 500;
+            @include breakpoints('sm'){
+                @include font-size('sm');
+            }
         }
         .section__boxes{
             display: flex;
@@ -44,8 +59,32 @@
             width: 80%;
             margin-bottom: 4rem;
 
+            @include breakpoints('sm'){
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            @include breakpoints(''){
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
             .section__box{
                 width: 32%;
+                @include breakpoints('sm'){
+                    width: 40%;
+                    height: 162px;
+                }
+                @include breakpoints(''){
+                    width: 44%;
+                    height: 135px;
+                }
+                img{
+                    @include breakpoints(''){
+                        width: 90%;
+                    }
+                }
             }
         }
     }
@@ -54,6 +93,10 @@
         @include font-size('3xl');
         color: $gray-dark-color;
         padding: 3rem;
+        @include breakpoints(''){
+            padding: 1rem;
+            text-align: center;
+        }
     }
 }
 
@@ -65,6 +108,19 @@
     @include box-shadow;
     border: 1px solid rgba(115, 101, 154, 0.11);
     @include flex(center, center);
+
+    @include breakpoints('md') {
+        width: 80%;
+        height: 150px;
+    }
+    @include breakpoints('sm'){
+        width: 90%;
+    }
+    @include breakpoints(''){
+        width: 80%;
+        height: 234px;
+        margin: auto;
+    }
 
     img{
         width: 100%;

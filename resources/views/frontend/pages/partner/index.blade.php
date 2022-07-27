@@ -36,12 +36,12 @@
             {{-- section 1  --}}
             <div class="section-box row">
                 <span class="section__number">1</span>
-                <div class="col-3">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-12">
                     <div class="section__box" style="padding: 2.1rem;">
                         <img src="{{ asset('images/master.png') }}" alt="master card img">
                     </div>
                 </div>
-                <div class="col-9 section__details">
+                <div class="col-lg-9 col-md-8 col-sm-8 col-12 section__details">
                     <h1 class="title">هذا النص هو مثال</h1>
                     <p class="desc">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد
                         .مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق
@@ -53,12 +53,12 @@
             {{-- section 2  --}}
             <div class="section-box row">
                 <span class="section__number">2</span>
-                <div class="col-3">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-12">
                     <div class="section__box">
                         <img src="{{ asset('images/mony.png') }}" alt="master card img">
                     </div>
                 </div>
-                <div class="col-9 section__details">
+                <div class="col-lg-9 col-md-8 col-sm-8 col-12 section__details">
                     <h1 class="title">هذا النص هو مثال</h1>
                     <p class="desc">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد
                         .مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق
@@ -70,10 +70,10 @@
             {{-- section 3  --}}
             <div class="section-box row">
                 <span class="section__number">3</span>
-                <div class="col-3">
+                <div class="col-lg-3 col-12">
                     <h1 class="section__title">البنوك المرسلة</h1>
                 </div>
-                <div class="col-9 section__details">
+                <div class="col-lg-9 col-12 section__details">
                     <h1 class="title">المملكة العربية السعودية</h1>
                     <div class="section__boxes">
                         <div class="section__box">
@@ -123,12 +123,12 @@
             {{-- section 4  --}}
             <div class="section-box row">
                 <span class="section__number">4</span>
-                <div class="col-3">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-12">
                     <div class="section__box">
                         <img src="{{ asset('images/b3.png') }}" alt="master card img">
                     </div>
                 </div>
-                <div class="col-9 section__details">
+                <div class="col-lg-9 col-md-8 col-sm-8 col-12 section__details">
                     <h1 class="title">هذا النص هو مثال</h1>
                     <p class="desc">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد
                         .مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق
@@ -142,12 +142,12 @@
             {{-- section 5  --}}
             <div class="section-box row">
                 <span class="section__number">5</span>
-                <div class="col-3">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-12">
                     <div class="section__box">
                         <img src="{{ asset('images/b5.png') }}" alt="master card img">
                     </div>
                 </div>
-                <div class="col-9 section__details">
+                <div class="col-lg-9 col-md-8 col-sm-8 col-12 section__details">
                     <h1 class="title">هذا النص هو مثال</h1>
                     <p class="desc">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد
                         .مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق

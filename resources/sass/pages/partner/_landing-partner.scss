@@ -10,6 +10,15 @@
 .landing{
     &.partner{
         background-position: center;
+        @include breakpoints('md'){
+            height: 600px;
+        }
+        @include breakpoints('sm'){
+            height: 450px;
+        }
+        @include breakpoints(''){
+            height: 450px;
+        }
     }
 }
 
