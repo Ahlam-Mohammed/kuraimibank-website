@@ -38,7 +38,7 @@ Route::controller(frontend\HomeController::class)->group(function (){
     Route::get('partner', 'partner')->name('partner');
     Route::get('administration-members', 'adminMembers')->name('admin-members');
     Route::get('report', 'report')->name('report');
-
+    Route::get('service-points', 'servicePoint')->name('service-point');
 });
 
 

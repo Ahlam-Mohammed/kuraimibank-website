@@ -13,7 +13,7 @@
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <div class="overlay-content">
         <a class="nav__item active" href="#">الرئيسية</a>
-        <a class="nav__item" href="{{ route('about-us') }}">عن البنك</a>
+        <a class="nav__item">عن البنك</a>
         <a class="nav__item" href="#">خدمات الأفراد</a>
         <a class="nav__item" href="#">خدمات الشركات</a>
         <a class="nav__item" href="#">كريمي اكسبرس</a>
@@ -37,13 +37,13 @@
         <h3 class="menu__item_title">من نحن</h3>
         <ul>
             <li>
-                <a href="">من نحن</a>
+                <a href="{{ route('about-us') }}">من نحن</a>
             </li>
             <li>
-                <a href="">القيم والمبادئ</a>
+                <a href="{{ route('about-us', '#principle') }}">القيم والمبادئ</a>
             </li>
             <li>
-                <a href="">بيان الإستراتيجية</a>
+                <a href="{{ route('about-us') }}">بيان الإستراتيجية</a>
             </li>
         </ul>
     </div>

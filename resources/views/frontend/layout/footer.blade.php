@@ -50,7 +50,7 @@
         <article class="col-lg-2 col-md-4 col-6">
             <nav class="footer__nav">
                 <h4 class="nav__title">نقاط الخدمة</h4>
-                <a class="nav__item">الفروع وماكينات الصرافة</a>
+                <a href="{{ route('service-point') }}" class="nav__item">الفروع وماكينات الصرافة</a>
             </nav>
         </article>
 

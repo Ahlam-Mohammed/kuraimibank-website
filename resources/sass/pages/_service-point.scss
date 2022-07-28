@@ -1,0 +1,161 @@
+@use "../utilities/variables" as *;
+@use '../utilities/_mixins/breakpoints' as *;
+@use '../utilities/_mixins/container' as *;
+@use '../utilities/_mixins/shadow' as *;
+@use '../utilities/_mixins/header' as *;
+@use "../utilities/_mixins/flex" as *;
+@use "../utilities/_mixins/font-size" as *;
+@use "../utilities/_mixins/animation" as *;
+
+
+.landing{
+    &.point{
+        .landing__intro{
+            h1{
+                @include font-size('3xl');
+                margin-bottom: 1.5rem;
+                text-shadow: none;
+            }
+            p.desc{
+                width: 30%;
+                text-shadow: none;
+            }
+        }
+    }
+}
+
+.card__section{
+    &.point{
+        position: initial;
+        margin-bottom: initial;
+        background-size: contain;
+        .card__content{
+            padding: 1rem 3rem;
+            box-shadow: none;
+            .card__title{
+                color: $secondary-light-color;
+                padding-inline-start: initial;
+                margin-top: 2rem;
+
+                h1{
+                    @include font-size('xl');
+                    &::before{
+                        background-color: $secondary-light-color;
+                        width: 76px;
+                    }
+                }
+            }
+        }
+
+        .main{
+            padding: 0 4rem;
+            @include breakpoints(''){
+                padding: 0;
+            }
+            article{
+                background-color: #ffffff85;
+                padding: 2rem;
+
+                .card{
+                    background-color: $white;
+                    border: 1px solid #a9a7a7;;
+                    padding: 1.5rem;
+                    width: 100%;
+                    margin: 0 0 1rem;
+                    height: initial;
+
+                    @include flex(start, start){
+                        flex-direction: column;
+                        gap: 1rem;
+                    }
+                    .top{
+                        width: 100%;
+                        @include flex(center, space-between);
+                        h1{
+                            color: $secondary-light-color;
+                            @include font-size('lg');
+                            font-weight: 600;
+                        }
+
+                        .list, .list li{
+                            @include flex(center, center){
+                                gap: 2rem;
+                            }
+                        }
+
+                        .list{
+                            li{
+                                @include font-size('sm');
+                                color: $secondary-light-color;
+                                font-weight: 500;
+                                gap: 0.5rem;
+                                img{ width: 18%; }
+                            }
+                        }
+
+
+                    }
+
+                    .botton{
+                        p{
+                            color: $gray-dark-color;
+                            margin-bottom: 0.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.point-section{
+    @include flex(end, center);
+    //padding: 2rem;
+    width: 100%;
+
+    @include breakpoints('md'){
+        gap: initial;
+        justify-content: space-between;
+    }
+    @include breakpoints('sm'){
+        gap: initial;
+    }
+    @include breakpoints(''){
+        gap: initial;
+    }
+
+    .item{
+        @include flex(start, start){
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        select{
+            padding: 0.7rem 0.8rem 0.7rem 6rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: $gray-dark-color;
+            border: 1px solid $gray-light-color;
+
+            @include breakpoints('md'){
+                font-size: 1rem;
+                padding: 0.7rem 0.8rem 0.7rem 3rem;
+                width: 80%;
+                margin-bottom: 1rem;
+            }
+            @include breakpoints('sm'){
+                font-size: 1rem;
+                padding: 0.7rem 0.8rem 0.7rem 3rem;
+                width: 80%;
+                margin-bottom: 1rem;
+            }
+            @include breakpoints(''){
+                font-size: 1rem;
+                padding: 0.7rem 0.8rem 0.7rem 3rem;
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}
+

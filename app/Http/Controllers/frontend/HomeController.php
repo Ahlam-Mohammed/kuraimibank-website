@@ -5,7 +5,9 @@ namespace App\Http\Controllers\frontend;
 use App\Enum\SettingEnum;
 use App\Enum\WebInfoEnum;
 use App\Http\Controllers\Controller;
+use App\Models\City;
 use App\Models\ContactInfo;
+use App\Models\Country;
 use App\Models\ExchangeRate;
 use App\Models\FinancialReport;
 use App\Models\News;
@@ -83,5 +85,13 @@ class HomeController extends Controller
     {
         $reports = FinancialReport::where('is_active', 1)->get();
         return view('frontend.pages.report', compact('reports'));
+    }
+
+    public function servicePoint()
+    {
+        $countries = Country::where('is_active', 1)->get();
+        $cities  = City::whereBelongsTo($countries)->latest()->get();
+
+        return view('frontend.pages.service-points', compact('countries', 'cities'));
     }
 }
