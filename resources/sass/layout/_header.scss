@@ -67,6 +67,7 @@
         @include flex(center, space-between) {
             gap: 8px;
         }
+        text-transform: uppercase;
     }
 }
 

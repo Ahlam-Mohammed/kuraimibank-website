@@ -41,6 +41,9 @@
                 //transform: translateY(-50%);
             }
         }
+        &:hover .menu{
+            display: flex;
+        }
     }
     &::before{
         @extend %line;

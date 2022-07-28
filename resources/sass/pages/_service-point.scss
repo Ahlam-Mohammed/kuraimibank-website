@@ -135,7 +135,7 @@
             font-size: 1.1rem;
             font-weight: 500;
             color: $gray-dark-color;
-            border: 1px solid $gray-light-color;
+            border: 1px solid #D9D9D9;
 
             @include breakpoints('md'){
                 font-size: 1rem;

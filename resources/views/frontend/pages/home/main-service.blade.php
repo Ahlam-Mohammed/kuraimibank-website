@@ -1,7 +1,7 @@
 <!-- Start Main Services Section  -->
 <section class="main-services">
     <header>
-        <h1>خدمات تهتم بك</h1>
+        <h1>@lang('content.service-care')</h1>
     </header>
     <div class="row">
         <nav class="col-lg-8 col-12 dots-js">
@@ -22,7 +22,7 @@
                     <div class="col-lg-8 col-md-8 col-12 right">
                         <h1 class="service__title"> {{ $service->name }} </h1>
                         <p class="service__desc"> {{ $service->desc }} </p>
-                        <a href="{{ route('service', $service->id) }}" class="btn btn-outline-primary">المزيد</a>
+                        <a href="{{ route('service', $service->id) }}" class="btn btn-outline-primary">@lang('content.more')</a>
                     </div>
                     <div class="col-lg-4 col-md-4">
                         <figure class="service__img">

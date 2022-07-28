@@ -124,6 +124,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 8px;
+  text-transform: uppercase;
 }
 
 .lang {
@@ -213,6 +214,10 @@
   background-color: #FFFFFF;
   right: 50%;
   top: 100%;
+}
+
+.nav .nav__item:hover .menu {
+  display: flex;
 }
 
 .nav::before {
@@ -728,7 +733,7 @@ footer .bg-left {
 }
 .main-services .content .service {
   box-shadow: -3px 8px 20px 0px rgba(115, 101, 154, 0.1);
-  border: 1px solid #dbdde1;
+  border: 1px solid #F2F5FA;
   background-color: #FFFFFF;
   height: 380px;
   display: none;
@@ -4837,7 +4842,7 @@ footer .bg-left {
   font-size: 1.1rem;
   font-weight: 500;
   color: #686868;
-  border: 1px solid #dbdde1;
+  border: 1px solid #D9D9D9;
 }
 
 @media (min-width: 768px) and (max-width: 991px) {

@@ -13,7 +13,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body style="direction: @if(app()->getLocale() == 'en') ltr @endif">
 
 @yield('landing')
 

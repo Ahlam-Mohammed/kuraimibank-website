@@ -9,17 +9,17 @@
                     <span></span>
                 </div>
                 <div class="box__item sale">
-                    <span>بيع</span>
+                    <span>@lang('content.sale')</span>
                     <span>@if(isset($rate->sale)) {{ $rate->sale }} @endif</span>
                 </div>
                 <div class="box__item buy">
-                    <span>شراء</span>
+                    <span>@lang('content.buy')</span>
                     <span>@if(isset($rate->buy)) {{ $rate->buy }} @endif</span>
                 </div>
             </article>
         @endforeach
 
-        <button class="btn btn-outline-primary col-lg-2 col-md-2 col-sm-5  col-12">تحويل العملات</button>
+        <button class="btn btn-outline-primary col-lg-2 col-md-2 col-sm-5  col-12">@lang('content.currency')</button>
     </div>
 
 </section>

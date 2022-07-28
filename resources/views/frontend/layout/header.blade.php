@@ -3,11 +3,11 @@
     <div class="header__box">
         <a class="header__item" href="">
             <i class="bi bi-person"></i>
-            <span>الوظائف</span>
+            <span>@lang('content.jobs')</span>
         </a>
         <a class="header__item" href="{{ route('contact-us') }}">
             <i class="bi bi-telephone"></i>
-            <span>تواصل معنا</span>
+            <span>@lang('content.contact_us')</span>
         </a>
     </div>
     <!-- Logo  -->
@@ -18,7 +18,7 @@
     <div class="header__box">
         <a class="header__item" href="">
             <i class="bi bi-geo-alt"></i>
-            <span>نقاط الخدمة</span>
+            <span>@lang('content.point_services')</span>
         </a>
         <a class="header__item" href="">
             <i class="bi bi-search"></i>

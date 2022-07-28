@@ -11,6 +11,7 @@ use App\Models\Country;
 use App\Models\ExchangeRate;
 use App\Models\FinancialReport;
 use App\Models\News;
+use App\Models\OurPartner;
 use App\Models\Principle;
 use App\Models\Service;
 use App\Models\WebInfo;
@@ -73,7 +74,8 @@ class HomeController extends Controller
     }
 
     public function partner(){
-        return view('frontend.pages.partner.index');
+        $partners = OurPartner::all();
+        return view('frontend.pages.partner.index', compact('partners'));
     }
 
     public function adminMembers()

@@ -34,7 +34,6 @@
 
     {{-- card --}}
     <section class="card__section point" style="background-image: url({{ asset('images/mapping.png') }})">
-        <img class="layer-9" src="{{ asset('images/bg-service-page.png') }}" alt="background">
 
         <div class="card__content row">
 

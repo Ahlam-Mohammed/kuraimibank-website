@@ -31,7 +31,7 @@
                 <h1>{{ $service->name }}</h1>
                 <p class="desc">{{ $service->desc }}</p>
             @endif
-            <button class="btn btn-orange">طلب خدمة</button>
+            <button class="btn btn-orange">@lang('content.request')</button>
         </article>
         <!-- End Landing Introduction Section  -->
     </section>

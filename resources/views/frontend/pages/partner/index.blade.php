@@ -24,48 +24,29 @@
 
     <!-- Start advantage Section  -->
     <section class="card__section">
-        <img class="layer-9" src="{{ asset('images/bg-service-page.png') }}" alt="background">
+        <img class="layer-9" src="{{ asset('images/bg-service-page.png') }}" alt="background" style="right: @if(app()->getLocale() == 'en') 0 @endif;">
         <div class="card__content row">
 
             <img class="bg-card-left" src="{{ asset('images/layer-7.png') }}" alt="background">
 
             <div class="card__title">
-                <h1> شركائنا</h1>
+                <h1> @lang('content.partner')</h1>
             </div>
 
-            {{-- section 1  --}}
-            <div class="section-box row">
-                <span class="section__number">1</span>
-                <div class="col-lg-3 col-md-4 col-sm-4 col-12">
-                    <div class="section__box" style="padding: 2.1rem;">
-                        <img src="{{ asset('images/master.png') }}" alt="master card img">
+            @foreach($partners as $partner)
+                <div class="section-box row">
+                    <span class="section__number">{{ $loop->index + 1 }}</span>
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-12">
+                        <div class="section__box">
+                            <img src="{{ asset(\App\Enum\SettingEnum::PATH_PARTNER_IMAGE.'/'.$partner->image) }}" alt="master card img">
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-8 col-sm-8 col-12 section__details">
+                        <h1 class="title">{{ $partner->name }}</h1>
+                        <p class="desc">{{ $partner->desc }}</p>
                     </div>
                 </div>
-                <div class="col-lg-9 col-md-8 col-sm-8 col-12 section__details">
-                    <h1 class="title">هذا النص هو مثال</h1>
-                    <p class="desc">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد
-                        .مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق
-                        إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو مقسما ولا يحوي أخطاء
-                        لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص، حيث يحتاج العميل فى كثير من الأحيان أن يطلع على صورة</p>
-                </div>
-            </div>
-
-            {{-- section 2  --}}
-            <div class="section-box row">
-                <span class="section__number">2</span>
-                <div class="col-lg-3 col-md-4 col-sm-4 col-12">
-                    <div class="section__box">
-                        <img src="{{ asset('images/mony.png') }}" alt="master card img">
-                    </div>
-                </div>
-                <div class="col-lg-9 col-md-8 col-sm-8 col-12 section__details">
-                    <h1 class="title">هذا النص هو مثال</h1>
-                    <p class="desc">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد
-                        .مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق
-                        إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو مقسما ولا يحوي أخطاء
-                        لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص، حيث يحتاج العميل فى كثير من الأحيان أن يطلع على صورة</p>
-                </div>
-            </div>
+            @endforeach
 
             {{-- section 3  --}}
             <div class="section-box row">
@@ -77,84 +58,46 @@
                     <h1 class="title">المملكة العربية السعودية</h1>
                     <div class="section__boxes">
                         <div class="section__box">
-                            <img src="{{ asset('images/b1.png') }}" alt="master card img">
+                            <img src="{{ asset('uploads/partners/b1.png') }}" alt="master card img">
                         </div>
                         <div class="section__box">
-                            <img src="{{ asset('images/b2.png') }}" alt="master card img">
+                            <img src="{{ asset('uploads/partners/b2.png') }}" alt="master card img">
                         </div>
                         <div class="section__box">
-                            <img src="{{ asset('images/b3.png') }}" alt="master card img">
+                            <img src="{{ asset('uploads/partners/b3.png') }}" alt="master card img">
                         </div>
                     </div>
 
                     <h1 class="title">مملكة البحرين</h1>
                     <div class="section__boxes">
                         <div class="section__box">
-                            <img src="{{ asset('images/b4.png') }}" alt="master card img">
+                            <img src="{{ asset('uploads/partners/b4.png') }}" alt="master card img">
                         </div>
                         <div class="section__box">
-                            <img src="{{ asset('images/mony.png') }}" alt="master card img">
+                            <img src="{{ asset('uploads/partners/mony.png') }}" alt="master card img">
                         </div>
                         <div class="section__box">
-                            <img src="{{ asset('images/mony.png') }}" alt="master card img">
+                            <img src="{{ asset('uploads/partners/mony.png') }}" alt="master card img">
                         </div>
                     </div>
 
                     <h1 class="title">تركيا</h1>
                     <div class="section__boxes">
                         <div class="section__box">
-                            <img src="{{ asset('images/b1.png') }}" alt="master card img">
+                            <img src="{{ asset('uploads/partners/b1.png') }}" alt="master card img">
                         </div>
                         <div class="section__box">
-                            <img src="{{ asset('images/b3.png') }}" alt="master card img">
+                            <img src="{{ asset('uploads/partners/b3.png') }}" alt="master card img">
                         </div>
                     </div>
 
                     <h1 class="title">الامارات العربية المتحدة</h1>
                     <div class="section__boxes">
                         <div class="section__box">
-                            <img src="{{ asset('images/b5.png') }}" alt="master card img">
+                            <img src="{{ asset('uploads/partners/b5.png') }}" alt="master card img">
                         </div>
                     </div>
 
-                </div>
-            </div>
-
-            {{-- section 4  --}}
-            <div class="section-box row">
-                <span class="section__number">4</span>
-                <div class="col-lg-3 col-md-4 col-sm-4 col-12">
-                    <div class="section__box">
-                        <img src="{{ asset('images/b3.png') }}" alt="master card img">
-                    </div>
-                </div>
-                <div class="col-lg-9 col-md-8 col-sm-8 col-12 section__details">
-                    <h1 class="title">هذا النص هو مثال</h1>
-                    <p class="desc">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد
-                        .مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق
-                        إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو مقسما ولا يحوي أخطاء
-                        لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص، حيث يحتاج العميل فى كثير من الأحيان أنق
-                        إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو مقسما ولا يحوي أخطاء
-                        لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص، حيث يحتاج العميل فى كثير من الأحيان أن يطلع على صورة</p>
-                </div>
-            </div>
-
-            {{-- section 5  --}}
-            <div class="section-box row">
-                <span class="section__number">5</span>
-                <div class="col-lg-3 col-md-4 col-sm-4 col-12">
-                    <div class="section__box">
-                        <img src="{{ asset('images/b5.png') }}" alt="master card img">
-                    </div>
-                </div>
-                <div class="col-lg-9 col-md-8 col-sm-8 col-12 section__details">
-                    <h1 class="title">هذا النص هو مثال</h1>
-                    <p class="desc">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد
-                        .مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق
-                        إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو مقسما ولا يحوي أخطاء
-                        لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص، حيث يحتاج العميل فى كثير من الأحيان أنق
-                        إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو مقسما ولا يحوي أخطاء
-                        لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص، حيث يحتاج العميل فى كثير من الأحيان أن يطلع على صورة</p>
                 </div>
             </div>
 

@@ -31,4 +31,9 @@ class Service extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function advantages()
+    {
+        return $this->hasMany(ServiceAdvantage::class);
+    }
 }
