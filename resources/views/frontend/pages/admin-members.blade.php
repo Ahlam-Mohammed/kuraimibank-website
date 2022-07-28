@@ -5,13 +5,59 @@
 @stop
 
 @push('scripts_after')
-    <script src="{{ asset('js/home.js') }}"></script>
+    <script src="{{ asset('js/admin-member.js') }}"></script>
 @endpush
 
 @section('landing')
     <!-- Start Landing Section  -->
-    <section class="landing bg-linear-gradient member" style="background-image: url({{ asset('images/bg-contact.png') }});">
+    <section class="landing bg-linear-gradient member">
 
+        <div class="bg">
+            <div class="list__section">
+                <div class="list">
+                    <img class="item" src="{{ asset('images/bank-image-1.PNG') }}" alt="bg">
+                    <img class="item" src="{{ asset('images/bank-image-7.PNG') }}" alt="bg">
+                    <img class="item" src="{{ asset('images/bank-image-3.PNG') }}" alt="bg">
+                    <img class="item" src="{{ asset('images/bank-image-2.PNG') }}" alt="bg">
+                </div>
+            </div>
+
+            <div class="list__section">
+                <div class="list">
+                    <img class="item" src="{{ asset('images/bank-image-3.PNG') }}" alt="bg">
+                    <img class="item" src="{{ asset('images/bank-image-2.PNG') }}" alt="bg">
+                    <img class="item" src="{{ asset('images/bank-image-6.PNG') }}" alt="bg">
+                    <img class="item" src="{{ asset('images/bank-image-4.PNG') }}" alt="bg">
+                </div>
+            </div>
+
+            <div class="list__section">
+                <div class="list">
+                    <img class="item" src="{{ asset('images/bank-image-5.PNG') }}" alt="bg">
+                    <img class="item" src="{{ asset('images/bank-image-4.PNG') }}" alt="bg">
+                    <img class="item" src="{{ asset('images/bank-image-7.PNG') }}" alt="bg">
+                    <img class="item" src="{{ asset('images/bank-image-6.PNG') }}" alt="bg">
+                </div>
+            </div>
+
+            <div class="list__section">
+                <div class="list">
+                    <img class="item" src="{{ asset('images/bank-image-1.PNG') }}" alt="bg">
+                    <img class="item" src="{{ asset('images/bank-image-2.PNG') }}" alt="bg">
+                    <img class="item" src="{{ asset('images/bank-image-3.PNG') }}" alt="bg">
+                    <img class="item" src="{{ asset('images/bank-image-4.PNG') }}" alt="bg">
+                </div>
+            </div>
+
+            <div class="list__section">
+                <div class="list">
+                    <img class="item" src="{{ asset('images/bank-image-5.PNG') }}" alt="bg">
+                    <img class="item" src="{{ asset('images/bank-image-6.PNG') }}" alt="bg">
+                    <img class="item" src="{{ asset('images/bank-image-7.PNG') }}" alt="bg">
+                    <img class="item" src="{{ asset('images/bank-image-3.PNG') }}" alt="bg">
+                </div>
+            </div>
+        </div>
         <!-- Start Header Section  -->
         @include('frontend.layout.header')
         <!-- End Header Section  -->
